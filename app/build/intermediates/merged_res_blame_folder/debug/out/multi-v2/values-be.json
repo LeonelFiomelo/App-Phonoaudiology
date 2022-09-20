@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.app_phonoaudiology.app-mergeDebugResources-39:/values-be/values-be.xml",
+            "outputFile": "com.example.app_phonoaudiology.app-mergeDebugResources-41:/values-be/values-be.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Leone\\.gradle\\caches\\transforms-3\\edd564b73e86431687eb966d64baee8a\\transformed\\navigation-ui-2.5.2\\res\\values-be\\values-be.xml",

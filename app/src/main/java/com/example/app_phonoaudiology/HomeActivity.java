@@ -2,46 +2,60 @@ package com.example.app_phonoaudiology;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.example.app_phonoaudiology.databinding.ActivityHomeBinding;
 
 public class HomeActivity extends Fragment {
-
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
 
     public HomeActivity() {
         // Required empty public constructor
     }
 
-    public static HomeActivity newInstance(String param1, String param2) {
-        HomeActivity fragment = new HomeActivity();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.activity_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        final NavController navController = Navigation.findNavController(view);
+
+        // Botones
+        Button btnComenzarEntrenamiento = view.findViewById(R.id.btn_comenzarEntrenamiento);
+        Button btnComenzarEvaluacion = view.findViewById(R.id.btn_comenzarEvaluacion);
+
+        // Navegación a la Configuración - Boton ComenzarEntrenamiento
+        btnComenzarEntrenamiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.ConfiguracionFragment);
+            }
+        });
+
+        // Navegación a la configuración - Boton ComenzarEvaluación
+        btnComenzarEvaluacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.ConfiguracionFragment);
+            }
+        });
     }
 }
