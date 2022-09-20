@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/Home_Activity">
+
+    <fragment
+        android:id="@+id/Home_Activity"
+        android:name="com.example.app_phonoaudiology.HomeActivity"
+        android:label="Home"
+        tools:layout="@layout/activity_home">
+        <action
+            android:id="@+id/action_HomeActivity_to_configuracionActivity"
+            app:destination="@id/Configuracion_Activity" />
+    </fragment>
+    <fragment
+        android:id="@+id/Configuracion_Activity"
+        android:name="com.example.app_phonoaudiology.ConfiguracionActivity"
+        android:label="fragment_configuracion_activity"
+        tools:layout="@layout/activity_configuracion" />
+</navigation>
