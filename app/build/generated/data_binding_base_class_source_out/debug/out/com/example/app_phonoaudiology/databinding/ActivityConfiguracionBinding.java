@@ -5,11 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ScrollView;
+import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.app_phonoaudiology.R;
@@ -22,7 +26,13 @@ public final class ActivityConfiguracionBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final LinearLayoutCompat linearLayoutCompatConfiguracionBasica;
+  public final ConstraintLayout configuracionAvanzadaNoOculta;
+
+  @NonNull
+  public final ScrollView scrollViewConfiguracion;
+
+  @NonNull
+  public final SeekBar seekBarRuido;
 
   @NonNull
   public final Spinner spinnerCategoria;
@@ -31,21 +41,38 @@ public final class ActivityConfiguracionBinding implements ViewBinding {
   public final Spinner spinnerEjercicio;
 
   @NonNull
+  public final Spinner spinnerRuido;
+
+  @NonNull
   public final Spinner spinnerSubcategoria;
+
+  @NonNull
+  public final SwitchCompat switchRuido;
 
   @NonNull
   public final Toolbar toolbarConfiguracion;
 
+  @NonNull
+  public final TextView tvIntensidadDelRuido;
+
   private ActivityConfiguracionBinding(@NonNull FrameLayout rootView,
-      @NonNull LinearLayoutCompat linearLayoutCompatConfiguracionBasica,
+      @NonNull ConstraintLayout configuracionAvanzadaNoOculta,
+      @NonNull ScrollView scrollViewConfiguracion, @NonNull SeekBar seekBarRuido,
       @NonNull Spinner spinnerCategoria, @NonNull Spinner spinnerEjercicio,
-      @NonNull Spinner spinnerSubcategoria, @NonNull Toolbar toolbarConfiguracion) {
+      @NonNull Spinner spinnerRuido, @NonNull Spinner spinnerSubcategoria,
+      @NonNull SwitchCompat switchRuido, @NonNull Toolbar toolbarConfiguracion,
+      @NonNull TextView tvIntensidadDelRuido) {
     this.rootView = rootView;
-    this.linearLayoutCompatConfiguracionBasica = linearLayoutCompatConfiguracionBasica;
+    this.configuracionAvanzadaNoOculta = configuracionAvanzadaNoOculta;
+    this.scrollViewConfiguracion = scrollViewConfiguracion;
+    this.seekBarRuido = seekBarRuido;
     this.spinnerCategoria = spinnerCategoria;
     this.spinnerEjercicio = spinnerEjercicio;
+    this.spinnerRuido = spinnerRuido;
     this.spinnerSubcategoria = spinnerSubcategoria;
+    this.switchRuido = switchRuido;
     this.toolbarConfiguracion = toolbarConfiguracion;
+    this.tvIntensidadDelRuido = tvIntensidadDelRuido;
   }
 
   @Override
@@ -75,9 +102,21 @@ public final class ActivityConfiguracionBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.linearLayoutCompat_configuracionBasica;
-      LinearLayoutCompat linearLayoutCompatConfiguracionBasica = ViewBindings.findChildViewById(rootView, id);
-      if (linearLayoutCompatConfiguracionBasica == null) {
+      id = R.id.configuracionAvanzadaNoOculta;
+      ConstraintLayout configuracionAvanzadaNoOculta = ViewBindings.findChildViewById(rootView, id);
+      if (configuracionAvanzadaNoOculta == null) {
+        break missingId;
+      }
+
+      id = R.id.scrollView_configuracion;
+      ScrollView scrollViewConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (scrollViewConfiguracion == null) {
+        break missingId;
+      }
+
+      id = R.id.seekBar_ruido;
+      SeekBar seekBarRuido = ViewBindings.findChildViewById(rootView, id);
+      if (seekBarRuido == null) {
         break missingId;
       }
 
@@ -93,9 +132,21 @@ public final class ActivityConfiguracionBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.spinner_ruido;
+      Spinner spinnerRuido = ViewBindings.findChildViewById(rootView, id);
+      if (spinnerRuido == null) {
+        break missingId;
+      }
+
       id = R.id.spinner_subcategoria;
       Spinner spinnerSubcategoria = ViewBindings.findChildViewById(rootView, id);
       if (spinnerSubcategoria == null) {
+        break missingId;
+      }
+
+      id = R.id.switch_Ruido;
+      SwitchCompat switchRuido = ViewBindings.findChildViewById(rootView, id);
+      if (switchRuido == null) {
         break missingId;
       }
 
@@ -105,9 +156,15 @@ public final class ActivityConfiguracionBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityConfiguracionBinding((FrameLayout) rootView,
-          linearLayoutCompatConfiguracionBasica, spinnerCategoria, spinnerEjercicio,
-          spinnerSubcategoria, toolbarConfiguracion);
+      id = R.id.tv_intensidadDelRuido;
+      TextView tvIntensidadDelRuido = ViewBindings.findChildViewById(rootView, id);
+      if (tvIntensidadDelRuido == null) {
+        break missingId;
+      }
+
+      return new ActivityConfiguracionBinding((FrameLayout) rootView, configuracionAvanzadaNoOculta,
+          scrollViewConfiguracion, seekBarRuido, spinnerCategoria, spinnerEjercicio, spinnerRuido,
+          spinnerSubcategoria, switchRuido, toolbarConfiguracion, tvIntensidadDelRuido);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

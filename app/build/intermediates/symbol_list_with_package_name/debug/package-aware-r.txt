@@ -2696,6 +2696,7 @@ id clockwise
 id closest
 id collapseActionView
 id compress
+id configuracionAvanzadaNoOculta
 id confirm_button
 id constraint
 id container
@@ -2942,6 +2943,7 @@ id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scrollView_configuracion
 id scrollable
 id search_badge
 id search_bar
@@ -2953,6 +2955,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id seekBar_ruido
 id select_dialog_listview
 id selected
 id selection_type
@@ -2977,6 +2980,7 @@ id spacer
 id special_effects_controller_view_tag
 id spinner_categoria
 id spinner_ejercicio
+id spinner_ruido
 id spinner_subcategoria
 id spline
 id split_action_bar
@@ -2999,6 +3003,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id switch_Ruido
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -3056,6 +3061,7 @@ id tv_consignaEjercicio
 id tv_consignaEvaluacion
 id tv_ejercicio
 id tv_evaluacion
+id tv_intensidadDelRuido
 id unchecked
 id uniform
 id unlabeled
@@ -3410,6 +3416,7 @@ string tv_categoria
 string tv_configuracionAvanzada
 string tv_configuracionBasica
 string tv_ejercicio
+string tv_intensidadDelRuido
 string tv_ruido
 string tv_subcategoria
 style AlertDialog_AppCompat

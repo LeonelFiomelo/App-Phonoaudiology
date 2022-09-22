@@ -24,6 +24,7 @@
     <string name="tv_configuracionAvanzada">Configuración avanzada</string>
     <string name="tv_configuracionBasica">Configuración basica</string>
     <string name="tv_ejercicio">Ejercicio</string>
+    <string name="tv_intensidadDelRuido">Itensidad del ruido</string>
     <string name="tv_ruido">Ruido</string>
     <string name="tv_subcategoria">Subcategoría</string>
     <style name="Theme.App_Phonoaudiology" parent="Theme.MaterialComponents.DayNight.DarkActionBar">

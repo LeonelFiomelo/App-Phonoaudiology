@@ -21,6 +21,7 @@
     <string name="tv_ruido">Ruido</string>
     <string name="switch_activadoDesactivado">Activado/Desactivado</string>
     <string name="boton_comenzarEjercicio">COMENZAR EJERCICIO</string>
+    <string name="tv_intensidadDelRuido">Itensidad del ruido</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
