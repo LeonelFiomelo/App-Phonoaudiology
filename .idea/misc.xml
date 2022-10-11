@@ -3,12 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2065" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3145" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_play.xml" value="0.2065" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_play_background.xml" value="0.2065" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_settings.xml" value="0.2065" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/icon_play_background.xml" value="0.2065" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/item_option.xml" value="0.2065" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/activity_configuracion.xml" value="0.34479166666666666" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/activity_home.xml" value="0.2125" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/activity_main.xml" value="0.3307291666666667" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment__a.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_configuracion.xml" value="0.34479166666666666" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_configuracion_activity.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_ejercicio_opciones.xml" value="0.33" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_home.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/item_option.xml" value="0.2303370786516854" />
       </map>
     </option>
   </component>

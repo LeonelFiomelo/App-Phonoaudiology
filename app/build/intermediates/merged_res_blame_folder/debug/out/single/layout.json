@@ -1,18 +1,22 @@
 [
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-42:\\layout\\activity_home.xml",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-45:\\layout\\activity_home.xml"
+        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/item_option.xml",
+        "source": "com.example.app_phonoaudiology.app-main-49:/layout/item_option.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-42:\\layout\\activity_configuracion.xml",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-45:\\layout\\activity_configuracion.xml"
+        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/activity_main.xml",
+        "source": "com.example.app_phonoaudiology.app-main-49:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-42:/layout/activity_configuracion.xml",
-        "source": "com.example.app_phonoaudiology.app-main-45:/layout/activity_configuracion.xml"
+        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/fragment_ejercicio_opciones.xml",
+        "source": "com.example.app_phonoaudiology.app-main-49:/layout/fragment_ejercicio_opciones.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-42:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-45:\\layout\\activity_main.xml"
+        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/fragment_home.xml",
+        "source": "com.example.app_phonoaudiology.app-main-49:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/fragment_configuracion.xml",
+        "source": "com.example.app_phonoaudiology.app-main-49:/layout/fragment_configuracion.xml"
     }
 ]

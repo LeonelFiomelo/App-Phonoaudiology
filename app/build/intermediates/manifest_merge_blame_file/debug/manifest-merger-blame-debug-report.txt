@@ -10,80 +10,93 @@
 9        android:targetSdkVersion="32" />
 9-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml
 10
-11    <application
-11-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:6:5-25:19
-12        android:allowBackup="true"
-12-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:7:9-35
-13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.8.0] C:\Users\Leone\.gradle\caches\transforms-3\0638d9dacb5fd10604e28ec2b4d3c80b\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
-14        android:dataExtractionRules="@xml/data_extraction_rules"
-14-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:8:9-65
-15        android:debuggable="true"
-16        android:fullBackupContent="@xml/backup_rules"
-16-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:9:9-54
-17        android:icon="@mipmap/ic_launcher"
-17-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:10:9-43
-18        android:label="@string/app_name"
-18-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:11:9-41
-19        android:roundIcon="@mipmap/ic_launcher_round"
-19-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:12:9-54
-20        android:supportsRtl="true"
-20-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:13:9-35
-21        android:testOnly="true"
-22        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" >
-22-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:14:9-77
-23        <activity
-23-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:16:9-24:20
-24            android:name="com.example.app_phonoaudiology.MainActivity"
-24-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:17:13-41
-25            android:exported="true" >
-25-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:18:13-36
-26            <intent-filter>
-26-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:19:13-23:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:20:17-69
-27-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:20:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:22:17-77
-29-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:22:27-74
-30            </intent-filter>
-31        </activity>
-32
-33        <provider
-33-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-34            android:name="androidx.startup.InitializationProvider"
-34-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-35            android:authorities="com.example.app_phonoaudiology.androidx-startup"
-35-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-36            android:exported="false" >
-36-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-37            <meta-data
-37-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-38                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-38-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-39                android:value="androidx.startup" />
-39-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-40            <meta-data
-40-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Leone\.gradle\caches\transforms-3\a68586d9ac6fc4872d4884a947d1c1d5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-41                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-41-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Leone\.gradle\caches\transforms-3\a68586d9ac6fc4872d4884a947d1c1d5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-42                android:value="androidx.startup" />
-42-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Leone\.gradle\caches\transforms-3\a68586d9ac6fc4872d4884a947d1c1d5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-43        </provider>
-44
-45        <uses-library
-45-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-46            android:name="androidx.window.extensions"
-46-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-47            android:required="false" />
-47-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
-48        <uses-library
-48-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-49            android:name="androidx.window.sidecar"
-49-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
-50            android:required="false" />
-50-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-51    </application>
-52
-53</manifest> <!-- android:theme="@style/Theme.App_Phonoaudiology" -->
+11    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+11-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:6:5-81
+11-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:6:22-78
+12
+13    <application
+13-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:8:5-27:19
+14        android:allowBackup="true"
+14-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:9:9-35
+15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+15-->[androidx.core:core:1.8.0] C:\Users\Leone\.gradle\caches\transforms-3\0638d9dacb5fd10604e28ec2b4d3c80b\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+16        android:dataExtractionRules="@xml/data_extraction_rules"
+16-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:10:9-65
+17        android:debuggable="true"
+18        android:fullBackupContent="@xml/backup_rules"
+18-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:11:9-54
+19        android:icon="@mipmap/ic_launcher"
+19-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:12:9-43
+20        android:label="@string/app_name"
+20-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:13:9-41
+21        android:roundIcon="@mipmap/ic_launcher_round"
+21-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:14:9-54
+22        android:supportsRtl="true"
+22-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:15:9-35
+23        android:testOnly="true"
+24        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" >
+24-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:16:9-77
+25        <activity
+25-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:18:9-26:20
+26            android:name="com.example.app_phonoaudiology.infrastructure.ui.view.MainActivity"
+26-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:19:13-64
+27            android:exported="true" >
+27-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:20:13-36
+28            <intent-filter>
+28-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:21:13-25:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:22:17-69
+29-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:22:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:24:17-77
+31-->C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:24:27-74
+32            </intent-filter>
+33        </activity>
+34
+35        <service
+35-->[androidx.room:room-runtime:2.4.3] C:\Users\Leone\.gradle\caches\transforms-3\435fb858b783cfc10a1eb93e83edeeca\transformed\room-runtime-2.4.3\AndroidManifest.xml:25:9-28:40
+36            android:name="androidx.room.MultiInstanceInvalidationService"
+36-->[androidx.room:room-runtime:2.4.3] C:\Users\Leone\.gradle\caches\transforms-3\435fb858b783cfc10a1eb93e83edeeca\transformed\room-runtime-2.4.3\AndroidManifest.xml:26:13-74
+37            android:directBootAware="true"
+37-->[androidx.room:room-runtime:2.4.3] C:\Users\Leone\.gradle\caches\transforms-3\435fb858b783cfc10a1eb93e83edeeca\transformed\room-runtime-2.4.3\AndroidManifest.xml:27:13-43
+38            android:exported="false" />
+38-->[androidx.room:room-runtime:2.4.3] C:\Users\Leone\.gradle\caches\transforms-3\435fb858b783cfc10a1eb93e83edeeca\transformed\room-runtime-2.4.3\AndroidManifest.xml:28:13-37
+39
+40        <provider
+40-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+41            android:name="androidx.startup.InitializationProvider"
+41-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+42            android:authorities="com.example.app_phonoaudiology.androidx-startup"
+42-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+43            android:exported="false" >
+43-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+44            <meta-data
+44-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+45                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+46                android:value="androidx.startup" />
+46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Leone\.gradle\caches\transforms-3\9f99c19470d8bf18ee15270d078c3173\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+47            <meta-data
+47-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Leone\.gradle\caches\transforms-3\a68586d9ac6fc4872d4884a947d1c1d5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+48                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+48-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Leone\.gradle\caches\transforms-3\a68586d9ac6fc4872d4884a947d1c1d5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+49                android:value="androidx.startup" />
+49-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Leone\.gradle\caches\transforms-3\a68586d9ac6fc4872d4884a947d1c1d5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+50        </provider>
+51
+52        <uses-library
+52-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+53            android:name="androidx.window.extensions"
+53-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+54            android:required="false" />
+54-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+55        <uses-library
+55-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+56            android:name="androidx.window.sidecar"
+56-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+57            android:required="false" />
+57-->[androidx.window:window:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\44eb76c63a430958185cfd53aa9f79f1\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+58    </application>
+59
+60</manifest> <!-- android:theme="@style/Theme.App_Phonoaudiology" -->

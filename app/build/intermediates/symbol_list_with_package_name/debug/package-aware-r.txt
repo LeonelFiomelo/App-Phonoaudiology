@@ -1265,6 +1265,7 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color checkbox_themeable_attribute_color
+color color_primary
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -2514,6 +2515,9 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_play
+drawable ic_play_background
+drawable ic_settings
 drawable img_exercise
 drawable img_test
 drawable m3_appbar_background
@@ -2557,6 +2561,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable selection_band_overlay
 drawable test_custom_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -2566,6 +2571,7 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id ConfiguracionFragment
+id EjercicioOpcionesFragment
 id FUNCTION
 id HomeFragment
 id META
@@ -2614,6 +2620,7 @@ id accessibility_custom_action_9
 id actionDown
 id actionDownUp
 id actionUp
+id action_ConfiguracionFragment_to_EjercicioOpcionesFragment
 id action_HomeActivity_to_configuracionActivity
 id action_bar
 id action_bar_activity_content
@@ -2663,8 +2670,12 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btn_comenzarEjercicio
 id btn_comenzarEntrenamiento
 id btn_comenzarEvaluacion
+id btn_option
+id btn_play
+id btn_setting
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2926,6 +2937,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerView_ejercicio
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3029,6 +3041,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id textWatcher
 id text_input_end_icon
 id text_input_error_icon
@@ -3059,8 +3072,10 @@ id transition_transform
 id triangle
 id tv_consignaEjercicio
 id tv_consignaEvaluacion
+id tv_correctas
 id tv_ejercicio
 id tv_evaluacion
+id tv_incorrectas
 id tv_intensidadDelRuido
 id unchecked
 id uniform
@@ -3178,8 +3193,6 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_configuracion
-layout activity_home
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3197,6 +3210,10 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_configuracion
+layout fragment_ejercicio_opciones
+layout fragment_home
+layout item_option
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3275,6 +3292,8 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
 plurals mtrl_badge_content_description
+raw correct_answer
+raw incorrect_answer
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -3310,6 +3329,8 @@ string boton_comenzarEntrenamiento
 string boton_comenzarEvaluacion
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
+string btn_option
+string btn_seleccioneLaOpcionQueOyo
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern

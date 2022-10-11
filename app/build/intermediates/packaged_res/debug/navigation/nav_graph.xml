@@ -7,16 +7,46 @@
 
     <fragment
         android:id="@+id/HomeFragment"
-        android:name="com.example.app_phonoaudiology.HomeActivity"
+        android:name="com.example.app_phonoaudiology.infrastructure.ui.view.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/activity_home">
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_HomeActivity_to_configuracionActivity"
             app:destination="@id/ConfiguracionFragment" />
     </fragment>
     <fragment
         android:id="@+id/ConfiguracionFragment"
-        android:name="com.example.app_phonoaudiology.ConfiguracionActivity"
+        android:name="com.example.app_phonoaudiology.infrastructure.ui.view.ConfiguracionFragment"
         android:label="fragment_configuracion_activity"
-        tools:layout="@layout/activity_configuracion" />
+        tools:layout="@layout/fragment_configuracion" >
+        <action
+            android:id="@+id/action_ConfiguracionFragment_to_EjercicioOpcionesFragment"
+            app:destination="@id/EjercicioOpcionesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EjercicioOpcionesFragment"
+        android:name="com.example.app_phonoaudiology.infrastructure.ui.view.EjercicioOpcionesFragment"
+        android:label="activity_ejercicio_opciones"
+        tools:layout="@layout/fragment_ejercicio_opciones" >
+        <argument
+            android:name="categoria"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="subcategoria"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="ejercicio"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="ruido"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="intensidad"
+            app:argType="float"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

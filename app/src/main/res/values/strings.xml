@@ -25,4 +25,7 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="btn_seleccioneLaOpcionQueOyo">Pulse el botón y seleccione la opción que oyó</string>
+    <string name="btn_option">Opcion</string>
+
 </resources>
