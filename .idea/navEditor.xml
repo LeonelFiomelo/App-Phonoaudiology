@@ -8,6 +8,39 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="AdministrarSonidosFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="133" />
+                            <option name="y" value="412" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_AdministrarSonidosFragment_to_agregarSonidoFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="AgregarSonidoFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="392" />
+                            <option name="y" value="516" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="ConfiguracionFragment">
                     <value>
                       <LayoutPositions>
@@ -19,7 +52,33 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_ConfiguracionFragment_to_EjercicioEscribirFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_ConfiguracionFragment_to_EjercicioOpcionesFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="EjercicioEscribirFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="509" />
+                            <option name="y" value="185" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_EjercicioEscribirFragment_to_ResultadoFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -34,9 +93,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="504" />
-                            <option name="y" value="12" />
+                            <option name="x" value="506" />
+                            <option name="y" value="-187" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_EjercicioOpcionesFragment_to_resultadoFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -53,6 +121,70 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_HomeActivity_to_configuracionActivity">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_HomeFragment_to_administrarSonidosFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_HomeFragment_to_resultadosHistoricosFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="ResultadoDetalleFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="368" />
+                            <option name="y" value="-514" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="ResultadoFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="734" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_ResultadoFragment_to_HomeFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="ResultadosHistoricosFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="132" />
+                            <option name="y" value="-365" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_ResultadosHistoricosFragment_to_resultadoDetalleFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

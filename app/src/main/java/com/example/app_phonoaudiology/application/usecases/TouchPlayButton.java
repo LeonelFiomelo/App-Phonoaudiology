@@ -17,16 +17,16 @@ public class TouchPlayButton {
         soundController.iniciarSonido(context, opcionCorrecta);
     }
 
-    public void reproducirSonidoConRuido(Context context, SoundEntity opcionCorrecta, String rutaDelRuido) {
-        soundController.iniciarSonidoConRuido(context, opcionCorrecta, rutaDelRuido);
+    public void reproducirSonidoConRuido(Context context, SoundEntity opcionCorrecta, String rutaDelRuido, float intensidad) {
+        soundController.iniciarSonidoConRuido(context, opcionCorrecta, rutaDelRuido, intensidad);
     }
 
     public void reproducirOraciones(Context context, SoundEntity opcionCorrecta, SoundEntity conectorInicial, SoundEntity conectorFinal) {
         soundController.iniciarOraciones(context, opcionCorrecta, conectorInicial, conectorFinal);
     }
 
-    public void reproducirOracionesConRuido(Context context, SoundEntity opcionCorrecta, SoundEntity conectorInicial, SoundEntity conectorFinal, String rutaDelRuido) {
-        soundController.iniciarOracionesConRuido(context, opcionCorrecta, conectorInicial, conectorFinal, rutaDelRuido);
+    public void reproducirOracionesConRuido(Context context, SoundEntity opcionCorrecta, SoundEntity conectorInicial, SoundEntity conectorFinal, String rutaDelRuido, float intensidad) {
+        soundController.iniciarOracionesConRuido(context, opcionCorrecta, conectorInicial, conectorFinal, rutaDelRuido, intensidad);
     }
 
 }

@@ -29,6 +29,7 @@ public class OptionViewHolder extends RecyclerView.ViewHolder{
 
     public void setOnClickListener(MaterialButton opcionSeleccionada, SoundEntity opcionCorrecta, TouchOptionButton touchOptionButton) {
         option.setOnClickListener(button -> {
+            touchOptionButton.guardarInformacionDeSeleccion(opcionSeleccionada, opcionCorrecta);
             touchOptionButton.corroborarSeleccion(opcionSeleccionada, opcionCorrecta);
         });
     }

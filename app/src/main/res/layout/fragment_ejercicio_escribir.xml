@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".infrastructure.ui.view.EjercicioEscribirFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_EjercicioEscribir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back"
+            app:title="@string/tv_entenamiento"
+            app:titleTextColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/img_incorrectas"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_wrong"
+            android:tint="#F44336"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_incorrectas"
+            app:layout_constraintEnd_toStartOf="@+id/tv_incorrectas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_incorrectas" />
+
+        <TextView
+            android:id="@+id/tv_incorrectas"
+            style="@android:style/Widget.TextView.PopupMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:text="0"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_setting"
+            app:layout_constraintEnd_toStartOf="@+id/btn_setting"
+            app:layout_constraintTop_toTopOf="@+id/btn_setting"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/img_correctas"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_correct"
+            android:tint="#4CAF50"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_correctas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_correctas"
+            app:layout_constraintTop_toTopOf="@+id/tv_correctas" />
+
+        <TextView
+            android:id="@+id/tv_correctas"
+            style="@android:style/Widget.TextView.PopupMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:text="0"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_setting"
+            app:layout_constraintStart_toEndOf="@+id/btn_setting"
+            app:layout_constraintTop_toTopOf="@+id/btn_setting"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageButton
+            android:id="@+id/btn_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#FFFFFF"
+            android:src="@drawable/ic_settings"
+            android:tint="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_EjercicioEscribir" />
+
+        <ImageButton
+            android:id="@+id/btn_play"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/ic_play_background"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_setting" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@android:style/Widget.TextView.PopupMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/tv_escribaLoQueOyo"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_play" />
+
+        <EditText
+            android:id="@+id/et_completar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:ems="10"
+            android:hint="Escribe lo que oyó"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/btn_aceptar"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/btn_aceptar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/btn_aceptar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/et_completar"
+            app:layout_constraintStart_toStartOf="@+id/et_completar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

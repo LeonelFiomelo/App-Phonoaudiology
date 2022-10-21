@@ -1,10 +1,15 @@
 package com.example.app_phonoaudiology.infrastructure.ui.viewModel;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.ViewModel;
 
 import com.example.app_phonoaudiology.application.adapters.SpinnersAdapter;
@@ -14,6 +19,31 @@ public class ConfiguracionViewModel extends ViewModel {
 
     // CONSTRUCTOR
     public ConfiguracionViewModel() {
+    }
+
+    public void clean(Spinner sSubcategoria, Spinner sEjercicio, SwitchCompat swRuido, String tipoClean) {
+        switch (tipoClean) {
+            case ("categoria_0"):
+                sSubcategoria.setSelection(0);
+                sSubcategoria.setEnabled(false);
+                sEjercicio.setSelection(0);
+                sEjercicio.setEnabled(false);
+                swRuido.setChecked(false);
+                swRuido.setEnabled(false);
+                break;
+            case ("categoria"):
+            case ("subcategoria_0"):
+                sEjercicio.setSelection(0);
+                sEjercicio.setEnabled(false);
+                swRuido.setChecked(false);
+                swRuido.setEnabled(false);
+                break;
+            case ("subcategoria"):
+                break;
+            case ("ejercicio_0"):
+                swRuido.setChecked(false);
+                swRuido.setEnabled(false);
+        }
     }
 
     // RETORNA UN ADAPTER CATEGORIA
@@ -56,5 +86,14 @@ public class ConfiguracionViewModel extends ViewModel {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         return validation;
     }
+
+//    public void onClean(Spinner sCategoria, Spinner sSubcategoria, Spinner sEjercicio, SwitchCompat swRuido, Bundle bundle, Context context) {
+//        sCategoria.setAdapter(getAdapterEjercicio(context));
+//        sSubcategoria.setEnabled(false);
+//        sEjercicio.setEnabled(false);
+//        swRuido.setChecked(false);
+//        bundle.clear();
+//        System.out.println("HOLA MUNDO");
+//    }
 
 }

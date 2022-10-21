@@ -4,183 +4,133 @@ import android.app.Application;
 import android.content.Context;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.AnimationUtils;
 
-import androidx.lifecycle.LifecycleOwner;
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.app_phonoaudiology.R;
 import com.example.app_phonoaudiology.application.adapters.OptionsAdapter;
-import com.example.app_phonoaudiology.domain.repository.conectores.DiasConectores;
-import com.example.app_phonoaudiology.domain.repository.conectores.NumerosConectores;
+import com.example.app_phonoaudiology.application.usecases.TouchSettingsButton;
+import com.example.app_phonoaudiology.application.utils.EjercicioUtils;
+import com.example.app_phonoaudiology.application.utils.ErrorDeIntentosAlert;
+import com.example.app_phonoaudiology.application.utils.GeneralUtils;
+import com.example.app_phonoaudiology.application.utils.EjercicioSoundsUtils;
+import com.example.app_phonoaudiology.domain.entities.ErrorEntity;
+import com.example.app_phonoaudiology.domain.entities.ReporteEntity;
+import com.example.app_phonoaudiology.infrastructure.db.entity.ErrorEntityDB;
+import com.example.app_phonoaudiology.infrastructure.db.entity.ResultadoEntityDB;
 import com.example.app_phonoaudiology.infrastructure.db.entity.SoundEntity;
+import com.example.app_phonoaudiology.infrastructure.db.repository.ResultadoRepository;
 import com.example.app_phonoaudiology.infrastructure.db.repository.SoundRepository;
 import com.example.app_phonoaudiology.domain.entities.ConectoresEntity;
 import com.example.app_phonoaudiology.domain.entities.ConfiguracionEntity;
-import com.example.app_phonoaudiology.domain.entities.OptionAnswerEntity;
+import com.example.app_phonoaudiology.domain.entities.OpcionesEntity;
 import com.example.app_phonoaudiology.domain.entities.PuntuacionEntity;
 import com.example.app_phonoaudiology.application.usecases.TouchOptionButton;
 import com.example.app_phonoaudiology.application.usecases.TouchPlayButton;
-import com.example.app_phonoaudiology.domain.repository.constants.Constantes;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class EjercicioOpcionesViewModel extends ViewModel {
 
-    private SoundRepository soundRepository;
-    private ConfiguracionEntity configuracionEntity;
-    private OptionAnswerEntity opciones;
-    private PuntuacionEntity puntuacionEntity;
-    private ConectoresEntity conectoresEntity;
-    private ArrayList<SoundEntity> combinacionConectores;
     private MutableLiveData<Integer> correctas;
     private MutableLiveData<Integer> incorrectas;
     private MutableLiveData<Integer> intentos;
     private MutableLiveData<Boolean> reseteo;
+    // REPOSITORIES
+    private SoundRepository soundRepository;
+    private ResultadoRepository resultadoRepository;
+    // ENTITIES
+    private ConfiguracionEntity configuracionEntity;
+    private PuntuacionEntity puntuacionEntity;
+    private ConectoresEntity conectoresEntity;
+    private OpcionesEntity opcionesEntity;
+    private ErrorEntityDB errorEntityDB;
+    private ReporteEntity reporteEntity;
+    // USECASES
     private TouchPlayButton touchPlayButton;
-    private List<SoundEntity> listaDeOpciones;
-    private OptionsAdapter optionsAdapter;
+    private TouchSettingsButton touchSettingsButton;
+    // ADAPTERS
+    private OptionsAdapter opcionesAdapter;
+    // OTHERS
+    private ArrayList<SoundEntity> combinacionConectores;
+    private int intento;
+    private int errorPermitido;
 
-    // CONSTRUCTOR
     public EjercicioOpcionesViewModel() {
     }
 
-    // INICIALIZAMOS LA VARIABLES
-    public void onCreate() {
-        puntuacionEntity = new PuntuacionEntity();
+    public SoundRepository getSoundRepository() {
+        return soundRepository;
+    }
+
+    public void vmCreate(Application application, Context context, Bundle bundle) {
+        configuracionEntity = new ConfiguracionEntity(bundle);
+        puntuacionEntity = new PuntuacionEntity(10, 2);
         conectoresEntity = new ConectoresEntity();
         combinacionConectores = new ArrayList<>();
         touchPlayButton = new TouchPlayButton();
-    }
-
-    // INICIALIZAMOS EL VIEWMODEL CON LOS DATOS DEL RECICLERVIEW
-    public void onStart(List<SoundEntity> listaDeOpciones) {
-        this.listaDeOpciones = listaDeOpciones;
-        int cantidadDeOpciones;
-        List<SoundEntity> newListaDeOpciones;
-        SoundEntity opcionCorrecta;
-        cantidadDeOpciones = getOptionsQuantity(listaDeOpciones, configuracionEntity.getEjercicio());
-        newListaDeOpciones = getOptionsList(listaDeOpciones, cantidadDeOpciones);
-        opcionCorrecta = setCorrectOption(newListaDeOpciones);
-        opciones = new OptionAnswerEntity(newListaDeOpciones, opcionCorrecta);
-        correctas.setValue(puntuacionEntity.getCorrectas());
-        incorrectas.setValue(puntuacionEntity.getIncorrectas());
-        optionsAdapter = new OptionsAdapter(getListaDeOpciones(), getOpcionCorrecta(), touchOptionButton);
-        getRandomConectores();
-    }
-
-    public PuntuacionEntity getPuntuacionModel() {
-        return puntuacionEntity;
-    }
-
-    // SETEAMOS LOS VALORES EN LA CONFIGURACION PASADOS POR BUNDLE
-    public void setConfiguracion(Bundle bundle) {
-        configuracionEntity = new ConfiguracionEntity(
-                bundle.getString("categoria"),
-                bundle.getString("subcategoria"),
-                bundle.getString("ejercicio"), bundle.getBoolean("ruido"),
-                bundle.getString("ruido"),
-                bundle.getFloat("intensidad", .1f)
-        );
-    }
-
-    // INICIAMOS LA BASE DE DATOS A TRAVES DEL REPOSITORY
-    public void startDatabase(Application application) {
+        touchSettingsButton = new TouchSettingsButton();
         soundRepository = new SoundRepository(application);
+        resultadoRepository = new ResultadoRepository(application);
+        intento = -1;
+        setTodosLosConectores(context);
+        getIntentos().setValue(getPuntuacionEntity().getIntentos());
+        getReseteo().setValue(getPuntuacionEntity().getReseteo());
     }
 
-    // SETEAMOS TODOS LOS CONECTORES
-    public void setTodosLosConectores(Context context) {
-        soundRepository.getHoyEsSound().observe((LifecycleOwner) context, sound -> {
-            setConector("Hoy es", sound);
-        });
-        soundRepository.getEsHoySound().observe((LifecycleOwner) context, sound -> {
-            setConector("Es hoy", sound);
-        });
-        soundRepository.getyLLoviendoSound().observe((LifecycleOwner) context, sound -> {
-            setConector("Y esta lloviendo", sound);
-        });
-        soundRepository.getNecesitoSound().observe((LifecycleOwner) context, sound -> {
-            setConector("Necesito", sound);
-        });
-        soundRepository.getVasosGrandes().observe((LifecycleOwner) context, sound -> {
-            setConector("Vasos grandes", sound);
-        });
+    public void vmStart(List<SoundEntity> listaDeOpcionesCompleta) {
+        opcionesEntity = new OpcionesEntity(listaDeOpcionesCompleta, configuracionEntity.getEjercicio());
+        opcionesAdapter = new OptionsAdapter(opcionesEntity.getListaDeOpciones(), opcionesEntity.getRespuestaCorrecta(), touchOptionButton);
+        intento += 1;
+        errorPermitido = 1;
+        errorEntityDB = new ErrorEntityDB();
+        setRandomConectores();
     }
 
-    // RETORNAMOS LA LISTA DE OPCIONES
-    public List<SoundEntity> getListaDeOpciones() {
-        return opciones.getOptionsList();
+    public void vmFinish(Bundle reporteBundle) {
+//        ResultadoEntityDB resultadoEntityDB = new ResultadoEntityDB(
+//                GeneralUtils.getFechaFormateada(),
+//                puntuacionEntity.getCorrectas(),
+//                puntuacionEntity.getIntentos(),
+//                configuracionEntity.getCategoria(),
+//                configuracionEntity.getSubcategoria(),
+//                configuracionEntity.getEjercicio(),
+//                configuracionEntity.getRuido(),
+//                configuracionEntity.getTipoRuido(),
+//                configuracionEntity.getIntensidad()
+//        );
+//        resultadoRepository.agregarResultado(resultadoEntityDB);
+//        for(int i=0; i<listaDeErrores.size(); i++) {
+//            resultadoRepository.agregarError(listaDeErrores.get(i));
+//        }
+        setInformacionReporteBundle(reporteBundle);
     }
 
-    // RETORNAMOS LA OPCION CORRECTA
-    public SoundEntity getOpcionCorrecta() {
-        return opciones.getRespuestaCorrecta();
-    }
-
-    // RETORNA LA CANTIDAD DE OPCIONES QUE SE VAN A MOSTRAR DEPENDIENDO DEL TIPO DE EJERCICIO SELECCIONADO
-    public int getOptionsQuantity(List<SoundEntity> list, String tipoDeEjercicio) {
-        switch (tipoDeEjercicio) {
-            case Constantes.J_DISCRIMINAR:
-                return 2;
-            case Constantes.J_IDENTIFICAR_TRES_OPCIONES:
-                return 3;
-            case Constantes.J_IDENTIFICAR_CINCO_OPCIONES:
-                return 5;
-            case Constantes.J_TODA_LA_CATEGORIA:
-                return list.size();
-            default:
-                return 0;
-        }
-    }
-
-    // MEZCLA LA LISTA DE SONIDOS, SELECCIONA UNA CIERTA CANTIDAD Y RETORNA LA NUEVA LISTA
-    public List<SoundEntity> getOptionsList(List<SoundEntity> list, int optionsQuantity) {
-        List<SoundEntity> newOptionsList = new ArrayList<>();
-        Collections.shuffle(list);
-        for (int i=0; i<optionsQuantity; i++) {
-            newOptionsList.add(list.get(i));
-        }
-        return newOptionsList;
-    }
-
-    // SELECCIONA ALEATORIAMENTE UNA OPCION CORRECTA
-    public SoundEntity setCorrectOption(List<SoundEntity> list) {
-        Random random = new Random();
-        int correctOption = random.nextInt(list.size());
-        for (int i=0; i<list.size(); i++) {
-            System.out.println(list.get(i).getNombre_sonido());
-        }
-        System.out.println("La opcion correcta es: " + list.get(correctOption).getNombre_sonido());
-        return list.get(correctOption);
-    }
-
-    // SETEA UN CONECTOR
-    public void setConector(String nombre, SoundEntity conector) {
-        conectoresEntity.putConector(nombre, conector);
-    }
-
-    // RESPUESTAS CORRECTAS
     public MutableLiveData<Integer> getCorrectas() {
         if (correctas == null) {
             correctas = new MutableLiveData<>();
         }
         return correctas;
     }
-
-    // RESPUESTAS INCORRECTAS
     public MutableLiveData<Integer> getIncorrectas() {
         if (incorrectas == null) {
             incorrectas = new MutableLiveData<>();
         }
         return incorrectas;
     }
-
-    // RESETEOS
+    public MutableLiveData<Integer> getIntentos() {
+        if (intentos == null) {
+            intentos = new MutableLiveData<>();
+        }
+        return intentos;
+    }
     public MutableLiveData<Boolean> getReseteo() {
         if (reseteo == null) {
             reseteo = new MutableLiveData<>();
@@ -188,82 +138,39 @@ public class EjercicioOpcionesViewModel extends ViewModel {
         return reseteo;
     }
 
-    // OBTENEMOS LA LISTA DE SONIDOS DEPENDIENDO DE LA SUBCATEGORIA SELECCIONADA
-    public LiveData<List<SoundEntity>> obtenerOpciones() {
-        switch (configuracionEntity.getSubcategoria()) {
-            case (Constantes.DIAS_SEMANA):
-                return soundRepository.getDiasSounds();
-            case (Constantes.NUMEROS):
-                return soundRepository.getNumerosSounds();
-            case (Constantes.COLORES):
-                return soundRepository.getColoresSounds();
-            case (Constantes.MESES):
-                return soundRepository.getMesesSounds();
-            default:
-                return null;
-        }
+    private ConfiguracionEntity getConfiguracionEntity() {
+        return configuracionEntity;
+    }
+    public PuntuacionEntity getPuntuacionEntity() {
+        return puntuacionEntity;
+    }
+    public OptionsAdapter getOpcionesAdapter() {
+        return opcionesAdapter;
+    }
+    public Boolean getChequearIntentosRestantes() {
+        return EjercicioUtils.getChequearIntentosRestantes(puntuacionEntity);
+    }
+    public LiveData<List<SoundEntity>> getOpcionesPorSubcategoria() {
+        return EjercicioUtils.getOpcionesPorSubcategoria(configuracionEntity, soundRepository);
     }
 
-    // OBTENEMOS LA RUTA DEL RUIDO SELECCIONADO
-    public String getRutaRuido() {
-        switch (configuracionEntity.getTipoRuido()) {
-            case ("Multitud de personas"):
-                return "ruido_personas.mp3";
-            case ("Recreo de niños"):
-                return "ruido_recreo.mp3";
-            case ("Sirena ambulancia"):
-                return "ruido_ambulancia.mp3";
-            case ("Tráfico intenso"):
-                return "ruido_trafico.mp3";
-            default:
-                return null;
-        }
+    public void setInformacionReporteBundle(Bundle bundle) {
+        reporteEntity = new ReporteEntity(puntuacionEntity, configuracionEntity);
+        reporteEntity.setReporteBundle(bundle);
+    }
+    public void setTodosLosConectores(Context context) {
+        EjercicioUtils.setTodosLosConectores(context, soundRepository, conectoresEntity);
+    }
+    public void setRandomConectores() {
+        EjercicioUtils.setRandomConectores(configuracionEntity, conectoresEntity, combinacionConectores);
     }
 
-    // OBTENEMOS UN CONECTOR RANDOM
-    public void getRandomConectores() {
-        switch (configuracionEntity.getSubcategoria()) {
-            case ("Días de la Semana"):
-                SoundEntity conectorInicialDias = null;
-                SoundEntity conectorFinalDias = null;
-                ArrayList<String> combinacionRandomDias = DiasConectores.getCombinacionRandom();
-                if (combinacionRandomDias.get(0) != null && combinacionRandomDias.get(1) != null) {
-                    conectorInicialDias = conectoresEntity.getListaDeConectores().get(combinacionRandomDias.get(0));
-                    conectorFinalDias = conectoresEntity.getListaDeConectores().get(combinacionRandomDias.get(1));
-                }
-                if (combinacionRandomDias.get(0) != null && combinacionRandomDias.get(1) == null) {
-                    conectorInicialDias = conectoresEntity.getListaDeConectores().get(combinacionRandomDias.get(0));
-                    conectorFinalDias = null;
-                }
-                if (combinacionRandomDias.get(0) == null && combinacionRandomDias.get(1) != null) {
-                    conectorInicialDias = null;
-                    conectorFinalDias = conectoresEntity.getListaDeConectores().get(combinacionRandomDias.get(1));
-                }
-                combinacionConectores.add(0, conectorInicialDias);
-                combinacionConectores.add(1, conectorFinalDias);
-                break;
-            case ("Números"):
-                SoundEntity conectorInicialNumeros = null;
-                SoundEntity conectorFinalNumeros = null;
-                ArrayList<String> combinacionRandomNumeros = NumerosConectores.getCombinacionRandom();
-                if (combinacionRandomNumeros.get(0) != null && combinacionRandomNumeros.get(1) != null) {
-                    conectorInicialNumeros = conectoresEntity.getListaDeConectores().get(combinacionRandomNumeros.get(0));
-                    conectorFinalNumeros= conectoresEntity.getListaDeConectores().get(combinacionRandomNumeros.get(1));
-                }
-                if (combinacionRandomNumeros.get(0) != null && combinacionRandomNumeros.get(1) == null) {
-                    conectorInicialNumeros = conectoresEntity.getListaDeConectores().get(combinacionRandomNumeros.get(0));
-                    conectorFinalNumeros = null;
-                }
-                if (combinacionRandomNumeros.get(0) == null && combinacionRandomNumeros.get(1) != null) {
-                    conectorInicialNumeros = null;
-                    conectorFinalNumeros = conectoresEntity.getListaDeConectores().get(combinacionRandomNumeros.get(1));
-                }
-                combinacionConectores.add(0, conectorInicialNumeros);
-                combinacionConectores.add(1, conectorFinalNumeros);
-                break;
-            default:
-                break;
-        }
+    public String getTitulo() {
+        return EjercicioUtils.getTitulo(configuracionEntity.getBotonSeleccionado());
+    }
+
+    public Boolean checkEvaluacion() {
+        return configuracionEntity.getBotonSeleccionado().equals("evaluacion");
     }
 
     // CUANDO EL USUARIO TOCA EL BOTON DE PLAY
@@ -271,16 +178,16 @@ public class EjercicioOpcionesViewModel extends ViewModel {
         switch (configuracionEntity.getCategoria()) {
             case ("Palabra"):
                 if (configuracionEntity.getTipoRuido() == null) {
-                    touchPlayButton.reproducirSonido(context, opciones.getRespuestaCorrecta());
+                    touchPlayButton.reproducirSonido(context, opcionesEntity.getRespuestaCorrecta());
                 } else {
-                    touchPlayButton.reproducirSonidoConRuido(context, opciones.getRespuestaCorrecta(), getRutaRuido());
+                    touchPlayButton.reproducirSonidoConRuido(context, opcionesEntity.getRespuestaCorrecta(), EjercicioUtils.getRutaRuido(configuracionEntity.getTipoRuido()), configuracionEntity.getIntensidad());
                 }
                 break;
             case ("Oraciones"):
                 if (configuracionEntity.getTipoRuido() == null) {
-                    touchPlayButton.reproducirOraciones(context, opciones.getRespuestaCorrecta(), combinacionConectores.get(0), combinacionConectores.get(1));
+                    touchPlayButton.reproducirOraciones(context, opcionesEntity.getRespuestaCorrecta(), combinacionConectores.get(0), combinacionConectores.get(1));
                 } else {
-                    touchPlayButton.reproducirOracionesConRuido(context, opciones.getRespuestaCorrecta(), combinacionConectores.get(0), combinacionConectores.get(1), getRutaRuido());
+                    touchPlayButton.reproducirOracionesConRuido(context, opcionesEntity.getRespuestaCorrecta(), combinacionConectores.get(0), combinacionConectores.get(1), EjercicioUtils.getRutaRuido(configuracionEntity.getTipoRuido()), configuracionEntity.getIntensidad());
                 }
                 break;
             default:
@@ -291,24 +198,56 @@ public class EjercicioOpcionesViewModel extends ViewModel {
     // CUANDO EL USUARIO TOCA EL BOTON DE UNA OPCION
     public TouchOptionButton touchOptionButton = new TouchOptionButton() {
         @Override
+        public void guardarInformacionDeSeleccion(MaterialButton opcionSeleccionada, SoundEntity opcionCorrecta) {
+            switch (errorPermitido) {
+                case (1):
+//                    errorEntityDB.setEstimulo(opcionCorrecta.getNombre_sonido());
+//                    errorEntityDB.setPrimeraRespuesta((String) opcionSeleccionada.getText());
+//                    errorEntityDB.setSegundaRespuesta(null);
+//                    errorPermitido += 1;
+                    break;
+                case (2):
+//                    errorEntityDB.setSegundaRespuesta((String) opcionSeleccionada.getText());
+                    break;
+            }
+        }
+        @Override
         public void corroborarSeleccion(MaterialButton opcionSeleccionada, SoundEntity opcionCorrecta) {
             if (opcionSeleccionada.getText() == opcionCorrecta.getNombre_sonido()) {
                 puntuacionEntity.sumarCorrectas();
-                puntuacionEntity.sumarIntentos();
-                puntuacionEntity.resetear();
+                puntuacionEntity.restarIntentos();
+                puntuacionEntity.resetear(errorEntityDB);
                 correctas.setValue(puntuacionEntity.getCorrectas());
+                intentos.setValue(puntuacionEntity.getIntentos());
                 reseteo.setValue(puntuacionEntity.getReseteo());
-            } else if (opcionSeleccionada.getText() != opcionCorrecta.getNombre_sonido()) {
+                opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.bounce));
+                EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), true);
+            } else {
                 puntuacionEntity.sumarIncorrectas();
-                puntuacionEntity.sumarIntentos();
+                puntuacionEntity.restarIntentos();
+                puntuacionEntity.restarErroresPermitidos();
                 incorrectas.setValue(puntuacionEntity.getIncorrectas());
+                intentos.setValue(puntuacionEntity.getIntentos());
+                opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.shake_animation));
+                EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), false);
+                if (puntuacionEntity.getErroresPermitidos() <= 0) {
+                    EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), false);
+                    ErrorDeIntentosAlert errorDeIntentosAlert = new ErrorDeIntentosAlert(
+                            "¡Te has equivocado más de " + 2 + " veces!",
+                            "La respuesta correcta era: " + opcionesEntity.getRespuestaCorrecta().getNombre_sonido(),
+                            "Continuar"
+                    );
+                    errorDeIntentosAlert.MostrarAlerta(opcionSeleccionada.getContext());
+                    puntuacionEntity.resetear(errorEntityDB);
+                    reseteo.setValue(puntuacionEntity.getReseteo());
+                }
             }
         }
     };
 
-    // GET RECICLERVIEW ADAPTER
-    public OptionsAdapter getOptionsAdapter() {
-        return optionsAdapter;
+    // CUANDO EL USUARIO TOCA EL BOTON DE SETTINGS
+    public void onTouchSettingsButton(@NonNull View view) {
+        touchSettingsButton.showSettings(view, configuracionEntity);
     }
 
 }

@@ -20,7 +20,6 @@ public class SoundRepository {
             yLloviendoSound;
 
     public SoundRepository(Application application) {
-        System.out.println("Se creo el repositorio");
         SoundDatabase db = SoundDatabase.getInstanceSoundDatabase(application);
         soundDao = db.soundDao();
         allSounds = soundDao.getSoundList();
@@ -81,7 +80,7 @@ public class SoundRepository {
     }
 
     public void eliminarSonido(SoundEntity sound) {
-        new eliminarSonidoAsynkTask(soundDao).execute();
+        new eliminarSonidoAsynkTask(soundDao).execute(sound);
     }
 
     // CLASE QUE AGREGA UN SONIDO EN SEGUNDO PLANO

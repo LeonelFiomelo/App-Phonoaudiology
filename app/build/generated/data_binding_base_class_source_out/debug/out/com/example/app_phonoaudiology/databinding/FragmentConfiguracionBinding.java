@@ -54,7 +54,7 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
   public final SwitchCompat switchRuido;
 
   @NonNull
-  public final Toolbar toolbarConfiguracion;
+  public final Toolbar tbConfiguracion;
 
   @NonNull
   public final TextView tvIntensidadDelRuido;
@@ -64,7 +64,7 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
       @NonNull ScrollView scrollViewConfiguracion, @NonNull SeekBar seekBarRuido,
       @NonNull Spinner spinnerCategoria, @NonNull Spinner spinnerEjercicio,
       @NonNull Spinner spinnerRuido, @NonNull Spinner spinnerSubcategoria,
-      @NonNull SwitchCompat switchRuido, @NonNull Toolbar toolbarConfiguracion,
+      @NonNull SwitchCompat switchRuido, @NonNull Toolbar tbConfiguracion,
       @NonNull TextView tvIntensidadDelRuido) {
     this.rootView = rootView;
     this.btnComenzarEjercicio = btnComenzarEjercicio;
@@ -76,7 +76,7 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
     this.spinnerRuido = spinnerRuido;
     this.spinnerSubcategoria = spinnerSubcategoria;
     this.switchRuido = switchRuido;
-    this.toolbarConfiguracion = toolbarConfiguracion;
+    this.tbConfiguracion = tbConfiguracion;
     this.tvIntensidadDelRuido = tvIntensidadDelRuido;
   }
 
@@ -161,9 +161,9 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar_configuracion;
-      Toolbar toolbarConfiguracion = ViewBindings.findChildViewById(rootView, id);
-      if (toolbarConfiguracion == null) {
+      id = R.id.tb_configuracion;
+      Toolbar tbConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (tbConfiguracion == null) {
         break missingId;
       }
 
@@ -175,7 +175,7 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
 
       return new FragmentConfiguracionBinding((FrameLayout) rootView, btnComenzarEjercicio,
           configuracionAvanzadaNoOculta, scrollViewConfiguracion, seekBarRuido, spinnerCategoria,
-          spinnerEjercicio, spinnerRuido, spinnerSubcategoria, switchRuido, toolbarConfiguracion,
+          spinnerEjercicio, spinnerRuido, spinnerSubcategoria, switchRuido, tbConfiguracion,
           tvIntensidadDelRuido);
     }
     String missingId = rootView.getResources().getResourceName(id);

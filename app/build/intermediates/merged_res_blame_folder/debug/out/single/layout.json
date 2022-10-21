@@ -1,22 +1,62 @@
 [
     {
-        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/item_option.xml",
-        "source": "com.example.app_phonoaudiology.app-main-49:/layout/item_option.xml"
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\fragment_ejercicio_opciones.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_ejercicio_opciones.xml"
     },
     {
-        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/activity_main.xml",
-        "source": "com.example.app_phonoaudiology.app-main-49:/layout/activity_main.xml"
+        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/fragment_administrar_sonidos.xml",
+        "source": "com.example.app_phonoaudiology.app-main-49:/layout/fragment_administrar_sonidos.xml"
     },
     {
-        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/fragment_ejercicio_opciones.xml",
-        "source": "com.example.app_phonoaudiology.app-main-49:/layout/fragment_ejercicio_opciones.xml"
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\alertdialog_settings.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\alertdialog_settings.xml"
     },
     {
-        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/fragment_home.xml",
-        "source": "com.example.app_phonoaudiology.app-main-49:/layout/fragment_home.xml"
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\item_nombre_sonido.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\item_nombre_sonido.xml"
     },
     {
-        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/layout/fragment_configuracion.xml",
-        "source": "com.example.app_phonoaudiology.app-main-49:/layout/fragment_configuracion.xml"
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\fragment_resultado_detalle.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_resultado_detalle.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\fragment_ejercicio_escribir.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_ejercicio_escribir.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\fragment_resultados_historicos.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_resultados_historicos.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\fragment_administrar_sonidos.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_administrar_sonidos.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\item_option.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\item_option.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\item_resultado.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\item_resultado.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\fragment_agregar_sonido.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_agregar_sonido.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\fragment_configuracion.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_configuracion.xml"
+    },
+    {
+        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-mergeDebugResources-46:\\layout\\fragment_resultado.xml",
+        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_resultado.xml"
     }
 ]

@@ -10,58 +10,97 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_ejercicioOpciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back"
+            app:title="@string/tv_entenamiento"
+            app:titleTextColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/img_incorrectas"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_wrong"
+            android:tint="#F44336"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_incorrectas"
+            app:layout_constraintEnd_toStartOf="@+id/tv_incorrectas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_incorrectas" />
+
         <TextView
-            android:id="@+id/tv_correctas"
+            android:id="@+id/tv_incorrectas"
+            style="@android:style/Widget.TextView.PopupMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
             android:text="0"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_setting"
             app:layout_constraintEnd_toStartOf="@+id/btn_setting"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btn_setting" />
+            app:layout_constraintTop_toTopOf="@+id/btn_setting"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/img_correctas"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_correct"
+            android:tint="#4CAF50"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_correctas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_correctas"
+            app:layout_constraintTop_toTopOf="@+id/tv_correctas" />
 
         <TextView
-            android:id="@+id/tv_incorrectas"
+            android:id="@+id/tv_correctas"
+            style="@android:style/Widget.TextView.PopupMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
             android:text="0"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_setting"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_setting"
-            app:layout_constraintTop_toTopOf="@+id/btn_setting" />
-
-        <ImageButton
-            android:id="@+id/btn_play"
-            android:layout_width="135dp"
-            android:layout_height="135dp"
-            android:background="@drawable/ic_play_background"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_play"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.16000003" />
+            app:layout_constraintTop_toTopOf="@+id/btn_setting"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageButton
             android:id="@+id/btn_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:background="#FFFFFF"
             android:src="@drawable/ic_settings"
+            android:tint="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tb_ejercicioOpciones" />
+
+        <ImageButton
+            android:id="@+id/btn_play"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/ic_play_background"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_setting" />
 
         <TextView
             android:id="@+id/textView"
+            style="@android:style/Widget.TextView.PopupMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:text="@string/btn_seleccioneLaOpcionQueOyo"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_play" />
@@ -74,19 +113,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_ejercicio"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView_ejercicio"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_option" />
-
-            </com.google.android.material.card.MaterialCardView>
-
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_option" />
         </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

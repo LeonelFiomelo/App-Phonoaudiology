@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "sound_table")
 public class SoundEntity {
 
-    // COLUMNAS
     @PrimaryKey (autoGenerate = true)
     private int id;
     @ColumnInfo(name = "nombre_sonido")
@@ -19,7 +18,6 @@ public class SoundEntity {
     @ColumnInfo(name = "personalizado")
     private String personalizado;
 
-    // CONSTRUCTOR
     public SoundEntity(String nombre_sonido, String categoria_sonido, String ruta_sonido, String personalizado) {
         this.nombre_sonido = nombre_sonido;
         this.categoria_sonido = categoria_sonido;
@@ -27,7 +25,6 @@ public class SoundEntity {
         this.personalizado = personalizado;
     }
 
-    // METODOS
     public void setId(int id) { this.id = id; }
     public int getId() { return id; }
     public String getNombre_sonido() { return nombre_sonido; }

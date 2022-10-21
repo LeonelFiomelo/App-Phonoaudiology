@@ -29,8 +29,8 @@ public class Constantes {
             J_DISCRIMINAR,
             J_IDENTIFICAR_TRES_OPCIONES,
             J_IDENTIFICAR_CINCO_OPCIONES,
-            J_ESCRIBIR_LO_QUE_OYO,
-            J_TODA_LA_CATEGORIA};
+            J_TODA_LA_CATEGORIA,
+            J_ESCRIBIR_LO_QUE_OYO};
 
     // TIPOS DE EJERCICIOS ORACIONES
 

@@ -41,7 +41,7 @@ public class SoundController implements MediaPlayer.OnCompletionListener {
     }
 
     // REPRODUCE UNA PALABRA CON RUIDO DE FONDO
-    public void iniciarSonidoConRuido(Context context, SoundEntity sound, String rutaRuido) {
+    public void iniciarSonidoConRuido(Context context, SoundEntity sound, String rutaRuido, float intensidad) {
         AssetFileDescriptor afdOpcion = null;
         AssetFileDescriptor afdRuido = null;
         MediaPlayer mpOpcion = new MediaPlayer();
@@ -57,6 +57,7 @@ public class SoundController implements MediaPlayer.OnCompletionListener {
             afdRuido = context.getAssets().openFd(rutaRuido);
             mpRuido.setDataSource(afdRuido.getFileDescriptor(), afdRuido.getStartOffset(), afdRuido.getLength());
             mpRuido.prepare();
+            mpRuido.setVolume(intensidad, intensidad);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -181,7 +182,7 @@ public class SoundController implements MediaPlayer.OnCompletionListener {
     }
 
     // REPRODUCE UNA ORACION CON RUIDO DE FONDO
-    public void iniciarOracionesConRuido(Context context, SoundEntity sound, @Nullable SoundEntity conectorInicial, @Nullable SoundEntity conectorFinal, String rutaDelRuido) {
+    public void iniciarOracionesConRuido(Context context, SoundEntity sound, @Nullable SoundEntity conectorInicial, @Nullable SoundEntity conectorFinal, String rutaDelRuido, float intensidad) {
         AssetFileDescriptor afdSonido = null;
         AssetFileDescriptor afdConectorInicial = null;
         AssetFileDescriptor afdConectorFinal = null;
@@ -227,6 +228,7 @@ public class SoundController implements MediaPlayer.OnCompletionListener {
             afdRuido = context.getAssets().openFd(rutaDelRuido);
             mpRuido.setDataSource(afdRuido.getFileDescriptor(), afdRuido.getStartOffset(), afdRuido.getLength());
             mpRuido.prepare();
+            mpRuido.setVolume(intensidad, intensidad);
         } catch(IOException e) {
             e.printStackTrace();
         }

@@ -6,9 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -28,7 +30,16 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
   public final ImageButton btnSetting;
 
   @NonNull
+  public final ImageView imgCorrectas;
+
+  @NonNull
+  public final ImageView imgIncorrectas;
+
+  @NonNull
   public final RecyclerView recyclerViewEjercicio;
+
+  @NonNull
+  public final Toolbar tbEjercicioOpciones;
 
   @NonNull
   public final TextView textView;
@@ -41,12 +52,16 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
 
   private FragmentEjercicioOpcionesBinding(@NonNull FrameLayout rootView,
       @NonNull ImageButton btnPlay, @NonNull ImageButton btnSetting,
-      @NonNull RecyclerView recyclerViewEjercicio, @NonNull TextView textView,
-      @NonNull TextView tvCorrectas, @NonNull TextView tvIncorrectas) {
+      @NonNull ImageView imgCorrectas, @NonNull ImageView imgIncorrectas,
+      @NonNull RecyclerView recyclerViewEjercicio, @NonNull Toolbar tbEjercicioOpciones,
+      @NonNull TextView textView, @NonNull TextView tvCorrectas, @NonNull TextView tvIncorrectas) {
     this.rootView = rootView;
     this.btnPlay = btnPlay;
     this.btnSetting = btnSetting;
+    this.imgCorrectas = imgCorrectas;
+    this.imgIncorrectas = imgIncorrectas;
     this.recyclerViewEjercicio = recyclerViewEjercicio;
+    this.tbEjercicioOpciones = tbEjercicioOpciones;
     this.textView = textView;
     this.tvCorrectas = tvCorrectas;
     this.tvIncorrectas = tvIncorrectas;
@@ -91,9 +106,27 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.img_correctas;
+      ImageView imgCorrectas = ViewBindings.findChildViewById(rootView, id);
+      if (imgCorrectas == null) {
+        break missingId;
+      }
+
+      id = R.id.img_incorrectas;
+      ImageView imgIncorrectas = ViewBindings.findChildViewById(rootView, id);
+      if (imgIncorrectas == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerView_ejercicio;
       RecyclerView recyclerViewEjercicio = ViewBindings.findChildViewById(rootView, id);
       if (recyclerViewEjercicio == null) {
+        break missingId;
+      }
+
+      id = R.id.tb_ejercicioOpciones;
+      Toolbar tbEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (tbEjercicioOpciones == null) {
         break missingId;
       }
 
@@ -116,7 +149,8 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
       }
 
       return new FragmentEjercicioOpcionesBinding((FrameLayout) rootView, btnPlay, btnSetting,
-          recyclerViewEjercicio, textView, tvCorrectas, tvIncorrectas);
+          imgCorrectas, imgIncorrectas, recyclerViewEjercicio, tbEjercicioOpciones, textView,
+          tvCorrectas, tvIncorrectas);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

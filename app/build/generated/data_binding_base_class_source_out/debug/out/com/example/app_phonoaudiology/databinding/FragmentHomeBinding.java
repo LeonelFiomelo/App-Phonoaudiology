@@ -7,21 +7,27 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.app_phonoaudiology.R;
+import com.google.android.material.navigation.NavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final DrawerLayout rootView;
+
+  @NonNull
+  public final Button btnAdministrarSonidos;
 
   @NonNull
   public final Button btnComenzarEntrenamiento;
@@ -30,10 +36,22 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final Button btnComenzarEvaluacion;
 
   @NonNull
+  public final Button btnResultadosHistoricos;
+
+  @NonNull
+  public final Button btnTest;
+
+  @NonNull
   public final CardView cardEjercitacion;
 
   @NonNull
   public final CardView cardEvaluacion;
+
+  @NonNull
+  public final DrawerLayout drawerLayout;
+
+  @NonNull
+  public final FrameLayout frameLayout;
 
   @NonNull
   public final ImageView imagenEjercicio;
@@ -42,7 +60,13 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final ImageView imagenEvaluacion;
 
   @NonNull
-  public final Toolbar toolbarMain;
+  public final NavigationView nvHome;
+
+  @NonNull
+  public final ScrollView scrollView2;
+
+  @NonNull
+  public final Toolbar toolbar;
 
   @NonNull
   public final TextView tvConsignaEjercicio;
@@ -56,21 +80,30 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final TextView tvEvaluacion;
 
-  private FragmentHomeBinding(@NonNull FrameLayout rootView,
+  private FragmentHomeBinding(@NonNull DrawerLayout rootView, @NonNull Button btnAdministrarSonidos,
       @NonNull Button btnComenzarEntrenamiento, @NonNull Button btnComenzarEvaluacion,
+      @NonNull Button btnResultadosHistoricos, @NonNull Button btnTest,
       @NonNull CardView cardEjercitacion, @NonNull CardView cardEvaluacion,
+      @NonNull DrawerLayout drawerLayout, @NonNull FrameLayout frameLayout,
       @NonNull ImageView imagenEjercicio, @NonNull ImageView imagenEvaluacion,
-      @NonNull Toolbar toolbarMain, @NonNull TextView tvConsignaEjercicio,
-      @NonNull TextView tvConsignaEvaluacion, @NonNull TextView tvEjercicio,
-      @NonNull TextView tvEvaluacion) {
+      @NonNull NavigationView nvHome, @NonNull ScrollView scrollView2, @NonNull Toolbar toolbar,
+      @NonNull TextView tvConsignaEjercicio, @NonNull TextView tvConsignaEvaluacion,
+      @NonNull TextView tvEjercicio, @NonNull TextView tvEvaluacion) {
     this.rootView = rootView;
+    this.btnAdministrarSonidos = btnAdministrarSonidos;
     this.btnComenzarEntrenamiento = btnComenzarEntrenamiento;
     this.btnComenzarEvaluacion = btnComenzarEvaluacion;
+    this.btnResultadosHistoricos = btnResultadosHistoricos;
+    this.btnTest = btnTest;
     this.cardEjercitacion = cardEjercitacion;
     this.cardEvaluacion = cardEvaluacion;
+    this.drawerLayout = drawerLayout;
+    this.frameLayout = frameLayout;
     this.imagenEjercicio = imagenEjercicio;
     this.imagenEvaluacion = imagenEvaluacion;
-    this.toolbarMain = toolbarMain;
+    this.nvHome = nvHome;
+    this.scrollView2 = scrollView2;
+    this.toolbar = toolbar;
     this.tvConsignaEjercicio = tvConsignaEjercicio;
     this.tvConsignaEvaluacion = tvConsignaEvaluacion;
     this.tvEjercicio = tvEjercicio;
@@ -79,7 +112,7 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public DrawerLayout getRoot() {
     return rootView;
   }
 
@@ -104,6 +137,12 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_administrarSonidos;
+      Button btnAdministrarSonidos = ViewBindings.findChildViewById(rootView, id);
+      if (btnAdministrarSonidos == null) {
+        break missingId;
+      }
+
       id = R.id.btn_comenzarEntrenamiento;
       Button btnComenzarEntrenamiento = ViewBindings.findChildViewById(rootView, id);
       if (btnComenzarEntrenamiento == null) {
@@ -113,6 +152,18 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.btn_comenzarEvaluacion;
       Button btnComenzarEvaluacion = ViewBindings.findChildViewById(rootView, id);
       if (btnComenzarEvaluacion == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_resultadosHistoricos;
+      Button btnResultadosHistoricos = ViewBindings.findChildViewById(rootView, id);
+      if (btnResultadosHistoricos == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_test;
+      Button btnTest = ViewBindings.findChildViewById(rootView, id);
+      if (btnTest == null) {
         break missingId;
       }
 
@@ -128,6 +179,14 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      DrawerLayout drawerLayout = (DrawerLayout) rootView;
+
+      id = R.id.frameLayout;
+      FrameLayout frameLayout = ViewBindings.findChildViewById(rootView, id);
+      if (frameLayout == null) {
+        break missingId;
+      }
+
       id = R.id.imagen_ejercicio;
       ImageView imagenEjercicio = ViewBindings.findChildViewById(rootView, id);
       if (imagenEjercicio == null) {
@@ -140,9 +199,21 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar_main;
-      Toolbar toolbarMain = ViewBindings.findChildViewById(rootView, id);
-      if (toolbarMain == null) {
+      id = R.id.nv_home;
+      NavigationView nvHome = ViewBindings.findChildViewById(rootView, id);
+      if (nvHome == null) {
+        break missingId;
+      }
+
+      id = R.id.scrollView2;
+      ScrollView scrollView2 = ViewBindings.findChildViewById(rootView, id);
+      if (scrollView2 == null) {
+        break missingId;
+      }
+
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
         break missingId;
       }
 
@@ -170,10 +241,11 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((FrameLayout) rootView, btnComenzarEntrenamiento,
-          btnComenzarEvaluacion, cardEjercitacion, cardEvaluacion, imagenEjercicio,
-          imagenEvaluacion, toolbarMain, tvConsignaEjercicio, tvConsignaEvaluacion, tvEjercicio,
-          tvEvaluacion);
+      return new FragmentHomeBinding((DrawerLayout) rootView, btnAdministrarSonidos,
+          btnComenzarEntrenamiento, btnComenzarEvaluacion, btnResultadosHistoricos, btnTest,
+          cardEjercitacion, cardEvaluacion, drawerLayout, frameLayout, imagenEjercicio,
+          imagenEvaluacion, nvHome, scrollView2, toolbar, tvConsignaEjercicio, tvConsignaEvaluacion,
+          tvEjercicio, tvEvaluacion);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

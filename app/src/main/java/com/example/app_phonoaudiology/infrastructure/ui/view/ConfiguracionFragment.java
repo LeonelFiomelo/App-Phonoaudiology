@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -15,10 +16,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
+import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.example.app_phonoaudiology.R;
 import com.example.app_phonoaudiology.databinding.*;
 import com.example.app_phonoaudiology.infrastructure.ui.viewModel.ConfiguracionViewModel;
+
+import java.util.Objects;
 
 public class ConfiguracionFragment extends Fragment {
 
@@ -27,12 +32,16 @@ public class ConfiguracionFragment extends Fragment {
     private NavController navController;
     private Bundle bundle;
 
-    private String categoriaSeleccionada, subcategoriaSeleccionada, ejercicioSeleccionado, ruidoSeleccionado;
+    private String botonSeleccionado, categoriaSeleccionada, subcategoriaSeleccionada, ejercicioSeleccionado, ruidoSeleccionado;
     private boolean ruido;
     private float intensidad;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(ConfiguracionViewModel.class);
+        bundle = new Bundle();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,8 +54,14 @@ public class ConfiguracionFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        bundle.clear();
+
+        Spinner sSubcategoria = binding.spinnerSubcategoria;
+        Spinner sEjercicio = binding.spinnerEjercicio;
+        SwitchCompat swRuido = binding.switchRuido;
+
         // INTANCIAS
-        viewModel = new ViewModelProvider(this).get(ConfiguracionViewModel.class);
+        botonSeleccionado = getArguments().getString("botonSeleccionado");
         navController = Navigation.findNavController(view);
 
         // SPINNERS
@@ -55,18 +70,34 @@ public class ConfiguracionFragment extends Fragment {
         binding.spinnerEjercicio.setAdapter(viewModel.getAdapterEjercicio(getContext()));
         binding.spinnerRuido.setAdapter(viewModel.getAdapterRuido(getContext()));
 
+        // CONFIGURACION TOOLBAR
+        binding.tbConfiguracion.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.popBackStack();
+            }
+        });
+
         // SELECCIONAMOS EL SPINNER CATEGORIA
         binding.spinnerCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long id) {
-                if (i != 0) {
-                    binding.spinnerSubcategoria.setEnabled(true);
-                    categoriaSeleccionada = adapterView.getItemAtPosition(i).toString();
-                    if (categoriaSeleccionada.equals("Oraciones")) {
+                switch (adapterView.getItemAtPosition(i).toString()){
+                    case ("Palabra"):
+                        binding.spinnerSubcategoria.setEnabled(true);
+                        viewModel.clean(sSubcategoria, sEjercicio, swRuido, "categoria");
+                        categoriaSeleccionada = adapterView.getItemAtPosition(i).toString();
+                        binding.spinnerSubcategoria.setAdapter(viewModel.getAdapterSubcategoriaPalabras(getContext()));
+                        break;
+                    case ("Oraciones"):
+                        binding.spinnerSubcategoria.setEnabled(true);
+                        viewModel.clean(sSubcategoria, sEjercicio, swRuido, "categoria");
+                        categoriaSeleccionada = adapterView.getItemAtPosition(i).toString();
                         binding.spinnerSubcategoria.setAdapter(viewModel.getAdapterSubcategoriaOraciones(getContext()));
-                    }
-                } else {
-                    binding.spinnerSubcategoria.setEnabled(false);
+                        break;
+                    default:
+                        viewModel.clean(sSubcategoria, sEjercicio, swRuido, "categoria_0");
+                        break;
                 }
             }
             @Override
@@ -79,9 +110,10 @@ public class ConfiguracionFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long id) {
                 if (i != 0) {
                     binding.spinnerEjercicio.setEnabled(true);
+                    viewModel.clean(sSubcategoria, sEjercicio, swRuido, "subcategoria");
                     subcategoriaSeleccionada = adapterView.getItemAtPosition(i).toString();
                 } else {
-                    binding.spinnerEjercicio.setEnabled(false);
+                    viewModel.clean(sSubcategoria, sEjercicio, swRuido, "subcategoria_0");
                 }
             }
             @Override
@@ -96,8 +128,7 @@ public class ConfiguracionFragment extends Fragment {
                     binding.switchRuido.setEnabled(true);
                     ejercicioSeleccionado = adapterView.getItemAtPosition(i).toString();
                 } else {
-                    binding.switchRuido.setChecked(false);
-                    binding.switchRuido.setEnabled(false);
+                    viewModel.clean(sSubcategoria, sEjercicio, swRuido, "ejercicio_0");
                 }
             }
             @Override
@@ -131,7 +162,9 @@ public class ConfiguracionFragment extends Fragment {
                 ruidoSeleccionado = adapterView.getItemAtPosition(i).toString();
             }
             @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
 
         // MODIFICAMOS INTENSIDAD DE LA SEEKBAR
@@ -151,12 +184,21 @@ public class ConfiguracionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(viewModel.validate(getContext(), binding.spinnerCategoria, binding.spinnerSubcategoria, binding.spinnerEjercicio)) {
-                    bundle = new Bundle();
+
+                    bundle.putString("botonSeleccionado", botonSeleccionado);
                     bundle.putString("categoria", categoriaSeleccionada);
                     bundle.putString("subcategoria", subcategoriaSeleccionada);
                     bundle.putString("ejercicio", ejercicioSeleccionado);
-                    bundle.putString("ruido", ruidoSeleccionado);
-                    navController.navigate(R.id.EjercicioOpcionesFragment, bundle);
+                    bundle.putBoolean("ruido", ruido);
+                    bundle.putString("tipoRuido", ruidoSeleccionado);
+                    bundle.putFloat("intensidad", intensidad);
+
+                    if (ejercicioSeleccionado.equals("Escribir lo que oyó")) {
+                        navController.navigate(R.id.EjercicioEscribirFragment, bundle);
+                    } else {
+                        navController.navigate(R.id.EjercicioOpcionesFragment, bundle);
+                    }
+
                 }
             }
         });

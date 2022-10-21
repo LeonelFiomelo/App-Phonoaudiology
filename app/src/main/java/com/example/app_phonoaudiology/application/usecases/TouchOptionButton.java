@@ -5,6 +5,8 @@ import com.google.android.material.button.MaterialButton;
 
 public interface TouchOptionButton {
 
+    void guardarInformacionDeSeleccion(MaterialButton opcionSeleccionada, SoundEntity opcionCorrecta);
+
     void corroborarSeleccion(MaterialButton opcionSeleccionada, SoundEntity opcionCorrecta);
 
 }

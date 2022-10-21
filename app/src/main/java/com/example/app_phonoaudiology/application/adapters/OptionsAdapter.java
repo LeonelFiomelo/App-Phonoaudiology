@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_phonoaudiology.R;
@@ -21,7 +22,7 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionViewHolder> {
     private TouchOptionButton touchOptionButton;
 
     // CONSTRUCTOR
-    public OptionsAdapter(List<SoundEntity> listaDeOpciones, SoundEntity opcionCorrecta, TouchOptionButton touchOptionButton) {
+    public OptionsAdapter(List<SoundEntity> listaDeOpciones, @Nullable SoundEntity opcionCorrecta, @Nullable TouchOptionButton touchOptionButton) {
         this.listaDeOpciones = listaDeOpciones;
         this.opcionCorrecta = opcionCorrecta;
         this.touchOptionButton = touchOptionButton;

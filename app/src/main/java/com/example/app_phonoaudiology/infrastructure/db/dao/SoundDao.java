@@ -13,7 +13,6 @@ import java.util.List;
 @Dao
 public interface SoundDao {
 
-    // CONSULTAS
     @Query("SELECT * FROM sound_table")
     LiveData<List<SoundEntity>> getSoundList();
     @Query("SELECT * FROM sound_table WHERE categoria_sonido = 'Números'")
@@ -35,11 +34,9 @@ public interface SoundDao {
     @Query("DELETE FROM sound_table")
     void borrarTodos();
 
-    // INSERTAR
     @Insert
     void agregarSonido(SoundEntity sound_table);
 
-    // ELIMINAR
     @Delete
     void eliminarSonido(SoundEntity sound_table);
 

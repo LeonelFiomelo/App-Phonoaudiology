@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_HomeActivity_to_configuracionActivity"
             app:destination="@id/ConfiguracionFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_resultadosHistoricosFragment"
+            app:destination="@id/ResultadosHistoricosFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_administrarSonidosFragment"
+            app:destination="@id/AdministrarSonidosFragment" />
     </fragment>
     <fragment
         android:id="@+id/ConfiguracionFragment"
@@ -22,6 +28,12 @@
         <action
             android:id="@+id/action_ConfiguracionFragment_to_EjercicioOpcionesFragment"
             app:destination="@id/EjercicioOpcionesFragment" />
+        <argument
+            android:name="botonSeleccionado"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_ConfiguracionFragment_to_EjercicioEscribirFragment"
+            app:destination="@id/EjercicioEscribirFragment" />
     </fragment>
     <fragment
         android:id="@+id/EjercicioOpcionesFragment"
@@ -41,12 +53,118 @@
             app:argType="string"
             app:nullable="true" />
         <argument
-            android:name="ruido"
+            android:name="tipoRuido"
             app:argType="string"
             app:nullable="true" />
         <argument
             android:name="intensidad"
             app:argType="float"
-            android:defaultValue="0" />
+            android:defaultValue="5" />
+        <argument
+            android:name="botonSeleccionado"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_EjercicioOpcionesFragment_to_resultadoFragment"
+            app:destination="@id/ResultadoFragment" />
+        <argument
+            android:name="ruido"
+            app:argType="boolean" />
     </fragment>
+    <fragment
+        android:id="@+id/ResultadoFragment"
+        android:name="com.example.app_phonoaudiology.infrastructure.ui.view.ResultadoFragment"
+        android:label="fragment_resultado"
+        tools:layout="@layout/fragment_resultado" >
+        <argument
+            android:name="puntuacion"
+            app:argType="integer" />
+        <argument
+            android:name="intentos"
+            app:argType="integer" />
+        <argument
+            android:name="fecha"
+            app:argType="string" />
+        <argument
+            android:name="ejercicio"
+            app:argType="string" />
+        <argument
+            android:name="categoria"
+            app:argType="string" />
+        <argument
+            android:name="ruido"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="Sin ruido" />
+        <argument
+            android:name="intensidad"
+            app:argType="float"
+            android:defaultValue="1.0" />
+        <action
+            android:id="@+id/action_ResultadoFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/ResultadosHistoricosFragment"
+        android:name="com.example.app_phonoaudiology.infrastructure.ui.view.ResultadosHistoricosFragment"
+        android:label="fragment_resultados_historicos"
+        tools:layout="@layout/fragment_resultados_historicos" >
+        <action
+            android:id="@+id/action_ResultadosHistoricosFragment_to_resultadoDetalleFragment"
+            app:destination="@id/ResultadoDetalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EjercicioEscribirFragment"
+        android:name="com.example.app_phonoaudiology.infrastructure.ui.view.EjercicioEscribirFragment"
+        android:label="fragment_ejercicio_escribir"
+        tools:layout="@layout/fragment_ejercicio_escribir" >
+        <action
+            android:id="@+id/action_EjercicioEscribirFragment_to_ResultadoFragment"
+            app:destination="@id/ResultadoFragment" />
+        <argument
+            android:name="categoria"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="subcategoria"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="ejercicio"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="tipoRuido"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="intensidad"
+            app:argType="float" />
+        <argument
+            android:name="botonSeleccionado"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="ruido"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/ResultadoDetalleFragment"
+        android:name="com.example.app_phonoaudiology.infrastructure.ui.view.ResultadoDetalleFragment"
+        android:label="fragment_resultado_detalle"
+        tools:layout="@layout/fragment_resultado_detalle" />
+    <fragment
+        android:id="@+id/AdministrarSonidosFragment"
+        android:name="com.example.app_phonoaudiology.infrastructure.ui.view.AdministrarSonidosFragment"
+        android:label="fragment_administrar_sonidos"
+        tools:layout="@layout/fragment_administrar_sonidos" >
+        <action
+            android:id="@+id/action_AdministrarSonidosFragment_to_agregarSonidoFragment"
+            app:destination="@id/AgregarSonidoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AgregarSonidoFragment"
+        android:name="com.example.app_phonoaudiology.infrastructure.ui.view.AgregarSonidoFragment"
+        android:label="fragment_agregar_sonido"
+        tools:layout="@layout/fragment_agregar_sonido" />
 </navigation>

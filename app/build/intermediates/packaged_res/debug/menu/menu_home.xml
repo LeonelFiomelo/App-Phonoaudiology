@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mi_seccionProfesional"
+        android:title="@string/mi_seccionProfesional">
+        <menu>
+            <item
+                android:id="@+id/mi_consultarResultados"
+                android:title="@string/mi_consultarResultados" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/mi_personalizarApp"
+        android:title="@string/mi_personalizarApp">
+        <menu>
+            <item
+                android:id="@+id/mi_administrarSonidos"
+                android:title="@string/mi_administrarSonidos" />
+        </menu>
+    </item>
+</menu>
