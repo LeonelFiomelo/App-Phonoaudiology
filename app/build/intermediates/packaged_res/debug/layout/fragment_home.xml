@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nv_home"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/menu_home" />
-
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
@@ -26,18 +19,18 @@
             <!-- TOOLBAR -->
 
             <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@color/colorPrimary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:navigationIcon="@drawable/ic_menu_home"
-                    app:title="@string/app_name"
-                    app:titleTextColor="@color/white">
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="@string/app_name"
+                app:titleTextColor="@color/white"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-                </androidx.appcompat.widget.Toolbar>
+            </androidx.appcompat.widget.Toolbar>
 
             <ScrollView
                 android:id="@+id/scrollView2"
@@ -108,29 +101,10 @@
                                 android:layout_marginTop="16dp"
                                 android:backgroundTint="@color/color_primary"
                                 android:text="@string/boton_comenzarEntrenamiento"
+                                android:textSize="16sp"
                                 app:layout_constraintLeft_toLeftOf="@+id/tv_consignaEjercicio"
                                 app:layout_constraintRight_toRightOf="@+id/tv_consignaEjercicio"
                                 app:layout_constraintTop_toBottomOf="@+id/tv_consignaEjercicio" />
-
-                            <Button
-                                android:id="@+id/btn_resultadosHistoricos"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Historial"
-                                app:layout_constraintBottom_toBottomOf="@+id/imagen_ejercicio"
-                                app:layout_constraintEnd_toStartOf="@+id/imagen_ejercicio"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/imagen_ejercicio" />
-
-                            <Button
-                                android:id="@+id/btn_administrarSonidos"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sonidos"
-                                app:layout_constraintBottom_toBottomOf="@+id/imagen_ejercicio"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/imagen_ejercicio"
-                                app:layout_constraintTop_toTopOf="@+id/imagen_ejercicio" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -189,19 +163,10 @@
                                 android:layout_marginTop="16dp"
                                 android:backgroundTint="@color/color_primary"
                                 android:text="@string/boton_comenzarEvaluacion"
+                                android:textSize="16sp"
                                 app:layout_constraintLeft_toLeftOf="@id/tv_consignaEvaluacion"
                                 app:layout_constraintRight_toRightOf="@+id/tv_consignaEvaluacion"
                                 app:layout_constraintTop_toBottomOf="@+id/tv_consignaEvaluacion" />
-
-                            <Button
-                                android:id="@+id/btn_test"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Test"
-                                app:layout_constraintBottom_toBottomOf="@+id/imagen_evaluacion"
-                                app:layout_constraintEnd_toStartOf="@+id/imagen_evaluacion"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/imagen_evaluacion" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -215,5 +180,12 @@
 
     </FrameLayout>
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nv_home"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/menu_home"
+        app:headerLayout="@layout/header_navigation_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

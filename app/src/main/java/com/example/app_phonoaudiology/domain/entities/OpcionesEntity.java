@@ -37,11 +37,7 @@ public class OpcionesEntity {
             case Constantes.J_IDENTIFICAR_CINCO_OPCIONES:
                 return 5;
             case Constantes.J_TODA_LA_CATEGORIA:
-                int size = lista.size();
-                if (size > 14) {
-                    size = 14;
-                }
-                return size;
+                return lista.size();
             default:
                 return 0;
         }

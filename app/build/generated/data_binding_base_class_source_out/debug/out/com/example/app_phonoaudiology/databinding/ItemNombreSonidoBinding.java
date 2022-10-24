@@ -20,15 +20,15 @@ public final class ItemNombreSonidoBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ConstraintLayout cvSonidoItem;
+  public final ConstraintLayout clSonidoItem;
 
   @NonNull
   public final TextView tvNombreSonido;
 
   private ItemNombreSonidoBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout cvSonidoItem, @NonNull TextView tvNombreSonido) {
+      @NonNull ConstraintLayout clSonidoItem, @NonNull TextView tvNombreSonido) {
     this.rootView = rootView;
-    this.cvSonidoItem = cvSonidoItem;
+    this.clSonidoItem = clSonidoItem;
     this.tvNombreSonido = tvNombreSonido;
   }
 
@@ -59,7 +59,7 @@ public final class ItemNombreSonidoBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      ConstraintLayout cvSonidoItem = (ConstraintLayout) rootView;
+      ConstraintLayout clSonidoItem = (ConstraintLayout) rootView;
 
       id = R.id.tv_nombreSonido;
       TextView tvNombreSonido = ViewBindings.findChildViewById(rootView, id);
@@ -67,7 +67,7 @@ public final class ItemNombreSonidoBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemNombreSonidoBinding((ConstraintLayout) rootView, cvSonidoItem, tvNombreSonido);
+      return new ItemNombreSonidoBinding((ConstraintLayout) rootView, clSonidoItem, tvNombreSonido);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

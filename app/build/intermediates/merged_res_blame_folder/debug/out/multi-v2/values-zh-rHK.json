@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.app_phonoaudiology.app-mergeDebugResources-45:/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Leone\\.gradle\\caches\\transforms-3\\5d666d306352f7fdca8df50525096bc2\\transformed\\appcompat-1.5.1\\res\\values-zh-rHK\\values-zh-rHK.xml",

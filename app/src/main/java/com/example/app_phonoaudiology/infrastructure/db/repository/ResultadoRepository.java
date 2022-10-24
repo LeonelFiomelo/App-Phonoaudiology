@@ -25,8 +25,6 @@ public class ResultadoRepository {
         SoundDatabase db = SoundDatabase.getInstanceSoundDatabase(application);
         resultadoDao = db.resultadoDao();
         resultados = db.resultadoDao().getAllResultados();
-        errores = db.resultadoDao().getAllErrores();
-        resultadoConErrores = db.resultadoDao().getAllResultadosConErrores();
     }
 
     @WorkerThread
@@ -78,6 +76,7 @@ public class ResultadoRepository {
         @Override
         protected Void doInBackground(ResultadoEntityDB... resultadoDbEntities) {
             resultadoDao.insert(resultadoDbEntities[0]);
+            System.out.println("ID DEL RESULTADO EN LA BASE DE DATOS: " + resultadoDbEntities[0].getId());
             return null;
         }
     }

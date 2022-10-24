@@ -4,10 +4,10 @@
     <!-- STRINGS DEL ACTIVITY MAIN -->
     <string name="titulo_toolbar_main">EscuchAR</string>
     <string name="titulo_ejercitacion">Ejercitación</string>
-    <string name="consigna_ejercitacion">Configure qué categoría desea practicar, el tipo de ejercicio y el ruido. No se le evaluará en esta sección</string>
+    <string name="consigna_ejercitacion">Configure qué categoría desea practicar, el tipo de ejercicio y el ruido. No se le evaluará en esta sección.</string>
     <string name="boton_comenzarEntrenamiento">COMENZAR ENTRENAMIENTO</string>
     <string name="titulo_evaluacion">Evaluación</string>
-    <string name="consigna_evaluacion">Realice una evaluación. Configure qué categoría desea evaluar, seleccione el tipo de ruido y su intensidad. Los resultados serán almacenados para que puede ver su progreso</string>
+    <string name="consigna_evaluacion">Realice una evaluación. Configure qué categoría desea evaluar, seleccione el tipo de ruido y su intensidad. Los resultados serán almacenados para que puede ver su progreso.</string>
     <string name="boton_comenzarEvaluacion">COMENZAR EVALUACIÓN</string>
     <string name="titulo_version">Versión 0.9.2</string>
 
@@ -35,6 +35,8 @@
     <string name="btn_guardar">Guardar</string>
     <string name="btn_continuar">Continuar</string>
     <string name="btn_grabar">Grabar</string>
+    <string name="btn_pausar">Pausar</string>
+    <string name="btn_reproducir">Reproducir</string>
 
     <string name="tv_puntuacion">Puntuación</string>
     <string name="tv_fecha">Fecha</string>
@@ -47,6 +49,7 @@
     <string name="tv_agregarSonido">Agregar sonido</string>
     <string name="tv_nombreDelSonido">Nombre del sonido</string>
     <string name="tv_categoriaDelSonido">Categoria del sonido</string>
+    <string name="tv_grabarNuevoSonido">Grabar nuevo sonido</string>
 
     <string name="mi_seccionProfesional">Seccion Profesional</string>
     <string name="mi_personalizarApp">Personalizar App</string>

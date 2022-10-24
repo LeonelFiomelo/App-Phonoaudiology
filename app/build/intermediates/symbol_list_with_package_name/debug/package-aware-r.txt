@@ -119,6 +119,7 @@ attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
 attr alertDialogTheme
+attr alignmentMode
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
@@ -336,6 +337,8 @@ attr colorSurfaceVariant
 attr colorSwitchThumbNormal
 attr colorTertiary
 attr colorTertiaryContainer
+attr columnCount
+attr columnOrderPreserved
 attr commitIcon
 attr constraintRotate
 attr constraintSet
@@ -645,6 +648,9 @@ attr layout_anchorGravity
 attr layout_behavior
 attr layout_collapseMode
 attr layout_collapseParallaxMultiplier
+attr layout_column
+attr layout_columnSpan
+attr layout_columnWeight
 attr layout_constrainedHeight
 attr layout_constrainedWidth
 attr layout_constraintBaseline_creator
@@ -701,10 +707,14 @@ attr layout_goneMarginLeft
 attr layout_goneMarginRight
 attr layout_goneMarginStart
 attr layout_goneMarginTop
+attr layout_gravity
 attr layout_insetEdge
 attr layout_keyline
 attr layout_marginBaseline
 attr layout_optimizationLevel
+attr layout_row
+attr layout_rowSpan
+attr layout_rowWeight
 attr layout_scrollEffect
 attr layout_scrollFlags
 attr layout_scrollInterpolator
@@ -850,6 +860,7 @@ attr onPositiveCross
 attr onShow
 attr onStateTransition
 attr onTouchUp
+attr orientation
 attr overlapAnchor
 attr overlay
 attr paddingBottomNoButtons
@@ -926,6 +937,8 @@ attr rotationCenterId
 attr round
 attr roundPercent
 attr route
+attr rowCount
+attr rowOrderPreserved
 attr saturation
 attr scaleFromTextSize
 attr scrimAnimationDuration
@@ -1186,6 +1199,7 @@ attr ttcIndex
 attr upDuration
 attr uri
 attr useCompatPadding
+attr useDefaultMargins
 attr useMaterialThemeColors
 attr values
 attr verticalOffset
@@ -1940,6 +1954,7 @@ dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
 dimen def_drawer_elevation
 dimen default_dimension
+dimen default_gap
 dimen design_appbar_elevation
 dimen design_bottom_navigation_active_item_max_width
 dimen design_bottom_navigation_active_item_min_width
@@ -2528,30 +2543,39 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_add
+drawable ic_administrar_sonido
 drawable ic_back
 drawable ic_button_background
+drawable ic_button_grabacion_off_background
+drawable ic_button_grabacion_on_background
 drawable ic_clock_black_24dp
 drawable ic_correct
 drawable ic_item_resultado_background
 drawable ic_keyboard_black_24dp
+drawable ic_logo_background
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
 drawable ic_menu_home
+drawable ic_mic_off
+drawable ic_mic_on
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_nombre_sonido_background
+drawable ic_pause
 drawable ic_play
 drawable ic_play_background
 drawable ic_puntuacion_background
+drawable ic_resultados_historicos
 drawable ic_settings
 drawable ic_wrong
 drawable img_exercise
 drawable img_logo
 drawable img_test
 drawable logo
+drawable logo_background
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
 drawable m3_radiobutton_ripple
@@ -2689,6 +2713,8 @@ id actions
 id activity_chooser_view_content
 id add
 id alertTitle
+id alignBounds
+id alignMargins
 id aligned
 id all
 id allStates
@@ -2717,20 +2743,21 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btn_aceptar
-id btn_administrarSonidos
+id btn_aceptarGrabacion
 id btn_cancelar
+id btn_cancelarGrabacion
 id btn_comenzarEjercicio
 id btn_comenzarEntrenamiento
 id btn_comenzarEvaluacion
 id btn_finalizar
+id btn_grabarGrabacion
 id btn_grabarSonido
 id btn_guardar
 id btn_guardarSonido
 id btn_option
 id btn_play
-id btn_resultadosHistoricos
+id btn_reproducirGrabacion
 id btn_setting
-id btn_test
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2755,6 +2782,7 @@ id chip3
 id chip_group
 id chronometer
 id circle_center
+id cl_sonidoItem
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -2777,7 +2805,6 @@ id currentState
 id custom
 id customPanel
 id cut
-id cv_sonidoItem
 id dataBinding
 id date_picker_actions
 id decelerate
@@ -2860,6 +2887,7 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
+id horizontal
 id horizontal_only
 id icon
 id icon_group
@@ -2871,6 +2899,8 @@ id imagen_ejercicio
 id imagen_evaluacion
 id img_correctas
 id img_incorrectas
+id img_logo
+id img_logoBackground
 id immediateStop
 id included
 id info
@@ -2919,8 +2949,6 @@ id matrix
 id message
 id mi_administrarSonidos
 id mi_consultarResultados
-id mi_personalizarApp
-id mi_seccionProfesional
 id middle
 id mini
 id month_grid
@@ -3121,7 +3149,9 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView2
 id textView3
+id textView5
 id textWatcher
 id text_input_end_icon
 id text_input_error_icon
@@ -3164,11 +3194,13 @@ id tv_ejercicioOutput
 id tv_ejercicioOutput_item
 id tv_ejercicio_item
 id tv_errores
+id tv_escuchar
 id tv_evaluacion
 id tv_fecha
 id tv_fechaOutput
 id tv_fechaOutput_item
 id tv_fecha_item
+id tv_grabar
 id tv_incorrectas
 id tv_intensidad
 id tv_intensidadDelRuido
@@ -3191,6 +3223,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id vertical
 id vertical_only
 id view_offset_helper
 id view_transition
@@ -3303,6 +3336,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout alertdialog_grabar_sonido
 layout alertdialog_settings
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3329,6 +3363,7 @@ layout fragment_home
 layout fragment_resultado
 layout fragment_resultado_detalle
 layout fragment_resultados_historicos
+layout header_navigation_menu
 layout item_nombre_sonido
 layout item_option
 layout item_resultado
@@ -3456,6 +3491,8 @@ string btn_finalizar
 string btn_grabar
 string btn_guardar
 string btn_option
+string btn_pausar
+string btn_reproducir
 string btn_seleccioneLaOpcionQueOyo
 string character_counter_content_description
 string character_counter_overflowed_content_description
@@ -3590,6 +3627,7 @@ string tv_entenamiento
 string tv_errores
 string tv_escribaLoQueOyo
 string tv_fecha
+string tv_grabarNuevoSonido
 string tv_intensidad
 string tv_intensidadDelRuido
 string tv_nombreDelSonido
@@ -4716,6 +4754,8 @@ styleable FragmentContainerView android_name android_tag
 styleable FragmentNavigator android_name
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable GridLayout alignmentMode columnCount columnOrderPreserved orientation rowCount rowOrderPreserved useDefaultMargins
+styleable GridLayout_Layout android_layout_width android_layout_height android_layout_margin android_layout_marginLeft android_layout_marginTop android_layout_marginRight android_layout_marginBottom layout_column layout_columnSpan layout_columnWeight layout_gravity layout_row layout_rowSpan layout_rowWeight
 styleable ImageFilterView altSrc blendSrc brightness contrast crossfade imagePanX imagePanY imageRotate imageZoom overlay round roundPercent saturation warmth
 styleable Insets marginLeftSystemWindowInsets marginRightSystemWindowInsets marginTopSystemWindowInsets paddingBottomSystemWindowInsets paddingLeftSystemWindowInsets paddingRightSystemWindowInsets paddingTopSystemWindowInsets
 styleable KeyAttribute android_alpha android_transformPivotX android_transformPivotY android_translationX android_translationY android_scaleX android_scaleY android_rotation android_rotationX android_rotationY android_translationZ android_elevation curveFit framePosition motionProgress motionTarget transformPivotTarget transitionEasing transitionPathRotate

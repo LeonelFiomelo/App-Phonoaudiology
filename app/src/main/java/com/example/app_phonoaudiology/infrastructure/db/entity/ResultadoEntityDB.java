@@ -1,5 +1,6 @@
 package com.example.app_phonoaudiology.infrastructure.db.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -12,8 +13,9 @@ import java.util.List;
 @Entity(tableName = "resultado_table")
 public class ResultadoEntityDB {
 
+    @NonNull
     @PrimaryKey(autoGenerate = true)
-    private int resultadoId;
+    private long id;
     @ColumnInfo(name = "fecha")
     private String fecha;
     @ColumnInfo(name = "correctas")
@@ -45,8 +47,8 @@ public class ResultadoEntityDB {
         this.intensidad = intensidad;
     }
 
-    public int getResultadoId() {
-        return resultadoId;
+    public long getId() {
+        return id;
     }
     public String getFecha() {
         return fecha;
@@ -72,8 +74,8 @@ public class ResultadoEntityDB {
         return intensidad;
     }
 
-    public void setResultadoId(int resultadoId) {
-        this.resultadoId = resultadoId;
+    public void setId(long resultadoId) {
+        this.id = resultadoId;
     }
     public void setFecha(String fecha) {
         this.fecha = fecha;

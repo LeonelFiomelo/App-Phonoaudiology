@@ -29,8 +29,6 @@ public class AdministrarSonidosFragment extends Fragment {
     private FragmentAdministrarSonidosBinding binding;
     private AdministrarSonidosViewModel viewModel;
     private NavController navController;
-    private ItemTouchHelper.SimpleCallback simpleCallback;
-    private ItemTouchHelper itemTouchHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,13 +64,12 @@ public class AdministrarSonidosFragment extends Fragment {
         });
 
         viewModel.getSonidos().observe((LifecycleOwner) requireContext(), sounds -> {
-            List<SoundEntity> lista = sounds;
-            SonidosAdapter sonidosAdapter = new SonidosAdapter(lista);
-            for (int i=0; i<lista.size(); i++) {
-                System.out.println(lista.get(i).getNombre_sonido());
+            viewModel.onStart(requireContext(), sounds);
+            viewModel.setSwipe(requireActivity(), binding.rvAdministrarSonidos, viewModel.getSonidosAdapter(), sounds, getView());
+            binding.rvAdministrarSonidos.setAdapter(viewModel.getSonidosAdapter());
+            for (int i=0; i<sounds.size(); i++) {
+                System.out.println(sounds.get(i).getNombre_sonido());
             }
-            viewModel.setSwipe(requireActivity(), binding.rvAdministrarSonidos, sonidosAdapter, lista, getView());
-            binding.rvAdministrarSonidos.setAdapter(sonidosAdapter);
         });
 
     }

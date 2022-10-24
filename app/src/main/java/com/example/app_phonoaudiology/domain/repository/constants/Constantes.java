@@ -73,7 +73,23 @@ public class Constantes {
     public static final String[] SUBCATEGORIAS_PALABRAS = {SELECCIONE_UNA, DIAS_SEMANA, NUMEROS, COLORES, MESES};
     public static final String[] SUBCATEGORIAS_ORACIONES = {SELECCIONE_UNA, DIAS_SEMANA, NUMEROS};
 
-    public static final String[] FILTRO_PRACTICA = {TODAS, DIAS_SEMANA, NUMEROS, COLORES, ANIMALES, NOMBRES, ROPA, COMIDA, LUGARES, MESES, ORACIONES, VOCES_FAMILIARES, ESTILOS_MUSICALES, CANCIONES, INSTRUMENTOS, RUIDO};
+    public static final String[] FILTRO_PRACTICA = {
+            TODAS,
+            DIAS_SEMANA,
+            NUMEROS,
+            COLORES,
+            ANIMALES,
+            NOMBRES,
+            ROPA,
+            COMIDA,
+            LUGARES,
+            MESES,
+            ORACIONES,
+            VOCES_FAMILIARES,
+            ESTILOS_MUSICALES,
+            CANCIONES,
+            INSTRUMENTOS,
+            RUIDO};
 
     public static final String EJERCITACION = "Ejercitación";
     public static final String EVALUACION = "Evaluación";

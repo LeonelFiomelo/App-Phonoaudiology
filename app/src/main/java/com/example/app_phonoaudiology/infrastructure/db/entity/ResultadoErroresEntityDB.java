@@ -10,8 +10,8 @@ public class ResultadoErroresEntityDB {
 
     @Embedded public ResultadoEntityDB resultadoEntityDB;
     @Relation(
-            parentColumn = "resultadoId",
-            entityColumn = "resultadoRelacionId"
+            parentColumn = "id",
+            entityColumn = "resultado_id"
     )
     public List<ErrorEntityDB> errores;
 

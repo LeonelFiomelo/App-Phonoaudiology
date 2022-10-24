@@ -8,7 +8,8 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="32" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" >
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
         <activity
             android:name="com.example.app_phonoaudiology.infrastructure.ui.view.MainActivity"
             android:exported="true" >

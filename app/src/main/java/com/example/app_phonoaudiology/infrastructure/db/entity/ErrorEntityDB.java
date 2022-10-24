@@ -8,16 +8,16 @@ import androidx.room.PrimaryKey;
 @Entity (tableName = "error_table",
         foreignKeys = @ForeignKey(
                 entity = ResultadoEntityDB.class,
-                parentColumns = "resultadoId",
-                childColumns = "resultadoRelacionId"
+                parentColumns = "id",
+                childColumns = "resultado_id"
         )
 )
 public class ErrorEntityDB {
 
     @PrimaryKey(autoGenerate = true)
-    private int errorId;
-    @ColumnInfo(name = "resultadoRelacionId")
-    private int resultadoRelacionId;
+    private long id;
+    @ColumnInfo(name = "resultado_id")
+    private int resultadoId;
     @ColumnInfo(name = "estimulo")
     private String estimulo;
     @ColumnInfo(name = "primeraRespuesta")
@@ -26,23 +26,19 @@ public class ErrorEntityDB {
     private String segundaRespuesta;
 
     public ErrorEntityDB() {
-//        this.resultadoRelacionId = resultadoRelacionId;
-//        this.estimulo = estimulo;
-//        this.primeraRespuesta = primeraRespuesta;
-//        this.segundaRespuesta = segundaRespuesta;
     }
 
-    public void setErrorId(int errorId) {
-        this.errorId = errorId;
+    public void setId(long id) {
+        this.id = id;
     }
-    public int getErrorId() { return errorId; }
+    public long getId() { return id; }
 
-    public int getResultadoRelacionId() {
-        return resultadoRelacionId;
+    public int getResultadoId() {
+        return resultadoId;
     }
 
-    public void setResultadoRelacionId(int resultadoRelacionId) {
-        this.resultadoRelacionId = resultadoRelacionId;
+    public void setResultadoId(int resultadoRelacionId) {
+        this.resultadoId = resultadoRelacionId;
     }
 
     public String getEstimulo() {

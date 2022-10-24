@@ -11,8 +11,10 @@ import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import com.example.app_phonoaudiology.infrastructure.db.entity.SoundEntity;
+import java.lang.Boolean;
 import java.lang.Class;
 import java.lang.Exception;
+import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -36,7 +38,7 @@ public final class SoundDao_Impl implements SoundDao {
     this.__insertionAdapterOfSoundEntity = new EntityInsertionAdapter<SoundEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `sound_table` (`id`,`nombre_sonido`,`categoria_sonido`,`ruta_sonido`,`personalizado`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR ABORT INTO `sound_table` (`id`,`nombre_sonido`,`categoria_sonido`,`ruta_sonido`,`personalizado`,`cache`) VALUES (nullif(?, 0),?,?,?,?,?)";
       }
 
       @Override
@@ -61,6 +63,12 @@ public final class SoundDao_Impl implements SoundDao {
           stmt.bindNull(5);
         } else {
           stmt.bindString(5, value.getPersonalizado());
+        }
+        final Integer _tmp = value.getCache() == null ? null : (value.getCache() ? 1 : 0);
+        if (_tmp == null) {
+          stmt.bindNull(6);
+        } else {
+          stmt.bindLong(6, _tmp);
         }
       }
     };
@@ -136,6 +144,7 @@ public final class SoundDao_Impl implements SoundDao {
           final int _cursorIndexOfCategoriaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria_sonido");
           final int _cursorIndexOfRutaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruta_sonido");
           final int _cursorIndexOfPersonalizado = CursorUtil.getColumnIndexOrThrow(_cursor, "personalizado");
+          final int _cursorIndexOfCache = CursorUtil.getColumnIndexOrThrow(_cursor, "cache");
           final List<SoundEntity> _result = new ArrayList<SoundEntity>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final SoundEntity _item;
@@ -163,7 +172,15 @@ public final class SoundDao_Impl implements SoundDao {
             } else {
               _tmpPersonalizado = _cursor.getString(_cursorIndexOfPersonalizado);
             }
-            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado);
+            final Boolean _tmpCache;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfCache)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfCache);
+            }
+            _tmpCache = _tmp == null ? null : _tmp != 0;
+            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado,_tmpCache);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             _item.setId(_tmpId);
@@ -196,6 +213,7 @@ public final class SoundDao_Impl implements SoundDao {
           final int _cursorIndexOfCategoriaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria_sonido");
           final int _cursorIndexOfRutaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruta_sonido");
           final int _cursorIndexOfPersonalizado = CursorUtil.getColumnIndexOrThrow(_cursor, "personalizado");
+          final int _cursorIndexOfCache = CursorUtil.getColumnIndexOrThrow(_cursor, "cache");
           final List<SoundEntity> _result = new ArrayList<SoundEntity>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final SoundEntity _item;
@@ -223,7 +241,15 @@ public final class SoundDao_Impl implements SoundDao {
             } else {
               _tmpPersonalizado = _cursor.getString(_cursorIndexOfPersonalizado);
             }
-            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado);
+            final Boolean _tmpCache;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfCache)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfCache);
+            }
+            _tmpCache = _tmp == null ? null : _tmp != 0;
+            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado,_tmpCache);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             _item.setId(_tmpId);
@@ -256,6 +282,7 @@ public final class SoundDao_Impl implements SoundDao {
           final int _cursorIndexOfCategoriaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria_sonido");
           final int _cursorIndexOfRutaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruta_sonido");
           final int _cursorIndexOfPersonalizado = CursorUtil.getColumnIndexOrThrow(_cursor, "personalizado");
+          final int _cursorIndexOfCache = CursorUtil.getColumnIndexOrThrow(_cursor, "cache");
           final List<SoundEntity> _result = new ArrayList<SoundEntity>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final SoundEntity _item;
@@ -283,7 +310,15 @@ public final class SoundDao_Impl implements SoundDao {
             } else {
               _tmpPersonalizado = _cursor.getString(_cursorIndexOfPersonalizado);
             }
-            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado);
+            final Boolean _tmpCache;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfCache)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfCache);
+            }
+            _tmpCache = _tmp == null ? null : _tmp != 0;
+            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado,_tmpCache);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             _item.setId(_tmpId);
@@ -316,6 +351,7 @@ public final class SoundDao_Impl implements SoundDao {
           final int _cursorIndexOfCategoriaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria_sonido");
           final int _cursorIndexOfRutaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruta_sonido");
           final int _cursorIndexOfPersonalizado = CursorUtil.getColumnIndexOrThrow(_cursor, "personalizado");
+          final int _cursorIndexOfCache = CursorUtil.getColumnIndexOrThrow(_cursor, "cache");
           final List<SoundEntity> _result = new ArrayList<SoundEntity>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final SoundEntity _item;
@@ -343,7 +379,15 @@ public final class SoundDao_Impl implements SoundDao {
             } else {
               _tmpPersonalizado = _cursor.getString(_cursorIndexOfPersonalizado);
             }
-            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado);
+            final Boolean _tmpCache;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfCache)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfCache);
+            }
+            _tmpCache = _tmp == null ? null : _tmp != 0;
+            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado,_tmpCache);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             _item.setId(_tmpId);
@@ -376,6 +420,7 @@ public final class SoundDao_Impl implements SoundDao {
           final int _cursorIndexOfCategoriaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria_sonido");
           final int _cursorIndexOfRutaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruta_sonido");
           final int _cursorIndexOfPersonalizado = CursorUtil.getColumnIndexOrThrow(_cursor, "personalizado");
+          final int _cursorIndexOfCache = CursorUtil.getColumnIndexOrThrow(_cursor, "cache");
           final List<SoundEntity> _result = new ArrayList<SoundEntity>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final SoundEntity _item;
@@ -403,7 +448,15 @@ public final class SoundDao_Impl implements SoundDao {
             } else {
               _tmpPersonalizado = _cursor.getString(_cursorIndexOfPersonalizado);
             }
-            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado);
+            final Boolean _tmpCache;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfCache)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfCache);
+            }
+            _tmpCache = _tmp == null ? null : _tmp != 0;
+            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado,_tmpCache);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             _item.setId(_tmpId);
@@ -436,6 +489,7 @@ public final class SoundDao_Impl implements SoundDao {
           final int _cursorIndexOfCategoriaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria_sonido");
           final int _cursorIndexOfRutaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruta_sonido");
           final int _cursorIndexOfPersonalizado = CursorUtil.getColumnIndexOrThrow(_cursor, "personalizado");
+          final int _cursorIndexOfCache = CursorUtil.getColumnIndexOrThrow(_cursor, "cache");
           final List<SoundEntity> _result = new ArrayList<SoundEntity>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final SoundEntity _item;
@@ -463,7 +517,15 @@ public final class SoundDao_Impl implements SoundDao {
             } else {
               _tmpPersonalizado = _cursor.getString(_cursorIndexOfPersonalizado);
             }
-            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado);
+            final Boolean _tmpCache;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfCache)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfCache);
+            }
+            _tmpCache = _tmp == null ? null : _tmp != 0;
+            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado,_tmpCache);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             _item.setId(_tmpId);
@@ -496,6 +558,7 @@ public final class SoundDao_Impl implements SoundDao {
           final int _cursorIndexOfCategoriaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria_sonido");
           final int _cursorIndexOfRutaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruta_sonido");
           final int _cursorIndexOfPersonalizado = CursorUtil.getColumnIndexOrThrow(_cursor, "personalizado");
+          final int _cursorIndexOfCache = CursorUtil.getColumnIndexOrThrow(_cursor, "cache");
           final List<SoundEntity> _result = new ArrayList<SoundEntity>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final SoundEntity _item;
@@ -523,7 +586,15 @@ public final class SoundDao_Impl implements SoundDao {
             } else {
               _tmpPersonalizado = _cursor.getString(_cursorIndexOfPersonalizado);
             }
-            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado);
+            final Boolean _tmpCache;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfCache)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfCache);
+            }
+            _tmpCache = _tmp == null ? null : _tmp != 0;
+            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado,_tmpCache);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             _item.setId(_tmpId);
@@ -562,6 +633,7 @@ public final class SoundDao_Impl implements SoundDao {
           final int _cursorIndexOfCategoriaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria_sonido");
           final int _cursorIndexOfRutaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruta_sonido");
           final int _cursorIndexOfPersonalizado = CursorUtil.getColumnIndexOrThrow(_cursor, "personalizado");
+          final int _cursorIndexOfCache = CursorUtil.getColumnIndexOrThrow(_cursor, "cache");
           final List<SoundEntity> _result = new ArrayList<SoundEntity>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final SoundEntity _item;
@@ -589,7 +661,15 @@ public final class SoundDao_Impl implements SoundDao {
             } else {
               _tmpPersonalizado = _cursor.getString(_cursorIndexOfPersonalizado);
             }
-            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado);
+            final Boolean _tmpCache;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfCache)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfCache);
+            }
+            _tmpCache = _tmp == null ? null : _tmp != 0;
+            _item = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado,_tmpCache);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             _item.setId(_tmpId);
@@ -628,6 +708,7 @@ public final class SoundDao_Impl implements SoundDao {
           final int _cursorIndexOfCategoriaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria_sonido");
           final int _cursorIndexOfRutaSonido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruta_sonido");
           final int _cursorIndexOfPersonalizado = CursorUtil.getColumnIndexOrThrow(_cursor, "personalizado");
+          final int _cursorIndexOfCache = CursorUtil.getColumnIndexOrThrow(_cursor, "cache");
           final SoundEntity _result;
           if(_cursor.moveToFirst()) {
             final String _tmpNombre_sonido;
@@ -654,7 +735,15 @@ public final class SoundDao_Impl implements SoundDao {
             } else {
               _tmpPersonalizado = _cursor.getString(_cursorIndexOfPersonalizado);
             }
-            _result = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado);
+            final Boolean _tmpCache;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfCache)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfCache);
+            }
+            _tmpCache = _tmp == null ? null : _tmp != 0;
+            _result = new SoundEntity(_tmpNombre_sonido,_tmpCategoria_sonido,_tmpRuta_sonido,_tmpPersonalizado,_tmpCache);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
             _result.setId(_tmpId);

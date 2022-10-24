@@ -32,14 +32,14 @@ public interface ResultadoDao {
     @Query("DELETE FROM resultado_table")
     void deleteAllResultados();
 
-    @Query("SELECT * FROM resultado_table ORDER BY resultadoId DESC")
+    @Query("SELECT * FROM resultado_table ORDER BY id DESC")
     LiveData<List<ResultadoEntityDB>> getAllResultados();
 
-    @Query("SELECT * FROM error_table ORDER BY errorId DESC")
+    @Query("SELECT * FROM error_table ORDER BY id DESC")
     LiveData<List<ErrorEntityDB>> getAllErrores();
 
     @Transaction
-    @Query("SELECT * FROM resultado_table ORDER BY resultadoId DESC")
+    @Query("SELECT * FROM resultado_table")
     LiveData<List<ResultadoErroresEntityDB>> getAllResultadosConErrores();
 
 }

@@ -92,6 +92,7 @@
             android:background="@drawable/ic_play_background"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_play"
+            android:tint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_setting" />
@@ -103,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/tv_escribaLoQueOyo"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_play" />
@@ -128,6 +129,7 @@
             android:layout_marginBottom="32dp"
             android:backgroundTint="@color/colorPrimary"
             android:text="@string/btn_aceptar"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/et_completar"
             app:layout_constraintStart_toStartOf="@+id/et_completar" />

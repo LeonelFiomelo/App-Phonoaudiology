@@ -9,6 +9,7 @@ import com.example.app_phonoaudiology.infrastructure.db.SoundDatabase;
 import com.example.app_phonoaudiology.infrastructure.db.dao.SoundDao;
 import com.example.app_phonoaudiology.infrastructure.db.entity.SoundEntity;
 
+import java.io.IOException;
 import java.util.List;
 
 public class SoundRepository {
@@ -76,7 +77,7 @@ public class SoundRepository {
     }
 
     public void agregarSonido(SoundEntity sound) {
-        new agregarSonidoAsynkTask(soundDao).execute();
+        new agregarSonidoAsynkTask(soundDao).execute(sound);
     }
 
     public void eliminarSonido(SoundEntity sound) {
@@ -104,7 +105,11 @@ public class SoundRepository {
         }
         @Override
         protected Void doInBackground(SoundEntity... soundEntities) {
-            soundDao.eliminarSonido(soundEntities[0]);
+            try {
+                soundDao.eliminarSonido(soundEntities[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             return null;
         }
     }

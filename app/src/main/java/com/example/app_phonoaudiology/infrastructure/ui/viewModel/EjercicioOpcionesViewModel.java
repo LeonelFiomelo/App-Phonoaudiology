@@ -95,18 +95,19 @@ public class EjercicioOpcionesViewModel extends ViewModel {
     }
 
     public void vmFinish(Bundle reporteBundle) {
-//        ResultadoEntityDB resultadoEntityDB = new ResultadoEntityDB(
-//                GeneralUtils.getFechaFormateada(),
-//                puntuacionEntity.getCorrectas(),
-//                puntuacionEntity.getIntentos(),
-//                configuracionEntity.getCategoria(),
-//                configuracionEntity.getSubcategoria(),
-//                configuracionEntity.getEjercicio(),
-//                configuracionEntity.getRuido(),
-//                configuracionEntity.getTipoRuido(),
-//                configuracionEntity.getIntensidad()
-//        );
-//        resultadoRepository.agregarResultado(resultadoEntityDB);
+        ResultadoEntityDB resultadoEntityDB = new ResultadoEntityDB(
+                GeneralUtils.getFechaFormateada(),
+                puntuacionEntity.getCorrectas(),
+                puntuacionEntity.get_Intentos(),
+                configuracionEntity.getCategoria(),
+                configuracionEntity.getSubcategoria(),
+                configuracionEntity.getEjercicio(),
+                configuracionEntity.getRuido(),
+                configuracionEntity.getTipoRuido(),
+                configuracionEntity.getIntensidad()
+        );
+        System.out.println("ID DEL RESULTADO: " + resultadoEntityDB.getId());
+        resultadoRepository.agregarResultado(resultadoEntityDB);
 //        for(int i=0; i<listaDeErrores.size(); i++) {
 //            resultadoRepository.agregarError(listaDeErrores.get(i));
 //        }

@@ -25,8 +25,12 @@ public class SoundController implements MediaPlayer.OnCompletionListener {
         AssetFileDescriptor afd = null;
         MediaPlayer mp = new MediaPlayer();
         try {
-            afd = context.getAssets().openFd(sound.getRuta_sonido());
-            mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+            if (sound.getCache()) {
+                mp.setDataSource(sound.getRuta_sonido());
+            } else {
+                afd = context.getAssets().openFd(sound.getRuta_sonido());
+                mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+            }
             mp.prepare();
         } catch (IOException e) {
             e.printStackTrace();
@@ -47,8 +51,12 @@ public class SoundController implements MediaPlayer.OnCompletionListener {
         MediaPlayer mpOpcion = new MediaPlayer();
         MediaPlayer mpRuido = new MediaPlayer();
         try{
-            afdOpcion = context.getAssets().openFd(sound.getRuta_sonido());
-            mpOpcion.setDataSource(afdOpcion.getFileDescriptor(), afdOpcion.getStartOffset(), afdOpcion.getLength());
+            if (sound.getCache()) {
+                mpOpcion.setDataSource(sound.getRuta_sonido());
+            } else {
+                afdOpcion = context.getAssets().openFd(sound.getRuta_sonido());
+                mpOpcion.setDataSource(afdOpcion.getFileDescriptor(), afdOpcion.getStartOffset(), afdOpcion.getLength());
+            }
             mpOpcion.prepare();
         } catch (IOException e) {
             e.printStackTrace();
@@ -84,8 +92,12 @@ public class SoundController implements MediaPlayer.OnCompletionListener {
 
         // SONIDO
         try {
-            afdSonido = context.getAssets().openFd(sound.getRuta_sonido());
-            mpSonido.setDataSource(afdSonido.getFileDescriptor(), afdSonido.getStartOffset(), afdSonido.getLength());
+            if (sound.getCache()) {
+                mpSonido.setDataSource(sound.getRuta_sonido());
+            } else {
+                afdSonido = context.getAssets().openFd(sound.getRuta_sonido());
+                mpSonido.setDataSource(afdSonido.getFileDescriptor(), afdSonido.getStartOffset(), afdSonido.getLength());
+            }
             mpSonido.prepare();
         } catch (IOException e) {
             e.printStackTrace();
@@ -194,8 +206,12 @@ public class SoundController implements MediaPlayer.OnCompletionListener {
 
         // SONIDO
         try {
-            afdSonido = context.getAssets().openFd(sound.getRuta_sonido());
-            mpSonido.setDataSource(afdSonido.getFileDescriptor(), afdSonido.getStartOffset(), afdSonido.getLength());
+            if (sound.getCache()) {
+                mpSonido.setDataSource(sound.getRuta_sonido());
+            } else {
+                afdSonido = context.getAssets().openFd(sound.getRuta_sonido());
+                mpSonido.setDataSource(afdSonido.getFileDescriptor(), afdSonido.getStartOffset(), afdSonido.getLength());
+            }
             mpSonido.prepare();
         } catch (IOException e) {
             e.printStackTrace();

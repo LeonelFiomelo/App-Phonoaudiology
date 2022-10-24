@@ -1,226 +1,266 @@
 [
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_add.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_add.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_mic_on.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_mic_on.xml"
     },
     {
-        "merged": "com.example.app_phonoaudiology.app-merged_res-47:/layout_fragment_administrar_sonidos.xml.flat",
-        "source": "com.example.app_phonoaudiology.app-main-49:/layout/fragment_administrar_sonidos.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/raw_correct_answer.mp3.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/raw/correct_answer.mp3"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\activity_main.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_play_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_play_background.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-mdpi_ic_launcher_logo_round.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-mdpi\\ic_launcher_logo_round.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-anydpi-v26_ic_launcher_logo_round.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-anydpi-v26/ic_launcher_logo_round.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-xxhdpi_ic_launcher_logo.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-xxhdpi\\ic_launcher_logo.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xxxhdpi_ic_launcher_logo.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xxxhdpi/ic_launcher_logo.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_item_option.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\item_option.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xhdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xhdpi/ic_launcher_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_fragment_agregar_sonido.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_agregar_sonido.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xxhdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xxhdpi/ic_launcher_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-hdpi_ic_launcher_logo.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-hdpi\\ic_launcher_logo.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_alertdialog_grabar_sonido.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/alertdialog_grabar_sonido.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\navigation_nav_graph.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\navigation\\nav_graph.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_configuracion.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_configuracion.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_fragment_resultado_detalle.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_resultado_detalle.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-mdpi_ic_launcher_logo_round.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-mdpi/ic_launcher_logo_round.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_logo.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\logo.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_mic_off.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_mic_off.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-xhdpi_ic_launcher_logo_round.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-xhdpi\\ic_launcher_logo_round.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_item_option.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/item_option.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-anydpi-v26_ic_launcher_logo.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-anydpi-v26\\ic_launcher_logo.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xxxhdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xxxhdpi/ic_launcher_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_puntuacion_background.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_puntuacion_background.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_play.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_play.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-xxxhdpi_ic_launcher_logo_round.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-xxxhdpi\\ic_launcher_logo_round.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_logo.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/logo.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-xxhdpi_ic_launcher_logo_foreground.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-xxhdpi\\ic_launcher_logo_foreground.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_logo_background.jpg.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/logo_background.jpg"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_img_logo.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\img_logo.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-hdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-hdpi/ic_launcher_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_alertdialog_settings.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\alertdialog_settings.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_img_logo.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/img_logo.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-xhdpi_ic_launcher_logo_foreground.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-xhdpi\\ic_launcher_logo_foreground.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/anim_shake_animation.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/anim/shake_animation.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\anim_bounce.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\anim\\bounce.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_resultados_historicos.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_resultados_historicos.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-xhdpi_ic_launcher_logo.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-xhdpi\\ic_launcher_logo.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-mdpi_ic_launcher_logo.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-mdpi/ic_launcher_logo.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_fragment_ejercicio_opciones.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_ejercicio_opciones.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_puntuacion_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_puntuacion_background.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_fragment_ejercicio_escribir.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_ejercicio_escribir.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_back.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_back.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_play_background.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_play_background.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable-v24_img_test.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable-v24/img_test.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_correct.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_correct.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_menu_home.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_menu_home.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_menu_home.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_menu_home.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_administrar_sonidos.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_administrar_sonidos.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_item_resultado.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\item_resultado.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xxhdpi_ic_launcher_logo.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xxhdpi/ic_launcher_logo.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-hdpi_ic_launcher_logo_round.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-hdpi\\ic_launcher_logo_round.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xhdpi_ic_launcher_logo.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xhdpi/ic_launcher_logo.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-mdpi_ic_launcher_logo_foreground.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-mdpi\\ic_launcher_logo_foreground.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_item_resultado.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/item_resultado.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\anim_shake_animation.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\anim\\shake_animation.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_add.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_add.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-xxhdpi_ic_launcher_logo_round.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-xxhdpi\\ic_launcher_logo_round.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-mdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-mdpi/ic_launcher_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_item_resultado_background.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_item_resultado_background.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_header_navigation_menu.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/header_navigation_menu.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\xml\\backup_rules.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_item_nombre_sonido.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/item_nombre_sonido.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable-v24_img_test.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable-v24\\img_test.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xhdpi_ic_launcher_logo_round.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xhdpi/ic_launcher_logo_round.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable-v24_img_exercise.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable-v24\\img_exercise.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_ejercicio_opciones.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_ejercicio_opciones.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\xml\\data_extraction_rules.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable-v24_img_exercise.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable-v24/img_exercise.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_fragment_resultado.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_resultado.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_item_nombre_sonido.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\item_nombre_sonido.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_logo_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_logo_background.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-mdpi_ic_launcher_logo.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-mdpi\\ic_launcher_logo.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_home.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_back.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_back.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_button_grabacion_off_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_button_grabacion_off_background.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-hdpi_ic_launcher_logo_foreground.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-hdpi\\ic_launcher_logo_foreground.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-hdpi_ic_launcher_logo.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-hdpi/ic_launcher_logo.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-xxxhdpi_ic_launcher_logo_foreground.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-xxxhdpi\\ic_launcher_logo_foreground.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/xml_backup_rules.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-anydpi-v26_ic_launcher_logo_round.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-anydpi-v26\\ic_launcher_logo_round.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/raw_incorrect_answer.mp3.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/raw/incorrect_answer.mp3"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\raw_correct_answer.mp3.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\raw\\correct_answer.mp3"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xxxhdpi_ic_launcher_logo_round.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xxxhdpi/ic_launcher_logo_round.png"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\raw_incorrect_answer.mp3.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\raw\\incorrect_answer.mp3"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_alertdialog_settings.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/alertdialog_settings.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_fragment_administrar_sonidos.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_administrar_sonidos.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_item_resultado_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_item_resultado_background.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_wrong.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_wrong.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_agregar_sonido.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_agregar_sonido.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_fragment_resultados_historicos.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_resultados_historicos.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_ejercicio_escribir.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_ejercicio_escribir.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_play.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_play.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_administrar_sonido.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_administrar_sonido.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_fragment_configuracion.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_configuracion.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/navigation_nav_graph.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/navigation/nav_graph.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\menu_menu_home.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\menu\\menu_home.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_resultados_historicos.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_resultados_historicos.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_nombre_sonido_background.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_nombre_sonido_background.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_settings.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_settings.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_button_background.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_button_background.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_correct.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_correct.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\mipmap-xxxhdpi_ic_launcher_logo.png.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\mipmap-xxxhdpi\\ic_launcher_logo.png"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_wrong.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_wrong.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\layout_fragment_home.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\layout\\fragment_home.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_pause.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_pause.xml"
     },
     {
-        "merged": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-merged_res-47:\\drawable_ic_settings.xml.flat",
-        "source": "C:\\Users\\Leone\\.gradle\\daemon\\7.3.3\\com.example.app_phonoaudiology.app-main-49:\\drawable\\ic_settings.xml"
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_nombre_sonido_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_nombre_sonido_background.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-anydpi-v26_ic_launcher_logo.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-anydpi-v26/ic_launcher_logo.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_activity_main.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/anim_bounce.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/anim/bounce.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_button_grabacion_on_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_button_grabacion_on_background.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-hdpi_ic_launcher_logo_round.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-hdpi/ic_launcher_logo_round.png"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xxhdpi_ic_launcher_logo_round.png.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xxhdpi/ic_launcher_logo_round.png"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_resultado_detalle.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_resultado_detalle.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_resultado.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_resultado.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_button_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_button_background.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/menu_menu_home.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/menu/menu_home.xml"
     }
 ]

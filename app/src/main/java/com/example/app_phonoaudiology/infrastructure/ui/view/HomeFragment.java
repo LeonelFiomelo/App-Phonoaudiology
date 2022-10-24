@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.MenuHost;
 import androidx.core.view.MenuProvider;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -34,6 +35,10 @@ import com.example.app_phonoaudiology.infrastructure.ui.viewModel.HomeViewModel;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {
@@ -42,8 +47,13 @@ public class HomeFragment extends Fragment {
     private HomeViewModel viewModel;
     private Bundle bundle;
     private SoundRepository soundRepository;
-    private ActionBarDrawerToggle toogle;
+
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
     private Toolbar toolbar;
+    private ActionBarDrawerToggle toogle;
+
+    private Boolean carpetaSonido;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,36 +77,32 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final NavController navController = Navigation.findNavController(view);
 
-//        viewModel.borrarSoundRepository(getActivity().getApplication());
-//        viewModel.borrarResultadoRepository(getActivity().getApplication());
-
-        // CONFIGURACION DEL TOOLBAR
-
-//        toogle = new ActionBarDrawerToggle((Activity) getContext(), binding.drawerLayout, R.string.open, R.string.close);
-//        binding.drawerLayout.addDrawerListener(toogle);
-//        toogle.syncState();
-
-        binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.drawerLayout.open();
-            }
-        });
+        toogle = new ActionBarDrawerToggle(
+                requireActivity(),
+                binding.drawerLayout,
+                binding.toolbar,
+                R.string.open,
+                R.string.close
+        );
+        binding.drawerLayout.addDrawerListener(toogle);
+        toogle.syncState();
 
         binding.nvHome.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case (R.id.mi_consultarResultados):
-                        System.out.printf("Consultar resultados");
+                        System.out.println("Consultar resultados");
                         binding.drawerLayout.closeDrawer(GravityCompat.START);
+                        navController.navigate(R.id.ResultadosHistoricosFragment);
                         break;
                     case (R.id.mi_administrarSonidos):
-                        System.out.printf("Administrar sonidos");
+                        System.out.println("Administrar sonidos");
                         binding.drawerLayout.closeDrawer(GravityCompat.START);
+                        navController.navigate(R.id.AdministrarSonidosFragment);
                         break;
                 }
-                return false;
+                return true;
             }
         });
 
@@ -118,19 +124,33 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        binding.btnResultadosHistoricos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.ResultadosHistoricosFragment);
-            }
-        });
+        String[] carpetas = requireContext().getFilesDir().getAbsoluteFile().list();
 
-        binding.btnAdministrarSonidos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.AdministrarSonidosFragment);
+        for (int i=0; i<carpetas.length; i++) {
+            if (carpetas[i].contains("sonido")) {
+                carpetaSonido = true;
+            } else {
+                carpetaSonido = false;
             }
-        });
+        }
+
+        if (!carpetaSonido) {
+            File directory = requireContext().getFilesDir();
+            File nuevaCarpeta = new File(directory, "sonido");
+            nuevaCarpeta.mkdirs();
+        } else {
+            System.out.println("CARPETA DE SONIDO YA CREADA");
+        }
+
+//        System.out.println(requireContext().getFilesDir());
+
+//        System.out.println("PATH: " + rutas.contains("sonido"));
+        System.out.println("ABSOLUTE PATH: " + requireContext().getFilesDir().getAbsoluteFile());
+
+//        File directory = requireContext().getFilesDir();
+//        File file = new File(directory, "sonido");
+//        System.out.println("DIRECTORIO: " + directory);
+//        System.out.println("DIRECTORIO DOS: " + file);
 
     }
 

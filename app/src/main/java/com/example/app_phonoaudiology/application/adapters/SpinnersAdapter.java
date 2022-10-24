@@ -37,4 +37,10 @@ public class SpinnersAdapter {
         return ruidoAdapter;
     }
 
+    // RETORNA UN ADAPTER CATEGORIA DEL SONIDO
+    public static ArrayAdapter<String> getCategoriaSonidoAdapter(Context context) {
+        ArrayAdapter<String> categoriaSonidoAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Constantes.FILTRO_PRACTICA);
+        return categoriaSonidoAdapter;
+    }
+
 }

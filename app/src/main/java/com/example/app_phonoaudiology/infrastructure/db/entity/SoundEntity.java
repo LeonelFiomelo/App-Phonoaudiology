@@ -1,5 +1,6 @@
 package com.example.app_phonoaudiology.infrastructure.db.entity;
 
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -17,12 +18,15 @@ public class SoundEntity {
     private String ruta_sonido;
     @ColumnInfo(name = "personalizado")
     private String personalizado;
+    @ColumnInfo(name = "cache")
+    private Boolean cache;
 
-    public SoundEntity(String nombre_sonido, String categoria_sonido, String ruta_sonido, String personalizado) {
+    public SoundEntity(String nombre_sonido, String categoria_sonido, String ruta_sonido, String personalizado, @Nullable Boolean cache) {
         this.nombre_sonido = nombre_sonido;
         this.categoria_sonido = categoria_sonido;
         this.ruta_sonido = ruta_sonido;
         this.personalizado = personalizado;
+        this.cache = cache;
     }
 
     public void setId(int id) { this.id = id; }
@@ -31,5 +35,6 @@ public class SoundEntity {
     public String getCategoria_sonido() { return categoria_sonido; }
     public String getRuta_sonido() { return ruta_sonido; }
     public String getPersonalizado() { return personalizado; }
+    public Boolean getCache() { return cache; }
 
 }

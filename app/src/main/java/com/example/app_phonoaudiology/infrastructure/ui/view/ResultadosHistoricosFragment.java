@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.app_phonoaudiology.application.adapters.ResultadosAdapter;
 import com.example.app_phonoaudiology.databinding.FragmentResultadosHistoricosBinding;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ResultadoEntityDB;
 import com.example.app_phonoaudiology.infrastructure.db.repository.ResultadoRepository;
@@ -31,7 +32,6 @@ public class ResultadosHistoricosFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        resultadoRepository = new ResultadoRepository(requireActivity().getApplication());
     }
 
     @Override
@@ -46,9 +46,14 @@ public class ResultadosHistoricosFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
+        resultadoRepository = new ResultadoRepository(requireActivity().getApplication());
 
         resultadoRepository.getResultados().observe((LifecycleOwner) requireContext(), resultados -> {
-            listaDeResultados = resultados;
+            System.out.println("CANTIDAD DE RESULTADOS: " + resultados.size());
+            List<ResultadoEntityDB> lista = resultados;
+            binding.rvResultados.setAdapter(
+                    new ResultadosAdapter(lista)
+            );
         });
 
         binding.tbResultadosHistorico.setNavigationOnClickListener(new View.OnClickListener() {

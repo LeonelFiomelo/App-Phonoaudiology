@@ -1,5 +1,6 @@
 package com.example.app_phonoaudiology.application.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_phonoaudiology.R;
 import com.example.app_phonoaudiology.application.adapters.viewHolder.SonidosViewHolder;
+import com.example.app_phonoaudiology.application.usecases.TouchSonidoItem;
 import com.example.app_phonoaudiology.infrastructure.db.entity.SoundEntity;
 
 import java.util.List;
@@ -16,9 +18,11 @@ import java.util.List;
 public class SonidosAdapter extends RecyclerView.Adapter<SonidosViewHolder> {
 
     private List<SoundEntity> listaDeSonidos;
+    private Context context;
 
-    public SonidosAdapter(List<SoundEntity> listaDeSonidos) {
+    public SonidosAdapter(Context context, List<SoundEntity> listaDeSonidos) {
         this.listaDeSonidos = listaDeSonidos;
+        this.context = context;
     }
 
     @NonNull
@@ -30,8 +34,9 @@ public class SonidosAdapter extends RecyclerView.Adapter<SonidosViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SonidosViewHolder holder, int position) {
-        holder.render(listaDeSonidos.get(position).getNombre_sonido());
+    public void onBindViewHolder(@NonNull SonidosViewHolder holder, int i) {
+        holder.render(listaDeSonidos.get(i).getNombre_sonido());
+        holder.setTouchSonidoItemListener(context, listaDeSonidos.get(i));
     }
 
     @Override

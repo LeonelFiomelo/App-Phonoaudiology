@@ -27,19 +27,10 @@ public final class FragmentHomeBinding implements ViewBinding {
   private final DrawerLayout rootView;
 
   @NonNull
-  public final Button btnAdministrarSonidos;
-
-  @NonNull
   public final Button btnComenzarEntrenamiento;
 
   @NonNull
   public final Button btnComenzarEvaluacion;
-
-  @NonNull
-  public final Button btnResultadosHistoricos;
-
-  @NonNull
-  public final Button btnTest;
 
   @NonNull
   public final CardView cardEjercitacion;
@@ -80,9 +71,8 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final TextView tvEvaluacion;
 
-  private FragmentHomeBinding(@NonNull DrawerLayout rootView, @NonNull Button btnAdministrarSonidos,
+  private FragmentHomeBinding(@NonNull DrawerLayout rootView,
       @NonNull Button btnComenzarEntrenamiento, @NonNull Button btnComenzarEvaluacion,
-      @NonNull Button btnResultadosHistoricos, @NonNull Button btnTest,
       @NonNull CardView cardEjercitacion, @NonNull CardView cardEvaluacion,
       @NonNull DrawerLayout drawerLayout, @NonNull FrameLayout frameLayout,
       @NonNull ImageView imagenEjercicio, @NonNull ImageView imagenEvaluacion,
@@ -90,11 +80,8 @@ public final class FragmentHomeBinding implements ViewBinding {
       @NonNull TextView tvConsignaEjercicio, @NonNull TextView tvConsignaEvaluacion,
       @NonNull TextView tvEjercicio, @NonNull TextView tvEvaluacion) {
     this.rootView = rootView;
-    this.btnAdministrarSonidos = btnAdministrarSonidos;
     this.btnComenzarEntrenamiento = btnComenzarEntrenamiento;
     this.btnComenzarEvaluacion = btnComenzarEvaluacion;
-    this.btnResultadosHistoricos = btnResultadosHistoricos;
-    this.btnTest = btnTest;
     this.cardEjercitacion = cardEjercitacion;
     this.cardEvaluacion = cardEvaluacion;
     this.drawerLayout = drawerLayout;
@@ -137,12 +124,6 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_administrarSonidos;
-      Button btnAdministrarSonidos = ViewBindings.findChildViewById(rootView, id);
-      if (btnAdministrarSonidos == null) {
-        break missingId;
-      }
-
       id = R.id.btn_comenzarEntrenamiento;
       Button btnComenzarEntrenamiento = ViewBindings.findChildViewById(rootView, id);
       if (btnComenzarEntrenamiento == null) {
@@ -152,18 +133,6 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.btn_comenzarEvaluacion;
       Button btnComenzarEvaluacion = ViewBindings.findChildViewById(rootView, id);
       if (btnComenzarEvaluacion == null) {
-        break missingId;
-      }
-
-      id = R.id.btn_resultadosHistoricos;
-      Button btnResultadosHistoricos = ViewBindings.findChildViewById(rootView, id);
-      if (btnResultadosHistoricos == null) {
-        break missingId;
-      }
-
-      id = R.id.btn_test;
-      Button btnTest = ViewBindings.findChildViewById(rootView, id);
-      if (btnTest == null) {
         break missingId;
       }
 
@@ -241,11 +210,10 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((DrawerLayout) rootView, btnAdministrarSonidos,
-          btnComenzarEntrenamiento, btnComenzarEvaluacion, btnResultadosHistoricos, btnTest,
-          cardEjercitacion, cardEvaluacion, drawerLayout, frameLayout, imagenEjercicio,
-          imagenEvaluacion, nvHome, scrollView2, toolbar, tvConsignaEjercicio, tvConsignaEvaluacion,
-          tvEjercicio, tvEvaluacion);
+      return new FragmentHomeBinding((DrawerLayout) rootView, btnComenzarEntrenamiento,
+          btnComenzarEvaluacion, cardEjercitacion, cardEvaluacion, drawerLayout, frameLayout,
+          imagenEjercicio, imagenEvaluacion, nvHome, scrollView2, toolbar, tvConsignaEjercicio,
+          tvConsignaEvaluacion, tvEjercicio, tvEvaluacion);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

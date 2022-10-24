@@ -40,14 +40,14 @@ public final class SoundDatabase_Impl extends SoundDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(13) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(15) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `sound_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre_sonido` TEXT, `categoria_sonido` TEXT, `ruta_sonido` TEXT, `personalizado` TEXT)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `resultado_table` (`resultadoId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fecha` TEXT, `correctas` INTEGER NOT NULL, `intentos` INTEGER NOT NULL, `categoria` TEXT, `subcategoria` TEXT, `ejercicio` TEXT, `ruido` INTEGER, `tipoRuido` TEXT, `intensidad` REAL NOT NULL)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `error_table` (`errorId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `resultadoRelacionId` INTEGER NOT NULL, `estimulo` TEXT, `primeraRespuesta` TEXT, `segundaRespuesta` TEXT, FOREIGN KEY(`resultadoRelacionId`) REFERENCES `resultado_table`(`resultadoId`) ON UPDATE NO ACTION ON DELETE NO ACTION )");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `sound_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre_sonido` TEXT, `categoria_sonido` TEXT, `ruta_sonido` TEXT, `personalizado` TEXT, `cache` INTEGER)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `resultado_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fecha` TEXT, `correctas` INTEGER NOT NULL, `intentos` INTEGER NOT NULL, `categoria` TEXT, `subcategoria` TEXT, `ejercicio` TEXT, `ruido` INTEGER, `tipoRuido` TEXT, `intensidad` REAL NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `error_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `resultado_id` INTEGER NOT NULL, `estimulo` TEXT, `primeraRespuesta` TEXT, `segundaRespuesta` TEXT, FOREIGN KEY(`resultado_id`) REFERENCES `resultado_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a73b2eb129c95bd1a39d77e3afe772ca')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '963f6ed4ceaa00d3f09f6e73e3b3b228')");
       }
 
       @Override
@@ -94,12 +94,13 @@ public final class SoundDatabase_Impl extends SoundDatabase {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsSoundTable = new HashMap<String, TableInfo.Column>(5);
+        final HashMap<String, TableInfo.Column> _columnsSoundTable = new HashMap<String, TableInfo.Column>(6);
         _columnsSoundTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSoundTable.put("nombre_sonido", new TableInfo.Column("nombre_sonido", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSoundTable.put("categoria_sonido", new TableInfo.Column("categoria_sonido", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSoundTable.put("ruta_sonido", new TableInfo.Column("ruta_sonido", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSoundTable.put("personalizado", new TableInfo.Column("personalizado", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSoundTable.put("cache", new TableInfo.Column("cache", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysSoundTable = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesSoundTable = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoSoundTable = new TableInfo("sound_table", _columnsSoundTable, _foreignKeysSoundTable, _indicesSoundTable);
@@ -110,7 +111,7 @@ public final class SoundDatabase_Impl extends SoundDatabase {
                   + " Found:\n" + _existingSoundTable);
         }
         final HashMap<String, TableInfo.Column> _columnsResultadoTable = new HashMap<String, TableInfo.Column>(10);
-        _columnsResultadoTable.put("resultadoId", new TableInfo.Column("resultadoId", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsResultadoTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("fecha", new TableInfo.Column("fecha", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("correctas", new TableInfo.Column("correctas", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("intentos", new TableInfo.Column("intentos", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -130,13 +131,13 @@ public final class SoundDatabase_Impl extends SoundDatabase {
                   + " Found:\n" + _existingResultadoTable);
         }
         final HashMap<String, TableInfo.Column> _columnsErrorTable = new HashMap<String, TableInfo.Column>(5);
-        _columnsErrorTable.put("errorId", new TableInfo.Column("errorId", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsErrorTable.put("resultadoRelacionId", new TableInfo.Column("resultadoRelacionId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsErrorTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsErrorTable.put("resultado_id", new TableInfo.Column("resultado_id", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsErrorTable.put("estimulo", new TableInfo.Column("estimulo", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsErrorTable.put("primeraRespuesta", new TableInfo.Column("primeraRespuesta", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsErrorTable.put("segundaRespuesta", new TableInfo.Column("segundaRespuesta", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysErrorTable = new HashSet<TableInfo.ForeignKey>(1);
-        _foreignKeysErrorTable.add(new TableInfo.ForeignKey("resultado_table", "NO ACTION", "NO ACTION",Arrays.asList("resultadoRelacionId"), Arrays.asList("resultadoId")));
+        _foreignKeysErrorTable.add(new TableInfo.ForeignKey("resultado_table", "NO ACTION", "NO ACTION",Arrays.asList("resultado_id"), Arrays.asList("id")));
         final HashSet<TableInfo.Index> _indicesErrorTable = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoErrorTable = new TableInfo("error_table", _columnsErrorTable, _foreignKeysErrorTable, _indicesErrorTable);
         final TableInfo _existingErrorTable = TableInfo.read(_db, "error_table");
@@ -147,7 +148,7 @@ public final class SoundDatabase_Impl extends SoundDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "a73b2eb129c95bd1a39d77e3afe772ca", "6cb3b8339972d274b7a2af02ec3874a4");
+    }, "963f6ed4ceaa00d3f09f6e73e3b3b228", "63e94e32217945e02c5739bb3c8a2ded");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

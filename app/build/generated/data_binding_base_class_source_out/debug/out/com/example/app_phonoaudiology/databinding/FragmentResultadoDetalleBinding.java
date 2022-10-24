@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -22,10 +23,67 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
   @NonNull
   public final Toolbar toolbar2;
 
-  private FragmentResultadoDetalleBinding(@NonNull FrameLayout rootView,
-      @NonNull Toolbar toolbar2) {
+  @NonNull
+  public final TextView tvCategoria;
+
+  @NonNull
+  public final TextView tvCategoriaOutput;
+
+  @NonNull
+  public final TextView tvEjercicio;
+
+  @NonNull
+  public final TextView tvEjercicioOutput;
+
+  @NonNull
+  public final TextView tvErrores;
+
+  @NonNull
+  public final TextView tvFecha;
+
+  @NonNull
+  public final TextView tvFechaOutput;
+
+  @NonNull
+  public final TextView tvIntensidad;
+
+  @NonNull
+  public final TextView tvIntensidadOutput;
+
+  @NonNull
+  public final TextView tvPuntuacion;
+
+  @NonNull
+  public final TextView tvPuntuacionOutput;
+
+  @NonNull
+  public final TextView tvRuido;
+
+  @NonNull
+  public final TextView tvRuidoOutput;
+
+  private FragmentResultadoDetalleBinding(@NonNull FrameLayout rootView, @NonNull Toolbar toolbar2,
+      @NonNull TextView tvCategoria, @NonNull TextView tvCategoriaOutput,
+      @NonNull TextView tvEjercicio, @NonNull TextView tvEjercicioOutput,
+      @NonNull TextView tvErrores, @NonNull TextView tvFecha, @NonNull TextView tvFechaOutput,
+      @NonNull TextView tvIntensidad, @NonNull TextView tvIntensidadOutput,
+      @NonNull TextView tvPuntuacion, @NonNull TextView tvPuntuacionOutput,
+      @NonNull TextView tvRuido, @NonNull TextView tvRuidoOutput) {
     this.rootView = rootView;
     this.toolbar2 = toolbar2;
+    this.tvCategoria = tvCategoria;
+    this.tvCategoriaOutput = tvCategoriaOutput;
+    this.tvEjercicio = tvEjercicio;
+    this.tvEjercicioOutput = tvEjercicioOutput;
+    this.tvErrores = tvErrores;
+    this.tvFecha = tvFecha;
+    this.tvFechaOutput = tvFechaOutput;
+    this.tvIntensidad = tvIntensidad;
+    this.tvIntensidadOutput = tvIntensidadOutput;
+    this.tvPuntuacion = tvPuntuacion;
+    this.tvPuntuacionOutput = tvPuntuacionOutput;
+    this.tvRuido = tvRuido;
+    this.tvRuidoOutput = tvRuidoOutput;
   }
 
   @Override
@@ -61,7 +119,88 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentResultadoDetalleBinding((FrameLayout) rootView, toolbar2);
+      id = R.id.tv_categoria;
+      TextView tvCategoria = ViewBindings.findChildViewById(rootView, id);
+      if (tvCategoria == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_categoriaOutput;
+      TextView tvCategoriaOutput = ViewBindings.findChildViewById(rootView, id);
+      if (tvCategoriaOutput == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ejercicio;
+      TextView tvEjercicio = ViewBindings.findChildViewById(rootView, id);
+      if (tvEjercicio == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ejercicioOutput;
+      TextView tvEjercicioOutput = ViewBindings.findChildViewById(rootView, id);
+      if (tvEjercicioOutput == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_errores;
+      TextView tvErrores = ViewBindings.findChildViewById(rootView, id);
+      if (tvErrores == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_fecha;
+      TextView tvFecha = ViewBindings.findChildViewById(rootView, id);
+      if (tvFecha == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_fechaOutput;
+      TextView tvFechaOutput = ViewBindings.findChildViewById(rootView, id);
+      if (tvFechaOutput == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_intensidad;
+      TextView tvIntensidad = ViewBindings.findChildViewById(rootView, id);
+      if (tvIntensidad == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_intensidadOutput;
+      TextView tvIntensidadOutput = ViewBindings.findChildViewById(rootView, id);
+      if (tvIntensidadOutput == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_puntuacion;
+      TextView tvPuntuacion = ViewBindings.findChildViewById(rootView, id);
+      if (tvPuntuacion == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_puntuacionOutput;
+      TextView tvPuntuacionOutput = ViewBindings.findChildViewById(rootView, id);
+      if (tvPuntuacionOutput == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ruido;
+      TextView tvRuido = ViewBindings.findChildViewById(rootView, id);
+      if (tvRuido == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ruidoOutput;
+      TextView tvRuidoOutput = ViewBindings.findChildViewById(rootView, id);
+      if (tvRuidoOutput == null) {
+        break missingId;
+      }
+
+      return new FragmentResultadoDetalleBinding((FrameLayout) rootView, toolbar2, tvCategoria,
+          tvCategoriaOutput, tvEjercicio, tvEjercicioOutput, tvErrores, tvFecha, tvFechaOutput,
+          tvIntensidad, tvIntensidadOutput, tvPuntuacion, tvPuntuacionOutput, tvRuido,
+          tvRuidoOutput);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
