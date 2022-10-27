@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -21,16 +22,22 @@ public final class FragmentResultadosHistoricosBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final RecyclerView rvResultados;
+  public final RecyclerView recyclerViewResultadosHistoricos;
 
   @NonNull
-  public final Toolbar tbResultadosHistorico;
+  public final ScrollView scrollViewResultadosHistoricos;
+
+  @NonNull
+  public final Toolbar toolbarResultadosHistorico;
 
   private FragmentResultadosHistoricosBinding(@NonNull FrameLayout rootView,
-      @NonNull RecyclerView rvResultados, @NonNull Toolbar tbResultadosHistorico) {
+      @NonNull RecyclerView recyclerViewResultadosHistoricos,
+      @NonNull ScrollView scrollViewResultadosHistoricos,
+      @NonNull Toolbar toolbarResultadosHistorico) {
     this.rootView = rootView;
-    this.rvResultados = rvResultados;
-    this.tbResultadosHistorico = tbResultadosHistorico;
+    this.recyclerViewResultadosHistoricos = recyclerViewResultadosHistoricos;
+    this.scrollViewResultadosHistoricos = scrollViewResultadosHistoricos;
+    this.toolbarResultadosHistorico = toolbarResultadosHistorico;
   }
 
   @Override
@@ -60,20 +67,27 @@ public final class FragmentResultadosHistoricosBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.rv_resultados;
-      RecyclerView rvResultados = ViewBindings.findChildViewById(rootView, id);
-      if (rvResultados == null) {
+      id = R.id.recyclerView_resultadosHistoricos;
+      RecyclerView recyclerViewResultadosHistoricos = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerViewResultadosHistoricos == null) {
         break missingId;
       }
 
-      id = R.id.tb_resultadosHistorico;
-      Toolbar tbResultadosHistorico = ViewBindings.findChildViewById(rootView, id);
-      if (tbResultadosHistorico == null) {
+      id = R.id.scrollView_resultadosHistoricos;
+      ScrollView scrollViewResultadosHistoricos = ViewBindings.findChildViewById(rootView, id);
+      if (scrollViewResultadosHistoricos == null) {
         break missingId;
       }
 
-      return new FragmentResultadosHistoricosBinding((FrameLayout) rootView, rvResultados,
-          tbResultadosHistorico);
+      id = R.id.toolbar_resultadosHistorico;
+      Toolbar toolbarResultadosHistorico = ViewBindings.findChildViewById(rootView, id);
+      if (toolbarResultadosHistorico == null) {
+        break missingId;
+      }
+
+      return new FragmentResultadosHistoricosBinding((FrameLayout) rootView,
+          recyclerViewResultadosHistoricos, scrollViewResultadosHistoricos,
+          toolbarResultadosHistorico);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

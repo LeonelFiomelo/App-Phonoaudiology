@@ -31,6 +31,7 @@ import com.example.app_phonoaudiology.infrastructure.db.repository.SoundReposito
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class EjercicioEscribirViewModel extends ViewModel {
 
@@ -56,8 +57,9 @@ public class EjercicioEscribirViewModel extends ViewModel {
     private int intento;
     private int errorPermitido;
 
-    public void vmCreate(Application application, Context context, Bundle bundle) {
-        configuracionEntity = new ConfiguracionEntity(bundle);
+    public void onCreate(Application application, Context context, Bundle bundle) {
+        configuracionEntity = new ConfiguracionEntity();
+        configuracionEntity.setConfiguracion(bundle);
         puntuacionEntity = new PuntuacionEntity(10, 2);
         conectoresEntity = new ConectoresEntity();
         combinacionConectores = new ArrayList<>();
@@ -71,7 +73,7 @@ public class EjercicioEscribirViewModel extends ViewModel {
         getReseteo().setValue(getPuntuacionEntity().getReseteo());
     }
 
-    public void vmStart(List<SoundEntity> listaDeSonidos) {
+    public void onStart(List<SoundEntity> listaDeSonidos) {
         opcionEntity = new OpcionEntity(listaDeSonidos);
         intento += 1;
         errorPermitido = 1;
@@ -79,8 +81,10 @@ public class EjercicioEscribirViewModel extends ViewModel {
         setRandomConectores();
     }
 
-    public void vmFinish(Bundle reporteBundle) {
+    public void onFinish(Bundle reporteBundle) {
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         ResultadoEntityDB resultadoEntityDB = new ResultadoEntityDB(
+                uuid,
                 GeneralUtils.getFechaFormateada(),
                 puntuacionEntity.getCorrectas(),
                 puntuacionEntity.getIntentos(),
@@ -91,7 +95,7 @@ public class EjercicioEscribirViewModel extends ViewModel {
                 configuracionEntity.getTipoRuido(),
                 configuracionEntity.getIntensidad()
         );
-//        resultadoRepository.agregarResultado(resultadoEntityDB);
+        resultadoRepository.agregarResultado(resultadoEntityDB);
         setInformacionReporteBundle(reporteBundle);
     }
 

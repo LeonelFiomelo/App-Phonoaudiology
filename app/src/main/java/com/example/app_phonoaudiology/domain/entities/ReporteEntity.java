@@ -25,7 +25,9 @@ public class ReporteEntity {
     private String fecha;
     private String ejercicio;
     private String categoria;
-    private String ruido;
+    private String subcategoria;
+    private Boolean ruido;
+    private String tipoRuido;
     private Float intensidad;
     private SimpleDateFormat fechaFormato = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -35,7 +37,9 @@ public class ReporteEntity {
         this.fecha = fechaFormato.format(new Date());
         this.ejercicio = configuracionEntity.getEjercicio();
         this.categoria = configuracionEntity.getCategoria();
-        this.ruido = configuracionEntity.getTipoRuido();
+        this.subcategoria = configuracionEntity.getSubcategoria();
+        this.ruido = configuracionEntity.getRuido();
+        this.tipoRuido = configuracionEntity.getTipoRuido();
         this.intensidad = configuracionEntity.getIntensidad();
     }
 
@@ -45,7 +49,9 @@ public class ReporteEntity {
         bundle.putString("fecha", fecha);
         bundle.putString("ejercicio", ejercicio);
         bundle.putString("categoria", categoria);
-        bundle.putString("ruido", ruido);
+        bundle.putString("subcategoria", subcategoria);
+        bundle.putBoolean("ruido", ruido);
+        bundle.putString("tipoRuido", tipoRuido);
         bundle.putFloat("intensidad", intensidad);
     }
 

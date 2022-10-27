@@ -4,16 +4,21 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.app_phonoaudiology.R;
 import com.example.app_phonoaudiology.application.utils.EjercicioUtils;
@@ -29,10 +34,12 @@ public class EjercicioOpcionesFragment extends Fragment {
 
     private FragmentEjercicioOpcionesBinding binding;
     private EjercicioOpcionesViewModel viewModel;
-    private NavController navController;
-    private Bundle bundle;
     private Bundle reporteBundle;
-    private List<SoundEntity> listaDeOpciones;
+
+    private Toolbar toolbar;
+    private TextView txtIncorrectas, txtCorrectas;
+    private ImageButton btnConfiguracion, btnPlay;
+    private RecyclerView recyclerViewOpciones;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,59 +52,68 @@ public class EjercicioOpcionesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentEjercicioOpcionesBinding.inflate(inflater, container, false);
+
+        toolbar = binding.toolbarEjercicioOpciones;
+        txtIncorrectas = binding.txtIncorrectasEjercicioOpciones;
+        txtCorrectas = binding.txtCorrectasEjercicioOpciones;
+        btnConfiguracion = binding.btnConfiguracionEjercicioOpciones;
+        btnPlay = binding.btnPlayEjercicioOpciones;
+        recyclerViewOpciones = binding.recyclerViewEjercicioOpciones;
+
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
+        final NavController navController = Navigation.findNavController(view);
 
-        // INSTANCIAMOS LA NAVEGACION
-        navController = Navigation.findNavController(view);
-
-        // CONFIGURACION TOOLBAR
-        binding.tbEjercicioOpciones.setTitle(viewModel.getTitulo());
-        binding.tbEjercicioOpciones.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setTitle(viewModel.getTitulo());
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            // SE COLOCA UN LISTENER AL BOTON DE LA TOOLBAR PARA VOLVER AL FRAGMENT ANTERIOR
             @Override
             public void onClick(View v) {
                 navController.popBackStack();
             }
         });
 
-        // COLOCAMOS EL OBSERVER A LAS RESPUESTAS CORRECTAS
         final Observer<Integer> correctObserver = new Observer<Integer>() {
+            // SE COLOCA UN OBSERVER PARA ACTUALIZAR LA PUNTUACION DE LAS OPCIONES CORRECTAS
             @Override
             public void onChanged(@Nullable Integer integer) {
-                binding.tvCorrectas.setText(String.valueOf(integer));
+                txtCorrectas.setText(String.valueOf(integer));
             }
         };
         viewModel.getCorrectas().observe(getViewLifecycleOwner(), correctObserver);
 
-        // COLOCAMOS EL OBSERVER A LAS RESPUESTAS INCORRECTAS
         final Observer<Integer> incorrectObserver = new Observer<Integer>() {
+            // SE COLOCA UN OBSERVER PARA ACTUALIZAR LA PUNTUACION DE LAS OPCIONES INCORRECTAS
             @Override
             public void onChanged(@Nullable Integer integer) {
-                binding.tvIncorrectas.setText(String.valueOf(integer));
+                txtIncorrectas.setText(String.valueOf(integer));
             }
         };
         viewModel.getIncorrectas().observe(getViewLifecycleOwner(), incorrectObserver);
 
-//         COLOCAMOS EL OBSERVER PARA RESETEAR LA OPCIONES DEL RECICLERVIEW
         final Observer<Boolean> reseteoObserver = new Observer<Boolean>() {
+            // SE COLOCA UN OBSERVER A UNA VARIABLE PARA INDICAR CUANDO HAY QUE RESETEAR LAS OPCIONES
             @Override
             public void onChanged(Boolean aBoolean) {
-                viewModel.getOpcionesPorSubcategoria().observe((LifecycleOwner) requireContext(), sounds -> {
-                    listaDeOpciones = sounds;
-                    viewModel.vmStart(listaDeOpciones);
-                    binding.recyclerViewEjercicio.setAdapter(viewModel.getOpcionesAdapter());
+                viewModel.getOpcionesPorSubcategoria().observe(getViewLifecycleOwner(), sounds -> {
+                    viewModel.vmStart(sounds);
+                    recyclerViewOpciones.setAdapter(viewModel.getOpcionesAdapter());
                 });
             }
         };
         viewModel.getReseteo().observe(getViewLifecycleOwner(), reseteoObserver);
 
-        // COLOCAMOS EL OBSERVER A LOS INTENTOS SOLAMENTE SI EL BOTON SELECCIONADO ES EL DE EVALUACION
         if (viewModel.checkEvaluacion()) {
+            // SOLO SI EL BOTON SELECCIONADO ES EL DE EVALUACION.
             final Observer<Integer> intentosObserver = new Observer<Integer>() {
+                // SE COLOCA UN OBSERVER A UNA VARIABLE PARA CONTROLAR LOS INTENTOS PERMITIDOS.
+                // UNA VEZ ALCANZADOS LOS INTENTOS MAXIMOS GUARDA EL UUID DEL RESULTADO EN UN BUNDLE
+                // Y NAVEGA AL SIGUIENTE FRAGMENT.
                 @Override
                 public void onChanged(Integer integer) {
                     if (viewModel.getChequearIntentosRestantes()) {
@@ -110,13 +126,13 @@ public class EjercicioOpcionesFragment extends Fragment {
             viewModel.getIntentos().observe(getViewLifecycleOwner(), intentosObserver);
         }
 
-        // AGREGAMOS UN LISTENER AL BOTON PLAY
-        binding.btnPlay.setOnClickListener( v -> {
+        btnPlay.setOnClickListener( v -> {
+            // SE LE COLOCA UN LISTENER AL APRETAR EL BOTON DE PLAY
             viewModel.onTouchPlayButton(requireContext());
         });
 
-        // AGREGAMOS UN LISTENER AL BOTON SETTINGS
-        binding.btnSetting.setOnClickListener( v -> {
+        btnConfiguracion.setOnClickListener( v -> {
+            // SE LE COLOCA UN LISTENER AL APRETAR EL BOTON DE CONFIGURACION
             viewModel.onTouchSettingsButton(requireView());
         });
 

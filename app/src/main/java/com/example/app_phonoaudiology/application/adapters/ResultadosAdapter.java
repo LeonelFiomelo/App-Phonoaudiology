@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_phonoaudiology.R;
@@ -18,9 +19,11 @@ import java.util.List;
 public class ResultadosAdapter extends RecyclerView.Adapter<ResultadoViewHolder> {
 
     private List<ResultadoEntityDB> listaDeResultados;
+    private NavController navController;
 
-    public ResultadosAdapter(List<ResultadoEntityDB> listaDeResultados) {
+    public ResultadosAdapter(List<ResultadoEntityDB> listaDeResultados, NavController navController) {
         this.listaDeResultados = listaDeResultados;
+        this.navController = navController;
     }
 
     @NonNull
@@ -34,6 +37,7 @@ public class ResultadosAdapter extends RecyclerView.Adapter<ResultadoViewHolder>
     @Override
     public void onBindViewHolder(@NonNull ResultadoViewHolder holder, int i) {
         holder.render(listaDeResultados.get(i));
+        holder.setListener(navController, listaDeResultados.get(i));
     }
 
     @Override

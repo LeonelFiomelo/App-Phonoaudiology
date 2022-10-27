@@ -1,5 +1,7 @@
 package com.example.app_phonoaudiology.infrastructure.db.dao;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -17,6 +19,9 @@ import java.util.List;
 @Dao
 public interface ResultadoDao {
 
+    @Delete
+    void eliminarResultado(ResultadoEntityDB resultado);
+
     @Insert
     void insert(ResultadoEntityDB resultado);
 
@@ -29,13 +34,16 @@ public interface ResultadoDao {
     @Update
     void update(ErrorEntityDB error);
 
+    @Query("SELECT * FROM resultado_table WHERE uuid = :uuid")
+    LiveData<ResultadoEntityDB> getResultado(String uuid);
+
     @Query("DELETE FROM resultado_table")
     void deleteAllResultados();
 
-    @Query("SELECT * FROM resultado_table ORDER BY id DESC")
+    @Query("SELECT * FROM resultado_table")
     LiveData<List<ResultadoEntityDB>> getAllResultados();
 
-    @Query("SELECT * FROM error_table ORDER BY id DESC")
+    @Query("SELECT * FROM error_table")
     LiveData<List<ErrorEntityDB>> getAllErrores();
 
     @Transaction

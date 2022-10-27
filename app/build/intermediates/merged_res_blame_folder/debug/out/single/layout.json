@@ -36,6 +36,10 @@
         "source": "com.example.app_phonoaudiology.app-main-50:/layout/alertdialog_grabar_sonido.xml"
     },
     {
+        "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-47:/layout/item_error.xml",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/item_error.xml"
+    },
+    {
         "merged": "com.example.app_phonoaudiology.app-mergeDebugResources-47:/layout/fragment_resultado.xml",
         "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_resultado.xml"
     },

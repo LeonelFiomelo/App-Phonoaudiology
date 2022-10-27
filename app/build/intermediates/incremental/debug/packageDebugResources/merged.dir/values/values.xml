@@ -64,6 +64,7 @@
     <string name="mi_seccionProfesional">Seccion Profesional</string>
     <string name="open">Open</string>
     <string name="switch_activadoDesactivado">Activado/Desactivado</string>
+    <string name="texto">Texto</string>
     <string name="titulo_ejercitacion">Ejercitación</string>
     <string name="titulo_evaluacion">Evaluación</string>
     <string name="titulo_toolbar_configuracion">Configuración</string>
@@ -81,14 +82,17 @@
     <string name="tv_ejercicio">Ejercicio</string>
     <string name="tv_entenamiento">Entrenamiento</string>
     <string name="tv_errores">Errores</string>
-    <string name="tv_escribaLoQueOyo">Pulse play y escriba lo que oyó</string>
+    <string name="tv_escribaLoQueOyo">Pulse el boton y escriba lo que oyó</string>
+    <string name="tv_estimulo">Estimulo</string>
     <string name="tv_fecha">Fecha</string>
     <string name="tv_grabarNuevoSonido">Grabar nuevo sonido</string>
     <string name="tv_intensidad">Intensidad</string>
     <string name="tv_intensidadDelRuido">Itensidad del ruido</string>
     <string name="tv_nombreDelSonido">Nombre del sonido</string>
+    <string name="tv_primeraRespuesta">Respuesta 1</string>
     <string name="tv_puntuacion">Puntuación</string>
     <string name="tv_ruido">Ruido</string>
+    <string name="tv_segundaRespuesta">Respuesta 2</string>
     <string name="tv_subcategoria">Subcategoría</string>
     <style name="Theme.App_Phonoaudiology" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         

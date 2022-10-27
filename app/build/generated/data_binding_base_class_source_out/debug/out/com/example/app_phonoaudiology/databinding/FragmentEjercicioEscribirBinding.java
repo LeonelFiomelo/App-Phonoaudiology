@@ -25,51 +25,56 @@ public final class FragmentEjercicioEscribirBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final Button btnAceptar;
+  public final Button btnAceptarEjercicioEscribir;
 
   @NonNull
-  public final ImageButton btnPlay;
+  public final ImageButton btnConfiguracionEjercicioEscribir;
 
   @NonNull
-  public final ImageButton btnSetting;
+  public final ImageButton btnPlayEjercicioEscribir;
 
   @NonNull
-  public final EditText etCompletar;
+  public final EditText editTxtRespuestaEjercicioEscribir;
 
   @NonNull
-  public final ImageView imgCorrectas;
+  public final ImageView imgCorrectasEjercicioEscribir;
 
   @NonNull
-  public final ImageView imgIncorrectas;
+  public final ImageView imgIncorrectasEjercicioEscribir;
 
   @NonNull
-  public final Toolbar tbEjercicioEscribir;
+  public final Toolbar toolbarEjercicioEscribir;
 
   @NonNull
-  public final TextView textView;
+  public final TextView txtCorrectasEjercicioEscribir;
 
   @NonNull
-  public final TextView tvCorrectas;
+  public final TextView txtIncorrectasEjercicioEscribir;
 
   @NonNull
-  public final TextView tvIncorrectas;
+  public final TextView txtPulseBotonEjercicioEscribir;
 
   private FragmentEjercicioEscribirBinding(@NonNull FrameLayout rootView,
-      @NonNull Button btnAceptar, @NonNull ImageButton btnPlay, @NonNull ImageButton btnSetting,
-      @NonNull EditText etCompletar, @NonNull ImageView imgCorrectas,
-      @NonNull ImageView imgIncorrectas, @NonNull Toolbar tbEjercicioEscribir,
-      @NonNull TextView textView, @NonNull TextView tvCorrectas, @NonNull TextView tvIncorrectas) {
+      @NonNull Button btnAceptarEjercicioEscribir,
+      @NonNull ImageButton btnConfiguracionEjercicioEscribir,
+      @NonNull ImageButton btnPlayEjercicioEscribir,
+      @NonNull EditText editTxtRespuestaEjercicioEscribir,
+      @NonNull ImageView imgCorrectasEjercicioEscribir,
+      @NonNull ImageView imgIncorrectasEjercicioEscribir, @NonNull Toolbar toolbarEjercicioEscribir,
+      @NonNull TextView txtCorrectasEjercicioEscribir,
+      @NonNull TextView txtIncorrectasEjercicioEscribir,
+      @NonNull TextView txtPulseBotonEjercicioEscribir) {
     this.rootView = rootView;
-    this.btnAceptar = btnAceptar;
-    this.btnPlay = btnPlay;
-    this.btnSetting = btnSetting;
-    this.etCompletar = etCompletar;
-    this.imgCorrectas = imgCorrectas;
-    this.imgIncorrectas = imgIncorrectas;
-    this.tbEjercicioEscribir = tbEjercicioEscribir;
-    this.textView = textView;
-    this.tvCorrectas = tvCorrectas;
-    this.tvIncorrectas = tvIncorrectas;
+    this.btnAceptarEjercicioEscribir = btnAceptarEjercicioEscribir;
+    this.btnConfiguracionEjercicioEscribir = btnConfiguracionEjercicioEscribir;
+    this.btnPlayEjercicioEscribir = btnPlayEjercicioEscribir;
+    this.editTxtRespuestaEjercicioEscribir = editTxtRespuestaEjercicioEscribir;
+    this.imgCorrectasEjercicioEscribir = imgCorrectasEjercicioEscribir;
+    this.imgIncorrectasEjercicioEscribir = imgIncorrectasEjercicioEscribir;
+    this.toolbarEjercicioEscribir = toolbarEjercicioEscribir;
+    this.txtCorrectasEjercicioEscribir = txtCorrectasEjercicioEscribir;
+    this.txtIncorrectasEjercicioEscribir = txtIncorrectasEjercicioEscribir;
+    this.txtPulseBotonEjercicioEscribir = txtPulseBotonEjercicioEscribir;
   }
 
   @Override
@@ -99,69 +104,71 @@ public final class FragmentEjercicioEscribirBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_aceptar;
-      Button btnAceptar = ViewBindings.findChildViewById(rootView, id);
-      if (btnAceptar == null) {
+      id = R.id.btn_aceptar_ejercicioEscribir;
+      Button btnAceptarEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (btnAceptarEjercicioEscribir == null) {
         break missingId;
       }
 
-      id = R.id.btn_play;
-      ImageButton btnPlay = ViewBindings.findChildViewById(rootView, id);
-      if (btnPlay == null) {
+      id = R.id.btn_configuracion_ejercicioEscribir;
+      ImageButton btnConfiguracionEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (btnConfiguracionEjercicioEscribir == null) {
         break missingId;
       }
 
-      id = R.id.btn_setting;
-      ImageButton btnSetting = ViewBindings.findChildViewById(rootView, id);
-      if (btnSetting == null) {
+      id = R.id.btn_play_ejercicioEscribir;
+      ImageButton btnPlayEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (btnPlayEjercicioEscribir == null) {
         break missingId;
       }
 
-      id = R.id.et_completar;
-      EditText etCompletar = ViewBindings.findChildViewById(rootView, id);
-      if (etCompletar == null) {
+      id = R.id.editTxt_respuesta_ejercicioEscribir;
+      EditText editTxtRespuestaEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (editTxtRespuestaEjercicioEscribir == null) {
         break missingId;
       }
 
-      id = R.id.img_correctas;
-      ImageView imgCorrectas = ViewBindings.findChildViewById(rootView, id);
-      if (imgCorrectas == null) {
+      id = R.id.img_correctas_ejercicioEscribir;
+      ImageView imgCorrectasEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (imgCorrectasEjercicioEscribir == null) {
         break missingId;
       }
 
-      id = R.id.img_incorrectas;
-      ImageView imgIncorrectas = ViewBindings.findChildViewById(rootView, id);
-      if (imgIncorrectas == null) {
+      id = R.id.img_incorrectas_ejercicioEscribir;
+      ImageView imgIncorrectasEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (imgIncorrectasEjercicioEscribir == null) {
         break missingId;
       }
 
-      id = R.id.tb_EjercicioEscribir;
-      Toolbar tbEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
-      if (tbEjercicioEscribir == null) {
+      id = R.id.toolbar_ejercicioEscribir;
+      Toolbar toolbarEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (toolbarEjercicioEscribir == null) {
         break missingId;
       }
 
-      id = R.id.textView;
-      TextView textView = ViewBindings.findChildViewById(rootView, id);
-      if (textView == null) {
+      id = R.id.txt_correctas_ejercicioEscribir;
+      TextView txtCorrectasEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (txtCorrectasEjercicioEscribir == null) {
         break missingId;
       }
 
-      id = R.id.tv_correctas;
-      TextView tvCorrectas = ViewBindings.findChildViewById(rootView, id);
-      if (tvCorrectas == null) {
+      id = R.id.txt_incorrectas_ejercicioEscribir;
+      TextView txtIncorrectasEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (txtIncorrectasEjercicioEscribir == null) {
         break missingId;
       }
 
-      id = R.id.tv_incorrectas;
-      TextView tvIncorrectas = ViewBindings.findChildViewById(rootView, id);
-      if (tvIncorrectas == null) {
+      id = R.id.txt_pulseBoton_ejercicioEscribir;
+      TextView txtPulseBotonEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
+      if (txtPulseBotonEjercicioEscribir == null) {
         break missingId;
       }
 
-      return new FragmentEjercicioEscribirBinding((FrameLayout) rootView, btnAceptar, btnPlay,
-          btnSetting, etCompletar, imgCorrectas, imgIncorrectas, tbEjercicioEscribir, textView,
-          tvCorrectas, tvIncorrectas);
+      return new FragmentEjercicioEscribirBinding((FrameLayout) rootView,
+          btnAceptarEjercicioEscribir, btnConfiguracionEjercicioEscribir, btnPlayEjercicioEscribir,
+          editTxtRespuestaEjercicioEscribir, imgCorrectasEjercicioEscribir,
+          imgIncorrectasEjercicioEscribir, toolbarEjercicioEscribir, txtCorrectasEjercicioEscribir,
+          txtIncorrectasEjercicioEscribir, txtPulseBotonEjercicioEscribir);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

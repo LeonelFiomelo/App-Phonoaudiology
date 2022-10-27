@@ -35,16 +35,16 @@ public class AdministrarSonidosViewModel extends ViewModel {
         sonidosAdapter = new SonidosAdapter(context, listaDeSonidos);
     }
 
-    public SonidosAdapter getSonidosAdapter() {
-        return sonidosAdapter;
-    }
-
     public LiveData<List<SoundEntity>> getSonidos() {
         return soundRepository.getAllSounds();
     }
 
-    public void setSwipe(Activity activity, RecyclerView recyclerView, SonidosAdapter sonidosAdapter, List<SoundEntity> lista, View view) {
-        swipeSonidoItem = new SwipeSonidoItem(activity, recyclerView, sonidosAdapter, lista);
+    public SonidosAdapter getSonidosAdapter() {
+        return sonidosAdapter;
+    }
+
+    public void setSwipe(Activity activity, View view, RecyclerView recyclerView, List<SoundEntity> listaDeSonidos) {
+        swipeSonidoItem = new SwipeSonidoItem(activity, recyclerView, sonidosAdapter, listaDeSonidos, soundRepository);
         swipeSonidoItem.setSwipe(view);
     }
 

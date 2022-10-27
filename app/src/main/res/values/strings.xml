@@ -27,7 +27,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="btn_seleccioneLaOpcionQueOyo">Pulse el botón y seleccione la opción que oyó</string>
-    <string name="tv_escribaLoQueOyo">Pulse play y escriba lo que oyó</string>
+    <string name="tv_escribaLoQueOyo">Pulse el boton y escriba lo que oyó</string>
     <string name="btn_option">Opcion</string>
     <string name="btn_aceptar">Aceptar</string>
     <string name="btn_finalizar">Finalizar</string>
@@ -37,6 +37,10 @@
     <string name="btn_grabar">Grabar</string>
     <string name="btn_pausar">Pausar</string>
     <string name="btn_reproducir">Reproducir</string>
+
+    <string name="tv_estimulo">Estimulo</string>
+    <string name="tv_primeraRespuesta">Respuesta 1</string>
+    <string name="tv_segundaRespuesta">Respuesta 2</string>
 
     <string name="tv_puntuacion">Puntuación</string>
     <string name="tv_fecha">Fecha</string>
@@ -58,6 +62,7 @@
 
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="texto">Texto</string>
 
     <string name="correct1">¡Correcto!</string>
     <string name="correct2">¡Genial!</string>

@@ -38,15 +38,6 @@
                             <option name="y" value="516" />
                           </Point>
                         </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_AgregarSonidoFragment_to_grabarSonidoFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -166,7 +157,7 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="734" />
+                            <option name="x" value="756" />
                             <option name="y" value="12" />
                           </Point>
                         </option>
@@ -199,18 +190,6 @@
                               </value>
                             </entry>
                           </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="grabarSonidoFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="633" />
-                            <option name="y" value="657" />
-                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

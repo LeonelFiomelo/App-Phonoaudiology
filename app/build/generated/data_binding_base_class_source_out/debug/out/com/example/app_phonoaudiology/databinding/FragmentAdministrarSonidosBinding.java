@@ -23,25 +23,27 @@ public final class FragmentAdministrarSonidosBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final FloatingActionButton fabAgregarSonido;
+  public final FloatingActionButton actionButtonAgregarSonido;
 
   @NonNull
-  public final RecyclerView rvAdministrarSonidos;
+  public final RecyclerView recyclerViewAdministrarSonidos;
 
   @NonNull
-  public final ScrollView svAdministrarSonidos;
+  public final ScrollView scrollViewAdministrarSonidos;
 
   @NonNull
-  public final Toolbar tbAdministrarSonidos;
+  public final Toolbar toolbarAdministrarSonidos;
 
   private FragmentAdministrarSonidosBinding(@NonNull FrameLayout rootView,
-      @NonNull FloatingActionButton fabAgregarSonido, @NonNull RecyclerView rvAdministrarSonidos,
-      @NonNull ScrollView svAdministrarSonidos, @NonNull Toolbar tbAdministrarSonidos) {
+      @NonNull FloatingActionButton actionButtonAgregarSonido,
+      @NonNull RecyclerView recyclerViewAdministrarSonidos,
+      @NonNull ScrollView scrollViewAdministrarSonidos,
+      @NonNull Toolbar toolbarAdministrarSonidos) {
     this.rootView = rootView;
-    this.fabAgregarSonido = fabAgregarSonido;
-    this.rvAdministrarSonidos = rvAdministrarSonidos;
-    this.svAdministrarSonidos = svAdministrarSonidos;
-    this.tbAdministrarSonidos = tbAdministrarSonidos;
+    this.actionButtonAgregarSonido = actionButtonAgregarSonido;
+    this.recyclerViewAdministrarSonidos = recyclerViewAdministrarSonidos;
+    this.scrollViewAdministrarSonidos = scrollViewAdministrarSonidos;
+    this.toolbarAdministrarSonidos = toolbarAdministrarSonidos;
   }
 
   @Override
@@ -71,32 +73,33 @@ public final class FragmentAdministrarSonidosBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.fab_agregarSonido;
-      FloatingActionButton fabAgregarSonido = ViewBindings.findChildViewById(rootView, id);
-      if (fabAgregarSonido == null) {
+      id = R.id.actionButton_agregarSonido;
+      FloatingActionButton actionButtonAgregarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (actionButtonAgregarSonido == null) {
         break missingId;
       }
 
-      id = R.id.rv_administrarSonidos;
-      RecyclerView rvAdministrarSonidos = ViewBindings.findChildViewById(rootView, id);
-      if (rvAdministrarSonidos == null) {
+      id = R.id.recyclerView_administrarSonidos;
+      RecyclerView recyclerViewAdministrarSonidos = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerViewAdministrarSonidos == null) {
         break missingId;
       }
 
-      id = R.id.sv_administrarSonidos;
-      ScrollView svAdministrarSonidos = ViewBindings.findChildViewById(rootView, id);
-      if (svAdministrarSonidos == null) {
+      id = R.id.scrollView_administrarSonidos;
+      ScrollView scrollViewAdministrarSonidos = ViewBindings.findChildViewById(rootView, id);
+      if (scrollViewAdministrarSonidos == null) {
         break missingId;
       }
 
-      id = R.id.tb_administrarSonidos;
-      Toolbar tbAdministrarSonidos = ViewBindings.findChildViewById(rootView, id);
-      if (tbAdministrarSonidos == null) {
+      id = R.id.toolbar_administrarSonidos;
+      Toolbar toolbarAdministrarSonidos = ViewBindings.findChildViewById(rootView, id);
+      if (toolbarAdministrarSonidos == null) {
         break missingId;
       }
 
-      return new FragmentAdministrarSonidosBinding((FrameLayout) rootView, fabAgregarSonido,
-          rvAdministrarSonidos, svAdministrarSonidos, tbAdministrarSonidos);
+      return new FragmentAdministrarSonidosBinding((FrameLayout) rootView,
+          actionButtonAgregarSonido, recyclerViewAdministrarSonidos, scrollViewAdministrarSonidos,
+          toolbarAdministrarSonidos);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

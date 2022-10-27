@@ -3,6 +3,7 @@ package com.example.app_phonoaudiology.domain.entities;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ErrorEntityDB;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PuntuacionEntity {
 
@@ -13,7 +14,7 @@ public class PuntuacionEntity {
     private int _erroresPermitidos;
     private int erroresPermitidos;
     private Boolean reseteo;
-    private ArrayList<ErrorEntityDB> listaDeErrores;
+    private List<ErrorEntityDB> listaDeErrores;
 
     public PuntuacionEntity(int intentos, int erroresPermitidos) {
         this.correctas = 0;
@@ -60,7 +61,7 @@ public class PuntuacionEntity {
 
     public Boolean getReseteo() { return reseteo; }
 
-    public ArrayList<ErrorEntityDB> getListaDeErrores() {
+    public List<ErrorEntityDB> getListaDeErrores() {
         return listaDeErrores;
     }
 

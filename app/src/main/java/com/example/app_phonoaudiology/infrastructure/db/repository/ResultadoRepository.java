@@ -20,6 +20,7 @@ public class ResultadoRepository {
     private LiveData<List<ResultadoEntityDB>> resultados;
     private LiveData<List<ErrorEntityDB>> errores;
     private LiveData<List<ResultadoErroresEntityDB>> resultadoConErrores;
+    private ResultadoEntityDB resultado;
 
     public ResultadoRepository(Application application) {
         SoundDatabase db = SoundDatabase.getInstanceSoundDatabase(application);
@@ -27,33 +28,16 @@ public class ResultadoRepository {
         resultados = db.resultadoDao().getAllResultados();
     }
 
-    @WorkerThread
-    public void insert(ResultadoEntityDB resultado) {
-        resultadoDao.insert(resultado);
-    }
-
-    @WorkerThread
-    public void insert(ErrorEntityDB error) {
-        resultadoDao.insert(error);
-    }
-
-    @WorkerThread
-    public void update(ResultadoEntityDB resultado) {
-        resultadoDao.update(resultado);
-    }
-
-    @WorkerThread
-    public void update(ErrorEntityDB error) {
-        resultadoDao.update(error);
-    }
-
-    @WorkerThread
-    public void deleteAllResultados() {
-        resultadoDao.deleteAllResultados();
+    public void eliminarResultado(ResultadoEntityDB resultado) {
+        new eliminarResultadoAsynkTask(resultadoDao).execute(resultado);
     }
 
     public LiveData<List<ResultadoEntityDB>> getResultados() {
         return resultados;
+    }
+
+    public LiveData<ResultadoEntityDB> getResultado(String uuid) {
+        return resultadoDao.getResultado(uuid);
     }
 
     public void agregarResultado(ResultadoEntityDB resultado) {
@@ -64,9 +48,13 @@ public class ResultadoRepository {
         new agregarErrorAsynkTask(resultadoDao).execute(error);
     }
 
-//    public void eliminarResultado(ResultadoEntityDB resultado) {
-//        new eliminarResultadoAsynkTask(resultadoDao).execute(resultado);
-//    }
+    public LiveData<List<ResultadoErroresEntityDB>> getResultadoErrores() {
+        return  resultadoDao.getAllResultadosConErrores();
+    }
+
+    public LiveData<List<ErrorEntityDB>> getErrores() {
+        return resultadoDao.getAllErrores();
+    }
 
     public static class agregarResultadoAsynkTask extends AsyncTask<ResultadoEntityDB, Void, Void> {
         private ResultadoDao resultadoDao;
@@ -76,7 +64,18 @@ public class ResultadoRepository {
         @Override
         protected Void doInBackground(ResultadoEntityDB... resultadoDbEntities) {
             resultadoDao.insert(resultadoDbEntities[0]);
-            System.out.println("ID DEL RESULTADO EN LA BASE DE DATOS: " + resultadoDbEntities[0].getId());
+            return null;
+        }
+    }
+
+    public static class eliminarResultadoAsynkTask extends AsyncTask<ResultadoEntityDB, Void, Void> {
+        private ResultadoDao resultadoDao;
+        private eliminarResultadoAsynkTask(ResultadoDao resultadoDao) {
+            this.resultadoDao = resultadoDao;
+        }
+        @Override
+        protected Void doInBackground(ResultadoEntityDB... resultadoDbEntities) {
+            resultadoDao.eliminarResultado(resultadoDbEntities[0]);
             return null;
         }
     }
@@ -91,19 +90,6 @@ public class ResultadoRepository {
             resultadoDao.insert(errorEntityDBS[0]);
             return null;
         }
-
     }
-
-//    public static class eliminarResultadoAsynkTask extends AsyncTask<ResultadoEntityDB, Void, Void>{
-//        private ResultadoDao resultadoDao;
-//        private eliminarResultadoAsynkTask(ResultadoDao resultadoDao) {
-//            this.resultadoDao = resultadoDao;
-//        }
-//        @Override
-//        protected Void doInBackground(ResultadoEntityDB... resultadoDbEntities) {
-//            resultadoDao.d(resultadoDbEntities[0]);
-//            return null;
-//        }
-//    }
 
 }

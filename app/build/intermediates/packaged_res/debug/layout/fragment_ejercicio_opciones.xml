@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tb_ejercicioOpciones"
+            android:id="@+id/toolbar_ejercicioOpciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -22,55 +22,57 @@
             app:titleTextColor="#FFFFFF" />
 
         <ImageView
-            android:id="@+id/img_incorrectas"
+            android:id="@+id/img_incorrectas_ejercicioOpciones"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/ic_wrong"
             android:tint="#F44336"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_incorrectas"
-            app:layout_constraintEnd_toStartOf="@+id/tv_incorrectas"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_incorrectas_ejercicioOpciones"
+            app:layout_constraintEnd_toStartOf="@+id/txt_incorrectas_ejercicioOpciones"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_incorrectas" />
+            app:layout_constraintTop_toTopOf="@+id/txt_incorrectas_ejercicioOpciones" />
 
         <TextView
-            android:id="@+id/tv_incorrectas"
+            android:id="@+id/txt_incorrectas_ejercicioOpciones"
             style="@android:style/Widget.TextView.PopupMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="80dp"
             android:text="0"
             android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_setting"
-            app:layout_constraintEnd_toStartOf="@+id/btn_setting"
-            app:layout_constraintTop_toTopOf="@+id/btn_setting"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioOpciones"
+            app:layout_constraintEnd_toStartOf="@+id/btn_configuracion_ejercicioOpciones"
+            app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioOpciones"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageView
-            android:id="@+id/img_correctas"
+            android:id="@+id/img_correctas_ejercicioOpciones"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/ic_correct"
             android:tint="#4CAF50"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_correctas"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_correctas_ejercicioOpciones"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_correctas"
-            app:layout_constraintTop_toTopOf="@+id/tv_correctas" />
+            app:layout_constraintStart_toEndOf="@+id/txt_correctas_ejercicioOpciones"
+            app:layout_constraintTop_toTopOf="@+id/txt_correctas_ejercicioOpciones" />
 
         <TextView
-            android:id="@+id/tv_correctas"
+            android:id="@+id/txt_correctas_ejercicioOpciones"
             style="@android:style/Widget.TextView.PopupMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:text="0"
             android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_setting"
-            app:layout_constraintStart_toEndOf="@+id/btn_setting"
-            app:layout_constraintTop_toTopOf="@+id/btn_setting"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioOpciones"
+            app:layout_constraintStart_toEndOf="@+id/btn_configuracion_ejercicioOpciones"
+            app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioOpciones"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
-            android:id="@+id/btn_setting"
+            android:id="@+id/btn_configuracion_ejercicioOpciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -79,10 +81,10 @@
             android:tint="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tb_ejercicioOpciones" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_ejercicioOpciones" />
 
         <ImageButton
-            android:id="@+id/btn_play"
+            android:id="@+id/btn_play_ejercicioOpciones"
             android:layout_width="135dp"
             android:layout_height="135dp"
             android:layout_marginTop="32dp"
@@ -92,10 +94,10 @@
             android:tint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_setting" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_configuracion_ejercicioOpciones" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txt_pulseBoton_ejercicioOpciones"
             style="@android:style/Widget.TextView.PopupMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,19 +106,21 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_play" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_play_ejercicioOpciones"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ScrollView
+            android:id="@+id/scrollView_ejercicioOpciones"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/txt_pulseBoton_ejercicioOpciones">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_ejercicio"
+                android:id="@+id/recyclerView_ejercicioOpciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

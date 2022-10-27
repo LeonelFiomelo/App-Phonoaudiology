@@ -24,39 +24,40 @@ public final class FragmentAgregarSonidoBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final Button btnGrabarSonido;
+  public final Button btnGrabarSonidoAgregarSonido;
 
   @NonNull
-  public final Button btnGuardarSonido;
+  public final Button btnGuardarSonidoAgregarSonido;
 
   @NonNull
-  public final Spinner sCategoriaSonido;
+  public final EditText editTxtNombreSonidoAgregarSonido;
 
   @NonNull
-  public final Toolbar tbAgregarSonido;
+  public final Spinner spinnerCategoriaSonidoAgregarSonido;
 
   @NonNull
-  public final TextView textView3;
+  public final Toolbar toolbarAgregarSonido;
 
   @NonNull
-  public final TextView tvNombreDelSonido;
+  public final TextView txtCategoriaSonidoAgregarSonido;
 
   @NonNull
-  public final EditText tvNombreDelSonidoInput;
+  public final TextView txtNombreSonidoAgregarSonido;
 
   private FragmentAgregarSonidoBinding(@NonNull FrameLayout rootView,
-      @NonNull Button btnGrabarSonido, @NonNull Button btnGuardarSonido,
-      @NonNull Spinner sCategoriaSonido, @NonNull Toolbar tbAgregarSonido,
-      @NonNull TextView textView3, @NonNull TextView tvNombreDelSonido,
-      @NonNull EditText tvNombreDelSonidoInput) {
+      @NonNull Button btnGrabarSonidoAgregarSonido, @NonNull Button btnGuardarSonidoAgregarSonido,
+      @NonNull EditText editTxtNombreSonidoAgregarSonido,
+      @NonNull Spinner spinnerCategoriaSonidoAgregarSonido, @NonNull Toolbar toolbarAgregarSonido,
+      @NonNull TextView txtCategoriaSonidoAgregarSonido,
+      @NonNull TextView txtNombreSonidoAgregarSonido) {
     this.rootView = rootView;
-    this.btnGrabarSonido = btnGrabarSonido;
-    this.btnGuardarSonido = btnGuardarSonido;
-    this.sCategoriaSonido = sCategoriaSonido;
-    this.tbAgregarSonido = tbAgregarSonido;
-    this.textView3 = textView3;
-    this.tvNombreDelSonido = tvNombreDelSonido;
-    this.tvNombreDelSonidoInput = tvNombreDelSonidoInput;
+    this.btnGrabarSonidoAgregarSonido = btnGrabarSonidoAgregarSonido;
+    this.btnGuardarSonidoAgregarSonido = btnGuardarSonidoAgregarSonido;
+    this.editTxtNombreSonidoAgregarSonido = editTxtNombreSonidoAgregarSonido;
+    this.spinnerCategoriaSonidoAgregarSonido = spinnerCategoriaSonidoAgregarSonido;
+    this.toolbarAgregarSonido = toolbarAgregarSonido;
+    this.txtCategoriaSonidoAgregarSonido = txtCategoriaSonidoAgregarSonido;
+    this.txtNombreSonidoAgregarSonido = txtNombreSonidoAgregarSonido;
   }
 
   @Override
@@ -86,51 +87,52 @@ public final class FragmentAgregarSonidoBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_grabarSonido;
-      Button btnGrabarSonido = ViewBindings.findChildViewById(rootView, id);
-      if (btnGrabarSonido == null) {
+      id = R.id.btn_grabarSonido_agregarSonido;
+      Button btnGrabarSonidoAgregarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (btnGrabarSonidoAgregarSonido == null) {
         break missingId;
       }
 
-      id = R.id.btn_guardarSonido;
-      Button btnGuardarSonido = ViewBindings.findChildViewById(rootView, id);
-      if (btnGuardarSonido == null) {
+      id = R.id.btn_guardarSonido_agregarSonido;
+      Button btnGuardarSonidoAgregarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (btnGuardarSonidoAgregarSonido == null) {
         break missingId;
       }
 
-      id = R.id.s_categoriaSonido;
-      Spinner sCategoriaSonido = ViewBindings.findChildViewById(rootView, id);
-      if (sCategoriaSonido == null) {
+      id = R.id.editTxt_nombreSonido_agregarSonido;
+      EditText editTxtNombreSonidoAgregarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (editTxtNombreSonidoAgregarSonido == null) {
         break missingId;
       }
 
-      id = R.id.tb_agregarSonido;
-      Toolbar tbAgregarSonido = ViewBindings.findChildViewById(rootView, id);
-      if (tbAgregarSonido == null) {
+      id = R.id.spinner_categoriaSonido_agregarSonido;
+      Spinner spinnerCategoriaSonidoAgregarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (spinnerCategoriaSonidoAgregarSonido == null) {
         break missingId;
       }
 
-      id = R.id.textView3;
-      TextView textView3 = ViewBindings.findChildViewById(rootView, id);
-      if (textView3 == null) {
+      id = R.id.toolbar_agregarSonido;
+      Toolbar toolbarAgregarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (toolbarAgregarSonido == null) {
         break missingId;
       }
 
-      id = R.id.tv_nombreDelSonido;
-      TextView tvNombreDelSonido = ViewBindings.findChildViewById(rootView, id);
-      if (tvNombreDelSonido == null) {
+      id = R.id.txt_categoriaSonido_agregarSonido;
+      TextView txtCategoriaSonidoAgregarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (txtCategoriaSonidoAgregarSonido == null) {
         break missingId;
       }
 
-      id = R.id.tv_nombreDelSonidoInput;
-      EditText tvNombreDelSonidoInput = ViewBindings.findChildViewById(rootView, id);
-      if (tvNombreDelSonidoInput == null) {
+      id = R.id.txt_nombreSonido_agregarSonido;
+      TextView txtNombreSonidoAgregarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (txtNombreSonidoAgregarSonido == null) {
         break missingId;
       }
 
-      return new FragmentAgregarSonidoBinding((FrameLayout) rootView, btnGrabarSonido,
-          btnGuardarSonido, sCategoriaSonido, tbAgregarSonido, textView3, tvNombreDelSonido,
-          tvNombreDelSonidoInput);
+      return new FragmentAgregarSonidoBinding((FrameLayout) rootView, btnGrabarSonidoAgregarSonido,
+          btnGuardarSonidoAgregarSonido, editTxtNombreSonidoAgregarSonido,
+          spinnerCategoriaSonidoAgregarSonido, toolbarAgregarSonido,
+          txtCategoriaSonidoAgregarSonido, txtNombreSonidoAgregarSonido);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

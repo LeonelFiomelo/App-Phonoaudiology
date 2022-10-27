@@ -8,11 +8,15 @@ import java.util.List;
 
 public class ResultadoErroresEntityDB {
 
-    @Embedded public ResultadoEntityDB resultadoEntityDB;
+    @Embedded
+    public ResultadoEntityDB resultadoEntityDB;
+
     @Relation(
-            parentColumn = "id",
-            entityColumn = "resultado_id"
+            parentColumn = "uuid",
+            entityColumn = "uuidResultado",
+            entity = ErrorEntityDB.class
     )
+
     public List<ErrorEntityDB> errores;
 
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,69 +22,102 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final Toolbar toolbar2;
+  public final TableLayout tableErroresResultadoDetalle;
 
   @NonNull
-  public final TextView tvCategoria;
+  public final Toolbar tbResultadoDetalle;
 
   @NonNull
-  public final TextView tvCategoriaOutput;
+  public final TextView txtCategoriaOResultadoDetalle;
 
   @NonNull
-  public final TextView tvEjercicio;
+  public final TextView txtCategoriaResultadoDetalle;
 
   @NonNull
-  public final TextView tvEjercicioOutput;
+  public final TextView txtEjercicioOResultadoDetalle;
 
   @NonNull
-  public final TextView tvErrores;
+  public final TextView txtEjercicioResultadoDetalle;
 
   @NonNull
-  public final TextView tvFecha;
+  public final TextView txtErroresResultadoDetalle;
 
   @NonNull
-  public final TextView tvFechaOutput;
+  public final TextView txtEstimuloResultadoDetalle;
 
   @NonNull
-  public final TextView tvIntensidad;
+  public final TextView txtFechaOResultadoDetalle;
 
   @NonNull
-  public final TextView tvIntensidadOutput;
+  public final TextView txtFechaResultadoDetalle;
 
   @NonNull
-  public final TextView tvPuntuacion;
+  public final TextView txtIntensidadOResultadoDetalle;
 
   @NonNull
-  public final TextView tvPuntuacionOutput;
+  public final TextView txtIntensidadResultadoDetalle;
 
   @NonNull
-  public final TextView tvRuido;
+  public final TextView txtPrimeraRespuestaResultadoDetalle;
 
   @NonNull
-  public final TextView tvRuidoOutput;
+  public final TextView txtPuntuacionOResultadoDetalle;
 
-  private FragmentResultadoDetalleBinding(@NonNull FrameLayout rootView, @NonNull Toolbar toolbar2,
-      @NonNull TextView tvCategoria, @NonNull TextView tvCategoriaOutput,
-      @NonNull TextView tvEjercicio, @NonNull TextView tvEjercicioOutput,
-      @NonNull TextView tvErrores, @NonNull TextView tvFecha, @NonNull TextView tvFechaOutput,
-      @NonNull TextView tvIntensidad, @NonNull TextView tvIntensidadOutput,
-      @NonNull TextView tvPuntuacion, @NonNull TextView tvPuntuacionOutput,
-      @NonNull TextView tvRuido, @NonNull TextView tvRuidoOutput) {
+  @NonNull
+  public final TextView txtPuntuacionResultadoDetalle;
+
+  @NonNull
+  public final TextView txtRuidoOResultadoDetalle;
+
+  @NonNull
+  public final TextView txtRuidoResultadoDetalle;
+
+  @NonNull
+  public final TextView txtSegundaRespuestaResultadoDetalle;
+
+  @NonNull
+  public final TextView txtSubcategoriaOResultadoDetalle;
+
+  @NonNull
+  public final TextView txtSubcategoriaResultadoDetalle;
+
+  private FragmentResultadoDetalleBinding(@NonNull FrameLayout rootView,
+      @NonNull TableLayout tableErroresResultadoDetalle, @NonNull Toolbar tbResultadoDetalle,
+      @NonNull TextView txtCategoriaOResultadoDetalle,
+      @NonNull TextView txtCategoriaResultadoDetalle,
+      @NonNull TextView txtEjercicioOResultadoDetalle,
+      @NonNull TextView txtEjercicioResultadoDetalle, @NonNull TextView txtErroresResultadoDetalle,
+      @NonNull TextView txtEstimuloResultadoDetalle, @NonNull TextView txtFechaOResultadoDetalle,
+      @NonNull TextView txtFechaResultadoDetalle, @NonNull TextView txtIntensidadOResultadoDetalle,
+      @NonNull TextView txtIntensidadResultadoDetalle,
+      @NonNull TextView txtPrimeraRespuestaResultadoDetalle,
+      @NonNull TextView txtPuntuacionOResultadoDetalle,
+      @NonNull TextView txtPuntuacionResultadoDetalle, @NonNull TextView txtRuidoOResultadoDetalle,
+      @NonNull TextView txtRuidoResultadoDetalle,
+      @NonNull TextView txtSegundaRespuestaResultadoDetalle,
+      @NonNull TextView txtSubcategoriaOResultadoDetalle,
+      @NonNull TextView txtSubcategoriaResultadoDetalle) {
     this.rootView = rootView;
-    this.toolbar2 = toolbar2;
-    this.tvCategoria = tvCategoria;
-    this.tvCategoriaOutput = tvCategoriaOutput;
-    this.tvEjercicio = tvEjercicio;
-    this.tvEjercicioOutput = tvEjercicioOutput;
-    this.tvErrores = tvErrores;
-    this.tvFecha = tvFecha;
-    this.tvFechaOutput = tvFechaOutput;
-    this.tvIntensidad = tvIntensidad;
-    this.tvIntensidadOutput = tvIntensidadOutput;
-    this.tvPuntuacion = tvPuntuacion;
-    this.tvPuntuacionOutput = tvPuntuacionOutput;
-    this.tvRuido = tvRuido;
-    this.tvRuidoOutput = tvRuidoOutput;
+    this.tableErroresResultadoDetalle = tableErroresResultadoDetalle;
+    this.tbResultadoDetalle = tbResultadoDetalle;
+    this.txtCategoriaOResultadoDetalle = txtCategoriaOResultadoDetalle;
+    this.txtCategoriaResultadoDetalle = txtCategoriaResultadoDetalle;
+    this.txtEjercicioOResultadoDetalle = txtEjercicioOResultadoDetalle;
+    this.txtEjercicioResultadoDetalle = txtEjercicioResultadoDetalle;
+    this.txtErroresResultadoDetalle = txtErroresResultadoDetalle;
+    this.txtEstimuloResultadoDetalle = txtEstimuloResultadoDetalle;
+    this.txtFechaOResultadoDetalle = txtFechaOResultadoDetalle;
+    this.txtFechaResultadoDetalle = txtFechaResultadoDetalle;
+    this.txtIntensidadOResultadoDetalle = txtIntensidadOResultadoDetalle;
+    this.txtIntensidadResultadoDetalle = txtIntensidadResultadoDetalle;
+    this.txtPrimeraRespuestaResultadoDetalle = txtPrimeraRespuestaResultadoDetalle;
+    this.txtPuntuacionOResultadoDetalle = txtPuntuacionOResultadoDetalle;
+    this.txtPuntuacionResultadoDetalle = txtPuntuacionResultadoDetalle;
+    this.txtRuidoOResultadoDetalle = txtRuidoOResultadoDetalle;
+    this.txtRuidoResultadoDetalle = txtRuidoResultadoDetalle;
+    this.txtSegundaRespuestaResultadoDetalle = txtSegundaRespuestaResultadoDetalle;
+    this.txtSubcategoriaOResultadoDetalle = txtSubcategoriaOResultadoDetalle;
+    this.txtSubcategoriaResultadoDetalle = txtSubcategoriaResultadoDetalle;
   }
 
   @Override
@@ -113,94 +147,135 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.toolbar2;
-      Toolbar toolbar2 = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar2 == null) {
+      id = R.id.table_errores_resultadoDetalle;
+      TableLayout tableErroresResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (tableErroresResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_categoria;
-      TextView tvCategoria = ViewBindings.findChildViewById(rootView, id);
-      if (tvCategoria == null) {
+      id = R.id.tb_resultadoDetalle;
+      Toolbar tbResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (tbResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_categoriaOutput;
-      TextView tvCategoriaOutput = ViewBindings.findChildViewById(rootView, id);
-      if (tvCategoriaOutput == null) {
+      id = R.id.txt_categoriaO_resultadoDetalle;
+      TextView txtCategoriaOResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtCategoriaOResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_ejercicio;
-      TextView tvEjercicio = ViewBindings.findChildViewById(rootView, id);
-      if (tvEjercicio == null) {
+      id = R.id.txt_categoria_resultadoDetalle;
+      TextView txtCategoriaResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtCategoriaResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_ejercicioOutput;
-      TextView tvEjercicioOutput = ViewBindings.findChildViewById(rootView, id);
-      if (tvEjercicioOutput == null) {
+      id = R.id.txt_ejercicioO_resultadoDetalle;
+      TextView txtEjercicioOResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtEjercicioOResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_errores;
-      TextView tvErrores = ViewBindings.findChildViewById(rootView, id);
-      if (tvErrores == null) {
+      id = R.id.txt_ejercicio_resultadoDetalle;
+      TextView txtEjercicioResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtEjercicioResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_fecha;
-      TextView tvFecha = ViewBindings.findChildViewById(rootView, id);
-      if (tvFecha == null) {
+      id = R.id.txt_errores_resultadoDetalle;
+      TextView txtErroresResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtErroresResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_fechaOutput;
-      TextView tvFechaOutput = ViewBindings.findChildViewById(rootView, id);
-      if (tvFechaOutput == null) {
+      id = R.id.txt_estimulo_resultadoDetalle;
+      TextView txtEstimuloResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtEstimuloResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_intensidad;
-      TextView tvIntensidad = ViewBindings.findChildViewById(rootView, id);
-      if (tvIntensidad == null) {
+      id = R.id.txt_fechaO_resultadoDetalle;
+      TextView txtFechaOResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtFechaOResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_intensidadOutput;
-      TextView tvIntensidadOutput = ViewBindings.findChildViewById(rootView, id);
-      if (tvIntensidadOutput == null) {
+      id = R.id.txt_fecha_resultadoDetalle;
+      TextView txtFechaResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtFechaResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_puntuacion;
-      TextView tvPuntuacion = ViewBindings.findChildViewById(rootView, id);
-      if (tvPuntuacion == null) {
+      id = R.id.txt_intensidadO_resultadoDetalle;
+      TextView txtIntensidadOResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtIntensidadOResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_puntuacionOutput;
-      TextView tvPuntuacionOutput = ViewBindings.findChildViewById(rootView, id);
-      if (tvPuntuacionOutput == null) {
+      id = R.id.txt_intensidad_resultadoDetalle;
+      TextView txtIntensidadResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtIntensidadResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_ruido;
-      TextView tvRuido = ViewBindings.findChildViewById(rootView, id);
-      if (tvRuido == null) {
+      id = R.id.txt_primeraRespuesta_resultadoDetalle;
+      TextView txtPrimeraRespuestaResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtPrimeraRespuestaResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.tv_ruidoOutput;
-      TextView tvRuidoOutput = ViewBindings.findChildViewById(rootView, id);
-      if (tvRuidoOutput == null) {
+      id = R.id.txt_puntuacionO_resultadoDetalle;
+      TextView txtPuntuacionOResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtPuntuacionOResultadoDetalle == null) {
         break missingId;
       }
 
-      return new FragmentResultadoDetalleBinding((FrameLayout) rootView, toolbar2, tvCategoria,
-          tvCategoriaOutput, tvEjercicio, tvEjercicioOutput, tvErrores, tvFecha, tvFechaOutput,
-          tvIntensidad, tvIntensidadOutput, tvPuntuacion, tvPuntuacionOutput, tvRuido,
-          tvRuidoOutput);
+      id = R.id.txt_puntuacion_resultadoDetalle;
+      TextView txtPuntuacionResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtPuntuacionResultadoDetalle == null) {
+        break missingId;
+      }
+
+      id = R.id.txt_ruidoO_resultadoDetalle;
+      TextView txtRuidoOResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtRuidoOResultadoDetalle == null) {
+        break missingId;
+      }
+
+      id = R.id.txt_ruido_resultadoDetalle;
+      TextView txtRuidoResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtRuidoResultadoDetalle == null) {
+        break missingId;
+      }
+
+      id = R.id.txt_segundaRespuesta_resultadoDetalle;
+      TextView txtSegundaRespuestaResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtSegundaRespuestaResultadoDetalle == null) {
+        break missingId;
+      }
+
+      id = R.id.txt_subcategoriaO_resultadoDetalle;
+      TextView txtSubcategoriaOResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtSubcategoriaOResultadoDetalle == null) {
+        break missingId;
+      }
+
+      id = R.id.txt_subcategoria_resultadoDetalle;
+      TextView txtSubcategoriaResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtSubcategoriaResultadoDetalle == null) {
+        break missingId;
+      }
+
+      return new FragmentResultadoDetalleBinding((FrameLayout) rootView,
+          tableErroresResultadoDetalle, tbResultadoDetalle, txtCategoriaOResultadoDetalle,
+          txtCategoriaResultadoDetalle, txtEjercicioOResultadoDetalle, txtEjercicioResultadoDetalle,
+          txtErroresResultadoDetalle, txtEstimuloResultadoDetalle, txtFechaOResultadoDetalle,
+          txtFechaResultadoDetalle, txtIntensidadOResultadoDetalle, txtIntensidadResultadoDetalle,
+          txtPrimeraRespuestaResultadoDetalle, txtPuntuacionOResultadoDetalle,
+          txtPuntuacionResultadoDetalle, txtRuidoOResultadoDetalle, txtRuidoResultadoDetalle,
+          txtSegundaRespuestaResultadoDetalle, txtSubcategoriaOResultadoDetalle,
+          txtSubcategoriaResultadoDetalle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

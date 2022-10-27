@@ -79,6 +79,12 @@ public class AgregarSonidoViewModel extends ViewModel {
 
     }
 
+    public void finalizarGrabacionForzada(Context context, SonidoEntity sonidoEntity) {
+        if (modoGrabar()) {
+            finalizarGrabacion(context, sonidoEntity);
+        }
+    }
+
     public void escucharGrabacion() {
 
         mediaPlayer = new MediaPlayer();
@@ -89,7 +95,21 @@ public class AgregarSonidoViewModel extends ViewModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        mediaPlayer = null;
 
+    }
+
+    public void pausarReproduccion() {
+        mediaPlayer.stop();
+        mediaPlayer.release();
+    }
+
+    public Boolean checkReproduccion() {
+        if (mediaPlayer != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void aceptarGrabacion(SonidoEntity sonidoEntity) {

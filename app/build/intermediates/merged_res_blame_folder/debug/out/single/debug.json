@@ -48,6 +48,10 @@
         "source": "com.example.app_phonoaudiology.app-main-50:/layout/item_option.xml"
     },
     {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_item_error.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/layout/item_error.xml"
+    },
+    {
         "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-xxxhdpi_ic_launcher_logo_foreground.png.flat",
         "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xxxhdpi/ic_launcher_logo_foreground.png"
     },
@@ -222,6 +226,10 @@
     {
         "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_nombre_sonido_background.xml.flat",
         "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_nombre_sonido_background.xml"
+    },
+    {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_error_item_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_error_item_background.xml"
     },
     {
         "merged": "com.example.app_phonoaudiology.app-merged_res-48:/mipmap-anydpi-v26_ic_launcher_logo.xml.flat",

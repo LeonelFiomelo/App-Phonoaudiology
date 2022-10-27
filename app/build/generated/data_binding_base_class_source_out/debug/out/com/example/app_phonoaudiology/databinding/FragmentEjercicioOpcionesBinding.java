@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,47 +25,56 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final ImageButton btnPlay;
+  public final ImageButton btnConfiguracionEjercicioOpciones;
 
   @NonNull
-  public final ImageButton btnSetting;
+  public final ImageButton btnPlayEjercicioOpciones;
 
   @NonNull
-  public final ImageView imgCorrectas;
+  public final ImageView imgCorrectasEjercicioOpciones;
 
   @NonNull
-  public final ImageView imgIncorrectas;
+  public final ImageView imgIncorrectasEjercicioOpciones;
 
   @NonNull
-  public final RecyclerView recyclerViewEjercicio;
+  public final RecyclerView recyclerViewEjercicioOpciones;
 
   @NonNull
-  public final Toolbar tbEjercicioOpciones;
+  public final ScrollView scrollViewEjercicioOpciones;
 
   @NonNull
-  public final TextView textView;
+  public final Toolbar toolbarEjercicioOpciones;
 
   @NonNull
-  public final TextView tvCorrectas;
+  public final TextView txtCorrectasEjercicioOpciones;
 
   @NonNull
-  public final TextView tvIncorrectas;
+  public final TextView txtIncorrectasEjercicioOpciones;
+
+  @NonNull
+  public final TextView txtPulseBotonEjercicioOpciones;
 
   private FragmentEjercicioOpcionesBinding(@NonNull FrameLayout rootView,
-      @NonNull ImageButton btnPlay, @NonNull ImageButton btnSetting,
-      @NonNull ImageView imgCorrectas, @NonNull ImageView imgIncorrectas,
-      @NonNull RecyclerView recyclerViewEjercicio, @NonNull Toolbar tbEjercicioOpciones,
-      @NonNull TextView textView, @NonNull TextView tvCorrectas, @NonNull TextView tvIncorrectas) {
+      @NonNull ImageButton btnConfiguracionEjercicioOpciones,
+      @NonNull ImageButton btnPlayEjercicioOpciones,
+      @NonNull ImageView imgCorrectasEjercicioOpciones,
+      @NonNull ImageView imgIncorrectasEjercicioOpciones,
+      @NonNull RecyclerView recyclerViewEjercicioOpciones,
+      @NonNull ScrollView scrollViewEjercicioOpciones, @NonNull Toolbar toolbarEjercicioOpciones,
+      @NonNull TextView txtCorrectasEjercicioOpciones,
+      @NonNull TextView txtIncorrectasEjercicioOpciones,
+      @NonNull TextView txtPulseBotonEjercicioOpciones) {
     this.rootView = rootView;
-    this.btnPlay = btnPlay;
-    this.btnSetting = btnSetting;
-    this.imgCorrectas = imgCorrectas;
-    this.imgIncorrectas = imgIncorrectas;
-    this.recyclerViewEjercicio = recyclerViewEjercicio;
-    this.tbEjercicioOpciones = tbEjercicioOpciones;
-    this.textView = textView;
-    this.tvCorrectas = tvCorrectas;
-    this.tvIncorrectas = tvIncorrectas;
+    this.btnConfiguracionEjercicioOpciones = btnConfiguracionEjercicioOpciones;
+    this.btnPlayEjercicioOpciones = btnPlayEjercicioOpciones;
+    this.imgCorrectasEjercicioOpciones = imgCorrectasEjercicioOpciones;
+    this.imgIncorrectasEjercicioOpciones = imgIncorrectasEjercicioOpciones;
+    this.recyclerViewEjercicioOpciones = recyclerViewEjercicioOpciones;
+    this.scrollViewEjercicioOpciones = scrollViewEjercicioOpciones;
+    this.toolbarEjercicioOpciones = toolbarEjercicioOpciones;
+    this.txtCorrectasEjercicioOpciones = txtCorrectasEjercicioOpciones;
+    this.txtIncorrectasEjercicioOpciones = txtIncorrectasEjercicioOpciones;
+    this.txtPulseBotonEjercicioOpciones = txtPulseBotonEjercicioOpciones;
   }
 
   @Override
@@ -94,63 +104,72 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_play;
-      ImageButton btnPlay = ViewBindings.findChildViewById(rootView, id);
-      if (btnPlay == null) {
+      id = R.id.btn_configuracion_ejercicioOpciones;
+      ImageButton btnConfiguracionEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (btnConfiguracionEjercicioOpciones == null) {
         break missingId;
       }
 
-      id = R.id.btn_setting;
-      ImageButton btnSetting = ViewBindings.findChildViewById(rootView, id);
-      if (btnSetting == null) {
+      id = R.id.btn_play_ejercicioOpciones;
+      ImageButton btnPlayEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (btnPlayEjercicioOpciones == null) {
         break missingId;
       }
 
-      id = R.id.img_correctas;
-      ImageView imgCorrectas = ViewBindings.findChildViewById(rootView, id);
-      if (imgCorrectas == null) {
+      id = R.id.img_correctas_ejercicioOpciones;
+      ImageView imgCorrectasEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (imgCorrectasEjercicioOpciones == null) {
         break missingId;
       }
 
-      id = R.id.img_incorrectas;
-      ImageView imgIncorrectas = ViewBindings.findChildViewById(rootView, id);
-      if (imgIncorrectas == null) {
+      id = R.id.img_incorrectas_ejercicioOpciones;
+      ImageView imgIncorrectasEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (imgIncorrectasEjercicioOpciones == null) {
         break missingId;
       }
 
-      id = R.id.recyclerView_ejercicio;
-      RecyclerView recyclerViewEjercicio = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerViewEjercicio == null) {
+      id = R.id.recyclerView_ejercicioOpciones;
+      RecyclerView recyclerViewEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerViewEjercicioOpciones == null) {
         break missingId;
       }
 
-      id = R.id.tb_ejercicioOpciones;
-      Toolbar tbEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
-      if (tbEjercicioOpciones == null) {
+      id = R.id.scrollView_ejercicioOpciones;
+      ScrollView scrollViewEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (scrollViewEjercicioOpciones == null) {
         break missingId;
       }
 
-      id = R.id.textView;
-      TextView textView = ViewBindings.findChildViewById(rootView, id);
-      if (textView == null) {
+      id = R.id.toolbar_ejercicioOpciones;
+      Toolbar toolbarEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (toolbarEjercicioOpciones == null) {
         break missingId;
       }
 
-      id = R.id.tv_correctas;
-      TextView tvCorrectas = ViewBindings.findChildViewById(rootView, id);
-      if (tvCorrectas == null) {
+      id = R.id.txt_correctas_ejercicioOpciones;
+      TextView txtCorrectasEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (txtCorrectasEjercicioOpciones == null) {
         break missingId;
       }
 
-      id = R.id.tv_incorrectas;
-      TextView tvIncorrectas = ViewBindings.findChildViewById(rootView, id);
-      if (tvIncorrectas == null) {
+      id = R.id.txt_incorrectas_ejercicioOpciones;
+      TextView txtIncorrectasEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (txtIncorrectasEjercicioOpciones == null) {
         break missingId;
       }
 
-      return new FragmentEjercicioOpcionesBinding((FrameLayout) rootView, btnPlay, btnSetting,
-          imgCorrectas, imgIncorrectas, recyclerViewEjercicio, tbEjercicioOpciones, textView,
-          tvCorrectas, tvIncorrectas);
+      id = R.id.txt_pulseBoton_ejercicioOpciones;
+      TextView txtPulseBotonEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
+      if (txtPulseBotonEjercicioOpciones == null) {
+        break missingId;
+      }
+
+      return new FragmentEjercicioOpcionesBinding((FrameLayout) rootView,
+          btnConfiguracionEjercicioOpciones, btnPlayEjercicioOpciones,
+          imgCorrectasEjercicioOpciones, imgIncorrectasEjercicioOpciones,
+          recyclerViewEjercicioOpciones, scrollViewEjercicioOpciones, toolbarEjercicioOpciones,
+          txtCorrectasEjercicioOpciones, txtIncorrectasEjercicioOpciones,
+          txtPulseBotonEjercicioOpciones);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

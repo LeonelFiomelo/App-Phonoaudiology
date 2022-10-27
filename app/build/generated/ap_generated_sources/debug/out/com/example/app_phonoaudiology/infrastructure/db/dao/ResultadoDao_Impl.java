@@ -1,7 +1,7 @@
 package com.example.app_phonoaudiology.infrastructure.db.dao;
 
 import android.database.Cursor;
-import androidx.collection.LongSparseArray;
+import androidx.collection.ArrayMap;
 import androidx.lifecycle.LiveData;
 import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
@@ -26,6 +26,7 @@ import java.lang.SuppressWarnings;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.Callable;
 
 @SuppressWarnings({"unchecked", "deprecation"})
@@ -35,6 +36,8 @@ public final class ResultadoDao_Impl implements ResultadoDao {
   private final EntityInsertionAdapter<ResultadoEntityDB> __insertionAdapterOfResultadoEntityDB;
 
   private final EntityInsertionAdapter<ErrorEntityDB> __insertionAdapterOfErrorEntityDB;
+
+  private final EntityDeletionOrUpdateAdapter<ResultadoEntityDB> __deletionAdapterOfResultadoEntityDB;
 
   private final EntityDeletionOrUpdateAdapter<ResultadoEntityDB> __updateAdapterOfResultadoEntityDB;
 
@@ -47,12 +50,16 @@ public final class ResultadoDao_Impl implements ResultadoDao {
     this.__insertionAdapterOfResultadoEntityDB = new EntityInsertionAdapter<ResultadoEntityDB>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `resultado_table` (`id`,`fecha`,`correctas`,`intentos`,`categoria`,`subcategoria`,`ejercicio`,`ruido`,`tipoRuido`,`intensidad`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `resultado_table` (`uuid`,`fecha`,`correctas`,`intentos`,`categoria`,`subcategoria`,`ejercicio`,`ruido`,`tipoRuido`,`intensidad`) VALUES (?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, ResultadoEntityDB value) {
-        stmt.bindLong(1, value.getId());
+        if (value.getUuid() == null) {
+          stmt.bindNull(1);
+        } else {
+          stmt.bindString(1, value.getUuid());
+        }
         if (value.getFecha() == null) {
           stmt.bindNull(2);
         } else {
@@ -92,13 +99,17 @@ public final class ResultadoDao_Impl implements ResultadoDao {
     this.__insertionAdapterOfErrorEntityDB = new EntityInsertionAdapter<ErrorEntityDB>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `error_table` (`id`,`resultado_id`,`estimulo`,`primeraRespuesta`,`segundaRespuesta`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR ABORT INTO `error_table` (`id`,`uuidResultado`,`estimulo`,`primeraRespuesta`,`segundaRespuesta`) VALUES (nullif(?, 0),?,?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, ErrorEntityDB value) {
         stmt.bindLong(1, value.getId());
-        stmt.bindLong(2, value.getResultadoId());
+        if (value.getUuidResultado() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getUuidResultado());
+        }
         if (value.getEstimulo() == null) {
           stmt.bindNull(3);
         } else {
@@ -116,15 +127,34 @@ public final class ResultadoDao_Impl implements ResultadoDao {
         }
       }
     };
-    this.__updateAdapterOfResultadoEntityDB = new EntityDeletionOrUpdateAdapter<ResultadoEntityDB>(__db) {
+    this.__deletionAdapterOfResultadoEntityDB = new EntityDeletionOrUpdateAdapter<ResultadoEntityDB>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `resultado_table` SET `id` = ?,`fecha` = ?,`correctas` = ?,`intentos` = ?,`categoria` = ?,`subcategoria` = ?,`ejercicio` = ?,`ruido` = ?,`tipoRuido` = ?,`intensidad` = ? WHERE `id` = ?";
+        return "DELETE FROM `resultado_table` WHERE `uuid` = ?";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, ResultadoEntityDB value) {
-        stmt.bindLong(1, value.getId());
+        if (value.getUuid() == null) {
+          stmt.bindNull(1);
+        } else {
+          stmt.bindString(1, value.getUuid());
+        }
+      }
+    };
+    this.__updateAdapterOfResultadoEntityDB = new EntityDeletionOrUpdateAdapter<ResultadoEntityDB>(__db) {
+      @Override
+      public String createQuery() {
+        return "UPDATE OR ABORT `resultado_table` SET `uuid` = ?,`fecha` = ?,`correctas` = ?,`intentos` = ?,`categoria` = ?,`subcategoria` = ?,`ejercicio` = ?,`ruido` = ?,`tipoRuido` = ?,`intensidad` = ? WHERE `uuid` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, ResultadoEntityDB value) {
+        if (value.getUuid() == null) {
+          stmt.bindNull(1);
+        } else {
+          stmt.bindString(1, value.getUuid());
+        }
         if (value.getFecha() == null) {
           stmt.bindNull(2);
         } else {
@@ -159,19 +189,27 @@ public final class ResultadoDao_Impl implements ResultadoDao {
           stmt.bindString(9, value.getTipoRuido());
         }
         stmt.bindDouble(10, value.getIntensidad());
-        stmt.bindLong(11, value.getId());
+        if (value.getUuid() == null) {
+          stmt.bindNull(11);
+        } else {
+          stmt.bindString(11, value.getUuid());
+        }
       }
     };
     this.__updateAdapterOfErrorEntityDB = new EntityDeletionOrUpdateAdapter<ErrorEntityDB>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `error_table` SET `id` = ?,`resultado_id` = ?,`estimulo` = ?,`primeraRespuesta` = ?,`segundaRespuesta` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `error_table` SET `id` = ?,`uuidResultado` = ?,`estimulo` = ?,`primeraRespuesta` = ?,`segundaRespuesta` = ? WHERE `id` = ?";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, ErrorEntityDB value) {
         stmt.bindLong(1, value.getId());
-        stmt.bindLong(2, value.getResultadoId());
+        if (value.getUuidResultado() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getUuidResultado());
+        }
         if (value.getEstimulo() == null) {
           stmt.bindNull(3);
         } else {
@@ -224,6 +262,18 @@ public final class ResultadoDao_Impl implements ResultadoDao {
   }
 
   @Override
+  public void eliminarResultado(final ResultadoEntityDB resultado) {
+    __db.assertNotSuspendingTransaction();
+    __db.beginTransaction();
+    try {
+      __deletionAdapterOfResultadoEntityDB.handle(resultado);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
   public void update(final ResultadoEntityDB resultado) {
     __db.assertNotSuspendingTransaction();
     __db.beginTransaction();
@@ -262,15 +312,21 @@ public final class ResultadoDao_Impl implements ResultadoDao {
   }
 
   @Override
-  public LiveData<List<ResultadoEntityDB>> getAllResultados() {
-    final String _sql = "SELECT * FROM resultado_table ORDER BY id DESC";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    return __db.getInvalidationTracker().createLiveData(new String[]{"resultado_table"}, false, new Callable<List<ResultadoEntityDB>>() {
+  public LiveData<ResultadoEntityDB> getResultado(final String uuid) {
+    final String _sql = "SELECT * FROM resultado_table WHERE uuid = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    if (uuid == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, uuid);
+    }
+    return __db.getInvalidationTracker().createLiveData(new String[]{"resultado_table"}, false, new Callable<ResultadoEntityDB>() {
       @Override
-      public List<ResultadoEntityDB> call() throws Exception {
+      public ResultadoEntityDB call() throws Exception {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
-          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfUuid = CursorUtil.getColumnIndexOrThrow(_cursor, "uuid");
           final int _cursorIndexOfFecha = CursorUtil.getColumnIndexOrThrow(_cursor, "fecha");
           final int _cursorIndexOfCorrectas = CursorUtil.getColumnIndexOrThrow(_cursor, "correctas");
           final int _cursorIndexOfIntentos = CursorUtil.getColumnIndexOrThrow(_cursor, "intentos");
@@ -280,9 +336,14 @@ public final class ResultadoDao_Impl implements ResultadoDao {
           final int _cursorIndexOfRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruido");
           final int _cursorIndexOfTipoRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "tipoRuido");
           final int _cursorIndexOfIntensidad = CursorUtil.getColumnIndexOrThrow(_cursor, "intensidad");
-          final List<ResultadoEntityDB> _result = new ArrayList<ResultadoEntityDB>(_cursor.getCount());
-          while(_cursor.moveToNext()) {
-            final ResultadoEntityDB _item;
+          final ResultadoEntityDB _result;
+          if(_cursor.moveToFirst()) {
+            final String _tmpUuid;
+            if (_cursor.isNull(_cursorIndexOfUuid)) {
+              _tmpUuid = null;
+            } else {
+              _tmpUuid = _cursor.getString(_cursorIndexOfUuid);
+            }
             final String _tmpFecha;
             if (_cursor.isNull(_cursorIndexOfFecha)) {
               _tmpFecha = null;
@@ -327,10 +388,96 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             }
             final float _tmpIntensidad;
             _tmpIntensidad = _cursor.getFloat(_cursorIndexOfIntensidad);
-            _item = new ResultadoEntityDB(_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
-            final long _tmpId;
-            _tmpId = _cursor.getLong(_cursorIndexOfId);
-            _item.setId(_tmpId);
+            _result = new ResultadoEntityDB(_tmpUuid,_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
+
+  @Override
+  public LiveData<List<ResultadoEntityDB>> getAllResultados() {
+    final String _sql = "SELECT * FROM resultado_table";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    return __db.getInvalidationTracker().createLiveData(new String[]{"resultado_table"}, false, new Callable<List<ResultadoEntityDB>>() {
+      @Override
+      public List<ResultadoEntityDB> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfUuid = CursorUtil.getColumnIndexOrThrow(_cursor, "uuid");
+          final int _cursorIndexOfFecha = CursorUtil.getColumnIndexOrThrow(_cursor, "fecha");
+          final int _cursorIndexOfCorrectas = CursorUtil.getColumnIndexOrThrow(_cursor, "correctas");
+          final int _cursorIndexOfIntentos = CursorUtil.getColumnIndexOrThrow(_cursor, "intentos");
+          final int _cursorIndexOfCategoria = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria");
+          final int _cursorIndexOfSubcategoria = CursorUtil.getColumnIndexOrThrow(_cursor, "subcategoria");
+          final int _cursorIndexOfEjercicio = CursorUtil.getColumnIndexOrThrow(_cursor, "ejercicio");
+          final int _cursorIndexOfRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruido");
+          final int _cursorIndexOfTipoRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "tipoRuido");
+          final int _cursorIndexOfIntensidad = CursorUtil.getColumnIndexOrThrow(_cursor, "intensidad");
+          final List<ResultadoEntityDB> _result = new ArrayList<ResultadoEntityDB>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final ResultadoEntityDB _item;
+            final String _tmpUuid;
+            if (_cursor.isNull(_cursorIndexOfUuid)) {
+              _tmpUuid = null;
+            } else {
+              _tmpUuid = _cursor.getString(_cursorIndexOfUuid);
+            }
+            final String _tmpFecha;
+            if (_cursor.isNull(_cursorIndexOfFecha)) {
+              _tmpFecha = null;
+            } else {
+              _tmpFecha = _cursor.getString(_cursorIndexOfFecha);
+            }
+            final int _tmpCorrectas;
+            _tmpCorrectas = _cursor.getInt(_cursorIndexOfCorrectas);
+            final int _tmpIntentos;
+            _tmpIntentos = _cursor.getInt(_cursorIndexOfIntentos);
+            final String _tmpCategoria;
+            if (_cursor.isNull(_cursorIndexOfCategoria)) {
+              _tmpCategoria = null;
+            } else {
+              _tmpCategoria = _cursor.getString(_cursorIndexOfCategoria);
+            }
+            final String _tmpSubcategoria;
+            if (_cursor.isNull(_cursorIndexOfSubcategoria)) {
+              _tmpSubcategoria = null;
+            } else {
+              _tmpSubcategoria = _cursor.getString(_cursorIndexOfSubcategoria);
+            }
+            final String _tmpEjercicio;
+            if (_cursor.isNull(_cursorIndexOfEjercicio)) {
+              _tmpEjercicio = null;
+            } else {
+              _tmpEjercicio = _cursor.getString(_cursorIndexOfEjercicio);
+            }
+            final Boolean _tmpRuido;
+            final Integer _tmp;
+            if (_cursor.isNull(_cursorIndexOfRuido)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(_cursorIndexOfRuido);
+            }
+            _tmpRuido = _tmp == null ? null : _tmp != 0;
+            final String _tmpTipoRuido;
+            if (_cursor.isNull(_cursorIndexOfTipoRuido)) {
+              _tmpTipoRuido = null;
+            } else {
+              _tmpTipoRuido = _cursor.getString(_cursorIndexOfTipoRuido);
+            }
+            final float _tmpIntensidad;
+            _tmpIntensidad = _cursor.getFloat(_cursorIndexOfIntensidad);
+            _item = new ResultadoEntityDB(_tmpUuid,_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
             _result.add(_item);
           }
           return _result;
@@ -348,7 +495,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
 
   @Override
   public LiveData<List<ErrorEntityDB>> getAllErrores() {
-    final String _sql = "SELECT * FROM error_table ORDER BY id DESC";
+    final String _sql = "SELECT * FROM error_table";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return __db.getInvalidationTracker().createLiveData(new String[]{"error_table"}, false, new Callable<List<ErrorEntityDB>>() {
       @Override
@@ -356,7 +503,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
-          final int _cursorIndexOfResultadoId = CursorUtil.getColumnIndexOrThrow(_cursor, "resultado_id");
+          final int _cursorIndexOfUuidResultado = CursorUtil.getColumnIndexOrThrow(_cursor, "uuidResultado");
           final int _cursorIndexOfEstimulo = CursorUtil.getColumnIndexOrThrow(_cursor, "estimulo");
           final int _cursorIndexOfPrimeraRespuesta = CursorUtil.getColumnIndexOrThrow(_cursor, "primeraRespuesta");
           final int _cursorIndexOfSegundaRespuesta = CursorUtil.getColumnIndexOrThrow(_cursor, "segundaRespuesta");
@@ -367,9 +514,13 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             final long _tmpId;
             _tmpId = _cursor.getLong(_cursorIndexOfId);
             _item.setId(_tmpId);
-            final int _tmpResultadoId;
-            _tmpResultadoId = _cursor.getInt(_cursorIndexOfResultadoId);
-            _item.setResultadoId(_tmpResultadoId);
+            final String _tmpUuidResultado;
+            if (_cursor.isNull(_cursorIndexOfUuidResultado)) {
+              _tmpUuidResultado = null;
+            } else {
+              _tmpUuidResultado = _cursor.getString(_cursorIndexOfUuidResultado);
+            }
+            _item.setUuidResultado(_tmpUuidResultado);
             final String _tmpEstimulo;
             if (_cursor.isNull(_cursorIndexOfEstimulo)) {
               _tmpEstimulo = null;
@@ -417,7 +568,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
         try {
           final Cursor _cursor = DBUtil.query(__db, _statement, true, null);
           try {
-            final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+            final int _cursorIndexOfUuid = CursorUtil.getColumnIndexOrThrow(_cursor, "uuid");
             final int _cursorIndexOfFecha = CursorUtil.getColumnIndexOrThrow(_cursor, "fecha");
             final int _cursorIndexOfCorrectas = CursorUtil.getColumnIndexOrThrow(_cursor, "correctas");
             final int _cursorIndexOfIntentos = CursorUtil.getColumnIndexOrThrow(_cursor, "intentos");
@@ -427,10 +578,10 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             final int _cursorIndexOfRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruido");
             final int _cursorIndexOfTipoRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "tipoRuido");
             final int _cursorIndexOfIntensidad = CursorUtil.getColumnIndexOrThrow(_cursor, "intensidad");
-            final LongSparseArray<ArrayList<ErrorEntityDB>> _collectionErrores = new LongSparseArray<ArrayList<ErrorEntityDB>>();
+            final ArrayMap<String, ArrayList<ErrorEntityDB>> _collectionErrores = new ArrayMap<String, ArrayList<ErrorEntityDB>>();
             while (_cursor.moveToNext()) {
-              if (!_cursor.isNull(_cursorIndexOfId)) {
-                final long _tmpKey = _cursor.getLong(_cursorIndexOfId);
+              if (!_cursor.isNull(_cursorIndexOfUuid)) {
+                final String _tmpKey = _cursor.getString(_cursorIndexOfUuid);
                 ArrayList<ErrorEntityDB> _tmpErroresCollection = _collectionErrores.get(_tmpKey);
                 if (_tmpErroresCollection == null) {
                   _tmpErroresCollection = new ArrayList<ErrorEntityDB>();
@@ -444,7 +595,13 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             while(_cursor.moveToNext()) {
               final ResultadoErroresEntityDB _item;
               final ResultadoEntityDB _tmpResultadoEntityDB;
-              if (! (_cursor.isNull(_cursorIndexOfId) && _cursor.isNull(_cursorIndexOfFecha) && _cursor.isNull(_cursorIndexOfCorrectas) && _cursor.isNull(_cursorIndexOfIntentos) && _cursor.isNull(_cursorIndexOfCategoria) && _cursor.isNull(_cursorIndexOfSubcategoria) && _cursor.isNull(_cursorIndexOfEjercicio) && _cursor.isNull(_cursorIndexOfRuido) && _cursor.isNull(_cursorIndexOfTipoRuido) && _cursor.isNull(_cursorIndexOfIntensidad))) {
+              if (! (_cursor.isNull(_cursorIndexOfUuid) && _cursor.isNull(_cursorIndexOfFecha) && _cursor.isNull(_cursorIndexOfCorrectas) && _cursor.isNull(_cursorIndexOfIntentos) && _cursor.isNull(_cursorIndexOfCategoria) && _cursor.isNull(_cursorIndexOfSubcategoria) && _cursor.isNull(_cursorIndexOfEjercicio) && _cursor.isNull(_cursorIndexOfRuido) && _cursor.isNull(_cursorIndexOfTipoRuido) && _cursor.isNull(_cursorIndexOfIntensidad))) {
+                final String _tmpUuid;
+                if (_cursor.isNull(_cursorIndexOfUuid)) {
+                  _tmpUuid = null;
+                } else {
+                  _tmpUuid = _cursor.getString(_cursorIndexOfUuid);
+                }
                 final String _tmpFecha;
                 if (_cursor.isNull(_cursorIndexOfFecha)) {
                   _tmpFecha = null;
@@ -489,16 +646,13 @@ public final class ResultadoDao_Impl implements ResultadoDao {
                 }
                 final float _tmpIntensidad;
                 _tmpIntensidad = _cursor.getFloat(_cursorIndexOfIntensidad);
-                _tmpResultadoEntityDB = new ResultadoEntityDB(_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
-                final long _tmpId;
-                _tmpId = _cursor.getLong(_cursorIndexOfId);
-                _tmpResultadoEntityDB.setId(_tmpId);
+                _tmpResultadoEntityDB = new ResultadoEntityDB(_tmpUuid,_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
               }  else  {
                 _tmpResultadoEntityDB = null;
               }
               ArrayList<ErrorEntityDB> _tmpErroresCollection_1 = null;
-              if (!_cursor.isNull(_cursorIndexOfId)) {
-                final long _tmpKey_1 = _cursor.getLong(_cursorIndexOfId);
+              if (!_cursor.isNull(_cursorIndexOfUuid)) {
+                final String _tmpKey_1 = _cursor.getString(_cursorIndexOfUuid);
                 _tmpErroresCollection_1 = _collectionErrores.get(_tmpKey_1);
               }
               if (_tmpErroresCollection_1 == null) {
@@ -531,13 +685,14 @@ public final class ResultadoDao_Impl implements ResultadoDao {
   }
 
   private void __fetchRelationshiperrorTableAscomExampleAppPhonoaudiologyInfrastructureDbEntityErrorEntityDB(
-      final LongSparseArray<ArrayList<ErrorEntityDB>> _map) {
-    if (_map.isEmpty()) {
+      final ArrayMap<String, ArrayList<ErrorEntityDB>> _map) {
+    final Set<String> __mapKeySet = _map.keySet();
+    if (__mapKeySet.isEmpty()) {
       return;
     }
     // check if the size is too big, if so divide;
     if(_map.size() > RoomDatabase.MAX_BIND_PARAMETER_CNT) {
-      LongSparseArray<ArrayList<ErrorEntityDB>> _tmpInnerMap = new LongSparseArray<ArrayList<ErrorEntityDB>>(androidx.room.RoomDatabase.MAX_BIND_PARAMETER_CNT);
+      ArrayMap<String, ArrayList<ErrorEntityDB>> _tmpInnerMap = new ArrayMap<String, ArrayList<ErrorEntityDB>>(androidx.room.RoomDatabase.MAX_BIND_PARAMETER_CNT);
       int _tmpIndex = 0;
       int _mapIndex = 0;
       final int _limit = _map.size();
@@ -547,7 +702,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
         _tmpIndex++;
         if(_tmpIndex == RoomDatabase.MAX_BIND_PARAMETER_CNT) {
           __fetchRelationshiperrorTableAscomExampleAppPhonoaudiologyInfrastructureDbEntityErrorEntityDB(_tmpInnerMap);
-          _tmpInnerMap = new LongSparseArray<ArrayList<ErrorEntityDB>>(RoomDatabase.MAX_BIND_PARAMETER_CNT);
+          _tmpInnerMap = new ArrayMap<String, ArrayList<ErrorEntityDB>>(RoomDatabase.MAX_BIND_PARAMETER_CNT);
           _tmpIndex = 0;
         }
       }
@@ -557,33 +712,36 @@ public final class ResultadoDao_Impl implements ResultadoDao {
       return;
     }
     StringBuilder _stringBuilder = StringUtil.newStringBuilder();
-    _stringBuilder.append("SELECT `id`,`resultado_id`,`estimulo`,`primeraRespuesta`,`segundaRespuesta` FROM `error_table` WHERE `resultado_id` IN (");
-    final int _inputSize = _map.size();
+    _stringBuilder.append("SELECT `id`,`uuidResultado`,`estimulo`,`primeraRespuesta`,`segundaRespuesta` FROM `error_table` WHERE `uuidResultado` IN (");
+    final int _inputSize = __mapKeySet.size();
     StringUtil.appendPlaceholders(_stringBuilder, _inputSize);
     _stringBuilder.append(")");
     final String _sql = _stringBuilder.toString();
     final int _argCount = 0 + _inputSize;
     final RoomSQLiteQuery _stmt = RoomSQLiteQuery.acquire(_sql, _argCount);
     int _argIndex = 1;
-    for (int i = 0; i < _map.size(); i++) {
-      long _item = _map.keyAt(i);
-      _stmt.bindLong(_argIndex, _item);
+    for (String _item : __mapKeySet) {
+      if (_item == null) {
+        _stmt.bindNull(_argIndex);
+      } else {
+        _stmt.bindString(_argIndex, _item);
+      }
       _argIndex ++;
     }
     final Cursor _cursor = DBUtil.query(__db, _stmt, false, null);
     try {
-      final int _itemKeyIndex = CursorUtil.getColumnIndex(_cursor, "resultado_id");
+      final int _itemKeyIndex = CursorUtil.getColumnIndex(_cursor, "uuidResultado");
       if (_itemKeyIndex == -1) {
         return;
       }
       final int _cursorIndexOfId = 0;
-      final int _cursorIndexOfResultadoId = 1;
+      final int _cursorIndexOfUuidResultado = 1;
       final int _cursorIndexOfEstimulo = 2;
       final int _cursorIndexOfPrimeraRespuesta = 3;
       final int _cursorIndexOfSegundaRespuesta = 4;
       while(_cursor.moveToNext()) {
         if (!_cursor.isNull(_itemKeyIndex)) {
-          final long _tmpKey = _cursor.getLong(_itemKeyIndex);
+          final String _tmpKey = _cursor.getString(_itemKeyIndex);
           ArrayList<ErrorEntityDB> _tmpRelation = _map.get(_tmpKey);
           if (_tmpRelation != null) {
             final ErrorEntityDB _item_1;
@@ -591,9 +749,13 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             final long _tmpId;
             _tmpId = _cursor.getLong(_cursorIndexOfId);
             _item_1.setId(_tmpId);
-            final int _tmpResultadoId;
-            _tmpResultadoId = _cursor.getInt(_cursorIndexOfResultadoId);
-            _item_1.setResultadoId(_tmpResultadoId);
+            final String _tmpUuidResultado;
+            if (_cursor.isNull(_cursorIndexOfUuidResultado)) {
+              _tmpUuidResultado = null;
+            } else {
+              _tmpUuidResultado = _cursor.getString(_cursorIndexOfUuidResultado);
+            }
+            _item_1.setUuidResultado(_tmpUuidResultado);
             final String _tmpEstimulo;
             if (_cursor.isNull(_cursorIndexOfEstimulo)) {
               _tmpEstimulo = null;

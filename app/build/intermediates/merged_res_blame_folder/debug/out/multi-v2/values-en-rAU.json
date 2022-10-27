@@ -4,23 +4,6 @@
             "outputFile": "com.example.app_phonoaudiology.app-mergeDebugResources-46:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Leone\\.gradle\\caches\\transforms-3\\edd564b73e86431687eb966d64baee8a\\transformed\\navigation-ui-2.5.2\\res\\values-en-rAU\\values-en-rAU.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,161",
-                        "endColumns": "105,116",
-                        "endOffsets": "156,273"
-                    },
-                    "to": {
-                        "startLines": "29,30",
-                        "startColumns": "4,4",
-                        "startOffsets": "2762,2868",
-                        "endColumns": "105,116",
-                        "endOffsets": "2863,2980"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Leone\\.gradle\\caches\\transforms-3\\0638d9dacb5fd10604e28ec2b4d3c80b\\transformed\\core-1.8.0\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2",
@@ -35,6 +18,23 @@
                         "startOffsets": "3068",
                         "endColumns": "100",
                         "endOffsets": "3164"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Leone\\.gradle\\caches\\transforms-3\\cc3c84bcf11d1dfa6cd6bd6352941c40\\transformed\\navigation-ui-2.5.3\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,161",
+                        "endColumns": "105,116",
+                        "endOffsets": "156,273"
+                    },
+                    "to": {
+                        "startLines": "29,30",
+                        "startColumns": "4,4",
+                        "startOffsets": "2762,2868",
+                        "endColumns": "105,116",
+                        "endOffsets": "2863,2980"
                     }
                 },
                 {

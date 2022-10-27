@@ -24,6 +24,7 @@ import com.example.app_phonoaudiology.domain.entities.ReporteEntity;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ErrorEntityDB;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ResultadoEntityDB;
 import com.example.app_phonoaudiology.infrastructure.db.entity.SoundEntity;
+import com.example.app_phonoaudiology.infrastructure.db.repository.ErrorRepository;
 import com.example.app_phonoaudiology.infrastructure.db.repository.ResultadoRepository;
 import com.example.app_phonoaudiology.infrastructure.db.repository.SoundRepository;
 import com.example.app_phonoaudiology.domain.entities.ConectoresEntity;
@@ -36,6 +37,7 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class EjercicioOpcionesViewModel extends ViewModel {
 
@@ -46,6 +48,7 @@ public class EjercicioOpcionesViewModel extends ViewModel {
     // REPOSITORIES
     private SoundRepository soundRepository;
     private ResultadoRepository resultadoRepository;
+    private ErrorRepository errorRepository;
     // ENTITIES
     private ConfiguracionEntity configuracionEntity;
     private PuntuacionEntity puntuacionEntity;
@@ -71,7 +74,8 @@ public class EjercicioOpcionesViewModel extends ViewModel {
     }
 
     public void vmCreate(Application application, Context context, Bundle bundle) {
-        configuracionEntity = new ConfiguracionEntity(bundle);
+        configuracionEntity = new ConfiguracionEntity();
+        configuracionEntity.setConfiguracion(bundle);
         puntuacionEntity = new PuntuacionEntity(10, 2);
         conectoresEntity = new ConectoresEntity();
         combinacionConectores = new ArrayList<>();
@@ -79,6 +83,7 @@ public class EjercicioOpcionesViewModel extends ViewModel {
         touchSettingsButton = new TouchSettingsButton();
         soundRepository = new SoundRepository(application);
         resultadoRepository = new ResultadoRepository(application);
+        errorRepository = new ErrorRepository(application);
         intento = -1;
         setTodosLosConectores(context);
         getIntentos().setValue(getPuntuacionEntity().getIntentos());
@@ -95,7 +100,11 @@ public class EjercicioOpcionesViewModel extends ViewModel {
     }
 
     public void vmFinish(Bundle reporteBundle) {
+
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+
         ResultadoEntityDB resultadoEntityDB = new ResultadoEntityDB(
+                uuid,
                 GeneralUtils.getFechaFormateada(),
                 puntuacionEntity.getCorrectas(),
                 puntuacionEntity.get_Intentos(),
@@ -106,12 +115,18 @@ public class EjercicioOpcionesViewModel extends ViewModel {
                 configuracionEntity.getTipoRuido(),
                 configuracionEntity.getIntensidad()
         );
-        System.out.println("ID DEL RESULTADO: " + resultadoEntityDB.getId());
+
+        for (int i=0; i<puntuacionEntity.getListaDeErrores().size(); i++) {
+            puntuacionEntity.getListaDeErrores().get(i).setUuidResultado(uuid);
+        }
+
         resultadoRepository.agregarResultado(resultadoEntityDB);
-//        for(int i=0; i<listaDeErrores.size(); i++) {
-//            resultadoRepository.agregarError(listaDeErrores.get(i));
-//        }
-        setInformacionReporteBundle(reporteBundle);
+
+        errorRepository.agregarErrores(puntuacionEntity.getListaDeErrores());
+
+//        setInformacionReporteBundle(reporteBundle);
+        reporteBundle.putString("uuid", uuid);
+
     }
 
     public MutableLiveData<Integer> getCorrectas() {
@@ -198,20 +213,22 @@ public class EjercicioOpcionesViewModel extends ViewModel {
 
     // CUANDO EL USUARIO TOCA EL BOTON DE UNA OPCION
     public TouchOptionButton touchOptionButton = new TouchOptionButton() {
+
         @Override
         public void guardarInformacionDeSeleccion(MaterialButton opcionSeleccionada, SoundEntity opcionCorrecta) {
             switch (errorPermitido) {
                 case (1):
-//                    errorEntityDB.setEstimulo(opcionCorrecta.getNombre_sonido());
-//                    errorEntityDB.setPrimeraRespuesta((String) opcionSeleccionada.getText());
-//                    errorEntityDB.setSegundaRespuesta(null);
-//                    errorPermitido += 1;
+                    errorEntityDB.setEstimulo(opcionCorrecta.getNombre_sonido());
+                    errorEntityDB.setPrimeraRespuesta((String) opcionSeleccionada.getText());
+                    errorEntityDB.setSegundaRespuesta(null);
+                    errorPermitido += 1;
                     break;
                 case (2):
-//                    errorEntityDB.setSegundaRespuesta((String) opcionSeleccionada.getText());
+                    errorEntityDB.setSegundaRespuesta((String) opcionSeleccionada.getText());
                     break;
             }
         }
+
         @Override
         public void corroborarSeleccion(MaterialButton opcionSeleccionada, SoundEntity opcionCorrecta) {
             if (opcionSeleccionada.getText() == opcionCorrecta.getNombre_sonido()) {
@@ -227,10 +244,9 @@ public class EjercicioOpcionesViewModel extends ViewModel {
                 puntuacionEntity.sumarIncorrectas();
                 puntuacionEntity.restarIntentos();
                 puntuacionEntity.restarErroresPermitidos();
+
                 incorrectas.setValue(puntuacionEntity.getIncorrectas());
-                intentos.setValue(puntuacionEntity.getIntentos());
-                opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.shake_animation));
-                EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), false);
+
                 if (puntuacionEntity.getErroresPermitidos() <= 0) {
                     EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), false);
                     ErrorDeIntentosAlert errorDeIntentosAlert = new ErrorDeIntentosAlert(
@@ -239,9 +255,19 @@ public class EjercicioOpcionesViewModel extends ViewModel {
                             "Continuar"
                     );
                     errorDeIntentosAlert.MostrarAlerta(opcionSeleccionada.getContext());
-                    puntuacionEntity.resetear(errorEntityDB);
-                    reseteo.setValue(puntuacionEntity.getReseteo());
                 }
+
+                if (puntuacionEntity.getErroresPermitidos() <= 0 || getChequearIntentosRestantes()) {
+                    puntuacionEntity.resetear(errorEntityDB);
+                    intentos.setValue(puntuacionEntity.getIntentos());
+                    reseteo.setValue(puntuacionEntity.getReseteo());
+                } else {
+                    intentos.setValue(puntuacionEntity.getIntentos());
+                }
+
+                opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.shake_animation));
+                EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), false);
+
             }
         }
     };

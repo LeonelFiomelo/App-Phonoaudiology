@@ -14,8 +14,9 @@ import java.util.List;
 public class ResultadoEntityDB {
 
     @NonNull
-    @PrimaryKey(autoGenerate = true)
-    private long id;
+    @PrimaryKey()
+    @ColumnInfo(name = "uuid")
+    private String uuid;
     @ColumnInfo(name = "fecha")
     private String fecha;
     @ColumnInfo(name = "correctas")
@@ -35,7 +36,8 @@ public class ResultadoEntityDB {
     @ColumnInfo(name = "intensidad")
     private float intensidad;
 
-    public ResultadoEntityDB(String fecha, int correctas, int intentos, String categoria, String subcategoria, String ejercicio, Boolean ruido, String tipoRuido, float intensidad) {
+    public ResultadoEntityDB(@NonNull String uuid, String fecha, int correctas, int intentos, String categoria, String subcategoria, String ejercicio, Boolean ruido, String tipoRuido, float intensidad) {
+        this.uuid = uuid;
         this.fecha = fecha;
         this.correctas = correctas;
         this.intentos = intentos;
@@ -47,9 +49,7 @@ public class ResultadoEntityDB {
         this.intensidad = intensidad;
     }
 
-    public long getId() {
-        return id;
-    }
+    public String getUuid() { return uuid; }
     public String getFecha() {
         return fecha;
     }
@@ -74,9 +74,6 @@ public class ResultadoEntityDB {
         return intensidad;
     }
 
-    public void setId(long resultadoId) {
-        this.id = resultadoId;
-    }
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }

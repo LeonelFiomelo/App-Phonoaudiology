@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.app_phonoaudiology.R;
@@ -17,7 +17,10 @@ import java.lang.String;
 
 public final class ItemResultadoBinding implements ViewBinding {
   @NonNull
-  private final CardView rootView;
+  private final ConstraintLayout rootView;
+
+  @NonNull
+  public final ConstraintLayout clResultadoItem;
 
   @NonNull
   public final TextView tvCategoriaItem;
@@ -55,7 +58,8 @@ public final class ItemResultadoBinding implements ViewBinding {
   @NonNull
   public final TextView tvSubcategoriaOutputItem;
 
-  private ItemResultadoBinding(@NonNull CardView rootView, @NonNull TextView tvCategoriaItem,
+  private ItemResultadoBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ConstraintLayout clResultadoItem, @NonNull TextView tvCategoriaItem,
       @NonNull TextView tvCategoriaOutputItem, @NonNull TextView tvEjercicioItem,
       @NonNull TextView tvEjercicioOutputItem, @NonNull TextView tvFechaItem,
       @NonNull TextView tvFechaOutputItem, @NonNull TextView tvPuntuacionItem,
@@ -63,6 +67,7 @@ public final class ItemResultadoBinding implements ViewBinding {
       @NonNull TextView tvRuidoOutputItem, @NonNull TextView tvSubcategoriaItem,
       @NonNull TextView tvSubcategoriaOutputItem) {
     this.rootView = rootView;
+    this.clResultadoItem = clResultadoItem;
     this.tvCategoriaItem = tvCategoriaItem;
     this.tvCategoriaOutputItem = tvCategoriaOutputItem;
     this.tvEjercicioItem = tvEjercicioItem;
@@ -79,7 +84,7 @@ public final class ItemResultadoBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public CardView getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -104,6 +109,8 @@ public final class ItemResultadoBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      ConstraintLayout clResultadoItem = (ConstraintLayout) rootView;
+
       id = R.id.tv_categoria_item;
       TextView tvCategoriaItem = ViewBindings.findChildViewById(rootView, id);
       if (tvCategoriaItem == null) {
@@ -176,10 +183,10 @@ public final class ItemResultadoBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemResultadoBinding((CardView) rootView, tvCategoriaItem, tvCategoriaOutputItem,
-          tvEjercicioItem, tvEjercicioOutputItem, tvFechaItem, tvFechaOutputItem, tvPuntuacionItem,
-          tvPuntuacionOutputItem, tvRuidoItem, tvRuidoOutputItem, tvSubcategoriaItem,
-          tvSubcategoriaOutputItem);
+      return new ItemResultadoBinding((ConstraintLayout) rootView, clResultadoItem, tvCategoriaItem,
+          tvCategoriaOutputItem, tvEjercicioItem, tvEjercicioOutputItem, tvFechaItem,
+          tvFechaOutputItem, tvPuntuacionItem, tvPuntuacionOutputItem, tvRuidoItem,
+          tvRuidoOutputItem, tvSubcategoriaItem, tvSubcategoriaOutputItem);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

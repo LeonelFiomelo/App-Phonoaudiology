@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tb_administrarSonidos"
+            android:id="@+id/toolbar_administrarSonidos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -25,24 +25,24 @@
             app:titleTextColor="#FFFFFF" />
 
         <ScrollView
-            android:id="@+id/sv_administrarSonidos"
+            android:id="@+id/scrollView_administrarSonidos"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tb_administrarSonidos">
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_administrarSonidos">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_administrarSonidos"
+                android:id="@+id/recyclerView_administrarSonidos"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_nombre_sonido" />
         </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_agregarSonido"
+            android:id="@+id/actionButton_agregarSonido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"

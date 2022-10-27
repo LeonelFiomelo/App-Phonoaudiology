@@ -1,6 +1,7 @@
 package com.example.app_phonoaudiology.application.adapters;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import com.example.app_phonoaudiology.infrastructure.db.entity.SoundEntity;
 
 import java.util.List;
 
-public class SonidosAdapter extends RecyclerView.Adapter<SonidosViewHolder> {
+public class SonidosAdapter extends RecyclerView.Adapter<SonidosViewHolder>{
 
     private List<SoundEntity> listaDeSonidos;
     private Context context;

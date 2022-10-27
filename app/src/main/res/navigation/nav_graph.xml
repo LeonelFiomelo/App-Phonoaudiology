@@ -42,16 +42,13 @@
         tools:layout="@layout/fragment_ejercicio_opciones" >
         <argument
             android:name="categoria"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="subcategoria"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="ejercicio"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="tipoRuido"
             app:argType="string"
@@ -59,7 +56,7 @@
         <argument
             android:name="intensidad"
             app:argType="float"
-            android:defaultValue="5" />
+            android:defaultValue="0" />
         <argument
             android:name="botonSeleccionado"
             app:argType="string" />
@@ -68,41 +65,22 @@
             app:destination="@id/ResultadoFragment" />
         <argument
             android:name="ruido"
-            app:argType="boolean" />
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/ResultadoFragment"
         android:name="com.example.app_phonoaudiology.infrastructure.ui.view.ResultadoFragment"
         android:label="fragment_resultado"
         tools:layout="@layout/fragment_resultado" >
-        <argument
-            android:name="puntuacion"
-            app:argType="integer" />
-        <argument
-            android:name="intentos"
-            app:argType="integer" />
-        <argument
-            android:name="fecha"
-            app:argType="string" />
-        <argument
-            android:name="ejercicio"
-            app:argType="string" />
-        <argument
-            android:name="categoria"
-            app:argType="string" />
-        <argument
-            android:name="ruido"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue="Sin ruido" />
-        <argument
-            android:name="intensidad"
-            app:argType="float"
-            android:defaultValue="1.0" />
         <action
             android:id="@+id/action_ResultadoFragment_to_HomeFragment"
             app:destination="@id/HomeFragment"
+            app:popUpTo="@id/HomeFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="uuid"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/ResultadosHistoricosFragment"
@@ -123,36 +101,38 @@
             app:destination="@id/ResultadoFragment" />
         <argument
             android:name="categoria"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="subcategoria"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="ejercicio"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="tipoRuido"
             app:argType="string"
             app:nullable="true" />
         <argument
             android:name="intensidad"
-            app:argType="float" />
+            app:argType="float"
+            android:defaultValue="0" />
         <argument
             android:name="botonSeleccionado"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="ruido"
-            app:argType="boolean" />
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/ResultadoDetalleFragment"
         android:name="com.example.app_phonoaudiology.infrastructure.ui.view.ResultadoDetalleFragment"
         android:label="fragment_resultado_detalle"
-        tools:layout="@layout/fragment_resultado_detalle" />
+        tools:layout="@layout/fragment_resultado_detalle" >
+        <argument
+            android:name="uuid"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/AdministrarSonidosFragment"
         android:name="com.example.app_phonoaudiology.infrastructure.ui.view.AdministrarSonidosFragment"
@@ -161,6 +141,10 @@
         <action
             android:id="@+id/action_AdministrarSonidosFragment_to_agregarSonidoFragment"
             app:destination="@id/AgregarSonidoFragment" />
+        <argument
+            android:name="actualizar"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/AgregarSonidoFragment"

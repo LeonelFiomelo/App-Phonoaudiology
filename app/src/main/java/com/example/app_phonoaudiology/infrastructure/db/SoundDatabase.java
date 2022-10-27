@@ -8,6 +8,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.app_phonoaudiology.infrastructure.db.dao.ErrorDao;
 import com.example.app_phonoaudiology.infrastructure.db.dao.ResultadoDao;
 import com.example.app_phonoaudiology.infrastructure.db.dao.SoundDao;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ErrorEntityDB;
@@ -21,12 +22,13 @@ import com.example.app_phonoaudiology.domain.repository.constants.Rutas;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {SoundEntity.class, ResultadoEntityDB.class, ErrorEntityDB.class}, version = 15)
+@Database(entities = {SoundEntity.class, ResultadoEntityDB.class, ErrorEntityDB.class}, version = 19)
 public abstract class SoundDatabase extends RoomDatabase {
 
     // DAOS
     public abstract SoundDao soundDao();
     public abstract ResultadoDao resultadoDao();
+    public abstract ErrorDao errorDao();
 
     // NOMBRE DE LA BASE DE DATOS
     private static final String DATABASE_NAME = "AppPhonoaudiology_db";
@@ -60,7 +62,6 @@ public abstract class SoundDatabase extends RoomDatabase {
             super.onCreate(db);
             dbExecutor.execute(() -> {
                 SoundDao daoSound = INSTANCE.soundDao();
-                System.out.println("SE EJECUTO EL ONCREATE DE LA DB");
                 // Colores
                 daoSound.agregarSonido(new SoundEntity("Negro", Constantes.COLORES, "negro.mp3", Constantes.NO_PERSONALIZADO, false));
                 daoSound.agregarSonido(new SoundEntity("Azul", Constantes.COLORES, "azul.mp3", Constantes.NO_PERSONALIZADO, false));
@@ -185,9 +186,6 @@ public abstract class SoundDatabase extends RoomDatabase {
             super.onDestructiveMigration(db);
             dbExecutor.execute(() -> {
                 SoundDao daoSound = INSTANCE.soundDao();
-//                ResultadoDao daoResultado = INSTANCE.resultadoDao();
-//                ResultadoErroresDao daoResultadoErrores = INSTANCE.resultadoErroresDao();
-                System.out.println("SE EJECUTO EL onDestructiveMigration DE LA DB");
                 // Colores
                 daoSound.agregarSonido(new SoundEntity("Negro", Constantes.COLORES, "negro.mp3", Constantes.NO_PERSONALIZADO, false));
                 daoSound.agregarSonido(new SoundEntity("Azul", Constantes.COLORES, "azul.mp3", Constantes.NO_PERSONALIZADO, false));
