@@ -30,7 +30,10 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
   public final Button btnComenzarEjercicioConfiguracion;
 
   @NonNull
-  public final ConstraintLayout configuracionAvanzadaNoOculta;
+  public final ConstraintLayout clConfiguracionAvanzadaConfiguracion;
+
+  @NonNull
+  public final ConstraintLayout clConfiguracionBasicaConfiguracion;
 
   @NonNull
   public final ScrollView scrollViewConfiguracion;
@@ -79,7 +82,8 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
 
   private FragmentConfiguracionBinding(@NonNull FrameLayout rootView,
       @NonNull Button btnComenzarEjercicioConfiguracion,
-      @NonNull ConstraintLayout configuracionAvanzadaNoOculta,
+      @NonNull ConstraintLayout clConfiguracionAvanzadaConfiguracion,
+      @NonNull ConstraintLayout clConfiguracionBasicaConfiguracion,
       @NonNull ScrollView scrollViewConfiguracion, @NonNull SeekBar seekBarIntensidadConfiguracion,
       @NonNull Spinner spinnerCategoriaConfiguracion,
       @NonNull Spinner spinnerEjercicioConfiguracion, @NonNull Spinner spinnerRuidoConfiguracion,
@@ -91,7 +95,8 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
       @NonNull TextView txtSubcategoriaResultadoDetalle) {
     this.rootView = rootView;
     this.btnComenzarEjercicioConfiguracion = btnComenzarEjercicioConfiguracion;
-    this.configuracionAvanzadaNoOculta = configuracionAvanzadaNoOculta;
+    this.clConfiguracionAvanzadaConfiguracion = clConfiguracionAvanzadaConfiguracion;
+    this.clConfiguracionBasicaConfiguracion = clConfiguracionBasicaConfiguracion;
     this.scrollViewConfiguracion = scrollViewConfiguracion;
     this.seekBarIntensidadConfiguracion = seekBarIntensidadConfiguracion;
     this.spinnerCategoriaConfiguracion = spinnerCategoriaConfiguracion;
@@ -142,9 +147,15 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.configuracionAvanzadaNoOculta;
-      ConstraintLayout configuracionAvanzadaNoOculta = ViewBindings.findChildViewById(rootView, id);
-      if (configuracionAvanzadaNoOculta == null) {
+      id = R.id.cl_configuracionAvanzada_configuracion;
+      ConstraintLayout clConfiguracionAvanzadaConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (clConfiguracionAvanzadaConfiguracion == null) {
+        break missingId;
+      }
+
+      id = R.id.cl_configuracionBasica_configuracion;
+      ConstraintLayout clConfiguracionBasicaConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (clConfiguracionBasicaConfiguracion == null) {
         break missingId;
       }
 
@@ -239,7 +250,8 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
       }
 
       return new FragmentConfiguracionBinding((FrameLayout) rootView,
-          btnComenzarEjercicioConfiguracion, configuracionAvanzadaNoOculta, scrollViewConfiguracion,
+          btnComenzarEjercicioConfiguracion, clConfiguracionAvanzadaConfiguracion,
+          clConfiguracionBasicaConfiguracion, scrollViewConfiguracion,
           seekBarIntensidadConfiguracion, spinnerCategoriaConfiguracion,
           spinnerEjercicioConfiguracion, spinnerRuidoConfiguracion,
           spinnerSubcategoriaConfiguracion, switchRuidoConfiguracion, toolbarConfiguracion,

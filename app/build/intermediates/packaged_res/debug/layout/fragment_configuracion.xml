@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/SCBSwitch"
     tools:context=".infrastructure.ui.view.ConfiguracionFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/color_background_primary">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_configuracion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
             app:title="@string/titulo_toolbar_configuracion"
@@ -24,26 +26,31 @@
 
         <ScrollView
             android:id="@+id/scrollView_configuracion"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="609dp"
+            android:foregroundGravity="fill_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.8"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_configuracion">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="fill_vertical"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="fill_vertical"
                 android:orientation="vertical">
 
-                <!-- CONFIGURACIÓN BÁSICA -->
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_configuracionBasica_configuracion"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar_configuracion">
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/ic_default_background"
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/txt_configuracionBasica"
@@ -53,83 +60,92 @@
                         android:text="@string/tv_configuracionBasica"
                         android:textSize="22sp"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <androidx.cardview.widget.CardView
+                    <TextView
+                        android:id="@+id/txt_subcategoria_resultadoDetalle"
+                        style="@android:style/Widget.TextView.PopupMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="16dp">
+                        android:layout_marginTop="16dp"
+                        android:text="@string/tv_subcategoria"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/spinner_categoria_configuracion"
+                        app:layout_constraintStart_toStartOf="@+id/spinner_categoria_configuracion"
+                        app:layout_constraintTop_toBottomOf="@+id/spinner_categoria_configuracion"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
+                    <Spinner
+                        android:id="@+id/spinner_ejercicio_configuracion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_ejercicio_resultadoDetalle"
+                        app:layout_constraintStart_toStartOf="@+id/txt_ejercicio_resultadoDetalle"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_ejercicio_resultadoDetalle"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                            <TextView
-                                android:id="@+id/txt_categoria_resultadoDetalle"
-                                style="@android:style/Widget.TextView.PopupMenu"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="16dp"
-                                android:text="@string/tv_categoria"
-                                android:textSize="18sp"
-                                tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_ejercicio_resultadoDetalle"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/tv_ejercicio"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/spinner_subcategoria_configuracion"
+                        app:layout_constraintStart_toStartOf="@+id/spinner_subcategoria_configuracion"
+                        app:layout_constraintTop_toBottomOf="@+id/spinner_subcategoria_configuracion"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                            <Spinner
-                                android:id="@+id/spinner_categoria_configuracion"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="16dp"
-                                tools:ignore="TouchTargetSizeCheck" />
+                    <Spinner
+                        android:id="@+id/spinner_subcategoria_configuracion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_subcategoria_resultadoDetalle"
+                        app:layout_constraintStart_toStartOf="@+id/txt_subcategoria_resultadoDetalle"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_subcategoria_resultadoDetalle"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                            <TextView
-                                android:id="@+id/txt_subcategoria_resultadoDetalle"
-                                style="@android:style/Widget.TextView.PopupMenu"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="16dp"
-                                android:text="@string/tv_subcategoria"
-                                android:textSize="18sp"
-                                tools:ignore="TouchTargetSizeCheck" />
+                    <Spinner
+                        android:id="@+id/spinner_categoria_configuracion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_categoria_resultadoDetalle"
+                        app:layout_constraintStart_toStartOf="@+id/txt_categoria_resultadoDetalle"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_categoria_resultadoDetalle"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                            <Spinner
-                                android:id="@+id/spinner_subcategoria_configuracion"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="16dp"
-                                tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_categoria_resultadoDetalle"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/tv_categoria"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_configuracionBasica"
+                        app:layout_constraintStart_toStartOf="@+id/txt_configuracionBasica"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_configuracionBasica"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                            <TextView
-                                android:id="@+id/txt_ejercicio_resultadoDetalle"
-                                style="@android:style/Widget.TextView.PopupMenu"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="16dp"
-                                android:text="@string/tv_ejercicio"
-                                android:textSize="18sp"
-                                tools:ignore="TouchTargetSizeCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                            <Spinner
-                                android:id="@+id/spinner_ejercicio_configuracion"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </androidx.appcompat.widget.LinearLayoutCompat>
-
-                <!-- CONFIGURACIÓN AVANZADA -->
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_configuracionAvanzada_configuracion"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat_configuracionBasica">
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/ic_default_background"
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/txt_configuracionAvanzada"
@@ -139,83 +155,69 @@
                         android:text="@string/tv_configuracionAvanzada"
                         android:textSize="22sp"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <androidx.cardview.widget.CardView
+                    <TextView
+                        android:id="@+id/txt_ruido_resultadoDetalle"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_ruido"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/switch_Ruido_configuracion"
+                        app:layout_constraintStart_toStartOf="@+id/txt_configuracionAvanzada"
+                        app:layout_constraintTop_toTopOf="@+id/switch_Ruido_configuracion"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_Ruido_configuracion"
+                        style="@style/SCBSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/switch_activadoDesactivado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_configuracionAvanzada"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_configuracionAvanzada" />
+
+                    <Spinner
+                        android:id="@+id/spinner_ruido_configuracion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="16dp">
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/switch_Ruido_configuracion"
+                        app:layout_constraintStart_toStartOf="@+id/txt_ruido_resultadoDetalle"
+                        app:layout_constraintTop_toBottomOf="@+id/switch_Ruido_configuracion" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/configuracionAvanzadaNoOculta"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txt_intensidad_configuracion"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/tv_intensidadDelRuido"
+                        android:textSize="18sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/spinner_ruido_configuracion"
+                        app:layout_constraintStart_toStartOf="@+id/spinner_ruido_configuracion"
+                        app:layout_constraintTop_toBottomOf="@+id/spinner_ruido_configuracion" />
 
-                            <TextView
-                                android:id="@+id/txt_ruido_resultadoDetalle"
-                                style="@android:style/Widget.TextView.PopupMenu"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/tv_ruido"
-                                android:textSize="18sp"
-                                app:layout_constraintBottom_toBottomOf="@+id/switch_Ruido_configuracion"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/switch_Ruido_configuracion"
-                                tools:ignore="TouchTargetSizeCheck" />
+                    <SeekBar
+                        android:id="@+id/seekBar_intensidad_configuracion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_intensidad_configuracion"
+                        app:layout_constraintStart_toStartOf="@+id/txt_intensidad_configuracion"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_intensidad_configuracion" />
 
-                            <androidx.appcompat.widget.SwitchCompat
-                                android:id="@+id/switch_Ruido_configuracion"
-                                android:layout_width="wrap_content"
-                                android:layout_height="48dp"
-                                android:text="@string/switch_activadoDesactivado"
-                                app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <Spinner
-                                android:id="@+id/spinner_ruido_configuracion"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:visibility="gone"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/switch_Ruido_configuracion" />
-
-                            <TextView
-                                android:id="@+id/txt_intensidad_configuracion"
-                                style="@android:style/Widget.TextView.PopupMenu"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:text="@string/tv_intensidadDelRuido"
-                                android:textSize="18sp"
-                                android:visibility="gone"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/spinner_ruido_configuracion" />
-
-                            <SeekBar
-                                android:id="@+id/seekBar_intensidad_configuracion"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:visibility="gone"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/txt_intensidad_configuracion" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <!-- OCULTAS -->
-
-                    </androidx.cardview.widget.CardView>
-
-                </androidx.appcompat.widget.LinearLayoutCompat>
-
-                <!-- BOTON COMENZAR EJERCICIO -->
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
-
         </ScrollView>
 
         <Button
@@ -223,14 +225,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="@color/colorPrimary"
             android:text="@string/boton_comenzarEjercicio"
             android:textSize="16sp"
+            app:iconGravity="top"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView_configuracion"
-            app:layout_constraintVertical_bias="0.619" />
+            app:layout_constraintTop_toBottomOf="@+id/scrollView_configuracion" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

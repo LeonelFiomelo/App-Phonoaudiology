@@ -17,7 +17,7 @@
             android:id="@+id/action_HomeFragment_to_resultadosHistoricosFragment"
             app:destination="@id/ResultadosHistoricosFragment" />
         <action
-            android:id="@+id/action_HomeFragment_to_administrarSonidosFragment"
+            android:id="@+id/action_HomeFragment_to_AdministrarSonidosFragment"
             app:destination="@id/AdministrarSonidosFragment" />
     </fragment>
     <fragment
@@ -141,10 +141,6 @@
         <action
             android:id="@+id/action_AdministrarSonidosFragment_to_agregarSonidoFragment"
             app:destination="@id/AgregarSonidoFragment" />
-        <argument
-            android:name="actualizar"
-            app:argType="boolean"
-            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/AgregarSonidoFragment"

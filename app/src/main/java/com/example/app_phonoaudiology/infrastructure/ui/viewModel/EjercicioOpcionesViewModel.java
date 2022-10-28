@@ -73,7 +73,7 @@ public class EjercicioOpcionesViewModel extends ViewModel {
         return soundRepository;
     }
 
-    public void vmCreate(Application application, Context context, Bundle bundle) {
+    public void onCreate(Application application, Context context, Bundle bundle) {
         configuracionEntity = new ConfiguracionEntity();
         configuracionEntity.setConfiguracion(bundle);
         puntuacionEntity = new PuntuacionEntity(10, 2);
@@ -90,7 +90,7 @@ public class EjercicioOpcionesViewModel extends ViewModel {
         getReseteo().setValue(getPuntuacionEntity().getReseteo());
     }
 
-    public void vmStart(List<SoundEntity> listaDeOpcionesCompleta) {
+    public void onStart(List<SoundEntity> listaDeOpcionesCompleta) {
         opcionesEntity = new OpcionesEntity(listaDeOpcionesCompleta, configuracionEntity.getEjercicio());
         opcionesAdapter = new OptionsAdapter(opcionesEntity.getListaDeOpciones(), opcionesEntity.getRespuestaCorrecta(), touchOptionButton);
         intento += 1;
@@ -99,7 +99,7 @@ public class EjercicioOpcionesViewModel extends ViewModel {
         setRandomConectores();
     }
 
-    public void vmFinish(Bundle reporteBundle) {
+    public void onFinish(Bundle reporteBundle) {
 
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 
@@ -124,7 +124,6 @@ public class EjercicioOpcionesViewModel extends ViewModel {
 
         errorRepository.agregarErrores(puntuacionEntity.getListaDeErrores());
 
-//        setInformacionReporteBundle(reporteBundle);
         reporteBundle.putString("uuid", uuid);
 
     }

@@ -40,7 +40,7 @@ public interface ResultadoDao {
     @Query("DELETE FROM resultado_table")
     void deleteAllResultados();
 
-    @Query("SELECT * FROM resultado_table")
+    @Query("SELECT * FROM resultado_table ORDER BY fecha DESC")
     LiveData<List<ResultadoEntityDB>> getAllResultados();
 
     @Query("SELECT * FROM error_table")

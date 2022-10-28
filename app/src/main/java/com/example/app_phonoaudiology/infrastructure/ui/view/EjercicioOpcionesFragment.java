@@ -45,7 +45,7 @@ public class EjercicioOpcionesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(EjercicioOpcionesViewModel.class);
-        viewModel.vmCreate(requireActivity().getApplication(), getContext(), getArguments());
+        viewModel.onCreate(requireActivity().getApplication(), getContext(), getArguments());
     }
 
     @Override
@@ -101,7 +101,7 @@ public class EjercicioOpcionesFragment extends Fragment {
             @Override
             public void onChanged(Boolean aBoolean) {
                 viewModel.getOpcionesPorSubcategoria().observe(getViewLifecycleOwner(), sounds -> {
-                    viewModel.vmStart(sounds);
+                    viewModel.onStart(sounds);
                     recyclerViewOpciones.setAdapter(viewModel.getOpcionesAdapter());
                 });
             }
@@ -118,7 +118,7 @@ public class EjercicioOpcionesFragment extends Fragment {
                 public void onChanged(Integer integer) {
                     if (viewModel.getChequearIntentosRestantes()) {
                         reporteBundle = new Bundle();
-                        viewModel.vmFinish(reporteBundle);
+                        viewModel.onFinish(reporteBundle);
                         navController.navigate(R.id.ResultadoFragment, reporteBundle);
                     }
                 }

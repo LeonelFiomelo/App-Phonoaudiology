@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="133" />
-                            <option name="y" value="412" />
+                            <option name="x" value="100" />
+                            <option name="y" value="435" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -125,7 +125,12 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_HomeFragment_to_administrarSonidosFragment">
+                            <entry key="action_HomeFragment_to_AdministrarSonidosFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_HomeFragment_to_AgregarSonidoFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

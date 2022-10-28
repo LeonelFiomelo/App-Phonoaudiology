@@ -7,7 +7,7 @@ import com.google.android.material.button.MaterialButton;
 
 public abstract class TouchAceptarButton {
 
-    public void guardarInformacionDelIntento(EditText editText, SoundEntity opcionCorrecta) {
+    public void guardarInformacionDelIntento(EditText editText) {
     }
 
     public void corroborarTexto(EditText editText) {

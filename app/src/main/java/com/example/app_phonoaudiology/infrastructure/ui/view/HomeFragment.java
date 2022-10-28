@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        final NavController navController = Navigation.findNavController(view);
+        NavController navController = Navigation.findNavController(view);
 
         toogle = new ActionBarDrawerToggle(requireActivity(),drawerLayout,toolbar,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toogle);

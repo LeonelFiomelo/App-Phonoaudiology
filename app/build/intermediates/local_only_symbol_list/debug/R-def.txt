@@ -6,6 +6,7 @@ color black
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
+color colorSecondary
 color colorWhite
 color color_background
 color color_background_primary
@@ -38,6 +39,7 @@ drawable ic_button_background
 drawable ic_button_grabacion_off_background
 drawable ic_button_grabacion_on_background
 drawable ic_correct
+drawable ic_default_background
 drawable ic_error_item_background
 drawable ic_item_resultado_background
 drawable ic_logo_background
@@ -73,7 +75,7 @@ id action_ConfiguracionFragment_to_EjercicioOpcionesFragment
 id action_EjercicioEscribirFragment_to_ResultadoFragment
 id action_EjercicioOpcionesFragment_to_resultadoFragment
 id action_HomeActivity_to_configuracionActivity
-id action_HomeFragment_to_administrarSonidosFragment
+id action_HomeFragment_to_AdministrarSonidosFragment
 id action_HomeFragment_to_resultadosHistoricosFragment
 id action_ResultadoFragment_to_HomeFragment
 id action_ResultadosHistoricosFragment_to_resultadoDetalleFragment
@@ -92,14 +94,15 @@ id btn_grabarSonido_agregarSonido
 id btn_guardar
 id btn_guardarSonido_agregarSonido
 id btn_option
+id btn_pausarGrabacion
 id btn_play_ejercicioEscribir
 id btn_play_ejercicioOpciones
 id btn_reproducirGrabacion
-id card_ejercitacion
-id card_evaluacion
+id cl_configuracionAvanzada_configuracion
+id cl_configuracionBasica_configuracion
 id cl_resultadoItem
 id cl_sonidoItem
-id configuracionAvanzadaNoOculta
+id constraintLayout
 id drawerLayout_home
 id editTxt_nombreSonido_agregarSonido
 id editTxt_respuesta_ejercicioEscribir
@@ -112,7 +115,6 @@ id img_incorrectas_ejercicioEscribir
 id img_incorrectas_ejercicioOpciones
 id img_logo
 id img_logoBackground
-id linearLayoutCompat_configuracionBasica
 id mi_administrarSonidos
 id mi_consultarResultados
 id nav_graph.xml
@@ -123,10 +125,10 @@ id recyclerView_ejercicioOpciones
 id recyclerView_resultadosHistoricos
 id row_errores
 id sb_ruido
-id scrollView2
 id scrollView_administrarSonidos
 id scrollView_configuracion
 id scrollView_ejercicioOpciones
+id scrollView_home
 id scrollView_resultado
 id scrollView_resultadosHistoricos
 id seekBar_intensidad_configuracion
@@ -139,8 +141,6 @@ id switch_Ruido_configuracion
 id table_errores_resultado
 id table_errores_resultadoDetalle
 id tb_resultadoDetalle
-id textView2
-id textView5
 id toolbar_administrarSonidos
 id toolbar_agregarSonido
 id toolbar_configuracion
@@ -163,7 +163,6 @@ id tv_estimuloOutput
 id tv_evaluacion
 id tv_fechaOutput_item
 id tv_fecha_item
-id tv_grabar
 id tv_nombreSonido
 id tv_primeraRespuestaOutput
 id tv_puntuacionOutput_item
@@ -197,6 +196,8 @@ id txt_fechaO_resultado
 id txt_fechaO_resultadoDetalle
 id txt_fecha_resultado
 id txt_fecha_resultadoDetalle
+id txt_grabarNuevoSonido
+id txt_grabar_alertGrabarSonido
 id txt_incorrectas_ejercicioEscribir
 id txt_incorrectas_ejercicioOpciones
 id txt_intensidadO_resultado
@@ -205,6 +206,7 @@ id txt_intensidad_configuracion
 id txt_intensidad_resultado
 id txt_intensidad_resultadoDetalle
 id txt_nombreSonido_agregarSonido
+id txt_pausar_alertGrabarSonido
 id txt_primeraRespuesta_resultado
 id txt_primeraRespuesta_resultadoDetalle
 id txt_pulseBoton_ejercicioEscribir
@@ -213,6 +215,7 @@ id txt_puntuacionO_resultado
 id txt_puntuacionO_resultadoDetalle
 id txt_puntuacion_resultado
 id txt_puntuacion_resultadoDetalle
+id txt_reproducir_alertGrabarSonido
 id txt_ruidoO_resultado
 id txt_ruidoO_resultadoDetalle
 id txt_ruido_resultado
@@ -258,8 +261,6 @@ string btn_finalizar
 string btn_grabar
 string btn_guardar
 string btn_option
-string btn_pausar
-string btn_reproducir
 string btn_seleccioneLaOpcionQueOyo
 string close
 string consigna_ejercitacion
@@ -272,6 +273,9 @@ string correct5
 string correct6
 string correct7
 string correct8
+string descripcion_botonGrabar
+string descripcion_botonPausar
+string descripcion_botonReproducir
 string hello_blank_fragment
 string incorrect1
 string incorrect2
@@ -303,15 +307,20 @@ string tv_errores
 string tv_escribaLoQueOyo
 string tv_estimulo
 string tv_fecha
+string tv_grabar
 string tv_grabarNuevoSonido
 string tv_intensidad
 string tv_intensidadDelRuido
 string tv_nombreDelSonido
+string tv_pausar
 string tv_primeraRespuesta
 string tv_puntuacion
+string tv_reproducir
 string tv_ruido
 string tv_segundaRespuesta
 string tv_subcategoria
+style SCBSwitch
 style Theme.App_Phonoaudiology
+style editText
 xml backup_rules
 xml data_extraction_rules

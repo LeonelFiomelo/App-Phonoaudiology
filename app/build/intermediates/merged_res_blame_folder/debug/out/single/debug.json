@@ -256,6 +256,10 @@
         "source": "com.example.app_phonoaudiology.app-main-50:/mipmap-xxhdpi/ic_launcher_logo_round.png"
     },
     {
+        "merged": "com.example.app_phonoaudiology.app-merged_res-48:/drawable_ic_default_background.xml.flat",
+        "source": "com.example.app_phonoaudiology.app-main-50:/drawable/ic_default_background.xml"
+    },
+    {
         "merged": "com.example.app_phonoaudiology.app-merged_res-48:/layout_fragment_resultado_detalle.xml.flat",
         "source": "com.example.app_phonoaudiology.app-main-50:/layout/fragment_resultado_detalle.xml"
     },

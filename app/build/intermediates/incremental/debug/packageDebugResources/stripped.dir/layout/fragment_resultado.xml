@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".infrastructure.ui.view.ResultadoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_resultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Detalle del resultado"
+            app:titleTextColor="@color/white" />
+
+        <ScrollView
+            android:id="@+id/scrollView_resultado"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_resultado"
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_puntuacion_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="@string/tv_puntuacion"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_puntuacionO_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ic_puntuacion_background"
+                    android:gravity="center"
+                    android:text="@string/texto"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/txt_puntuacion_resultado"
+                    app:layout_constraintStart_toStartOf="@+id/txt_puntuacion_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_puntuacion_resultado"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <TextView
+                    android:id="@+id/txt_fecha_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/tv_fecha"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_fechaO_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/texto"
+                    app:layout_constraintStart_toStartOf="@+id/txt_fecha_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_fecha_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_categoria_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/tv_categoria"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/txt_fechaO_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_fechaO_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_categoriaO_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/texto"
+                    app:layout_constraintStart_toStartOf="@+id/txt_categoria_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_categoria_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_subcategoria_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/tv_subcategoria"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/txt_categoriaO_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_categoriaO_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_subcategoriaO_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/texto"
+                    app:layout_constraintStart_toStartOf="@+id/txt_subcategoria_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_subcategoria_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_ejercicio_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/tv_ejercicio"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/txt_subcategoriaO_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_subcategoriaO_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_ejercicioO_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/texto"
+                    app:layout_constraintStart_toStartOf="@+id/txt_ejercicio_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_ejercicio_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_ruido_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/tv_ruido"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/txt_ejercicioO_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_ejercicioO_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_ruidoO_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/texto"
+                    app:layout_constraintStart_toStartOf="@+id/txt_ruido_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_ruido_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_intensidad_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/tv_intensidad"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/txt_ruidoO_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_ruidoO_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_intensidadO_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/texto"
+                    app:layout_constraintStart_toStartOf="@+id/txt_intensidad_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_intensidad_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_errores_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/tv_errores"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/txt_intensidadO_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_intensidadO_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TableLayout
+                    android:id="@+id/table_errores_resultado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_errores_resultado">
+
+                    <TableRow
+                        android:id="@+id/row_errores"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_error_item_background"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/txt_estimulo_resultado"
+                            style="@android:style/Widget.TextView.PopupMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/tv_estimulo"
+                            android:textAlignment="center"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#000000" />
+
+                        <TextView
+                            android:id="@+id/txt_primeraRespuesta_resultado"
+                            style="@android:style/Widget.TextView.PopupMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/tv_primeraRespuesta"
+                            android:textAlignment="center"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#000000" />
+
+                        <TextView
+                            android:id="@+id/txt_segundaRespuesta_resultado"
+                            style="@android:style/Widget.TextView.PopupMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/tv_segundaRespuesta"
+                            android:textAlignment="center"
+                            android:textSize="18sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/txt1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/texto" />
+
+                        <TextView
+                            android:id="@+id/txt2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/texto" />
+
+                        <TextView
+                            android:id="@+id/txt3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/texto" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <Button
+                    android:id="@+id/btn_finalizar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@string/btn_finalizar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/table_errores_resultado" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

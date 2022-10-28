@@ -143,6 +143,7 @@ public class EjercicioEscribirFragment extends Fragment {
         btnAceptar.setOnClickListener( v -> {
             // SE COLOCA UN LISTENER AL APRETAR EL BOTON DE ACEPTAR
             if (viewModel.chequearCampos(editTxtRespuesta)) {
+                viewModel.onTouchAceptarButton.guardarInformacionDelIntento(editTxtRespuesta);
                 viewModel.onTouchAceptarButton.corroborarTexto(editTxtRespuesta);
                 editTxtRespuesta.setText("");
             } else {

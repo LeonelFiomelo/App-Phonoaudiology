@@ -24,8 +24,10 @@ import com.example.app_phonoaudiology.domain.entities.ErrorEntity;
 import com.example.app_phonoaudiology.domain.entities.PuntuacionEntity;
 import com.example.app_phonoaudiology.domain.entities.ReporteEntity;
 import com.example.app_phonoaudiology.domain.entities.OpcionEntity;
+import com.example.app_phonoaudiology.infrastructure.db.entity.ErrorEntityDB;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ResultadoEntityDB;
 import com.example.app_phonoaudiology.infrastructure.db.entity.SoundEntity;
+import com.example.app_phonoaudiology.infrastructure.db.repository.ErrorRepository;
 import com.example.app_phonoaudiology.infrastructure.db.repository.ResultadoRepository;
 import com.example.app_phonoaudiology.infrastructure.db.repository.SoundRepository;
 
@@ -42,12 +44,13 @@ public class EjercicioEscribirViewModel extends ViewModel {
     // REPOSITORIES
     private SoundRepository soundRepository;
     private ResultadoRepository resultadoRepository;
+    private ErrorRepository errorRepository;
     // ENTITIES
     private ConfiguracionEntity configuracionEntity;
     private PuntuacionEntity puntuacionEntity;
     private ConectoresEntity conectoresEntity;
     private OpcionEntity opcionEntity;
-    private ErrorEntity errorEntity;
+    private ErrorEntityDB errorEntityDB;
     private ReporteEntity reporteEntity;
     // USECASES
     private TouchPlayButton touchPlayButton;
@@ -67,6 +70,7 @@ public class EjercicioEscribirViewModel extends ViewModel {
         touchSettingsButton = new TouchSettingsButton();
         soundRepository = new SoundRepository(application);
         resultadoRepository = new ResultadoRepository(application);
+        errorRepository = new ErrorRepository(application);
         intento = -1;
         setTodosLosConectores(context);
         getIntentos().setValue(getPuntuacionEntity().getIntentos());
@@ -77,17 +81,19 @@ public class EjercicioEscribirViewModel extends ViewModel {
         opcionEntity = new OpcionEntity(listaDeSonidos);
         intento += 1;
         errorPermitido = 1;
-        errorEntity = new ErrorEntity();
+        errorEntityDB = new ErrorEntityDB();
         setRandomConectores();
     }
 
     public void onFinish(Bundle reporteBundle) {
+
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+
         ResultadoEntityDB resultadoEntityDB = new ResultadoEntityDB(
                 uuid,
                 GeneralUtils.getFechaFormateada(),
                 puntuacionEntity.getCorrectas(),
-                puntuacionEntity.getIntentos(),
+                puntuacionEntity.get_Intentos(),
                 configuracionEntity.getCategoria(),
                 configuracionEntity.getSubcategoria(),
                 configuracionEntity.getEjercicio(),
@@ -95,8 +101,17 @@ public class EjercicioEscribirViewModel extends ViewModel {
                 configuracionEntity.getTipoRuido(),
                 configuracionEntity.getIntensidad()
         );
+
+        for (int i=0; i<puntuacionEntity.getListaDeErrores().size(); i++) {
+            puntuacionEntity.getListaDeErrores().get(i).setUuidResultado(uuid);
+        }
+
         resultadoRepository.agregarResultado(resultadoEntityDB);
-        setInformacionReporteBundle(reporteBundle);
+
+        errorRepository.agregarErrores(puntuacionEntity.getListaDeErrores());
+
+        reporteBundle.putString("uuid", uuid);
+
     }
 
     public MutableLiveData<Integer> getCorrectas() {
@@ -181,16 +196,16 @@ public class EjercicioEscribirViewModel extends ViewModel {
     public TouchAceptarButton onTouchAceptarButton = new TouchAceptarButton() {
 
         @Override
-        public void guardarInformacionDelIntento(EditText editText, SoundEntity opcionCorrecta) {
+        public void guardarInformacionDelIntento(EditText editText) {
             switch (errorPermitido) {
                 case (1):
-//                    errorEntity.setEstimulo(opcionCorrecta.getNombre_sonido());
-//                    errorEntity.setPrimeraRespuesta((String) editText.getText().toString());
-//                    errorEntity.setSegundaRespuesta(null);
-//                    errorPermitido += 1;
+                    errorEntityDB.setEstimulo(opcionEntity.getRespuestaCorrecta().getNombre_sonido());
+                    errorEntityDB.setPrimeraRespuesta(editText.getText().toString());
+                    errorEntityDB.setSegundaRespuesta(null);
+                    errorPermitido += 1;
                     break;
                 case (2):
-//                    errorEntity.setSegundaRespuesta((String) editText.getText().toString());
+                    errorEntityDB.setSegundaRespuesta(editText.getText().toString());
                     break;
             }
         }
@@ -200,7 +215,7 @@ public class EjercicioEscribirViewModel extends ViewModel {
             if (GeneralUtils.getCompararStrings(editText.getText().toString(), opcionEntity.getRespuestaCorrecta().getNombre_sonido()) == 0) {
                 puntuacionEntity.sumarCorrectas();
                 puntuacionEntity.restarIntentos();
-//                puntuacionEntity.resetear(errorEntity);
+                puntuacionEntity.resetear(errorEntityDB);
                 correctas.setValue(puntuacionEntity.getCorrectas());
                 intentos.setValue(puntuacionEntity.getIntentos());
                 reseteo.setValue(puntuacionEntity.getReseteo());
@@ -209,9 +224,9 @@ public class EjercicioEscribirViewModel extends ViewModel {
                 puntuacionEntity.sumarIncorrectas();
                 puntuacionEntity.restarIntentos();
                 puntuacionEntity.restarErroresPermitidos();
+
                 incorrectas.setValue(puntuacionEntity.getIncorrectas());
-                intentos.setValue(puntuacionEntity.getIntentos());
-                EjercicioSoundsUtils.announceAnswerSound(editText.getContext(), false);
+
                 if (puntuacionEntity.getErroresPermitidos() <= 0) {
                     EjercicioSoundsUtils.announceAnswerSound(editText.getContext(), false);
                     ErrorDeIntentosAlert errorDeIntentosAlert = new ErrorDeIntentosAlert(
@@ -220,9 +235,17 @@ public class EjercicioEscribirViewModel extends ViewModel {
                             "Continuar"
                     );
                     errorDeIntentosAlert.MostrarAlerta(editText.getContext());
-//                    puntuacionEntity.resetear(errorEntity);
-                    reseteo.setValue(puntuacionEntity.getReseteo());
                 }
+
+                if (puntuacionEntity.getErroresPermitidos() <= 0 || getChequearIntentosRestantes()) {
+                    puntuacionEntity.resetear(errorEntityDB);
+                    intentos.setValue(puntuacionEntity.getIntentos());
+                    reseteo.setValue(puntuacionEntity.getReseteo());
+                } else {
+                    intentos.setValue(puntuacionEntity.getIntentos());
+                }
+
+                EjercicioSoundsUtils.announceAnswerSound(editText.getContext(), false);
             }
         }
     };

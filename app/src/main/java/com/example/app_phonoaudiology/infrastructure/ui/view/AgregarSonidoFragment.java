@@ -2,14 +2,8 @@ package com.example.app_phonoaudiology.infrastructure.ui.view;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
-import android.media.MediaPlayer;
-import android.media.MediaRecorder;
-import android.os.AsyncTask;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,12 +17,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.os.Environment;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,22 +33,15 @@ import com.example.app_phonoaudiology.R;
 import com.example.app_phonoaudiology.application.adapters.SpinnersAdapter;
 import com.example.app_phonoaudiology.databinding.FragmentAgregarSonidoBinding;
 import com.example.app_phonoaudiology.domain.entities.SonidoEntity;
-import com.example.app_phonoaudiology.domain.repository.constants.Constantes;
-import com.example.app_phonoaudiology.infrastructure.db.entity.SoundEntity;
-import com.example.app_phonoaudiology.infrastructure.db.repository.SoundRepository;
 import com.example.app_phonoaudiology.infrastructure.ui.viewModel.AgregarSonidoViewModel;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
 
 public class AgregarSonidoFragment extends Fragment {
 
-    private FragmentAgregarSonidoBinding binding;
     private AgregarSonidoViewModel viewModel;
     private SonidoEntity sonidoEntity;
-    private Boolean actualizar;
 
     private Toolbar toolbar;
     private EditText editTxtNombre;
@@ -76,9 +59,9 @@ public class AgregarSonidoFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentAgregarSonidoBinding.inflate(inflater, container, false);
+        FragmentAgregarSonidoBinding binding = FragmentAgregarSonidoBinding.inflate(inflater, container, false);
 
         toolbar = binding.toolbarAgregarSonido;
         editTxtNombre = binding.editTxtNombreSonidoAgregarSonido;
@@ -98,18 +81,14 @@ public class AgregarSonidoFragment extends Fragment {
         sonidoEntity = new SonidoEntity();
         btnGrabar.setEnabled(false);
         btnGuardar.setEnabled(false);
-        actualizar = false;
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener( v -> {
             // SE LE AGREGA UN LISTENER AL BOTON DE LA TOOLBAR PARA VOLVER AL FRAGMENT ANTERIOR
-            @Override
-            public void onClick(View v) {
-                File directory = requireContext().getFilesDir();
-                File nuevaCarpeta = new File(directory, "sonido");
-                File archivo = new File(nuevaCarpeta.getPath() + "/" + sonidoEntity.getNombre() + ".mp3");
-                archivo.delete();
-                navController.navigate(R.id.AdministrarSonidosFragment);
-            }
+            File directory = requireContext().getFilesDir();
+            File nuevaCarpeta = new File(directory, "sonido");
+            File archivo = new File(nuevaCarpeta.getPath() + "/" + sonidoEntity.getNombre() + ".mp3");
+            archivo.delete();
+            navController.navigate(R.id.AdministrarSonidosFragment);
         });
 
         editTxtNombre.addTextChangedListener(new TextWatcher() {
@@ -125,11 +104,7 @@ public class AgregarSonidoFragment extends Fragment {
             @SuppressLint("ResourceAsColor")
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.length() > 0) {
-                    btnGrabar.setEnabled(true);
-                } else {
-                    btnGrabar.setEnabled(false);
-                }
+                btnGrabar.setEnabled(s.length() > 0);
             }
         });
 
@@ -146,105 +121,95 @@ public class AgregarSonidoFragment extends Fragment {
             }
         });
 
-        btnGrabar.setOnClickListener(v -> {
+        btnGrabar.setOnClickListener( ClickGrabar -> {
             // SE LE AGREGA UN LISTENER AL BOTON DE GRABAR
             // SE VA A PODER GRABAR AUDIO SI SE TIENEN LOS PERMISOS CORRESPONDIENTES
             if (viewModel.CheckPermissions(requireActivity().getApplicationContext())) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                 builder.setView(R.layout.alertdialog_grabar_sonido);
                 AlertDialog alertDialog = builder.create();
-                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
-                    @Override
-                    public void onShow(DialogInterface dialog) {
+                alertDialog.setOnShowListener( alertDialogShow -> {
+                    ImageButton btn_grabar = alertDialog.findViewById(R.id.btn_grabarGrabacion);
+                    ImageButton btn_pausar = alertDialog.findViewById(R.id.btn_pausarGrabacion);
+                    ImageButton btn_play = alertDialog.findViewById(R.id.btn_reproducirGrabacion);
+                    Button btn_cancelar = alertDialog.findViewById(R.id.btn_cancelarGrabacion);
+                    Button btn_aceptar = alertDialog.findViewById(R.id.btn_aceptarGrabacion);
 
-                        ImageButton btn_grabar = alertDialog.findViewById(R.id.btn_grabarGrabacion);
-                        ImageButton btn_play = alertDialog.findViewById(R.id.btn_reproducirGrabacion);
-                        Button btn_cancelar = alertDialog.findViewById(R.id.btn_cancelarGrabacion);
-                        Button btn_aceptar = alertDialog.findViewById(R.id.btn_aceptarGrabacion);
+                    btn_aceptar.setEnabled(false);
+                    btn_play.setEnabled(false);
 
-                        btn_aceptar.setEnabled(false);
-                        btn_play.setEnabled(false);
+                    btn_grabar.setOnClickListener( clickGrabar -> {
+                        viewModel.iniciarGrabacion(requireContext(), sonidoEntity);
+                        btn_grabar.setImageResource(R.drawable.ic_mic_on);
+                        btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_on_background);
+                        Toast.makeText(requireContext(), "Grabando...", Toast.LENGTH_SHORT).show();
+                    });
 
-                        btn_grabar.setOnClickListener(v -> {
-                            if (viewModel.modoGrabar()) {
-
-                                viewModel.iniciarGrabacion(requireContext(), sonidoEntity);
-
-                                btn_grabar.setImageResource(R.drawable.ic_mic_on);
-                                btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_on_background);
-                                Toast.makeText(requireContext(), "Grabando...", Toast.LENGTH_SHORT).show();
-
-                            } else {
-
-                                viewModel.finalizarGrabacion(requireContext(), sonidoEntity);
-
-                                btn_play.setEnabled(true);
-                                btn_aceptar.setEnabled(true);
-                                btn_grabar.setImageResource(R.drawable.ic_mic_off);
-                                btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_off_background);
-                                Toast.makeText(requireContext(), "Grabación finalizada", Toast.LENGTH_SHORT).show();
-
-                            }
-                        });
-
-                        btn_play.setOnClickListener( v -> {
-
-                            if (!viewModel.modoGrabar()) {
-                                viewModel.finalizarGrabacion(requireContext(), sonidoEntity);
-                                btn_grabar.setImageResource(R.drawable.ic_mic_off);
-                                btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_off_background);
-                                Toast.makeText(requireContext(), "Grabación interrumpida", Toast.LENGTH_SHORT).show();
-                            } else {
-                                if (viewModel.checkReproduccion()) {
-                                    viewModel.pausarReproduccion();
-                                    Toast.makeText(requireContext(), "Reproduccion pausada", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    viewModel.escucharGrabacion();
-                                    Toast.makeText(requireContext(), "Reproduciendo sonido...", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                        });
-
-                        btn_cancelar.setOnClickListener( v -> {
-
-                            if (!viewModel.modoGrabar()) {
-                                viewModel.finalizarGrabacion(requireContext(), sonidoEntity);
-                                btn_grabar.setImageResource(R.drawable.ic_mic_off);
-                                btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_off_background);
-                                Toast.makeText(requireContext(), "Grabación interrumpida", Toast.LENGTH_SHORT).show();
-                            }
-
-                            viewModel.cancelarGrabacion(requireActivity(), sonidoEntity);
-
-                            alertDialog.cancel();
-
-                        });
-
-                        btn_aceptar.setOnClickListener( v -> {
-
-                            if (!viewModel.modoGrabar()) {
-                                viewModel.finalizarGrabacion(requireContext(), sonidoEntity);
-                                btn_grabar.setImageResource(R.drawable.ic_mic_off);
-                                btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_off_background);
-                                Toast.makeText(requireContext(), "Grabación interrumpida", Toast.LENGTH_SHORT).show();
-                            } else {
-                                btnGuardar.setEnabled(true);
-                                viewModel.aceptarGrabacion(sonidoEntity);
-                                alertDialog.cancel();
-                            }
-
-                        });
-
-                    }
-                });
-                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
+                    btn_pausar.setOnClickListener( clickPausar -> {
                         if (!viewModel.modoGrabar()) {
-                            viewModel.finalizarGrabacion(requireContext(), sonidoEntity);
+                            viewModel.finalizarGrabacion();
+                            btn_play.setEnabled(true);
+                            btn_aceptar.setEnabled(true);
+                            btn_grabar.setImageResource(R.drawable.ic_mic_off);
+                            btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_off_background);
+                            Toast.makeText(requireContext(), "Audio grabado correctamente", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    btn_play.setOnClickListener( clickPlay -> {
+
+                        if (!viewModel.modoGrabar()) {
+                            viewModel.finalizarGrabacion();
+                            btn_grabar.setImageResource(R.drawable.ic_mic_off);
+                            btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_off_background);
+                            Toast.makeText(requireContext(), "Grabación interrumpida", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (viewModel.checkReproduccion()) {
+                                viewModel.pausarReproduccion();
+                                Toast.makeText(requireContext(), "Reproduccion pausada", Toast.LENGTH_SHORT).show();
+                            } else {
+                                viewModel.escucharGrabacion();
+                                Toast.makeText(requireContext(), "Reproduciendo sonido...", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                    });
+
+                    btn_cancelar.setOnClickListener( clickCancelar -> {
+
+                        if (!viewModel.modoGrabar()) {
+                            viewModel.finalizarGrabacion();
+                            btn_grabar.setImageResource(R.drawable.ic_mic_off);
+                            btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_off_background);
                             Toast.makeText(requireContext(), "Grabación interrumpida", Toast.LENGTH_SHORT).show();
                         }
+
+                        viewModel.cancelarGrabacion(requireActivity(), sonidoEntity);
+
+                        alertDialog.cancel();
+
+                    });
+
+                    btn_aceptar.setOnClickListener( clickAceptar -> {
+
+                        if (!viewModel.modoGrabar()) {
+                            viewModel.finalizarGrabacion();
+                            btn_grabar.setImageResource(R.drawable.ic_mic_off);
+                            btn_grabar.setBackgroundResource(R.drawable.ic_button_grabacion_off_background);
+                            Toast.makeText(requireContext(), "Grabación interrumpida", Toast.LENGTH_SHORT).show();
+                        } else {
+                            btnGuardar.setEnabled(true);
+                            viewModel.aceptarGrabacion(sonidoEntity);
+                            alertDialog.cancel();
+                        }
+
+                    });
+
+                });
+                alertDialog.setOnCancelListener( clickCancelarDialogo -> {
+                    if (!viewModel.modoGrabar()) {
+                        viewModel.finalizarGrabacion();
+                        Toast.makeText(requireContext(), "Grabación interrumpida", Toast.LENGTH_SHORT).show();
                     }
                 });
                 alertDialog.show();

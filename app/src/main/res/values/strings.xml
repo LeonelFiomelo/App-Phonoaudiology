@@ -9,7 +9,7 @@
     <string name="titulo_evaluacion">Evaluación</string>
     <string name="consigna_evaluacion">Realice una evaluación. Configure qué categoría desea evaluar, seleccione el tipo de ruido y su intensidad. Los resultados serán almacenados para que puede ver su progreso.</string>
     <string name="boton_comenzarEvaluacion">COMENZAR EVALUACIÓN</string>
-    <string name="titulo_version">Versión 0.9.2</string>
+    <string name="titulo_version">Versión 0.9.3</string>
 
     <!-- STRINGS DE LA ACTIVITY CONFIGURACIÓN -->
     <string name="titulo_toolbar_configuracion">Configuración</string>
@@ -32,11 +32,13 @@
     <string name="btn_aceptar">Aceptar</string>
     <string name="btn_finalizar">Finalizar</string>
     <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_grabar">Grabar</string>
     <string name="btn_guardar">Guardar</string>
     <string name="btn_continuar">Continuar</string>
-    <string name="btn_grabar">Grabar</string>
-    <string name="btn_pausar">Pausar</string>
-    <string name="btn_reproducir">Reproducir</string>
+
+    <string name="tv_grabar">Grabar</string>
+    <string name="tv_pausar">Pausar</string>
+    <string name="tv_reproducir">Reproducir</string>
 
     <string name="tv_estimulo">Estimulo</string>
     <string name="tv_primeraRespuesta">Respuesta 1</string>
@@ -75,5 +77,9 @@
     <string name="incorrect1">Incorrecto.</string>
     <string name="incorrect2">Pruebe con otro.</string>
     <string name="incorrect3">Vuelva a intentarlo.</string>
+    
+    <string name="descripcion_botonGrabar">Boton grabar audio</string>
+    <string name="descripcion_botonPausar">Boton pausar audio</string>
+    <string name="descripcion_botonReproducir">Boton reproducir audio</string>
 
 </resources>

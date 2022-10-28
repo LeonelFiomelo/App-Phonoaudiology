@@ -43,7 +43,6 @@ public abstract class SoundDatabase extends RoomDatabase {
     // CREAMOS LA BASE DE DATOS
     public static SoundDatabase getInstanceSoundDatabase(Context context) {
         if (INSTANCE == null) {
-            System.out.println("NUEVA INSTANCIA");
             synchronized (SoundDatabase.class) {
                 INSTANCE = Room.databaseBuilder(context.getApplicationContext(), SoundDatabase.class, DATABASE_NAME)
                         .fallbackToDestructiveMigration()
@@ -51,7 +50,6 @@ public abstract class SoundDatabase extends RoomDatabase {
                         .build();
             }
         }
-        System.out.println("VIEJA INSTANCIA");
         return INSTANCE;
     }
 

@@ -46,6 +46,7 @@
             android:ems="10"
             android:hint="Nombre del nuevo sonido"
             android:inputType="textPersonName"
+            android:theme="@style/editText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txt_nombreSonido_agregarSonido"
             app:layout_constraintTop_toBottomOf="@+id/txt_nombreSonido_agregarSonido" />
@@ -68,7 +69,7 @@
             android:layout_height="48dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="24dp"
-            android:contentDescription="Todo"
+            android:contentDescription="Seleccione una categoria"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txt_categoriaSonido_agregarSonido"
             app:layout_constraintTop_toBottomOf="@+id/txt_categoriaSonido_agregarSonido" />
@@ -77,23 +78,21 @@
             android:id="@+id/btn_grabarSonido_agregarSonido"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="24dp"
             android:backgroundTint="@color/colorPrimary"
             android:text="@string/btn_grabar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/spinner_categoriaSonido_agregarSonido" />
 
         <Button
             android:id="@+id/btn_guardarSonido_agregarSonido"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
             android:backgroundTint="@color/colorPrimary"
             android:text="@string/btn_guardar"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_grabarSonido_agregarSonido"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btn_grabarSonido_agregarSonido" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/spinner_categoriaSonido_agregarSonido" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

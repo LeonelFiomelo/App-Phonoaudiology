@@ -3,19 +3,12 @@ package com.example.app_phonoaudiology.infrastructure.ui.viewModel;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.util.Log;
-import android.widget.Toast;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModel;
 
-import com.example.app_phonoaudiology.R;
-import com.example.app_phonoaudiology.application.usecases.TouchGrabarButton;
 import com.example.app_phonoaudiology.domain.entities.SonidoEntity;
 import com.example.app_phonoaudiology.domain.repository.constants.Constantes;
 import com.example.app_phonoaudiology.infrastructure.db.entity.SoundEntity;
@@ -41,17 +34,13 @@ public class AgregarSonidoViewModel extends ViewModel {
     }
 
     public Boolean modoGrabar() {
-        if (mediaRecorder == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return mediaRecorder == null;
     }
 
     public void iniciarGrabacion(Context context, SonidoEntity sonidoEntity) {
 
         File directory = context.getFilesDir();
-        File carpeta = new File(directory, "sonido");
+        File carpeta = new File(directory, "sonidos");
 
         ruta = new File(carpeta.getPath(), sonidoEntity.getNombre() + ".mp3");
 
@@ -63,7 +52,7 @@ public class AgregarSonidoViewModel extends ViewModel {
 
         try {
             mediaRecorder.prepare();
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -71,7 +60,7 @@ public class AgregarSonidoViewModel extends ViewModel {
 
     }
 
-    public void finalizarGrabacion(Context context, SonidoEntity sonidoEntity) {
+    public void finalizarGrabacion() {
 
         mediaRecorder.stop();
         mediaRecorder.release();
@@ -81,7 +70,7 @@ public class AgregarSonidoViewModel extends ViewModel {
 
     public void finalizarGrabacionForzada(Context context, SonidoEntity sonidoEntity) {
         if (modoGrabar()) {
-            finalizarGrabacion(context, sonidoEntity);
+            finalizarGrabacion();
         }
     }
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">#ee7624</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">#90808080
+        </item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">#40808080
+        </item>
+    </style>
+
+    <style name="editText">
+
+        <item name="colorAccent">#ee7624</item>
+
+    </style>
+
+</resources>

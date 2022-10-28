@@ -4,7 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2065" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/boton_deshabilitado.xml" value="0.305" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/boton_enfocado.xml" value="0.305" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/boton_normal.xml" value="0.305" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/boton_presionado.xml" value="0.305" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_add.xml" value="0.1955" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_administrar_sonido.xml" value="0.3465" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_back.xml" value="0.261" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.3465" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_button_background.xml" value="0.3455" />
@@ -13,6 +18,7 @@
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_button_grabacion_on_background.xml" value="0.3465" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_button_grabacion_on_brackground.xml" value="0.311" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_correct.xml" value="0.2455" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_default_background.xml" value="0.3455" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_error_item_background.xml" value="0.2465" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_item_resultado_background.xml" value="0.1955" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3145" />
@@ -30,6 +36,7 @@
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/ic_wrong.xml" value="0.2735" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/icon_play_background.xml" value="0.2065" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/item_option.xml" value="0.2065" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/drawable/tint_btn.xml" value="0.3455" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout-v26/fragment_home.xml" value="0.34375" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout-v26/item_nombre_sonido.xml" value="0.34479166666666666" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/activity_configuracion.xml" value="0.34479166666666666" />
@@ -40,8 +47,8 @@
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/design_menu.xml" value="0.34375" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment__a.xml" value="0.34479166666666666" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_administrar_sonidos.xml" value="0.34479166666666666" />
-        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_agregar_sonido.xml" value="0.33" />
-        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_configuracion.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_agregar_sonido.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_configuracion.xml" value="0.33" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_configuracion_activity.xml" value="0.34479166666666666" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_ejercicio_escribir.xml" value="0.3394871794871795" />
         <entry key="..\:/Users/Leone/Documents/Code/Android Studio/App_Phonoaudiology/app/src/main/res/layout/fragment_ejercicio_opciones.xml" value="0.34479166666666666" />
@@ -74,7 +81,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.34479166666666666" />
+        <option name="scale" value="0.34375" />
       </ProjectState>
     </option>
   </component>

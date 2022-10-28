@@ -407,7 +407,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
 
   @Override
   public LiveData<List<ResultadoEntityDB>> getAllResultados() {
-    final String _sql = "SELECT * FROM resultado_table";
+    final String _sql = "SELECT * FROM resultado_table ORDER BY fecha DESC";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return __db.getInvalidationTracker().createLiveData(new String[]{"resultado_table"}, false, new Callable<List<ResultadoEntityDB>>() {
       @Override

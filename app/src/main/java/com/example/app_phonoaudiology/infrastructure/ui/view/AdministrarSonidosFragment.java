@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -39,8 +40,8 @@ public class AdministrarSonidosFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(AdministrarSonidosViewModel.class);
-        viewModel.onCreate(requireActivity().getApplication());
+        viewModel = new ViewModelProvider((ViewModelStoreOwner) this).get(AdministrarSonidosViewModel.class);
+        viewModel.onCreate(getActivity().getApplication());
     }
 
     @Override
@@ -70,7 +71,7 @@ public class AdministrarSonidosFragment extends Fragment {
             }
         });
 
-        viewModel.getSonidos().observe(getViewLifecycleOwner(), sounds -> {
+        viewModel.getSonidos().observe((LifecycleOwner) this, sounds -> {
             // SE OBTIENEN TODOS LOS SONIDOS DE LA BASE DE DATOS
             viewModel.onStart(getContext(), sounds);
             viewModel.setSwipe(getActivity(), getView(), recyclerViewSonidos, sounds);

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txt_grabarNuevoSonido"
         style="@android:style/Widget.TextView.PopupMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,19 +15,21 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/tv_grabar"
+        android:id="@+id/txt_grabar_alertGrabarSonido"
         style="@android:style/Widget.TextView.PopupMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/btn_grabar"
+        android:layout_marginTop="40dp"
+        android:text="@string/tv_grabar"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="@+id/txt_grabarNuevoSonido"
+        app:layout_constraintStart_toStartOf="@+id/txt_grabarNuevoSonido"
+        app:layout_constraintTop_toBottomOf="@+id/txt_grabarNuevoSonido"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/btn_grabarGrabacion"
@@ -35,36 +37,65 @@
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_button_grabacion_off_background"
+        android:contentDescription="@string/descripcion_botonGrabar"
         android:scaleType="center"
-        app:layout_constraintEnd_toEndOf="@+id/tv_grabar"
-        app:layout_constraintStart_toStartOf="@+id/tv_grabar"
-        app:layout_constraintTop_toBottomOf="@+id/tv_grabar"
+        app:layout_constraintEnd_toEndOf="@+id/txt_grabar_alertGrabarSonido"
+        app:layout_constraintStart_toStartOf="@+id/txt_grabar_alertGrabarSonido"
+        app:layout_constraintTop_toBottomOf="@+id/txt_grabar_alertGrabarSonido"
         app:srcCompat="@drawable/ic_mic_off" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txt_pausar_alertGrabarSonido"
         style="@android:style/Widget.TextView.PopupMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/btn_reproducir"
+        android:text="@string/tv_pausar"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/btn_grabarGrabacion"
         app:layout_constraintStart_toStartOf="@+id/btn_grabarGrabacion"
-        app:layout_constraintTop_toBottomOf="@+id/btn_grabarGrabacion" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_grabarGrabacion"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/btn_pausarGrabacion"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_button_grabacion_off_background"
+        android:contentDescription="@string/descripcion_botonPausar"
+        android:scaleType="center"
+        app:layout_constraintEnd_toEndOf="@+id/txt_pausar_alertGrabarSonido"
+        app:layout_constraintStart_toStartOf="@+id/txt_pausar_alertGrabarSonido"
+        app:layout_constraintTop_toBottomOf="@+id/txt_pausar_alertGrabarSonido"
+        app:srcCompat="@drawable/ic_pause" />
+
+    <TextView
+        android:id="@+id/txt_reproducir_alertGrabarSonido"
+        style="@android:style/Widget.TextView.PopupMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/tv_reproducir"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_pausarGrabacion"
+        app:layout_constraintStart_toStartOf="@+id/btn_pausarGrabacion"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pausarGrabacion"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/btn_reproducirGrabacion"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/ic_button_grabacion_off_background"
+        android:contentDescription="@string/descripcion_botonReproducir"
         android:scaleType="center"
         app:layout_constraintBottom_toTopOf="@+id/btn_cancelarGrabacion"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="@+id/txt_reproducir_alertGrabarSonido"
+        app:layout_constraintStart_toStartOf="@+id/txt_reproducir_alertGrabarSonido"
+        app:layout_constraintTop_toBottomOf="@+id/txt_reproducir_alertGrabarSonido"
         app:srcCompat="@drawable/ic_play" />
 
     <Button

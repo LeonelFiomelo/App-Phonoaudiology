@@ -31,29 +31,39 @@ public final class AlertdialogGrabarSonidoBinding implements ViewBinding {
   public final ImageButton btnGrabarGrabacion;
 
   @NonNull
+  public final ImageButton btnPausarGrabacion;
+
+  @NonNull
   public final ImageButton btnReproducirGrabacion;
 
   @NonNull
-  public final TextView textView2;
+  public final TextView txtGrabarAlertGrabarSonido;
 
   @NonNull
-  public final TextView textView5;
+  public final TextView txtGrabarNuevoSonido;
 
   @NonNull
-  public final TextView tvGrabar;
+  public final TextView txtPausarAlertGrabarSonido;
+
+  @NonNull
+  public final TextView txtReproducirAlertGrabarSonido;
 
   private AlertdialogGrabarSonidoBinding(@NonNull ConstraintLayout rootView,
       @NonNull Button btnAceptarGrabacion, @NonNull Button btnCancelarGrabacion,
-      @NonNull ImageButton btnGrabarGrabacion, @NonNull ImageButton btnReproducirGrabacion,
-      @NonNull TextView textView2, @NonNull TextView textView5, @NonNull TextView tvGrabar) {
+      @NonNull ImageButton btnGrabarGrabacion, @NonNull ImageButton btnPausarGrabacion,
+      @NonNull ImageButton btnReproducirGrabacion, @NonNull TextView txtGrabarAlertGrabarSonido,
+      @NonNull TextView txtGrabarNuevoSonido, @NonNull TextView txtPausarAlertGrabarSonido,
+      @NonNull TextView txtReproducirAlertGrabarSonido) {
     this.rootView = rootView;
     this.btnAceptarGrabacion = btnAceptarGrabacion;
     this.btnCancelarGrabacion = btnCancelarGrabacion;
     this.btnGrabarGrabacion = btnGrabarGrabacion;
+    this.btnPausarGrabacion = btnPausarGrabacion;
     this.btnReproducirGrabacion = btnReproducirGrabacion;
-    this.textView2 = textView2;
-    this.textView5 = textView5;
-    this.tvGrabar = tvGrabar;
+    this.txtGrabarAlertGrabarSonido = txtGrabarAlertGrabarSonido;
+    this.txtGrabarNuevoSonido = txtGrabarNuevoSonido;
+    this.txtPausarAlertGrabarSonido = txtPausarAlertGrabarSonido;
+    this.txtReproducirAlertGrabarSonido = txtReproducirAlertGrabarSonido;
   }
 
   @Override
@@ -101,33 +111,46 @@ public final class AlertdialogGrabarSonidoBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_pausarGrabacion;
+      ImageButton btnPausarGrabacion = ViewBindings.findChildViewById(rootView, id);
+      if (btnPausarGrabacion == null) {
+        break missingId;
+      }
+
       id = R.id.btn_reproducirGrabacion;
       ImageButton btnReproducirGrabacion = ViewBindings.findChildViewById(rootView, id);
       if (btnReproducirGrabacion == null) {
         break missingId;
       }
 
-      id = R.id.textView2;
-      TextView textView2 = ViewBindings.findChildViewById(rootView, id);
-      if (textView2 == null) {
+      id = R.id.txt_grabar_alertGrabarSonido;
+      TextView txtGrabarAlertGrabarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (txtGrabarAlertGrabarSonido == null) {
         break missingId;
       }
 
-      id = R.id.textView5;
-      TextView textView5 = ViewBindings.findChildViewById(rootView, id);
-      if (textView5 == null) {
+      id = R.id.txt_grabarNuevoSonido;
+      TextView txtGrabarNuevoSonido = ViewBindings.findChildViewById(rootView, id);
+      if (txtGrabarNuevoSonido == null) {
         break missingId;
       }
 
-      id = R.id.tv_grabar;
-      TextView tvGrabar = ViewBindings.findChildViewById(rootView, id);
-      if (tvGrabar == null) {
+      id = R.id.txt_pausar_alertGrabarSonido;
+      TextView txtPausarAlertGrabarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (txtPausarAlertGrabarSonido == null) {
+        break missingId;
+      }
+
+      id = R.id.txt_reproducir_alertGrabarSonido;
+      TextView txtReproducirAlertGrabarSonido = ViewBindings.findChildViewById(rootView, id);
+      if (txtReproducirAlertGrabarSonido == null) {
         break missingId;
       }
 
       return new AlertdialogGrabarSonidoBinding((ConstraintLayout) rootView, btnAceptarGrabacion,
-          btnCancelarGrabacion, btnGrabarGrabacion, btnReproducirGrabacion, textView2, textView5,
-          tvGrabar);
+          btnCancelarGrabacion, btnGrabarGrabacion, btnPausarGrabacion, btnReproducirGrabacion,
+          txtGrabarAlertGrabarSonido, txtGrabarNuevoSonido, txtPausarAlertGrabarSonido,
+          txtReproducirAlertGrabarSonido);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
