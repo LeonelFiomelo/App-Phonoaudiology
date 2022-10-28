@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-30:12
+ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-31:12
 MERGED from [androidx.databinding:databinding-adapters:7.2.2] C:\Users\Leone\.gradle\caches\transforms-3\440c60908ac6843fc057231c9516db25\transformed\databinding-adapters-7.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:7.2.2] C:\Users\Leone\.gradle\caches\transforms-3\a45f1c66c0764bc7954530610bda7bb4\transformed\databinding-runtime-7.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:viewbinding:7.2.2] C:\Users\Leone\.gradle\caches\transforms-3\7c89c8a34c2ecc728308042ac673d46f\transformed\viewbinding-7.2.2\AndroidManifest.xml:17:1-24:12
@@ -67,22 +67,22 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Leone\.gradle\ca
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\be78f20c96fdd8562774ce9c33a112b9\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\Leone\.gradle\caches\transforms-3\f1c1f6112ea6a1f399972dce89bf2eda\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Leone\.gradle\caches\transforms-3\cdcb8e50109b2c2b9e961e9ab007ca34\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-30:12
-INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:4:5-45
 		INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-30:12
+		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-30:12
+		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:2:11-69
@@ -95,7 +95,7 @@ ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\s
 	android:name
 		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:7:22-68
 application
-ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:9:5-28:19
+ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:9:5-29:19
 MERGED from [com.google.android.material:material:1.7.0] C:\Users\Leone\.gradle\caches\transforms-3\b26501d9553d08a11b3cfe721422cf55\transformed\material-1.7.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.7.0] C:\Users\Leone\.gradle\caches\transforms-3\b26501d9553d08a11b3cfe721422cf55\transformed\material-1.7.0\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Leone\.gradle\caches\transforms-3\7973dc37a0b9b77da65b027e645a80f7\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -135,21 +135,23 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Leone\.gradle\cach
 	android:dataExtractionRules
 		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:11:9-65
 activity#com.example.app_phonoaudiology.infrastructure.ui.view.MainActivity
-ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:19:9-27:20
+ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:19:9-28:20
 	android:exported
-		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:21:13-36
+		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:22:13-36
+	android:theme
+		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:21:13-63
 	android:name
 		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:20:13-64
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:22:13-26:29
+ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:23:13-27:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:23:17-69
+ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:23:25-66
+		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:25:17-77
+ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml:26:27-74
 uses-sdk
 INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Leone\Documents\Code\Android Studio\App_Phonoaudiology\app\src\main\AndroidManifest.xml

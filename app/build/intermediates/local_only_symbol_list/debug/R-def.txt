@@ -322,5 +322,6 @@ string tv_subcategoria
 style SCBSwitch
 style Theme.App_Phonoaudiology
 style editText
+style theme_barraDeNotificaciones
 xml backup_rules
 xml data_extraction_rules

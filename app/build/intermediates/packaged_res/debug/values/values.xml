@@ -101,12 +101,11 @@
     <string name="tv_subcategoria">Subcategoría</string>
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">
         
+        
         <item name="colorControlActivated">#ee7624</item>
-
         
         <item name="colorSwitchThumbNormal">#90808080
         </item>
-
         
         <item name="android:colorForeground">#40808080
         </item>
@@ -125,8 +124,11 @@
         
     </style>
     <style name="editText">
-
+        
         <item name="colorAccent">#ee7624</item>
-
+    </style>
+    <style name="theme_barraDeNotificaciones" parent="Theme.MaterialComponents.Light.NoActionBar">
+        
+        <item name="colorPrimaryDark">#ee7624</item>
     </style>
 </resources>

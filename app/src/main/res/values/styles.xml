@@ -2,22 +2,25 @@
 <resources>
 
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!--    CAMBIA EL COLOR DEL SWITCH EN SUS DIFERENTES ESTADOS    -->
         <!-- active thumb & track color (30% transparency) -->
         <item name="colorControlActivated">#ee7624</item>
-
         <!-- inactive thumb color -->
         <item name="colorSwitchThumbNormal">#90808080
         </item>
-
         <!-- inactive track color (30% transparency) -->
         <item name="android:colorForeground">#40808080
         </item>
     </style>
 
     <style name="editText">
-
+        <!--    CAMBIA EL COLOR DEL EDIT TEXT AL PRESIONAR SOBRE EL    -->
         <item name="colorAccent">#ee7624</item>
+    </style>
 
+    <style name="theme_barraDeNotificaciones" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!--    CAMBIA EL COLOR DE LA BARRA DE NOTIFICACIONES    -->
+        <item name="colorPrimaryDark">#ee7624</item>
     </style>
 
 </resources>
