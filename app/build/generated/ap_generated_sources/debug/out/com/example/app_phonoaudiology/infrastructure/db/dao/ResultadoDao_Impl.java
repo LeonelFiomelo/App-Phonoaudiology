@@ -50,7 +50,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
     this.__insertionAdapterOfResultadoEntityDB = new EntityInsertionAdapter<ResultadoEntityDB>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `resultado_table` (`uuid`,`fecha`,`correctas`,`intentos`,`categoria`,`subcategoria`,`ejercicio`,`ruido`,`tipoRuido`,`intensidad`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `resultado_table` (`uuid`,`fecha`,`correctas`,`intentos`,`categoria`,`subcategoria`,`ejercicio`,`palabraClave`,`ruido`,`tipoRuido`,`intensidad`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -82,18 +82,23 @@ public final class ResultadoDao_Impl implements ResultadoDao {
         } else {
           stmt.bindString(7, value.getEjercicio());
         }
-        final Integer _tmp = value.getRuido() == null ? null : (value.getRuido() ? 1 : 0);
-        if (_tmp == null) {
+        if (value.getPalabraClave() == null) {
           stmt.bindNull(8);
         } else {
-          stmt.bindLong(8, _tmp);
+          stmt.bindString(8, value.getPalabraClave());
         }
-        if (value.getTipoRuido() == null) {
+        final Integer _tmp = value.getRuido() == null ? null : (value.getRuido() ? 1 : 0);
+        if (_tmp == null) {
           stmt.bindNull(9);
         } else {
-          stmt.bindString(9, value.getTipoRuido());
+          stmt.bindLong(9, _tmp);
         }
-        stmt.bindDouble(10, value.getIntensidad());
+        if (value.getTipoRuido() == null) {
+          stmt.bindNull(10);
+        } else {
+          stmt.bindString(10, value.getTipoRuido());
+        }
+        stmt.bindDouble(11, value.getIntensidad());
       }
     };
     this.__insertionAdapterOfErrorEntityDB = new EntityInsertionAdapter<ErrorEntityDB>(__db) {
@@ -145,7 +150,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
     this.__updateAdapterOfResultadoEntityDB = new EntityDeletionOrUpdateAdapter<ResultadoEntityDB>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `resultado_table` SET `uuid` = ?,`fecha` = ?,`correctas` = ?,`intentos` = ?,`categoria` = ?,`subcategoria` = ?,`ejercicio` = ?,`ruido` = ?,`tipoRuido` = ?,`intensidad` = ? WHERE `uuid` = ?";
+        return "UPDATE OR ABORT `resultado_table` SET `uuid` = ?,`fecha` = ?,`correctas` = ?,`intentos` = ?,`categoria` = ?,`subcategoria` = ?,`ejercicio` = ?,`palabraClave` = ?,`ruido` = ?,`tipoRuido` = ?,`intensidad` = ? WHERE `uuid` = ?";
       }
 
       @Override
@@ -177,22 +182,27 @@ public final class ResultadoDao_Impl implements ResultadoDao {
         } else {
           stmt.bindString(7, value.getEjercicio());
         }
-        final Integer _tmp = value.getRuido() == null ? null : (value.getRuido() ? 1 : 0);
-        if (_tmp == null) {
+        if (value.getPalabraClave() == null) {
           stmt.bindNull(8);
         } else {
-          stmt.bindLong(8, _tmp);
+          stmt.bindString(8, value.getPalabraClave());
         }
-        if (value.getTipoRuido() == null) {
+        final Integer _tmp = value.getRuido() == null ? null : (value.getRuido() ? 1 : 0);
+        if (_tmp == null) {
           stmt.bindNull(9);
         } else {
-          stmt.bindString(9, value.getTipoRuido());
+          stmt.bindLong(9, _tmp);
         }
-        stmt.bindDouble(10, value.getIntensidad());
-        if (value.getUuid() == null) {
-          stmt.bindNull(11);
+        if (value.getTipoRuido() == null) {
+          stmt.bindNull(10);
         } else {
-          stmt.bindString(11, value.getUuid());
+          stmt.bindString(10, value.getTipoRuido());
+        }
+        stmt.bindDouble(11, value.getIntensidad());
+        if (value.getUuid() == null) {
+          stmt.bindNull(12);
+        } else {
+          stmt.bindString(12, value.getUuid());
         }
       }
     };
@@ -333,6 +343,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
           final int _cursorIndexOfCategoria = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria");
           final int _cursorIndexOfSubcategoria = CursorUtil.getColumnIndexOrThrow(_cursor, "subcategoria");
           final int _cursorIndexOfEjercicio = CursorUtil.getColumnIndexOrThrow(_cursor, "ejercicio");
+          final int _cursorIndexOfPalabraClave = CursorUtil.getColumnIndexOrThrow(_cursor, "palabraClave");
           final int _cursorIndexOfRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruido");
           final int _cursorIndexOfTipoRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "tipoRuido");
           final int _cursorIndexOfIntensidad = CursorUtil.getColumnIndexOrThrow(_cursor, "intensidad");
@@ -372,6 +383,12 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             } else {
               _tmpEjercicio = _cursor.getString(_cursorIndexOfEjercicio);
             }
+            final String _tmpPalabraClave;
+            if (_cursor.isNull(_cursorIndexOfPalabraClave)) {
+              _tmpPalabraClave = null;
+            } else {
+              _tmpPalabraClave = _cursor.getString(_cursorIndexOfPalabraClave);
+            }
             final Boolean _tmpRuido;
             final Integer _tmp;
             if (_cursor.isNull(_cursorIndexOfRuido)) {
@@ -388,7 +405,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             }
             final float _tmpIntensidad;
             _tmpIntensidad = _cursor.getFloat(_cursorIndexOfIntensidad);
-            _result = new ResultadoEntityDB(_tmpUuid,_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
+            _result = new ResultadoEntityDB(_tmpUuid,_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpPalabraClave,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
           } else {
             _result = null;
           }
@@ -421,6 +438,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
           final int _cursorIndexOfCategoria = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria");
           final int _cursorIndexOfSubcategoria = CursorUtil.getColumnIndexOrThrow(_cursor, "subcategoria");
           final int _cursorIndexOfEjercicio = CursorUtil.getColumnIndexOrThrow(_cursor, "ejercicio");
+          final int _cursorIndexOfPalabraClave = CursorUtil.getColumnIndexOrThrow(_cursor, "palabraClave");
           final int _cursorIndexOfRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruido");
           final int _cursorIndexOfTipoRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "tipoRuido");
           final int _cursorIndexOfIntensidad = CursorUtil.getColumnIndexOrThrow(_cursor, "intensidad");
@@ -461,6 +479,12 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             } else {
               _tmpEjercicio = _cursor.getString(_cursorIndexOfEjercicio);
             }
+            final String _tmpPalabraClave;
+            if (_cursor.isNull(_cursorIndexOfPalabraClave)) {
+              _tmpPalabraClave = null;
+            } else {
+              _tmpPalabraClave = _cursor.getString(_cursorIndexOfPalabraClave);
+            }
             final Boolean _tmpRuido;
             final Integer _tmp;
             if (_cursor.isNull(_cursorIndexOfRuido)) {
@@ -477,7 +501,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             }
             final float _tmpIntensidad;
             _tmpIntensidad = _cursor.getFloat(_cursorIndexOfIntensidad);
-            _item = new ResultadoEntityDB(_tmpUuid,_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
+            _item = new ResultadoEntityDB(_tmpUuid,_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpPalabraClave,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
             _result.add(_item);
           }
           return _result;
@@ -575,6 +599,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             final int _cursorIndexOfCategoria = CursorUtil.getColumnIndexOrThrow(_cursor, "categoria");
             final int _cursorIndexOfSubcategoria = CursorUtil.getColumnIndexOrThrow(_cursor, "subcategoria");
             final int _cursorIndexOfEjercicio = CursorUtil.getColumnIndexOrThrow(_cursor, "ejercicio");
+            final int _cursorIndexOfPalabraClave = CursorUtil.getColumnIndexOrThrow(_cursor, "palabraClave");
             final int _cursorIndexOfRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "ruido");
             final int _cursorIndexOfTipoRuido = CursorUtil.getColumnIndexOrThrow(_cursor, "tipoRuido");
             final int _cursorIndexOfIntensidad = CursorUtil.getColumnIndexOrThrow(_cursor, "intensidad");
@@ -595,7 +620,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
             while(_cursor.moveToNext()) {
               final ResultadoErroresEntityDB _item;
               final ResultadoEntityDB _tmpResultadoEntityDB;
-              if (! (_cursor.isNull(_cursorIndexOfUuid) && _cursor.isNull(_cursorIndexOfFecha) && _cursor.isNull(_cursorIndexOfCorrectas) && _cursor.isNull(_cursorIndexOfIntentos) && _cursor.isNull(_cursorIndexOfCategoria) && _cursor.isNull(_cursorIndexOfSubcategoria) && _cursor.isNull(_cursorIndexOfEjercicio) && _cursor.isNull(_cursorIndexOfRuido) && _cursor.isNull(_cursorIndexOfTipoRuido) && _cursor.isNull(_cursorIndexOfIntensidad))) {
+              if (! (_cursor.isNull(_cursorIndexOfUuid) && _cursor.isNull(_cursorIndexOfFecha) && _cursor.isNull(_cursorIndexOfCorrectas) && _cursor.isNull(_cursorIndexOfIntentos) && _cursor.isNull(_cursorIndexOfCategoria) && _cursor.isNull(_cursorIndexOfSubcategoria) && _cursor.isNull(_cursorIndexOfEjercicio) && _cursor.isNull(_cursorIndexOfPalabraClave) && _cursor.isNull(_cursorIndexOfRuido) && _cursor.isNull(_cursorIndexOfTipoRuido) && _cursor.isNull(_cursorIndexOfIntensidad))) {
                 final String _tmpUuid;
                 if (_cursor.isNull(_cursorIndexOfUuid)) {
                   _tmpUuid = null;
@@ -630,6 +655,12 @@ public final class ResultadoDao_Impl implements ResultadoDao {
                 } else {
                   _tmpEjercicio = _cursor.getString(_cursorIndexOfEjercicio);
                 }
+                final String _tmpPalabraClave;
+                if (_cursor.isNull(_cursorIndexOfPalabraClave)) {
+                  _tmpPalabraClave = null;
+                } else {
+                  _tmpPalabraClave = _cursor.getString(_cursorIndexOfPalabraClave);
+                }
                 final Boolean _tmpRuido;
                 final Integer _tmp;
                 if (_cursor.isNull(_cursorIndexOfRuido)) {
@@ -646,7 +677,7 @@ public final class ResultadoDao_Impl implements ResultadoDao {
                 }
                 final float _tmpIntensidad;
                 _tmpIntensidad = _cursor.getFloat(_cursorIndexOfIntensidad);
-                _tmpResultadoEntityDB = new ResultadoEntityDB(_tmpUuid,_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
+                _tmpResultadoEntityDB = new ResultadoEntityDB(_tmpUuid,_tmpFecha,_tmpCorrectas,_tmpIntentos,_tmpCategoria,_tmpSubcategoria,_tmpEjercicio,_tmpPalabraClave,_tmpRuido,_tmpTipoRuido,_tmpIntensidad);
               }  else  {
                 _tmpResultadoEntityDB = null;
               }

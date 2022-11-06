@@ -28,10 +28,25 @@ public class DiasConectores {
     ));
 
     // RETORNA UNA COMBINACION AL AZAR
-    public static ArrayList<String> getCombinacionRandom() {
-        Random random = new Random();
-        int cantidad = combinaciones.size();
-        return combinaciones.get(random.nextInt(cantidad));
-    }
+    public static ArrayList<String> getCombinacionRandom(String palabraClave) {
+        switch(palabraClave) {
+            case "En el Final":
+                return combinacionDos;
+
+            case "En el Inicio":
+                return combinacionTres;
+
+            case "En el Medio":
+                return combinacionUno;
+
+            case "Aleatorio":
+                Random random = new Random();
+                int cantidad = combinaciones.size();
+                return combinaciones.get(random.nextInt(cantidad));
+
+            default:
+                return null;
+        }
+    };
 
 }

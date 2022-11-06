@@ -164,6 +164,30 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
+                    android:id="@+id/txt_palabraClave_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/tv_palabraClave"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/txt_ejercicioO_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_ejercicioO_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/txt_palabraClaveO_resultado"
+                    style="@android:style/Widget.TextView.PopupMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/texto"
+                    app:layout_constraintStart_toStartOf="@+id/txt_palabraClave_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_palabraClave_resultado"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
                     android:id="@+id/txt_ruido_resultado"
                     style="@android:style/Widget.TextView.PopupMenu"
                     android:layout_width="wrap_content"
@@ -172,8 +196,8 @@
                     android:text="@string/tv_ruido"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/txt_ejercicioO_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_ejercicioO_resultado"
+                    app:layout_constraintStart_toStartOf="@+id/txt_palabraClaveO_resultado"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_palabraClaveO_resultado"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
@@ -318,15 +342,16 @@
 
                 <Button
                     android:id="@+id/btn_finalizar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     android:layout_marginBottom="32dp"
                     android:backgroundTint="@color/colorPrimary"
                     android:text="@string/btn_finalizar"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/table_errores_resultado"
+                    app:layout_constraintStart_toStartOf="@+id/table_errores_resultado"
                     app:layout_constraintTop_toBottomOf="@+id/table_errores_resultado" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

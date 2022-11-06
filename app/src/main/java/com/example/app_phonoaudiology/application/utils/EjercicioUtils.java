@@ -40,12 +40,12 @@ public class EjercicioUtils {
         });
     }
 
-    public static void setRandomConectores(ConfiguracionEntity configuracionEntity, ConectoresEntity conectoresEntity, ArrayList<SoundEntity> combinacionConectores) {
+    public static void setConectores(ConfiguracionEntity configuracionEntity, ConectoresEntity conectoresEntity, ArrayList<SoundEntity> combinacionConectores) {
         switch (configuracionEntity.getSubcategoria()) {
             case ("Días de la Semana"):
                 SoundEntity conectorInicialDias = null;
                 SoundEntity conectorFinalDias = null;
-                ArrayList<String> combinacionRandomDias = DiasConectores.getCombinacionRandom();
+                ArrayList<String> combinacionRandomDias = DiasConectores.getCombinacionRandom(configuracionEntity.getPalabraClave());
                 if (combinacionRandomDias.get(0) != null && combinacionRandomDias.get(1) != null) {
                     conectorInicialDias = conectoresEntity.getListaDeConectores().get(combinacionRandomDias.get(0));
                     conectorFinalDias = conectoresEntity.getListaDeConectores().get(combinacionRandomDias.get(1));
@@ -64,7 +64,7 @@ public class EjercicioUtils {
             case ("Números"):
                 SoundEntity conectorInicialNumeros = null;
                 SoundEntity conectorFinalNumeros = null;
-                ArrayList<String> combinacionRandomNumeros = NumerosConectores.getCombinacionRandom();
+                ArrayList<String> combinacionRandomNumeros = NumerosConectores.getCombinacionRandom(configuracionEntity.getPalabraClave());
                 if (combinacionRandomNumeros.get(0) != null && combinacionRandomNumeros.get(1) != null) {
                     conectorInicialNumeros = conectoresEntity.getListaDeConectores().get(combinacionRandomNumeros.get(0));
                     conectorFinalNumeros= conectoresEntity.getListaDeConectores().get(combinacionRandomNumeros.get(1));

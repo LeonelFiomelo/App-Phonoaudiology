@@ -15,6 +15,12 @@ public class Constantes {
     public static final String VOCES_FAMILIARES = "Voces Familiares";
     public static final String RUIDO = "Ruido";
 
+    // PALABRAS CLAVE
+    public static final String FINAL = "En el Final";
+    public static final String INICIO = "En el Inicio";
+    public static final String MEDIO = "En el Medio";
+    public static final String ALEATORIO = "Aleatorio";
+
     //public static final String[] CATEGORIAS = { PALABRA, ORACIONES, CANCIONES, INSTRUMENTOS, ESTILOS_MUSICALES, VOCES_FAMILIARES};
     public static final String[] CATEGORIAS = {SELECCIONE_UNA, PALABRA, ORACIONES};
 
@@ -89,7 +95,16 @@ public class Constantes {
             ESTILOS_MUSICALES,
             CANCIONES,
             INSTRUMENTOS,
-            RUIDO};
+            RUIDO
+    };
+
+    public static final String[] PALABRAS_CLAVE = {
+            SELECCIONE_UNA,
+            FINAL,
+            INICIO,
+            MEDIO,
+            ALEATORIO
+    };
 
     public static final String EJERCITACION = "Ejercitación";
     public static final String EVALUACION = "Evaluación";

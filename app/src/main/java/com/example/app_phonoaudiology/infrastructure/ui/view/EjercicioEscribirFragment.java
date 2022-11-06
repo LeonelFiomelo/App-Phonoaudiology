@@ -144,7 +144,7 @@ public class EjercicioEscribirFragment extends Fragment {
             // SE COLOCA UN LISTENER AL APRETAR EL BOTON DE ACEPTAR
             if (viewModel.chequearCampos(editTxtRespuesta)) {
                 viewModel.onTouchAceptarButton.guardarInformacionDelIntento(editTxtRespuesta);
-                viewModel.onTouchAceptarButton.corroborarTexto(editTxtRespuesta);
+                viewModel.onTouchAceptarButton.corroborarTexto(getContext(), editTxtRespuesta);
                 editTxtRespuesta.setText("");
             } else {
                 Toast.makeText(requireContext(), "Escriba una respuesta", Toast.LENGTH_SHORT).show();

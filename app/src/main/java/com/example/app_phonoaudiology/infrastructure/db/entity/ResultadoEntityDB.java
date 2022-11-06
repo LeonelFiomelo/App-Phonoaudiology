@@ -29,6 +29,8 @@ public class ResultadoEntityDB {
     private String subcategoria;
     @ColumnInfo(name = "ejercicio")
     private String ejercicio;
+    @ColumnInfo(name = "palabraClave")
+    private String palabraClave;
     @ColumnInfo(name = "ruido")
     private Boolean ruido;
     @ColumnInfo(name = "tipoRuido")
@@ -36,7 +38,9 @@ public class ResultadoEntityDB {
     @ColumnInfo(name = "intensidad")
     private float intensidad;
 
-    public ResultadoEntityDB(@NonNull String uuid, String fecha, int correctas, int intentos, String categoria, String subcategoria, String ejercicio, Boolean ruido, String tipoRuido, float intensidad) {
+    public ResultadoEntityDB(@NonNull String uuid, String fecha, int correctas, int intentos,
+                             String categoria, String subcategoria, String ejercicio,
+                             String palabraClave, Boolean ruido, String tipoRuido, float intensidad) {
         this.uuid = uuid;
         this.fecha = fecha;
         this.correctas = correctas;
@@ -44,6 +48,7 @@ public class ResultadoEntityDB {
         this.categoria = categoria;
         this.subcategoria = subcategoria;
         this.ejercicio = ejercicio;
+        this.palabraClave = palabraClave;
         this.ruido = ruido;
         this.tipoRuido = tipoRuido;
         this.intensidad = intensidad;
@@ -66,6 +71,7 @@ public class ResultadoEntityDB {
     public String getEjercicio() {
         return ejercicio;
     }
+    public String getPalabraClave() { return palabraClave; }
     public Boolean getRuido() {
         return ruido;
     }
@@ -90,6 +96,7 @@ public class ResultadoEntityDB {
     public void setEjercicio(String tipo_ejercicio) {
         this.ejercicio = tipo_ejercicio;
     }
+    public void setPalabraClave(String palabraClave) { this.palabraClave = palabraClave; }
     public void setRuido(Boolean ruido) {
         this.ruido = ruido;
     }

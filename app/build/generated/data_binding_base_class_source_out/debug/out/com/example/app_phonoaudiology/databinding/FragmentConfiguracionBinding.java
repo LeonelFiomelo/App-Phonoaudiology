@@ -48,6 +48,9 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
   public final Spinner spinnerEjercicioConfiguracion;
 
   @NonNull
+  public final Spinner spinnerPalabraClaveConfiguracion;
+
+  @NonNull
   public final Spinner spinnerRuidoConfiguracion;
 
   @NonNull
@@ -60,25 +63,28 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
   public final Toolbar toolbarConfiguracion;
 
   @NonNull
-  public final TextView txtCategoriaResultadoDetalle;
+  public final TextView txtCategoriaConfiguracion;
 
   @NonNull
-  public final TextView txtConfiguracionAvanzada;
+  public final TextView txtConfiguracionAvanzadaConfiguracion;
 
   @NonNull
-  public final TextView txtConfiguracionBasica;
+  public final TextView txtConfiguracionBasicaConfiguracion;
 
   @NonNull
-  public final TextView txtEjercicioResultadoDetalle;
+  public final TextView txtEjercicioConfiguracion;
 
   @NonNull
   public final TextView txtIntensidadConfiguracion;
 
   @NonNull
+  public final TextView txtPalabraClaveConfiguracion;
+
+  @NonNull
   public final TextView txtRuidoResultadoDetalle;
 
   @NonNull
-  public final TextView txtSubcategoriaResultadoDetalle;
+  public final TextView txtSubcategoriaConfiguracion;
 
   private FragmentConfiguracionBinding(@NonNull FrameLayout rootView,
       @NonNull Button btnComenzarEjercicioConfiguracion,
@@ -86,13 +92,16 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
       @NonNull ConstraintLayout clConfiguracionBasicaConfiguracion,
       @NonNull ScrollView scrollViewConfiguracion, @NonNull SeekBar seekBarIntensidadConfiguracion,
       @NonNull Spinner spinnerCategoriaConfiguracion,
-      @NonNull Spinner spinnerEjercicioConfiguracion, @NonNull Spinner spinnerRuidoConfiguracion,
+      @NonNull Spinner spinnerEjercicioConfiguracion,
+      @NonNull Spinner spinnerPalabraClaveConfiguracion, @NonNull Spinner spinnerRuidoConfiguracion,
       @NonNull Spinner spinnerSubcategoriaConfiguracion,
       @NonNull SwitchCompat switchRuidoConfiguracion, @NonNull Toolbar toolbarConfiguracion,
-      @NonNull TextView txtCategoriaResultadoDetalle, @NonNull TextView txtConfiguracionAvanzada,
-      @NonNull TextView txtConfiguracionBasica, @NonNull TextView txtEjercicioResultadoDetalle,
-      @NonNull TextView txtIntensidadConfiguracion, @NonNull TextView txtRuidoResultadoDetalle,
-      @NonNull TextView txtSubcategoriaResultadoDetalle) {
+      @NonNull TextView txtCategoriaConfiguracion,
+      @NonNull TextView txtConfiguracionAvanzadaConfiguracion,
+      @NonNull TextView txtConfiguracionBasicaConfiguracion,
+      @NonNull TextView txtEjercicioConfiguracion, @NonNull TextView txtIntensidadConfiguracion,
+      @NonNull TextView txtPalabraClaveConfiguracion, @NonNull TextView txtRuidoResultadoDetalle,
+      @NonNull TextView txtSubcategoriaConfiguracion) {
     this.rootView = rootView;
     this.btnComenzarEjercicioConfiguracion = btnComenzarEjercicioConfiguracion;
     this.clConfiguracionAvanzadaConfiguracion = clConfiguracionAvanzadaConfiguracion;
@@ -101,17 +110,19 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
     this.seekBarIntensidadConfiguracion = seekBarIntensidadConfiguracion;
     this.spinnerCategoriaConfiguracion = spinnerCategoriaConfiguracion;
     this.spinnerEjercicioConfiguracion = spinnerEjercicioConfiguracion;
+    this.spinnerPalabraClaveConfiguracion = spinnerPalabraClaveConfiguracion;
     this.spinnerRuidoConfiguracion = spinnerRuidoConfiguracion;
     this.spinnerSubcategoriaConfiguracion = spinnerSubcategoriaConfiguracion;
     this.switchRuidoConfiguracion = switchRuidoConfiguracion;
     this.toolbarConfiguracion = toolbarConfiguracion;
-    this.txtCategoriaResultadoDetalle = txtCategoriaResultadoDetalle;
-    this.txtConfiguracionAvanzada = txtConfiguracionAvanzada;
-    this.txtConfiguracionBasica = txtConfiguracionBasica;
-    this.txtEjercicioResultadoDetalle = txtEjercicioResultadoDetalle;
+    this.txtCategoriaConfiguracion = txtCategoriaConfiguracion;
+    this.txtConfiguracionAvanzadaConfiguracion = txtConfiguracionAvanzadaConfiguracion;
+    this.txtConfiguracionBasicaConfiguracion = txtConfiguracionBasicaConfiguracion;
+    this.txtEjercicioConfiguracion = txtEjercicioConfiguracion;
     this.txtIntensidadConfiguracion = txtIntensidadConfiguracion;
+    this.txtPalabraClaveConfiguracion = txtPalabraClaveConfiguracion;
     this.txtRuidoResultadoDetalle = txtRuidoResultadoDetalle;
-    this.txtSubcategoriaResultadoDetalle = txtSubcategoriaResultadoDetalle;
+    this.txtSubcategoriaConfiguracion = txtSubcategoriaConfiguracion;
   }
 
   @Override
@@ -183,6 +194,12 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.spinner_palabraClave_configuracion;
+      Spinner spinnerPalabraClaveConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (spinnerPalabraClaveConfiguracion == null) {
+        break missingId;
+      }
+
       id = R.id.spinner_ruido_configuracion;
       Spinner spinnerRuidoConfiguracion = ViewBindings.findChildViewById(rootView, id);
       if (spinnerRuidoConfiguracion == null) {
@@ -207,27 +224,27 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.txt_categoria_resultadoDetalle;
-      TextView txtCategoriaResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
-      if (txtCategoriaResultadoDetalle == null) {
+      id = R.id.txt_categoria_configuracion;
+      TextView txtCategoriaConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (txtCategoriaConfiguracion == null) {
         break missingId;
       }
 
-      id = R.id.txt_configuracionAvanzada;
-      TextView txtConfiguracionAvanzada = ViewBindings.findChildViewById(rootView, id);
-      if (txtConfiguracionAvanzada == null) {
+      id = R.id.txt_configuracionAvanzada_configuracion;
+      TextView txtConfiguracionAvanzadaConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (txtConfiguracionAvanzadaConfiguracion == null) {
         break missingId;
       }
 
-      id = R.id.txt_configuracionBasica;
-      TextView txtConfiguracionBasica = ViewBindings.findChildViewById(rootView, id);
-      if (txtConfiguracionBasica == null) {
+      id = R.id.txt_configuracionBasica_configuracion;
+      TextView txtConfiguracionBasicaConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (txtConfiguracionBasicaConfiguracion == null) {
         break missingId;
       }
 
-      id = R.id.txt_ejercicio_resultadoDetalle;
-      TextView txtEjercicioResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
-      if (txtEjercicioResultadoDetalle == null) {
+      id = R.id.txt_ejercicio_configuracion;
+      TextView txtEjercicioConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (txtEjercicioConfiguracion == null) {
         break missingId;
       }
 
@@ -237,15 +254,21 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.txt_palabraClave_configuracion;
+      TextView txtPalabraClaveConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (txtPalabraClaveConfiguracion == null) {
+        break missingId;
+      }
+
       id = R.id.txt_ruido_resultadoDetalle;
       TextView txtRuidoResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
       if (txtRuidoResultadoDetalle == null) {
         break missingId;
       }
 
-      id = R.id.txt_subcategoria_resultadoDetalle;
-      TextView txtSubcategoriaResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
-      if (txtSubcategoriaResultadoDetalle == null) {
+      id = R.id.txt_subcategoria_configuracion;
+      TextView txtSubcategoriaConfiguracion = ViewBindings.findChildViewById(rootView, id);
+      if (txtSubcategoriaConfiguracion == null) {
         break missingId;
       }
 
@@ -253,11 +276,12 @@ public final class FragmentConfiguracionBinding implements ViewBinding {
           btnComenzarEjercicioConfiguracion, clConfiguracionAvanzadaConfiguracion,
           clConfiguracionBasicaConfiguracion, scrollViewConfiguracion,
           seekBarIntensidadConfiguracion, spinnerCategoriaConfiguracion,
-          spinnerEjercicioConfiguracion, spinnerRuidoConfiguracion,
-          spinnerSubcategoriaConfiguracion, switchRuidoConfiguracion, toolbarConfiguracion,
-          txtCategoriaResultadoDetalle, txtConfiguracionAvanzada, txtConfiguracionBasica,
-          txtEjercicioResultadoDetalle, txtIntensidadConfiguracion, txtRuidoResultadoDetalle,
-          txtSubcategoriaResultadoDetalle);
+          spinnerEjercicioConfiguracion, spinnerPalabraClaveConfiguracion,
+          spinnerRuidoConfiguracion, spinnerSubcategoriaConfiguracion, switchRuidoConfiguracion,
+          toolbarConfiguracion, txtCategoriaConfiguracion, txtConfiguracionAvanzadaConfiguracion,
+          txtConfiguracionBasicaConfiguracion, txtEjercicioConfiguracion,
+          txtIntensidadConfiguracion, txtPalabraClaveConfiguracion, txtRuidoResultadoDetalle,
+          txtSubcategoriaConfiguracion);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

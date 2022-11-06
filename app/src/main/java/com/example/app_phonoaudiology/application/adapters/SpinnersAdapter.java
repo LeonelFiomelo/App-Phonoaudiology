@@ -43,4 +43,10 @@ public class SpinnersAdapter {
         return categoriaSonidoAdapter;
     }
 
+    // RETORNA UN ADAPTER PALABRA CLAVE DE LAS ORACIONES
+    public static ArrayAdapter<String> getPalabraClaveAdapter(Context context) {
+        ArrayAdapter<String> palabraClaveAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Constantes.PALABRAS_CLAVE);
+        return palabraClaveAdapter;
+    }
+
 }

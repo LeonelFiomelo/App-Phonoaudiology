@@ -44,14 +44,14 @@ public final class SoundDatabase_Impl extends SoundDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(19) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(21) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `sound_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre_sonido` TEXT, `categoria_sonido` TEXT, `ruta_sonido` TEXT, `personalizado` TEXT, `cache` INTEGER)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `resultado_table` (`uuid` TEXT NOT NULL, `fecha` TEXT, `correctas` INTEGER NOT NULL, `intentos` INTEGER NOT NULL, `categoria` TEXT, `subcategoria` TEXT, `ejercicio` TEXT, `ruido` INTEGER, `tipoRuido` TEXT, `intensidad` REAL NOT NULL, PRIMARY KEY(`uuid`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `resultado_table` (`uuid` TEXT NOT NULL, `fecha` TEXT, `correctas` INTEGER NOT NULL, `intentos` INTEGER NOT NULL, `categoria` TEXT, `subcategoria` TEXT, `ejercicio` TEXT, `palabraClave` TEXT, `ruido` INTEGER, `tipoRuido` TEXT, `intensidad` REAL NOT NULL, PRIMARY KEY(`uuid`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `error_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `uuidResultado` TEXT, `estimulo` TEXT, `primeraRespuesta` TEXT, `segundaRespuesta` TEXT, FOREIGN KEY(`uuidResultado`) REFERENCES `resultado_table`(`uuid`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5b8bfb9f2039adc564d284cdaf4d6232')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '731c6a912f58cdbe2d857e885794c62a')");
       }
 
       @Override
@@ -114,7 +114,7 @@ public final class SoundDatabase_Impl extends SoundDatabase {
                   + " Expected:\n" + _infoSoundTable + "\n"
                   + " Found:\n" + _existingSoundTable);
         }
-        final HashMap<String, TableInfo.Column> _columnsResultadoTable = new HashMap<String, TableInfo.Column>(10);
+        final HashMap<String, TableInfo.Column> _columnsResultadoTable = new HashMap<String, TableInfo.Column>(11);
         _columnsResultadoTable.put("uuid", new TableInfo.Column("uuid", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("fecha", new TableInfo.Column("fecha", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("correctas", new TableInfo.Column("correctas", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -122,6 +122,7 @@ public final class SoundDatabase_Impl extends SoundDatabase {
         _columnsResultadoTable.put("categoria", new TableInfo.Column("categoria", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("subcategoria", new TableInfo.Column("subcategoria", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("ejercicio", new TableInfo.Column("ejercicio", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsResultadoTable.put("palabraClave", new TableInfo.Column("palabraClave", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("ruido", new TableInfo.Column("ruido", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("tipoRuido", new TableInfo.Column("tipoRuido", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsResultadoTable.put("intensidad", new TableInfo.Column("intensidad", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -152,7 +153,7 @@ public final class SoundDatabase_Impl extends SoundDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "5b8bfb9f2039adc564d284cdaf4d6232", "2bf048f4cc0c4f6f4725ec05221ab9b7");
+    }, "731c6a912f58cdbe2d857e885794c62a", "1fd7252ffb13b5e85b7068aea3022bc1");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

@@ -56,6 +56,7 @@
     <string name="tv_nombreDelSonido">Nombre del sonido</string>
     <string name="tv_categoriaDelSonido">Categoria del sonido</string>
     <string name="tv_grabarNuevoSonido">Grabar nuevo sonido</string>
+    <string name="tv_palabraClave">Palabra clave</string>
 
     <string name="mi_seccionProfesional">Seccion Profesional</string>
     <string name="mi_personalizarApp">Personalizar App</string>

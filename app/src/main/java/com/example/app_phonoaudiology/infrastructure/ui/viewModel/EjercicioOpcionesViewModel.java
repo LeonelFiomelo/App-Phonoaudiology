@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
@@ -16,10 +17,8 @@ import com.example.app_phonoaudiology.R;
 import com.example.app_phonoaudiology.application.adapters.OptionsAdapter;
 import com.example.app_phonoaudiology.application.usecases.TouchSettingsButton;
 import com.example.app_phonoaudiology.application.utils.EjercicioUtils;
-import com.example.app_phonoaudiology.application.utils.ErrorDeIntentosAlert;
 import com.example.app_phonoaudiology.application.utils.GeneralUtils;
 import com.example.app_phonoaudiology.application.utils.EjercicioSoundsUtils;
-import com.example.app_phonoaudiology.domain.entities.ErrorEntity;
 import com.example.app_phonoaudiology.domain.entities.ReporteEntity;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ErrorEntityDB;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ResultadoEntityDB;
@@ -34,6 +33,7 @@ import com.example.app_phonoaudiology.domain.entities.PuntuacionEntity;
 import com.example.app_phonoaudiology.application.usecases.TouchOptionButton;
 import com.example.app_phonoaudiology.application.usecases.TouchPlayButton;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +96,10 @@ public class EjercicioOpcionesViewModel extends ViewModel {
         intento += 1;
         errorPermitido = 1;
         errorEntityDB = new ErrorEntityDB();
-        setRandomConectores();
+        if (configuracionEntity.getCategoria().equals("Oraciones")){
+            // SETEA LOS CONECTORES SOLAMENTE SI LA CATEGORIA ES ORACIONES
+            setConectores();
+        }
     }
 
     public void onFinish(Bundle reporteBundle) {
@@ -111,6 +114,7 @@ public class EjercicioOpcionesViewModel extends ViewModel {
                 configuracionEntity.getCategoria(),
                 configuracionEntity.getSubcategoria(),
                 configuracionEntity.getEjercicio(),
+                configuracionEntity.getPalabraClave(),
                 configuracionEntity.getRuido(),
                 configuracionEntity.getTipoRuido(),
                 configuracionEntity.getIntensidad()
@@ -176,8 +180,8 @@ public class EjercicioOpcionesViewModel extends ViewModel {
     public void setTodosLosConectores(Context context) {
         EjercicioUtils.setTodosLosConectores(context, soundRepository, conectoresEntity);
     }
-    public void setRandomConectores() {
-        EjercicioUtils.setRandomConectores(configuracionEntity, conectoresEntity, combinacionConectores);
+    public void setConectores() {
+        EjercicioUtils.setConectores(configuracionEntity, conectoresEntity, combinacionConectores);
     }
 
     public String getTitulo() {
@@ -231,41 +235,56 @@ public class EjercicioOpcionesViewModel extends ViewModel {
         @Override
         public void corroborarSeleccion(MaterialButton opcionSeleccionada, SoundEntity opcionCorrecta) {
             if (opcionSeleccionada.getText() == opcionCorrecta.getNombre_sonido()) {
+
+                opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.anim_correct_answer_opciones));
+                EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), true);
+
                 puntuacionEntity.sumarCorrectas();
                 puntuacionEntity.restarIntentos();
-                puntuacionEntity.resetear(errorEntityDB);
+                puntuacionEntity.guardarError(errorEntityDB);
+                puntuacionEntity.resetear();
+
                 correctas.setValue(puntuacionEntity.getCorrectas());
                 intentos.setValue(puntuacionEntity.getIntentos());
-                reseteo.setValue(puntuacionEntity.getReseteo());
-                opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.bounce));
-                EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), true);
+
+                new Handler().postDelayed(new Runnable(){
+                    public void run(){
+                        //----------------------------
+                        reseteo.setValue(puntuacionEntity.getReseteo());
+                        //----------------------------
+                    }
+                }, 600);
+
             } else {
+
+                opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.anim_wrong_answer));
+                EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), false);
+
                 puntuacionEntity.sumarIncorrectas();
                 puntuacionEntity.restarIntentos();
                 puntuacionEntity.restarErroresPermitidos();
 
                 incorrectas.setValue(puntuacionEntity.getIncorrectas());
 
-                if (puntuacionEntity.getErroresPermitidos() <= 0) {
-                    EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), false);
-                    ErrorDeIntentosAlert errorDeIntentosAlert = new ErrorDeIntentosAlert(
-                            "¡Te has equivocado más de " + 2 + " veces!",
-                            "La respuesta correcta era: " + opcionesEntity.getRespuestaCorrecta().getNombre_sonido(),
-                            "Continuar"
-                    );
-                    errorDeIntentosAlert.MostrarAlerta(opcionSeleccionada.getContext());
+                if (puntuacionEntity.getErroresPermitidos() == 0 || getChequearIntentosRestantes()) {
+                    // GUARDA EL ERROR CUANDO SE LE TERMINARON LOS ERRORES PERMITIDOS O CUANDO SE
+                    // SE TERMINARION LOS INTENTOS GENERALES PERMITIDOS
+                    puntuacionEntity.guardarError(errorEntityDB);
                 }
 
-                if (puntuacionEntity.getErroresPermitidos() <= 0 || getChequearIntentosRestantes()) {
-                    puntuacionEntity.resetear(errorEntityDB);
-                    intentos.setValue(puntuacionEntity.getIntentos());
-                    reseteo.setValue(puntuacionEntity.getReseteo());
+                if (puntuacionEntity.getErroresPermitidos() == 0) {
+                    MaterialAlertDialogBuilder alert = new MaterialAlertDialogBuilder(opcionSeleccionada.getContext())
+                            .setTitle("¡Te has equivocado 2 veces!")
+                            .setMessage("La respuesta correcta era: " + opcionesEntity.getRespuestaCorrecta().getNombre_sonido())
+                            .setPositiveButton("Continuar", (dialog, which) -> {
+                                puntuacionEntity.resetear();
+                                reseteo.setValue(puntuacionEntity.getReseteo());
+                                intentos.setValue(puntuacionEntity.getIntentos());
+                            });
+                    alert.show();
                 } else {
                     intentos.setValue(puntuacionEntity.getIntentos());
                 }
-
-                opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.shake_animation));
-                EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), false);
 
             }
         }

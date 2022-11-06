@@ -39,9 +39,12 @@ public class PuntuacionEntity {
 
     public void restarErroresPermitidos() { _erroresPermitidos -= 1; }
 
-    public void resetear(ErrorEntityDB error) {
+    public void resetear() {
         this._erroresPermitidos = erroresPermitidos;
         reseteo = !reseteo;
+    }
+
+    public void guardarError(ErrorEntityDB error) {
         listaDeErrores.add(error);
     }
 

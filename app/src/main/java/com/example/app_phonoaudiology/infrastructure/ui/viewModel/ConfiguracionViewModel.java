@@ -39,6 +39,7 @@ public class ConfiguracionViewModel extends ViewModel {
     public void setEjercicio(String ejercicio) {
         configuracion.setEjercicio(ejercicio);
     }
+    public void setPalabraClave(String palabraClave) { configuracion.setPalabraClave(palabraClave); }
     public void setRuido(Boolean ruido) {
         configuracion.setRuido(ruido);
     }
@@ -58,13 +59,15 @@ public class ConfiguracionViewModel extends ViewModel {
         return configuracion.getBundle();
     }
 
-    public void clean(Spinner spinnerSubcategoria, Spinner spinnerEjercicio, SwitchCompat switchRuido, String tipoClean) {
+    public void clean(Spinner spinnerSubcategoria, Spinner spinnerEjercicio, Spinner spinnerPalabraClave, SwitchCompat switchRuido, String tipoClean) {
         switch (tipoClean) {
             case ("categoria_0"):
                 spinnerSubcategoria.setSelection(0);
                 spinnerSubcategoria.setEnabled(false);
                 spinnerEjercicio.setSelection(0);
                 spinnerEjercicio.setEnabled(false);
+                spinnerPalabraClave.setSelection(0);
+                spinnerPalabraClave.setEnabled(false);
                 switchRuido.setChecked(false);
                 switchRuido.setEnabled(false);
                 break;
@@ -72,12 +75,19 @@ public class ConfiguracionViewModel extends ViewModel {
             case ("subcategoria_0"):
                 spinnerEjercicio.setSelection(0);
                 spinnerEjercicio.setEnabled(false);
+                spinnerPalabraClave.setSelection(0);
+                spinnerPalabraClave.setEnabled(false);
                 switchRuido.setChecked(false);
                 switchRuido.setEnabled(false);
                 break;
             case ("subcategoria"):
                 break;
-            case ("ejercicio_0"):
+            case ("ejercicio_0_palabra"):
+                spinnerPalabraClave.setSelection(0);
+                spinnerPalabraClave.setEnabled(false);
+                switchRuido.setChecked(false);
+                switchRuido.setEnabled(false);
+            case ("ejercicio_0_oraciones"):
                 switchRuido.setChecked(false);
                 switchRuido.setEnabled(false);
         }
@@ -103,8 +113,12 @@ public class ConfiguracionViewModel extends ViewModel {
         // RETORNA UN ADAPTER RUIDO
         return SpinnersAdapter.getRuidoAdapter(context);
     }
+    public ArrayAdapter<String> getAdapterPalabraClave(Context context) {
+        // RETORNA UN ADAPTER PALABRA CLAVE
+        return SpinnersAdapter.getPalabraClaveAdapter(context);
+    }
 
-    public boolean validate(Context context, Spinner spinnerCategoria, Spinner spinnerSubcategoria, Spinner spinnerEjercicio) {
+    public boolean validate(Context context, Spinner spinnerCategoria, Spinner spinnerSubcategoria, Spinner spinnerEjercicio, Spinner spinnerPalabraClave) {
         // ESTE METODO VALIDA LOS CAMPOS SELECCIONADOS DE LOS SPINNERS
         boolean validation = true;
         String message = "";
@@ -112,12 +126,16 @@ public class ConfiguracionViewModel extends ViewModel {
             message = "Error: debe saleccionar una categoría";
             validation = false;
         }
-        if (spinnerSubcategoria.getSelectedItemPosition() == 0) {
+        else if (spinnerSubcategoria.getSelectedItemPosition() == 0) {
             message = "Error: debe seleccionar una subcategoría";
             validation = false;
         }
-        if (spinnerEjercicio.getSelectedItemPosition() == 0) {
+        else if (spinnerEjercicio.getSelectedItemPosition() == 0) {
             message = "Error: Debe seleccionar un tipo de ejercicio";
+            validation = false;
+        }
+        else if (spinnerCategoria.getSelectedItem().toString().equals("Oraciones") && spinnerPalabraClave.getSelectedItemPosition() == 0) {
+            message = "Error: Debe seleccionar la posición de la palabra clave";
             validation = false;
         }
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();

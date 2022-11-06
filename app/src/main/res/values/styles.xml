@@ -13,9 +13,10 @@
         </item>
     </style>
 
-    <style name="editText">
+    <style name="editText" parent="TextAppearance.AppCompat">
         <!--    CAMBIA EL COLOR DEL EDIT TEXT AL PRESIONAR SOBRE EL    -->
-        <item name="colorAccent">#ee7624</item>
+        <item name="android:textColorHint">#000000</item>
+        <item name="colorControlActivated">#ee7624</item>
     </style>
 
     <style name="theme_barraDeNotificaciones" parent="Theme.MaterialComponents.Light.NoActionBar">

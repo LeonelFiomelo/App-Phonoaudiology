@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.app_phonoaudiology.application.utils.GeneralUtils;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ErrorEntityDB;
 import com.example.app_phonoaudiology.infrastructure.db.entity.ResultadoEntityDB;
 import com.example.app_phonoaudiology.infrastructure.db.repository.ErrorRepository;
@@ -32,6 +33,10 @@ public class ResultadoViewModel extends ViewModel {
 
     public LiveData<List<ErrorEntityDB>> getErrores(String uuid) {
         return errorRepository.getErrores(uuid);
+    }
+
+    public Boolean checkRespuesta(String opcionCorrecta, String respuesta) {
+        return GeneralUtils.getCompararStrings(opcionCorrecta, respuesta) == 0;
     }
 
 }

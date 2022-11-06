@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 public class ConfiguracionEntity {
 
-    private String botonSeleccionado, categoria, subcategoria, ejercicio, tipoRuido;
+    private String botonSeleccionado, categoria, subcategoria, palabraClave, ejercicio, tipoRuido;
     private boolean ruido;
     private float intensidad;
 
@@ -19,6 +19,11 @@ public class ConfiguracionEntity {
         this.subcategoria = bundle.getString("subcategoria");
         this.ejercicio = bundle.getString("ejercicio");
         this.ruido = bundle.getBoolean("ruido");
+        if (this.categoria.equals("Oraciones")) {
+            this.palabraClave = bundle.getString("palabraClave");
+        } else {
+            this.palabraClave = null;
+        }
         if (this.ruido) {
             this.tipoRuido =  bundle.getString("tipoRuido");
             this.intensidad = bundle.getFloat("intensidad");
@@ -34,6 +39,11 @@ public class ConfiguracionEntity {
         bundle.putString("subcategoria", subcategoria);
         bundle.putString("ejercicio", ejercicio);
         bundle.putBoolean("ruido", ruido);
+        if (bundle.getString("palabraClave").equals("Oraciones")) {
+            bundle.putString("palabraClave", palabraClave);
+        } else {
+            bundle.putString("palabraClave", null);
+        }
         if (bundle.getBoolean("ruido")) {
             bundle.putString("tipoRuido", tipoRuido);
             bundle.putFloat("intensidad", intensidad);
@@ -50,6 +60,7 @@ public class ConfiguracionEntity {
         bundle.putString("subcategoria", subcategoria);
         bundle.putString("ejercicio", ejercicio);
         bundle.putBoolean("ruido", ruido);
+        bundle.putString("palabraClave", palabraClave);
         if (bundle.getBoolean("ruido")) {
             bundle.putString("tipoRuido", tipoRuido);
             bundle.putFloat("intensidad", intensidad);
@@ -70,6 +81,7 @@ public class ConfiguracionEntity {
     public String getEjercicio() {
         return ejercicio;
     }
+    public String getPalabraClave() { return palabraClave; }
     public Boolean getRuido() { return ruido; }
     public String getTipoRuido() { return tipoRuido; }
     public Float getIntensidad() {return intensidad; }
@@ -78,6 +90,7 @@ public class ConfiguracionEntity {
     public void setCategoria(String categoria) { this.categoria = categoria; }
     public void setSubcategoria(String subcategoria) { this.subcategoria = subcategoria; }
     public void setEjercicio(String ejercicio) { this.ejercicio = ejercicio; }
+    public void setPalabraClave(String palabraClave) { this.palabraClave = palabraClave; }
     public void setRuido(Boolean ruido) { this.ruido = ruido; }
     public void setTipoRuido(String tipoRuido) { this.tipoRuido = tipoRuido; }
     public void setIntensidad(float intensidad) {

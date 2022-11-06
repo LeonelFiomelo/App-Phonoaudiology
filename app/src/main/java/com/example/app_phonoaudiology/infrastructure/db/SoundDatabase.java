@@ -22,7 +22,7 @@ import com.example.app_phonoaudiology.domain.repository.constants.Rutas;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {SoundEntity.class, ResultadoEntityDB.class, ErrorEntityDB.class}, version = 19)
+@Database(entities = {SoundEntity.class, ResultadoEntityDB.class, ErrorEntityDB.class}, version = 21)
 public abstract class SoundDatabase extends RoomDatabase {
 
     // DAOS

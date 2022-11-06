@@ -25,7 +25,8 @@ public class ResultadoFragment extends Fragment {
     private ResultadoViewModel viewModel;
 
     private TextView txtRuido, txtIntensidad, txtPuntuacionO, txtFechaO, txtCategoriaO,
-            txtSubcategoriaO, txtEjercicioO, txtRuidoO, txtIntensidadO;
+            txtSubcategoriaO, txtEjercicioO, txtPalabraClave, txtPalabraClaveO, txtRuidoO,
+            txtIntensidadO;
     private TableLayout tabla;
 
     @Override
@@ -47,6 +48,8 @@ public class ResultadoFragment extends Fragment {
         txtCategoriaO  = binding.txtCategoriaOResultado;
         txtSubcategoriaO = binding.txtSubcategoriaOResultado;
         txtEjercicioO = binding.txtEjercicioOResultado;
+        txtPalabraClave = binding.txtPalabraClaveResultado;
+        txtPalabraClaveO = binding.txtPalabraClaveOResultado;
         txtRuidoO = binding.txtRuidoOResultado;
         txtIntensidadO = binding.txtIntensidadOResultado;
         tabla = binding.tableErroresResultado;
@@ -62,6 +65,8 @@ public class ResultadoFragment extends Fragment {
         final String uuid = getArguments().getString("uuid");
 
         // OCULTAMOS EL RUIDO Y LA INTENSIDAD
+        txtPalabraClave.setVisibility(View.GONE);
+        txtPalabraClaveO.setVisibility(View.GONE);
         txtRuido.setVisibility(View.GONE);
         txtRuidoO.setVisibility(View.GONE);
         txtIntensidad.setVisibility(View.GONE);
@@ -76,6 +81,13 @@ public class ResultadoFragment extends Fragment {
             txtCategoriaO.setText(resultado.getCategoria());
             txtSubcategoriaO.setText(resultado.getSubcategoria());
             txtEjercicioO.setText(resultado.getEjercicio());
+
+            // VERIFICAMOS SI LA CATEGORÍA ES ORACIONES
+            if (resultado.getCategoria().equals("Oraciones")) {
+                txtPalabraClave.setVisibility(View.VISIBLE);
+                txtPalabraClaveO.setVisibility(View.VISIBLE);
+                txtPalabraClaveO.setText(resultado.getPalabraClave());
+            }
 
             // VERIFICAMOS SI TIENE RUIDO Y MOSTRAMOS LOS DATOS
             if (resultado.getRuido()) {
@@ -101,7 +113,7 @@ public class ResultadoFragment extends Fragment {
 
                 estimulo.setText(errores.get(i).getEstimulo());
 
-                if (errores.get(i).getPrimeraRespuesta().equals(errores.get(i).getEstimulo())) {
+                if (viewModel.checkRespuesta(errores.get(i).getEstimulo(), errores.get(i).getPrimeraRespuesta())) {
                     String respuesta = errores.get(i).getPrimeraRespuesta() + " ✔";
                     primeraRespuesta.setText(respuesta);
                 } else {
@@ -110,7 +122,7 @@ public class ResultadoFragment extends Fragment {
                 }
 
                 if (errores.get(i).getSegundaRespuesta() != null) {
-                    if (errores.get(i).getSegundaRespuesta().equals(errores.get(i).getEstimulo())) {
+                    if (viewModel.checkRespuesta(errores.get(i).getEstimulo(), errores.get(i).getSegundaRespuesta())) {
                         String respuesta = errores.get(i).getSegundaRespuesta() + " ✔";
                         segundaRespuesta.setText(respuesta);
                     } else {

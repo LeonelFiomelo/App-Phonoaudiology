@@ -92,6 +92,7 @@
     <string name="tv_intensidad">Intensidad</string>
     <string name="tv_intensidadDelRuido">Itensidad del ruido</string>
     <string name="tv_nombreDelSonido">Nombre del sonido</string>
+    <string name="tv_palabraClave">Palabra clave</string>
     <string name="tv_pausar">Pausar</string>
     <string name="tv_primeraRespuesta">Respuesta 1</string>
     <string name="tv_puntuacion">Puntuación</string>
@@ -123,9 +124,10 @@
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
         
     </style>
-    <style name="editText">
+    <style name="editText" parent="TextAppearance.AppCompat">
         
-        <item name="colorAccent">#ee7624</item>
+        <item name="android:textColorHint">#000000</item>
+        <item name="colorControlActivated">#ee7624</item>
     </style>
     <style name="theme_barraDeNotificaciones" parent="Theme.MaterialComponents.Light.NoActionBar">
         

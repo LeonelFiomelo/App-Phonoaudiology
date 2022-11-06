@@ -58,6 +58,12 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
   public final TextView txtIntensidadResultadoDetalle;
 
   @NonNull
+  public final TextView txtPalabraClaveOResultadoDetalle;
+
+  @NonNull
+  public final TextView txtPalabraClaveResultadoDetalle;
+
+  @NonNull
   public final TextView txtPrimeraRespuestaResultadoDetalle;
 
   @NonNull
@@ -90,6 +96,8 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
       @NonNull TextView txtEstimuloResultadoDetalle, @NonNull TextView txtFechaOResultadoDetalle,
       @NonNull TextView txtFechaResultadoDetalle, @NonNull TextView txtIntensidadOResultadoDetalle,
       @NonNull TextView txtIntensidadResultadoDetalle,
+      @NonNull TextView txtPalabraClaveOResultadoDetalle,
+      @NonNull TextView txtPalabraClaveResultadoDetalle,
       @NonNull TextView txtPrimeraRespuestaResultadoDetalle,
       @NonNull TextView txtPuntuacionOResultadoDetalle,
       @NonNull TextView txtPuntuacionResultadoDetalle, @NonNull TextView txtRuidoOResultadoDetalle,
@@ -110,6 +118,8 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
     this.txtFechaResultadoDetalle = txtFechaResultadoDetalle;
     this.txtIntensidadOResultadoDetalle = txtIntensidadOResultadoDetalle;
     this.txtIntensidadResultadoDetalle = txtIntensidadResultadoDetalle;
+    this.txtPalabraClaveOResultadoDetalle = txtPalabraClaveOResultadoDetalle;
+    this.txtPalabraClaveResultadoDetalle = txtPalabraClaveResultadoDetalle;
     this.txtPrimeraRespuestaResultadoDetalle = txtPrimeraRespuestaResultadoDetalle;
     this.txtPuntuacionOResultadoDetalle = txtPuntuacionOResultadoDetalle;
     this.txtPuntuacionResultadoDetalle = txtPuntuacionResultadoDetalle;
@@ -219,6 +229,18 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.txt_palabraClaveO_resultadoDetalle;
+      TextView txtPalabraClaveOResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtPalabraClaveOResultadoDetalle == null) {
+        break missingId;
+      }
+
+      id = R.id.txt_palabraClave_resultadoDetalle;
+      TextView txtPalabraClaveResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
+      if (txtPalabraClaveResultadoDetalle == null) {
+        break missingId;
+      }
+
       id = R.id.txt_primeraRespuesta_resultadoDetalle;
       TextView txtPrimeraRespuestaResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
       if (txtPrimeraRespuestaResultadoDetalle == null) {
@@ -272,6 +294,7 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
           txtCategoriaResultadoDetalle, txtEjercicioOResultadoDetalle, txtEjercicioResultadoDetalle,
           txtErroresResultadoDetalle, txtEstimuloResultadoDetalle, txtFechaOResultadoDetalle,
           txtFechaResultadoDetalle, txtIntensidadOResultadoDetalle, txtIntensidadResultadoDetalle,
+          txtPalabraClaveOResultadoDetalle, txtPalabraClaveResultadoDetalle,
           txtPrimeraRespuestaResultadoDetalle, txtPuntuacionOResultadoDetalle,
           txtPuntuacionResultadoDetalle, txtRuidoOResultadoDetalle, txtRuidoResultadoDetalle,
           txtSegundaRespuestaResultadoDetalle, txtSubcategoriaOResultadoDetalle,

@@ -39,7 +39,8 @@ public class ConfiguracionFragment extends Fragment {
 
     private Toolbar toolbar;
     private TextView txtIntensidad;
-    private Spinner spinnerCategoria, spinnerSubcategoria, spinnerEjercicio, spinnerRuido;
+    private Spinner spinnerCategoria, spinnerSubcategoria, spinnerEjercicio, spinnerRuido,
+                    spinnerPalabraClave;
     private SwitchCompat switchRuido;
     private SeekBar seekBarIntensidad;
     private Button btnComenzar;
@@ -62,6 +63,7 @@ public class ConfiguracionFragment extends Fragment {
         spinnerSubcategoria = binding.spinnerSubcategoriaConfiguracion;
         spinnerEjercicio = binding.spinnerEjercicioConfiguracion;
         spinnerRuido = binding.spinnerRuidoConfiguracion;
+        spinnerPalabraClave = binding.spinnerPalabraClaveConfiguracion;
         switchRuido = binding.switchRuidoConfiguracion;
         seekBarIntensidad = binding.seekBarIntensidadConfiguracion;
         btnComenzar = binding.btnComenzarEjercicioConfiguracion;
@@ -75,11 +77,17 @@ public class ConfiguracionFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final NavController navController = Navigation.findNavController(view);
 
+        // OCULTAMOS ITEMS
+        spinnerRuido.setVisibility(View.GONE);
+        txtIntensidad.setVisibility(View.GONE);
+        seekBarIntensidad.setVisibility(View.GONE);
+
         // ASIGNACION DE ADAPTERR A SPINNERS
         spinnerCategoria.setAdapter(viewModel.getAdapterCategoria(getContext()));
         spinnerSubcategoria.setAdapter(viewModel.getAdapterSubcategoriaPalabras(getContext()));
         spinnerEjercicio.setAdapter(viewModel.getAdapterEjercicio(getContext()));
         spinnerRuido.setAdapter(viewModel.getAdapterRuido(getContext()));
+        spinnerPalabraClave.setAdapter(viewModel.getAdapterPalabraClave(getContext()));
 
         viewModel.setBotonSeleccionado(getArguments().getString("botonSeleccionado"));
 
@@ -100,18 +108,18 @@ public class ConfiguracionFragment extends Fragment {
                 switch (adapterView.getItemAtPosition(i).toString()){
                     case ("Palabra"):
                         spinnerSubcategoria.setEnabled(true);
-                        viewModel.clean(spinnerSubcategoria, spinnerEjercicio, switchRuido, "categoria");
+                        viewModel.clean(spinnerSubcategoria, spinnerEjercicio, spinnerPalabraClave, switchRuido, "categoria");
                         viewModel.setCategoria(adapterView.getItemAtPosition(i).toString());
                         spinnerSubcategoria.setAdapter(viewModel.getAdapterSubcategoriaPalabras(getContext()));
                         break;
                     case ("Oraciones"):
                         spinnerSubcategoria.setEnabled(true);
-                        viewModel.clean(spinnerSubcategoria, spinnerEjercicio, switchRuido, "categoria");
+                        viewModel.clean(spinnerSubcategoria, spinnerEjercicio, spinnerPalabraClave, switchRuido, "categoria");
                         viewModel.setCategoria(adapterView.getItemAtPosition(i).toString());
                         spinnerSubcategoria.setAdapter(viewModel.getAdapterSubcategoriaOraciones(getContext()));
                         break;
                     default:
-                        viewModel.clean(spinnerSubcategoria, spinnerEjercicio, switchRuido, "categoria_0");
+                        viewModel.clean(spinnerSubcategoria, spinnerEjercicio, spinnerPalabraClave, switchRuido, "categoria_0");
                         break;
                 }
             }
@@ -126,10 +134,10 @@ public class ConfiguracionFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long id) {
                 if (i != 0) {
                     spinnerEjercicio.setEnabled(true);
-                    viewModel.clean(spinnerSubcategoria, spinnerEjercicio, switchRuido, "subcategoria");
+                    viewModel.clean(spinnerSubcategoria, spinnerEjercicio, spinnerPalabraClave, switchRuido, "subcategoria");
                     viewModel.setSubcategoria(adapterView.getItemAtPosition(i).toString());
                 } else {
-                    viewModel.clean(spinnerSubcategoria, spinnerEjercicio, switchRuido, "subcategoria_0");
+                    viewModel.clean(spinnerSubcategoria, spinnerEjercicio, spinnerPalabraClave ,switchRuido, "subcategoria_0");
                 }
             }
             @Override
@@ -141,11 +149,30 @@ public class ConfiguracionFragment extends Fragment {
             // GUARDA EL ITEM SELECCIONADO
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long id) {
+                String categoria = (String) spinnerCategoria.getSelectedItem();
                 if (i != 0) {
+
+                    if (categoria.equals("Oraciones")) {
+                        spinnerPalabraClave.setEnabled(true);
+                    }
                     switchRuido.setEnabled(true);
                     viewModel.setEjercicio(adapterView.getItemAtPosition(i).toString());
+
                 } else {
-                    viewModel.clean(spinnerSubcategoria, spinnerEjercicio, switchRuido, "ejercicio_0");
+                    viewModel.clean(spinnerSubcategoria, spinnerEjercicio, spinnerPalabraClave, switchRuido, "ejercicio_0_palabra");
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) { }
+        });
+
+        spinnerPalabraClave.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long id) {
+                if (i != 0) {
+                    viewModel.setPalabraClave(adapterView.getItemAtPosition(i).toString());
+                } else {
+                    viewModel.setPalabraClave(null);
                 }
             }
             @Override
@@ -206,7 +233,7 @@ public class ConfiguracionFragment extends Fragment {
             // VA A NAVEGAR A UN FRAGMENT Y VA A PASAR UN BUNDLE
             @Override
             public void onClick(View v) {
-                if(viewModel.validate(getContext(), spinnerCategoria, spinnerSubcategoria, spinnerEjercicio)) {
+                if(viewModel.validate(getContext(), spinnerCategoria, spinnerSubcategoria, spinnerEjercicio, spinnerPalabraClave)) {
 
                     if (viewModel.getEjercicio().equals("Escribir lo que oyó")) {
                         navController.navigate(R.id.EjercicioEscribirFragment, viewModel.getBundle());
