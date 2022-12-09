@@ -8,21 +8,35 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:theme="@style/Global">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_agregarSonido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/color_primario"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
             app:title="@string/tv_agregarSonido"
             app:titleTextColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_guardarSonido_agregarSonido"
+            android:layout_width="140dp"
+            android:layout_height="58dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/color_primario"
+            android:text="@string/btn_guardar"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/spinner_categoriaSonido_agregarSonido" />
 
         <TextView
             android:id="@+id/txt_nombreSonido_agregarSonido"
@@ -34,6 +48,8 @@
             android:gravity="center"
             android:minHeight="48dp"
             android:text="@string/tv_nombreDelSonido"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_agregarSonido" />
 
@@ -61,6 +77,8 @@
             android:gravity="center"
             android:minHeight="48dp"
             android:text="@string/tv_categoriaDelSonido"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/editTxt_nombreSonido_agregarSonido"
             app:layout_constraintTop_toBottomOf="@+id/editTxt_nombreSonido_agregarSonido" />
 
@@ -78,22 +96,14 @@
         <Button
             android:id="@+id/btn_grabarSonido_agregarSonido"
             android:layout_width="140dp"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
             android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/color_primario"
             android:text="@string/btn_grabar"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/spinner_categoriaSonido_agregarSonido" />
-
-        <Button
-            android:id="@+id/btn_guardarSonido_agregarSonido"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="@string/btn_guardar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/spinner_categoriaSonido_agregarSonido" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

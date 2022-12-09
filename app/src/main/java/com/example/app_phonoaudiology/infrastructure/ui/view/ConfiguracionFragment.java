@@ -1,5 +1,6 @@
 package com.example.app_phonoaudiology.infrastructure.ui.view;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -157,6 +158,7 @@ public class ConfiguracionFragment extends Fragment {
                     }
                     switchRuido.setEnabled(true);
                     viewModel.setEjercicio(adapterView.getItemAtPosition(i).toString());
+                    System.out.println(adapterView.getItemAtPosition(i));
 
                 } else {
                     viewModel.clean(spinnerSubcategoria, spinnerEjercicio, spinnerPalabraClave, switchRuido, "ejercicio_0_palabra");
@@ -234,7 +236,6 @@ public class ConfiguracionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(viewModel.validate(getContext(), spinnerCategoria, spinnerSubcategoria, spinnerEjercicio, spinnerPalabraClave)) {
-
                     if (viewModel.getEjercicio().equals("Escribir lo que oyó")) {
                         navController.navigate(R.id.EjercicioEscribirFragment, viewModel.getBundle());
                     } else {

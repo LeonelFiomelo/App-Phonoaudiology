@@ -1,5 +1,6 @@
 package com.example.app_phonoaudiology.infrastructure.ui.viewModel;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
@@ -7,8 +8,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -65,6 +70,8 @@ public class EjercicioOpcionesViewModel extends ViewModel {
     private ArrayList<SoundEntity> combinacionConectores;
     private int intento;
     private int errorPermitido;
+    @SuppressLint("StaticFieldLeak")
+    private Context contextVM;
 
     public EjercicioOpcionesViewModel() {
     }
@@ -85,6 +92,7 @@ public class EjercicioOpcionesViewModel extends ViewModel {
         resultadoRepository = new ResultadoRepository(application);
         errorRepository = new ErrorRepository(application);
         intento = -1;
+        contextVM = context;
         setTodosLosConectores(context);
         getIntentos().setValue(getPuntuacionEntity().getIntentos());
         getReseteo().setValue(getPuntuacionEntity().getReseteo());
@@ -234,6 +242,7 @@ public class EjercicioOpcionesViewModel extends ViewModel {
 
         @Override
         public void corroborarSeleccion(MaterialButton opcionSeleccionada, SoundEntity opcionCorrecta) {
+
             if (opcionSeleccionada.getText() == opcionCorrecta.getNombre_sonido()) {
 
                 opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.anim_correct_answer_opciones));
@@ -260,6 +269,12 @@ public class EjercicioOpcionesViewModel extends ViewModel {
                 opcionSeleccionada.startAnimation(AnimationUtils.loadAnimation(opcionSeleccionada.getContext(), R.anim.anim_wrong_answer));
                 EjercicioSoundsUtils.announceAnswerSound(opcionSeleccionada.getContext(), false);
 
+                if (puntuacionEntity.getIntentos() == 1 && !puntuacionEntity.getIntentoExtra()) {
+                    puntuacionEntity.sumarIntentos();
+                    puntuacionEntity.cambiarCantidadIntentos(11);
+                    puntuacionEntity.activarIntentoExtra();
+                }
+
                 puntuacionEntity.sumarIncorrectas();
                 puntuacionEntity.restarIntentos();
                 puntuacionEntity.restarErroresPermitidos();
@@ -272,16 +287,25 @@ public class EjercicioOpcionesViewModel extends ViewModel {
                     puntuacionEntity.guardarError(errorEntityDB);
                 }
 
-                if (puntuacionEntity.getErroresPermitidos() == 0) {
-                    MaterialAlertDialogBuilder alert = new MaterialAlertDialogBuilder(opcionSeleccionada.getContext())
-                            .setTitle("¡Te has equivocado 2 veces!")
-                            .setMessage("La respuesta correcta era: " + opcionesEntity.getRespuestaCorrecta().getNombre_sonido())
-                            .setPositiveButton("Continuar", (dialog, which) -> {
-                                puntuacionEntity.resetear();
-                                reseteo.setValue(puntuacionEntity.getReseteo());
-                                intentos.setValue(puntuacionEntity.getIntentos());
-                            });
-                    alert.show();
+                if (puntuacionEntity.getErroresPermitidos() == 0 ) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(contextVM);
+                    builder.setView(R.layout.alertdialog_error);
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.setOnShowListener( alertDialogShow -> {
+                        TextView txt_respuesta = alertDialog.findViewById(R.id.txt_respuesta_alertdialogError);
+                        Button btn_aceptar = alertDialog.findViewById(R.id.btn_aceptar_alertdialogError);
+                        txt_respuesta.setText(opcionesEntity.getRespuestaCorrecta().getNombre_sonido());
+                        btn_aceptar.setOnClickListener(v -> {
+                            dialogReset();
+                            alertDialog.cancel();
+                        });
+                    } );
+                    alertDialog.setOnCancelListener( clickCancelarDialogo -> {
+                        dialogReset();
+                    });
+                    alertDialog.show();
+
                 } else {
                     intentos.setValue(puntuacionEntity.getIntentos());
                 }
@@ -293,6 +317,13 @@ public class EjercicioOpcionesViewModel extends ViewModel {
     // CUANDO EL USUARIO TOCA EL BOTON DE SETTINGS
     public void onTouchSettingsButton(@NonNull View view) {
         touchSettingsButton.showSettings(view, configuracionEntity);
+    }
+
+    // RESETEA LAS OPCIONES CUANDO SE EQUIVOCA 2 VECES
+    public void dialogReset() {
+        puntuacionEntity.resetear();
+        reseteo.setValue(puntuacionEntity.getReseteo());
+        intentos.setValue(puntuacionEntity.getIntentos());
     }
 
 }

@@ -8,13 +8,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:theme="@style/Global">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_ejercicioEscribir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/color_primario"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,120 +25,139 @@
             app:title="@string/tv_entenamiento"
             app:titleTextColor="#FFFFFF" />
 
-        <ImageView
-            android:id="@+id/img_incorrectas_ejercicioEscribir"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_wrong"
-            android:tint="#F44336"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_incorrectas_ejercicioEscribir"
-            app:layout_constraintEnd_toStartOf="@+id/txt_incorrectas_ejercicioEscribir"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/txt_incorrectas_ejercicioEscribir" />
-
-        <TextView
-            android:id="@+id/txt_incorrectas_ejercicioEscribir"
-            style="@android:style/Widget.TextView.PopupMenu"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="80dp"
-            android:text="0"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioEscribir"
-            app:layout_constraintEnd_toStartOf="@+id/btn_configuracion_ejercicioEscribir"
-            app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioEscribir"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <ImageView
-            android:id="@+id/img_correctas_ejercicioEscribir"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_correct"
-            android:tint="#4CAF50"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_correctas_ejercicioEscribir"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txt_correctas_ejercicioEscribir"
-            app:layout_constraintTop_toTopOf="@+id/txt_correctas_ejercicioEscribir" />
-
-        <TextView
-            android:id="@+id/txt_correctas_ejercicioEscribir"
-            style="@android:style/Widget.TextView.PopupMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:text="0"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioEscribir"
-            app:layout_constraintStart_toEndOf="@+id/btn_configuracion_ejercicioEscribir"
-            app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioEscribir"
-            app:layout_constraintVertical_bias="1.0"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <ImageButton
-            android:id="@+id/btn_configuracion_ejercicioEscribir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:background="#FFFFFF"
-            android:src="@drawable/ic_settings"
-            android:tint="@color/colorAccent"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_default_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_ejercicioEscribir" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_ejercicioEscribir">
 
-        <ImageButton
-            android:id="@+id/btn_play_ejercicioEscribir"
-            android:layout_width="135dp"
-            android:layout_height="135dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/ic_play_background"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_play"
-            android:tint="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_configuracion_ejercicioEscribir" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/img_touch_play"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_play_ejercicioEscribir"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_play_ejercicioEscribir" />
 
-        <TextView
-            android:id="@+id/txt_pulseBoton_ejercicioEscribir"
-            style="@android:style/Widget.TextView.PopupMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:text="@string/tv_escribaLoQueOyo"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_play_ejercicioEscribir"
-            tools:ignore="TouchTargetSizeCheck" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/img_touch_play"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_play_ejercicioEscribir"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_play_ejercicioEscribir" />
+
+            <ImageButton
+                android:id="@+id/btn_play_ejercicioEscribir"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_play"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/btn_configuracion_ejercicioEscribir"
+                app:layout_constraintStart_toStartOf="@+id/btn_configuracion_ejercicioEscribir"
+                app:layout_constraintTop_toBottomOf="@+id/btn_configuracion_ejercicioEscribir"
+                app:tint="@color/color_terciario" />
+
+            <ImageButton
+                android:id="@+id/btn_configuracion_ejercicioEscribir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:src="@drawable/ic_settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_correctas_ejercicioEscribir"
+                style="@android:style/Widget.TextView.PopupMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="0"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_correctas_ejercicioEscribir"
+                app:layout_constraintEnd_toStartOf="@+id/img_correctas_ejercicioEscribir"
+                app:layout_constraintTop_toTopOf="@+id/img_correctas_ejercicioEscribir"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageView
+                android:id="@+id/img_correctas_ejercicioEscribir"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_correct"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioEscribir"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioEscribir" />
+
+            <TextView
+                android:id="@+id/txt_incorrectas_ejercicioEscribir"
+                style="@android:style/Widget.TextView.PopupMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="0"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_incorrectas_ejercicioEscribir"
+                app:layout_constraintStart_toEndOf="@+id/img_incorrectas_ejercicioEscribir"
+                app:layout_constraintTop_toTopOf="@+id/img_incorrectas_ejercicioEscribir"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageView
+                android:id="@+id/img_incorrectas_ejercicioEscribir"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_wrong"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioEscribir"
+                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioEscribir" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <EditText
             android:id="@+id/editTxt_respuesta_ejercicioEscribir"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:ems="10"
             android:hint="Escribe lo que oyó"
             android:inputType="textPersonName"
             android:textSize="18sp"
             android:theme="@style/editText"
-            app:layout_constraintEnd_toEndOf="@+id/txt_pulseBoton_ejercicioEscribir"
-            app:layout_constraintStart_toStartOf="@+id/txt_pulseBoton_ejercicioEscribir"
-            app:layout_constraintTop_toBottomOf="@+id/txt_pulseBoton_ejercicioEscribir" />
+            app:layout_constraintBottom_toTopOf="@+id/btn_aceptar_ejercicioEscribir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
         <Button
             android:id="@+id/btn_aceptar_ejercicioEscribir"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/color_primario"
             android:text="@string/btn_aceptar"
-            android:textSize="16sp"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/editTxt_respuesta_ejercicioEscribir"
-            app:layout_constraintStart_toStartOf="@+id/editTxt_respuesta_ejercicioEscribir" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

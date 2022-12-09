@@ -8,6 +8,7 @@
     <color name="colorWhite">#ffffff</color>
     <color name="color_background">#fafafa</color>
     <color name="color_background_primary">#8FE3F4FF</color>
+    <color name="color_cuaternario">#E5DDC8</color>
     <color name="color_error">#d50000</color>
     <color name="color_gray">#E6E6E6</color>
     <color name="color_on_background">#000</color>
@@ -15,13 +16,16 @@
     <color name="color_on_primary">#ffffff</color>
     <color name="color_on_secondary">#ffffff</color>
     <color name="color_on_surface">#000</color>
+    <color name="color_primario">#DB1F48</color>
     <color name="color_primary">#ee7624</color>
     <color name="color_primary_light">#EF9E67</color>
     <color name="color_primary_variant">#D56518</color>
     <color name="color_secondary">#424242</color>
     <color name="color_secondary_light">#6d6d6d</color>
     <color name="color_secondary_variant">#1b1b1b</color>
+    <color name="color_secundario">#004369</color>
     <color name="color_surface">#ffffff</color>
+    <color name="color_terciario">#01949A</color>
     <color name="fondoGrabar">#EDEDFA</color>
     <color name="ic_launcher_logo_background">#FFFFFF</color>
     <color name="purple_200">#FFBB86FC</color>
@@ -31,9 +35,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">EscuchAR</string>
-    <string name="boton_comenzarEjercicio">COMENZAR EJERCICIO</string>
-    <string name="boton_comenzarEntrenamiento">COMENZAR ENTRENAMIENTO</string>
-    <string name="boton_comenzarEvaluacion">COMENZAR EVALUACIÓN</string>
+    <string name="boton_comenzarEjercicio">COMENZAR</string>
+    <string name="boton_comenzarEntrenamiento">COMENZAR</string>
+    <string name="boton_comenzarEvaluacion">COMENZAR</string>
     <string name="btn_aceptar">Aceptar</string>
     <string name="btn_cancelar">Cancelar</string>
     <string name="btn_continuar">Continuar</string>
@@ -56,6 +60,8 @@
     <string name="descripcion_botonGrabar">Boton grabar audio</string>
     <string name="descripcion_botonPausar">Boton pausar audio</string>
     <string name="descripcion_botonReproducir">Boton reproducir audio</string>
+    <string name="error_mensaje">La respuesta correcta era:</string>
+    <string name="error_titulo">¡Te has equivocado 2 veces!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="incorrect1">Incorrecto.</string>
     <string name="incorrect2">Pruebe con otro.</string>
@@ -100,16 +106,23 @@
     <string name="tv_ruido">Ruido</string>
     <string name="tv_segundaRespuesta">Respuesta 2</string>
     <string name="tv_subcategoria">Subcategoría</string>
+    <style name="Global" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/lato_regular</item>
+        <item name="android:textColor">#000000</item>
+    </style>
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">
         
         
-        <item name="colorControlActivated">#ee7624</item>
+        <item name="colorControlActivated">@color/color_primario</item>
         
         <item name="colorSwitchThumbNormal">#90808080
         </item>
         
         <item name="android:colorForeground">#40808080
         </item>
+    </style>
+    <style name="Spinner" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/color_primario</item>
     </style>
     <style name="Theme.App_Phonoaudiology" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
@@ -127,10 +140,13 @@
     <style name="editText" parent="TextAppearance.AppCompat">
         
         <item name="android:textColorHint">#000000</item>
-        <item name="colorControlActivated">#ee7624</item>
+        <item name="colorControlActivated">@color/color_primario</item>
+    </style>
+    <style name="layout_default" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="toolbarStyle">@color/color_primario</item>
     </style>
     <style name="theme_barraDeNotificaciones" parent="Theme.MaterialComponents.Light.NoActionBar">
         
-        <item name="colorPrimaryDark">#ee7624</item>
+        <item name="colorPrimaryDark">@color/color_primario</item>
     </style>
 </resources>

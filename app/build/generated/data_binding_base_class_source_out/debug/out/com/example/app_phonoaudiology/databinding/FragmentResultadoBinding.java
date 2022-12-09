@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.app_phonoaudiology.R;
@@ -26,6 +27,9 @@ public final class FragmentResultadoBinding implements ViewBinding {
 
   @NonNull
   public final Button btnFinalizar;
+
+  @NonNull
+  public final ConstraintLayout constraintLayout5;
 
   @NonNull
   public final TableRow rowErrores;
@@ -109,21 +113,23 @@ public final class FragmentResultadoBinding implements ViewBinding {
   public final TextView txtSubcategoriaResultado;
 
   private FragmentResultadoBinding(@NonNull FrameLayout rootView, @NonNull Button btnFinalizar,
-      @NonNull TableRow rowErrores, @NonNull ScrollView scrollViewResultado,
-      @NonNull TableLayout tableErroresResultado, @NonNull Toolbar toolbarResultado,
-      @NonNull TextView txt1, @NonNull TextView txt2, @NonNull TextView txt3,
-      @NonNull TextView txtCategoriaOResultado, @NonNull TextView txtCategoriaResultado,
-      @NonNull TextView txtEjercicioOResultado, @NonNull TextView txtEjercicioResultado,
-      @NonNull TextView txtErroresResultado, @NonNull TextView txtEstimuloResultado,
-      @NonNull TextView txtFechaOResultado, @NonNull TextView txtFechaResultado,
-      @NonNull TextView txtIntensidadOResultado, @NonNull TextView txtIntensidadResultado,
-      @NonNull TextView txtPalabraClaveOResultado, @NonNull TextView txtPalabraClaveResultado,
-      @NonNull TextView txtPrimeraRespuestaResultado, @NonNull TextView txtPuntuacionOResultado,
-      @NonNull TextView txtPuntuacionResultado, @NonNull TextView txtRuidoOResultado,
-      @NonNull TextView txtRuidoResultado, @NonNull TextView txtSegundaRespuestaResultado,
-      @NonNull TextView txtSubcategoriaOResultado, @NonNull TextView txtSubcategoriaResultado) {
+      @NonNull ConstraintLayout constraintLayout5, @NonNull TableRow rowErrores,
+      @NonNull ScrollView scrollViewResultado, @NonNull TableLayout tableErroresResultado,
+      @NonNull Toolbar toolbarResultado, @NonNull TextView txt1, @NonNull TextView txt2,
+      @NonNull TextView txt3, @NonNull TextView txtCategoriaOResultado,
+      @NonNull TextView txtCategoriaResultado, @NonNull TextView txtEjercicioOResultado,
+      @NonNull TextView txtEjercicioResultado, @NonNull TextView txtErroresResultado,
+      @NonNull TextView txtEstimuloResultado, @NonNull TextView txtFechaOResultado,
+      @NonNull TextView txtFechaResultado, @NonNull TextView txtIntensidadOResultado,
+      @NonNull TextView txtIntensidadResultado, @NonNull TextView txtPalabraClaveOResultado,
+      @NonNull TextView txtPalabraClaveResultado, @NonNull TextView txtPrimeraRespuestaResultado,
+      @NonNull TextView txtPuntuacionOResultado, @NonNull TextView txtPuntuacionResultado,
+      @NonNull TextView txtRuidoOResultado, @NonNull TextView txtRuidoResultado,
+      @NonNull TextView txtSegundaRespuestaResultado, @NonNull TextView txtSubcategoriaOResultado,
+      @NonNull TextView txtSubcategoriaResultado) {
     this.rootView = rootView;
     this.btnFinalizar = btnFinalizar;
+    this.constraintLayout5 = constraintLayout5;
     this.rowErrores = rowErrores;
     this.scrollViewResultado = scrollViewResultado;
     this.tableErroresResultado = tableErroresResultado;
@@ -183,6 +189,12 @@ public final class FragmentResultadoBinding implements ViewBinding {
       id = R.id.btn_finalizar;
       Button btnFinalizar = ViewBindings.findChildViewById(rootView, id);
       if (btnFinalizar == null) {
+        break missingId;
+      }
+
+      id = R.id.constraintLayout5;
+      ConstraintLayout constraintLayout5 = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout5 == null) {
         break missingId;
       }
 
@@ -348,9 +360,9 @@ public final class FragmentResultadoBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentResultadoBinding((FrameLayout) rootView, btnFinalizar, rowErrores,
-          scrollViewResultado, tableErroresResultado, toolbarResultado, txt1, txt2, txt3,
-          txtCategoriaOResultado, txtCategoriaResultado, txtEjercicioOResultado,
+      return new FragmentResultadoBinding((FrameLayout) rootView, btnFinalizar, constraintLayout5,
+          rowErrores, scrollViewResultado, tableErroresResultado, toolbarResultado, txt1, txt2,
+          txt3, txtCategoriaOResultado, txtCategoriaResultado, txtEjercicioOResultado,
           txtEjercicioResultado, txtErroresResultado, txtEstimuloResultado, txtFechaOResultado,
           txtFechaResultado, txtIntensidadOResultado, txtIntensidadResultado,
           txtPalabraClaveOResultado, txtPalabraClaveResultado, txtPrimeraRespuestaResultado,

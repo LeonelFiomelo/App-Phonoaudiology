@@ -1,5 +1,6 @@
 package com.example.app_phonoaudiology.domain.entities;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.app_phonoaudiology.domain.repository.constants.Constantes;
@@ -28,7 +29,7 @@ public class OpcionesEntity {
         return respuestaCorrecta;
     }
 
-    private int getCantidadDeOpciones(List<SoundEntity> lista, String tipoDeEjercicio) {
+    private int getCantidadDeOpciones(List<SoundEntity> lista, @NonNull String tipoDeEjercicio) {
         switch (tipoDeEjercicio) {
             case Constantes.J_DISCRIMINAR:
                 return 2;

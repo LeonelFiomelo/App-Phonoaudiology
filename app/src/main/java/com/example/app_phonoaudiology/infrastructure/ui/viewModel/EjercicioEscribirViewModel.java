@@ -1,14 +1,18 @@
 package com.example.app_phonoaudiology.infrastructure.ui.viewModel;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -61,6 +65,8 @@ public class EjercicioEscribirViewModel extends ViewModel {
     private ArrayList<SoundEntity> combinacionConectores;
     private int intento;
     private int errorPermitido;
+    @SuppressLint("StaticFieldLeak")
+    private Context contextVM;
 
     public void onCreate(Application application, Context context, Bundle bundle) {
         configuracionEntity = new ConfiguracionEntity();
@@ -74,6 +80,7 @@ public class EjercicioEscribirViewModel extends ViewModel {
         resultadoRepository = new ResultadoRepository(application);
         errorRepository = new ErrorRepository(application);
         intento = -1;
+        contextVM = context;
         setTodosLosConectores(context);
         getIntentos().setValue(getPuntuacionEntity().getIntentos());
         getReseteo().setValue(getPuntuacionEntity().getReseteo());
@@ -244,6 +251,12 @@ public class EjercicioEscribirViewModel extends ViewModel {
                 editText.startAnimation(AnimationUtils.loadAnimation(editText.getContext(), R.anim.anim_wrong_answer));
                 EjercicioSoundsUtils.announceAnswerSound(editText.getContext(), false);
 
+                if (puntuacionEntity.getIntentos() == 1 && !puntuacionEntity.getIntentoExtra()) {
+                    puntuacionEntity.sumarIntentos();
+                    puntuacionEntity.cambiarCantidadIntentos(11);
+                    puntuacionEntity.activarIntentoExtra();
+                }
+
                 puntuacionEntity.sumarIncorrectas();
                 puntuacionEntity.restarIntentos();
                 puntuacionEntity.restarErroresPermitidos();
@@ -257,15 +270,24 @@ public class EjercicioEscribirViewModel extends ViewModel {
                 }
 
                 if (puntuacionEntity.getErroresPermitidos() == 0) {
-                    MaterialAlertDialogBuilder alert = new MaterialAlertDialogBuilder(context)
-                            .setTitle("¡Te has equivocado 2 veces!")
-                            .setMessage("La respuesta correcta era: " + opcionEntity.getRespuestaCorrecta().getNombre_sonido())
-                            .setPositiveButton("Continuar", (dialog, which) -> {
-                                puntuacionEntity.resetear();
-                                reseteo.setValue(puntuacionEntity.getReseteo());
-                                intentos.setValue(puntuacionEntity.getIntentos());
-                            });
-                    alert.show();
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(contextVM);
+                    builder.setView(R.layout.alertdialog_error);
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.setOnShowListener( alertDialogShow -> {
+                        TextView txt_respuesta = alertDialog.findViewById(R.id.txt_respuesta_alertdialogError);
+                        Button btn_aceptar = alertDialog.findViewById(R.id.btn_aceptar_alertdialogError);
+                        txt_respuesta.setText(opcionEntity.getRespuestaCorrecta().getNombre_sonido());
+                        btn_aceptar.setOnClickListener(v -> {
+                            dialogReset();
+                            alertDialog.cancel();
+                        });
+                    } );
+                    alertDialog.setOnCancelListener( clickCancelarDialogo -> {
+                        dialogReset();
+                    });
+                    alertDialog.show();
+
                 } else {
                     intentos.setValue(puntuacionEntity.getIntentos());
                 }
@@ -277,6 +299,13 @@ public class EjercicioEscribirViewModel extends ViewModel {
     // CUANDO EL USUARIO TOCA EL BOTON DE SETTINGS
     public void onTouchSettingsButton(@NonNull View view) {
         touchSettingsButton.showSettings(view, configuracionEntity);
+    }
+
+    // RESETEA LA OPCION CUANDO SE EQUIVOCA 2 VECES
+    public void dialogReset() {
+        puntuacionEntity.resetear();
+        reseteo.setValue(puntuacionEntity.getReseteo());
+        intentos.setValue(puntuacionEntity.getIntentos());
     }
 
 }

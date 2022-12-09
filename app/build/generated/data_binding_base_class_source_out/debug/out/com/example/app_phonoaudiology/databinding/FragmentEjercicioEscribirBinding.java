@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.app_phonoaudiology.R;
@@ -34,7 +35,16 @@ public final class FragmentEjercicioEscribirBinding implements ViewBinding {
   public final ImageButton btnPlayEjercicioEscribir;
 
   @NonNull
+  public final ConstraintLayout constraintLayout2;
+
+  @NonNull
   public final EditText editTxtRespuestaEjercicioEscribir;
+
+  @NonNull
+  public final ImageView imageView3;
+
+  @NonNull
+  public final ImageView imageView4;
 
   @NonNull
   public final ImageView imgCorrectasEjercicioEscribir;
@@ -51,30 +61,28 @@ public final class FragmentEjercicioEscribirBinding implements ViewBinding {
   @NonNull
   public final TextView txtIncorrectasEjercicioEscribir;
 
-  @NonNull
-  public final TextView txtPulseBotonEjercicioEscribir;
-
   private FragmentEjercicioEscribirBinding(@NonNull FrameLayout rootView,
       @NonNull Button btnAceptarEjercicioEscribir,
       @NonNull ImageButton btnConfiguracionEjercicioEscribir,
-      @NonNull ImageButton btnPlayEjercicioEscribir,
-      @NonNull EditText editTxtRespuestaEjercicioEscribir,
-      @NonNull ImageView imgCorrectasEjercicioEscribir,
+      @NonNull ImageButton btnPlayEjercicioEscribir, @NonNull ConstraintLayout constraintLayout2,
+      @NonNull EditText editTxtRespuestaEjercicioEscribir, @NonNull ImageView imageView3,
+      @NonNull ImageView imageView4, @NonNull ImageView imgCorrectasEjercicioEscribir,
       @NonNull ImageView imgIncorrectasEjercicioEscribir, @NonNull Toolbar toolbarEjercicioEscribir,
       @NonNull TextView txtCorrectasEjercicioEscribir,
-      @NonNull TextView txtIncorrectasEjercicioEscribir,
-      @NonNull TextView txtPulseBotonEjercicioEscribir) {
+      @NonNull TextView txtIncorrectasEjercicioEscribir) {
     this.rootView = rootView;
     this.btnAceptarEjercicioEscribir = btnAceptarEjercicioEscribir;
     this.btnConfiguracionEjercicioEscribir = btnConfiguracionEjercicioEscribir;
     this.btnPlayEjercicioEscribir = btnPlayEjercicioEscribir;
+    this.constraintLayout2 = constraintLayout2;
     this.editTxtRespuestaEjercicioEscribir = editTxtRespuestaEjercicioEscribir;
+    this.imageView3 = imageView3;
+    this.imageView4 = imageView4;
     this.imgCorrectasEjercicioEscribir = imgCorrectasEjercicioEscribir;
     this.imgIncorrectasEjercicioEscribir = imgIncorrectasEjercicioEscribir;
     this.toolbarEjercicioEscribir = toolbarEjercicioEscribir;
     this.txtCorrectasEjercicioEscribir = txtCorrectasEjercicioEscribir;
     this.txtIncorrectasEjercicioEscribir = txtIncorrectasEjercicioEscribir;
-    this.txtPulseBotonEjercicioEscribir = txtPulseBotonEjercicioEscribir;
   }
 
   @Override
@@ -122,9 +130,27 @@ public final class FragmentEjercicioEscribirBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.constraintLayout2;
+      ConstraintLayout constraintLayout2 = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout2 == null) {
+        break missingId;
+      }
+
       id = R.id.editTxt_respuesta_ejercicioEscribir;
       EditText editTxtRespuestaEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
       if (editTxtRespuestaEjercicioEscribir == null) {
+        break missingId;
+      }
+
+      id = R.id.imageView3;
+      ImageView imageView3 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView3 == null) {
+        break missingId;
+      }
+
+      id = R.id.imageView4;
+      ImageView imageView4 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView4 == null) {
         break missingId;
       }
 
@@ -158,17 +184,11 @@ public final class FragmentEjercicioEscribirBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.txt_pulseBoton_ejercicioEscribir;
-      TextView txtPulseBotonEjercicioEscribir = ViewBindings.findChildViewById(rootView, id);
-      if (txtPulseBotonEjercicioEscribir == null) {
-        break missingId;
-      }
-
       return new FragmentEjercicioEscribirBinding((FrameLayout) rootView,
           btnAceptarEjercicioEscribir, btnConfiguracionEjercicioEscribir, btnPlayEjercicioEscribir,
-          editTxtRespuestaEjercicioEscribir, imgCorrectasEjercicioEscribir,
-          imgIncorrectasEjercicioEscribir, toolbarEjercicioEscribir, txtCorrectasEjercicioEscribir,
-          txtIncorrectasEjercicioEscribir, txtPulseBotonEjercicioEscribir);
+          constraintLayout2, editTxtRespuestaEjercicioEscribir, imageView3, imageView4,
+          imgCorrectasEjercicioEscribir, imgIncorrectasEjercicioEscribir, toolbarEjercicioEscribir,
+          txtCorrectasEjercicioEscribir, txtIncorrectasEjercicioEscribir);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

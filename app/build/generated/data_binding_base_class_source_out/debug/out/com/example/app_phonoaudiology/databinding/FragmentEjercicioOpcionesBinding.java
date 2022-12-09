@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -29,6 +30,15 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
 
   @NonNull
   public final ImageButton btnPlayEjercicioOpciones;
+
+  @NonNull
+  public final ConstraintLayout constraintLayout3;
+
+  @NonNull
+  public final ImageView imageView;
+
+  @NonNull
+  public final ImageView imageView2;
 
   @NonNull
   public final ImageView imgCorrectasEjercicioOpciones;
@@ -51,22 +61,22 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
   @NonNull
   public final TextView txtIncorrectasEjercicioOpciones;
 
-  @NonNull
-  public final TextView txtPulseBotonEjercicioOpciones;
-
   private FragmentEjercicioOpcionesBinding(@NonNull FrameLayout rootView,
       @NonNull ImageButton btnConfiguracionEjercicioOpciones,
-      @NonNull ImageButton btnPlayEjercicioOpciones,
+      @NonNull ImageButton btnPlayEjercicioOpciones, @NonNull ConstraintLayout constraintLayout3,
+      @NonNull ImageView imageView, @NonNull ImageView imageView2,
       @NonNull ImageView imgCorrectasEjercicioOpciones,
       @NonNull ImageView imgIncorrectasEjercicioOpciones,
       @NonNull RecyclerView recyclerViewEjercicioOpciones,
       @NonNull ScrollView scrollViewEjercicioOpciones, @NonNull Toolbar toolbarEjercicioOpciones,
       @NonNull TextView txtCorrectasEjercicioOpciones,
-      @NonNull TextView txtIncorrectasEjercicioOpciones,
-      @NonNull TextView txtPulseBotonEjercicioOpciones) {
+      @NonNull TextView txtIncorrectasEjercicioOpciones) {
     this.rootView = rootView;
     this.btnConfiguracionEjercicioOpciones = btnConfiguracionEjercicioOpciones;
     this.btnPlayEjercicioOpciones = btnPlayEjercicioOpciones;
+    this.constraintLayout3 = constraintLayout3;
+    this.imageView = imageView;
+    this.imageView2 = imageView2;
     this.imgCorrectasEjercicioOpciones = imgCorrectasEjercicioOpciones;
     this.imgIncorrectasEjercicioOpciones = imgIncorrectasEjercicioOpciones;
     this.recyclerViewEjercicioOpciones = recyclerViewEjercicioOpciones;
@@ -74,7 +84,6 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
     this.toolbarEjercicioOpciones = toolbarEjercicioOpciones;
     this.txtCorrectasEjercicioOpciones = txtCorrectasEjercicioOpciones;
     this.txtIncorrectasEjercicioOpciones = txtIncorrectasEjercicioOpciones;
-    this.txtPulseBotonEjercicioOpciones = txtPulseBotonEjercicioOpciones;
   }
 
   @Override
@@ -113,6 +122,24 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
       id = R.id.btn_play_ejercicioOpciones;
       ImageButton btnPlayEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
       if (btnPlayEjercicioOpciones == null) {
+        break missingId;
+      }
+
+      id = R.id.constraintLayout3;
+      ConstraintLayout constraintLayout3 = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout3 == null) {
+        break missingId;
+      }
+
+      id = R.id.imageView;
+      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
+      if (imageView == null) {
+        break missingId;
+      }
+
+      id = R.id.imageView2;
+      ImageView imageView2 = ViewBindings.findChildViewById(rootView, id);
+      if (imageView2 == null) {
         break missingId;
       }
 
@@ -158,18 +185,11 @@ public final class FragmentEjercicioOpcionesBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.txt_pulseBoton_ejercicioOpciones;
-      TextView txtPulseBotonEjercicioOpciones = ViewBindings.findChildViewById(rootView, id);
-      if (txtPulseBotonEjercicioOpciones == null) {
-        break missingId;
-      }
-
       return new FragmentEjercicioOpcionesBinding((FrameLayout) rootView,
-          btnConfiguracionEjercicioOpciones, btnPlayEjercicioOpciones,
-          imgCorrectasEjercicioOpciones, imgIncorrectasEjercicioOpciones,
+          btnConfiguracionEjercicioOpciones, btnPlayEjercicioOpciones, constraintLayout3, imageView,
+          imageView2, imgCorrectasEjercicioOpciones, imgIncorrectasEjercicioOpciones,
           recyclerViewEjercicioOpciones, scrollViewEjercicioOpciones, toolbarEjercicioOpciones,
-          txtCorrectasEjercicioOpciones, txtIncorrectasEjercicioOpciones,
-          txtPulseBotonEjercicioOpciones);
+          txtCorrectasEjercicioOpciones, txtIncorrectasEjercicioOpciones);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

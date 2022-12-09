@@ -14,6 +14,7 @@ public class PuntuacionEntity {
     private int _erroresPermitidos;
     private int erroresPermitidos;
     private Boolean reseteo;
+    private Boolean intentoExtra;
     private List<ErrorEntityDB> listaDeErrores;
 
     public PuntuacionEntity(int intentos, int erroresPermitidos) {
@@ -24,6 +25,7 @@ public class PuntuacionEntity {
         this._erroresPermitidos = erroresPermitidos;
         this.erroresPermitidos = erroresPermitidos;
         this.reseteo = false;
+        this.intentoExtra = false;
         this.listaDeErrores = new ArrayList<>();
     }
 
@@ -37,12 +39,18 @@ public class PuntuacionEntity {
 
     public void restarIntentos() { intentos -= 1; }
 
+    public void sumarIntentos() { intentos += 1; }
+
+    public void cambiarCantidadIntentos(int nuevosIntentos) { _intentos = nuevosIntentos; }
+
     public void restarErroresPermitidos() { _erroresPermitidos -= 1; }
 
     public void resetear() {
         this._erroresPermitidos = erroresPermitidos;
         reseteo = !reseteo;
     }
+
+    public void activarIntentoExtra() { intentoExtra = true; }
 
     public void guardarError(ErrorEntityDB error) {
         listaDeErrores.add(error);
@@ -63,6 +71,8 @@ public class PuntuacionEntity {
     public int getErroresPermitidos() { return _erroresPermitidos; }
 
     public Boolean getReseteo() { return reseteo; }
+
+    public Boolean getIntentoExtra() { return intentoExtra; }
 
     public List<ErrorEntityDB> getListaDeErrores() {
         return listaDeErrores;

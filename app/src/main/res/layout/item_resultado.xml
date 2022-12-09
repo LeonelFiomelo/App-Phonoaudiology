@@ -6,16 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
-    android:background="@drawable/ic_item_resultado_background"
-    android:padding="10dp">
+    android:background="@drawable/ic_default_background"
+    android:padding="16dp"
+    android:theme="@style/Global">
 
     <TextView
         android:id="@+id/tv_fecha_item"
         style="@android:style/Widget.TextView.PopupMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:text="@string/tv_fecha"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/tv_fecha_item"
         app:layout_constraintTop_toBottomOf="@+id/tv_fecha_item" />
 
@@ -35,6 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/tv_categoria"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_fechaOutput_item"
         app:layout_constraintTop_toBottomOf="@+id/tv_fechaOutput_item" />
 
@@ -44,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/tv_categoria_item"
         app:layout_constraintTop_toBottomOf="@+id/tv_categoria_item" />
 
@@ -54,6 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/tv_subcategoria"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_categoriaOutput_item"
         app:layout_constraintTop_toBottomOf="@+id/tv_categoriaOutput_item" />
 
@@ -63,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/tv_subcategoria_item"
         app:layout_constraintTop_toBottomOf="@id/tv_subcategoria_item" />
 
@@ -73,6 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/tv_ejercicio"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_subcategoriaOutput_item"
         app:layout_constraintTop_toBottomOf="@+id/tv_subcategoriaOutput_item" />
 
@@ -81,7 +92,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_ruido_item"
         app:layout_constraintStart_toStartOf="@+id/tv_ejercicio_item"
         app:layout_constraintTop_toBottomOf="@+id/tv_ejercicio_item" />
 
@@ -92,6 +106,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/tv_ruido"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_ejercicioOutput_item"
         app:layout_constraintTop_toBottomOf="@+id/tv_ejercicioOutput_item" />
 
@@ -101,13 +117,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_ruido_item"
         app:layout_constraintTop_toBottomOf="@+id/tv_ruido_item" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="157dp"
-        android:layout_height="146dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -118,6 +135,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tv_puntuacion"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -126,11 +145,12 @@
             android:id="@+id/tv_puntuacionOutput_item"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/ic_puntuacion_background"
             android:gravity="center"
             android:text="TextView"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

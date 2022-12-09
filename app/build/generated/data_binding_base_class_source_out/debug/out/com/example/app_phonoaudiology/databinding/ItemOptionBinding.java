@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.motion.widget.MotionLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.app_phonoaudiology.R;
@@ -17,19 +17,19 @@ import java.lang.String;
 
 public final class ItemOptionBinding implements ViewBinding {
   @NonNull
-  private final MotionLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
   public final MaterialButton btnOption;
 
-  private ItemOptionBinding(@NonNull MotionLayout rootView, @NonNull MaterialButton btnOption) {
+  private ItemOptionBinding(@NonNull ConstraintLayout rootView, @NonNull MaterialButton btnOption) {
     this.rootView = rootView;
     this.btnOption = btnOption;
   }
 
   @Override
   @NonNull
-  public MotionLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -60,7 +60,7 @@ public final class ItemOptionBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemOptionBinding((MotionLayout) rootView, btnOption);
+      return new ItemOptionBinding((ConstraintLayout) rootView, btnOption);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

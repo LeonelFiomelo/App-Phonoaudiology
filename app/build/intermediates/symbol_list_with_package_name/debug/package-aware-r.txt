@@ -1349,6 +1349,7 @@ color colorSecondary
 color colorWhite
 color color_background
 color color_background_primary
+color color_cuaternario
 color color_error
 color color_gray
 color color_on_background
@@ -1356,13 +1357,16 @@ color color_on_error
 color color_on_primary
 color color_on_secondary
 color color_on_surface
+color color_primario
 color color_primary
 color color_primary_light
 color color_primary_variant
 color color_secondary
 color color_secondary_light
 color color_secondary_variant
+color color_secundario
 color color_surface
+color color_terciario
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -2647,7 +2651,7 @@ drawable design_snackbar_background
 drawable ic_add
 drawable ic_administrar_sonido
 drawable ic_back
-drawable ic_button_background
+drawable ic_background_button
 drawable ic_button_grabacion_off_background
 drawable ic_button_grabacion_on_background
 drawable ic_clock_black_24dp
@@ -2676,8 +2680,11 @@ drawable ic_resultados_historicos
 drawable ic_settings
 drawable ic_wrong
 drawable img_exercise
+drawable img_info
 drawable img_logo
+drawable img_play
 drawable img_test
+drawable img_touch_play
 drawable logo
 drawable logo_background
 drawable m3_appbar_background
@@ -2752,6 +2759,11 @@ drawable selection_band_overlay
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font klee_one_regular
+font lato_regular
+font roboto_italic
+font roboto_medium
+font roboto_regular
 id ALT
 id AdministrarSonidosFragment
 id AgregarSonidoFragment
@@ -2874,6 +2886,8 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btn_aceptarGrabacion
+id btn_aceptarInformacion
+id btn_aceptar_alertdialogError
 id btn_aceptar_ejercicioEscribir
 id btn_cancelar
 id btn_cancelarGrabacion
@@ -2887,6 +2901,8 @@ id btn_grabarGrabacion
 id btn_grabarSonido_agregarSonido
 id btn_guardar
 id btn_guardarSonido_agregarSonido
+id btn_infoEntrenamiento
+id btn_infoEvaluacion
 id btn_option
 id btn_pausarGrabacion
 id btn_play_ejercicioEscribir
@@ -2923,6 +2939,10 @@ id compress
 id confirm_button
 id constraint
 id constraintLayout
+id constraintLayout2
+id constraintLayout3
+id constraintLayout4
+id constraintLayout5
 id container
 id content
 id contentPanel
@@ -3023,6 +3043,10 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
+id imageView2
+id imageView3
+id imageView4
 id imagen_ejercicio
 id imagen_evaluacion
 id img_correctas_ejercicioEscribir
@@ -3316,8 +3340,6 @@ id tv_ajustarNivelDeRuido
 id tv_categoriaOutput_item
 id tv_categoria_item
 id tv_configuracionDelEjercicio
-id tv_consignaEjercicio
-id tv_consignaEvaluacion
 id tv_ejercicioOutput_item
 id tv_ejercicio_item
 id tv_escuchar
@@ -3369,6 +3391,7 @@ id txt_intensidadO_resultadoDetalle
 id txt_intensidad_configuracion
 id txt_intensidad_resultado
 id txt_intensidad_resultadoDetalle
+id txt_mensaje_alertdialogError
 id txt_nombreSonido_agregarSonido
 id txt_palabraClaveO_resultado
 id txt_palabraClaveO_resultadoDetalle
@@ -3378,13 +3401,12 @@ id txt_palabraClave_resultadoDetalle
 id txt_pausar_alertGrabarSonido
 id txt_primeraRespuesta_resultado
 id txt_primeraRespuesta_resultadoDetalle
-id txt_pulseBoton_ejercicioEscribir
-id txt_pulseBoton_ejercicioOpciones
 id txt_puntuacionO_resultado
 id txt_puntuacionO_resultadoDetalle
 id txt_puntuacion_resultado
 id txt_puntuacion_resultadoDetalle
 id txt_reproducir_alertGrabarSonido
+id txt_respuesta_alertdialogError
 id txt_ruidoO_resultado
 id txt_ruidoO_resultadoDetalle
 id txt_ruido_resultado
@@ -3396,6 +3418,9 @@ id txt_subcategoriaO_resultadoDetalle
 id txt_subcategoria_configuracion
 id txt_subcategoria_resultado
 id txt_subcategoria_resultadoDetalle
+id txt_textoInformacion
+id txt_tituloInformacion
+id txt_titulo_alertdialogError
 id unchecked
 id uniform
 id unlabeled
@@ -3544,7 +3569,9 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout alertdialog_error
 layout alertdialog_grabar_sonido
+layout alertdialog_informacion
 layout alertdialog_settings
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3709,6 +3736,8 @@ string descripcion_botonPausar
 string descripcion_botonReproducir
 string error_a11y_label
 string error_icon_content_description
+string error_mensaje
+string error_titulo
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
@@ -4128,6 +4157,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style Global
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Body_Text
 style MaterialAlertDialog_Material3_Body_Text_CenterStacked
@@ -4224,6 +4254,7 @@ style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Window_Fullscreen
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Year
 style ShapeAppearanceOverlay_MaterialComponents_TextInputLayout_FilledBox
+style Spinner
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2
@@ -4908,6 +4939,7 @@ style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
 style editText
+style layout_default
 style theme_barraDeNotificaciones
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity

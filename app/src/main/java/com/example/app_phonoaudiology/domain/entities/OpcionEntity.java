@@ -20,7 +20,7 @@ public class OpcionEntity {
     }
 
     private List<SoundEntity> getListaDeSonidos(List<SoundEntity> listaDeSonidos) {
-        Collections.shuffle(listaDeSonidos);
+        //Collections.shuffle(listaDeSonidos);
         return listaDeSonidos;
     }
 

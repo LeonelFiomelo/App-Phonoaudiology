@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -27,6 +28,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.app_phonoaudiology.R;
 import com.example.app_phonoaudiology.databinding.ActivityMainBinding;
@@ -35,6 +39,7 @@ import com.example.app_phonoaudiology.infrastructure.db.repository.ResultadoRepo
 import com.example.app_phonoaudiology.infrastructure.db.repository.SoundRepository;
 import com.example.app_phonoaudiology.infrastructure.ui.viewModel.HomeViewModel;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.File;
@@ -55,6 +60,7 @@ public class HomeFragment extends Fragment {
     private NavigationView navigationView;
     private Toolbar toolbar;
     private Button btnEntrenamiento, btnEvaluacion;
+    private ImageButton btnInfoEntrenamiento, btnInfoEvaluacion;
     private ActionBarDrawerToggle toogle;
 
     private ResultadoRepository resultadoRepository;
@@ -79,6 +85,9 @@ public class HomeFragment extends Fragment {
         navigationView = binding.navigationViewHome;
         btnEntrenamiento = binding.btnComenzarEntrenamiento;
         btnEvaluacion = binding.btnComenzarEvaluacion;
+        btnInfoEntrenamiento = binding.btnInfoEntrenamiento;
+        btnInfoEvaluacion = binding.btnInfoEvaluacion;
+
 
         return binding.getRoot();
     }
@@ -129,6 +138,42 @@ public class HomeFragment extends Fragment {
                 bundle.putString("botonSeleccionado", "evaluacion");
                 navController.navigate(R.id.ConfiguracionFragment, bundle);
             }
+        });
+
+        btnInfoEntrenamiento.setOnClickListener( v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+            builder.setView(R.layout.alertdialog_informacion);
+            AlertDialog alertDialog = builder.create();
+            alertDialog.setOnShowListener( alertDialogShow -> {
+                TextView titulo = alertDialog.findViewById(R.id.txt_tituloInformacion);
+                TextView texto = alertDialog.findViewById(R.id.txt_textoInformacion);
+                Button aceptar = alertDialog.findViewById(R.id.btn_aceptarInformacion);
+
+                titulo.setText("Ejercitación");
+                texto.setText(R.string.consigna_ejercitacion);
+                aceptar.setText("Aceptar");
+
+                aceptar.setOnClickListener(v1 -> alertDialog.cancel());
+            });
+            alertDialog.show();
+        });
+
+        btnInfoEvaluacion.setOnClickListener( v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+            builder.setView(R.layout.alertdialog_informacion);
+            AlertDialog alertDialog = builder.create();
+            alertDialog.setOnShowListener( alertDialogShow -> {
+                TextView titulo = alertDialog.findViewById(R.id.txt_tituloInformacion);
+                TextView texto = alertDialog.findViewById(R.id.txt_textoInformacion);
+                Button aceptar = alertDialog.findViewById(R.id.btn_aceptarInformacion);
+
+                titulo.setText("Evaluación");
+                texto.setText(R.string.consigna_evaluacion);
+                aceptar.setText("Aceptar");
+
+                aceptar.setOnClickListener(v1 -> alertDialog.cancel());
+            });
+            alertDialog.show();
         });
 
     }

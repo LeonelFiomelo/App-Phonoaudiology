@@ -8,106 +8,124 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:theme="@style/Global">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_ejercicioOpciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/color_primario"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:navigationIcon="@drawable/ic_back"
             app:title="@string/tv_entenamiento"
             app:titleTextColor="#FFFFFF" />
 
-        <ImageView
-            android:id="@+id/img_incorrectas_ejercicioOpciones"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_wrong"
-            android:tint="#F44336"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_incorrectas_ejercicioOpciones"
-            app:layout_constraintEnd_toStartOf="@+id/txt_incorrectas_ejercicioOpciones"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/txt_incorrectas_ejercicioOpciones" />
 
-        <TextView
-            android:id="@+id/txt_incorrectas_ejercicioOpciones"
-            style="@android:style/Widget.TextView.PopupMenu"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="80dp"
-            android:text="0"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioOpciones"
-            app:layout_constraintEnd_toStartOf="@+id/btn_configuracion_ejercicioOpciones"
-            app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioOpciones"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <ImageView
-            android:id="@+id/img_correctas_ejercicioOpciones"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_correct"
-            android:tint="#4CAF50"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_correctas_ejercicioOpciones"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txt_correctas_ejercicioOpciones"
-            app:layout_constraintTop_toTopOf="@+id/txt_correctas_ejercicioOpciones" />
-
-        <TextView
-            android:id="@+id/txt_correctas_ejercicioOpciones"
-            style="@android:style/Widget.TextView.PopupMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:text="0"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioOpciones"
-            app:layout_constraintStart_toEndOf="@+id/btn_configuracion_ejercicioOpciones"
-            app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioOpciones"
-            app:layout_constraintVertical_bias="1.0"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <ImageButton
-            android:id="@+id/btn_configuracion_ejercicioOpciones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:background="#FFFFFF"
-            android:src="@drawable/ic_settings"
-            android:tint="@color/colorAccent"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_default_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_ejercicioOpciones" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_ejercicioOpciones">
 
-        <ImageButton
-            android:id="@+id/btn_play_ejercicioOpciones"
-            android:layout_width="135dp"
-            android:layout_height="135dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/ic_play_background"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_play"
-            android:tint="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_configuracion_ejercicioOpciones" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/img_touch_play"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_play_ejercicioOpciones"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_play_ejercicioOpciones" />
 
-        <TextView
-            android:id="@+id/txt_pulseBoton_ejercicioOpciones"
-            style="@android:style/Widget.TextView.PopupMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/btn_seleccioneLaOpcionQueOyo"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_play_ejercicioOpciones"
-            tools:ignore="TouchTargetSizeCheck" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/img_touch_play"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_play_ejercicioOpciones"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_play_ejercicioOpciones" />
+
+            <ImageButton
+                android:id="@+id/btn_play_ejercicioOpciones"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:background="@null"
+                android:backgroundTint="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_play"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/btn_configuracion_ejercicioOpciones"
+                app:layout_constraintStart_toStartOf="@+id/btn_configuracion_ejercicioOpciones"
+                app:layout_constraintTop_toBottomOf="@+id/btn_configuracion_ejercicioOpciones"
+                app:tint="@color/color_terciario" />
+
+            <ImageButton
+                android:id="@+id/btn_configuracion_ejercicioOpciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:src="@drawable/ic_settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_correctas_ejercicioOpciones"
+                style="@android:style/Widget.TextView.PopupMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="0"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_correctas_ejercicioOpciones"
+                app:layout_constraintEnd_toStartOf="@+id/img_correctas_ejercicioOpciones"
+                app:layout_constraintTop_toTopOf="@+id/img_correctas_ejercicioOpciones"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageView
+                android:id="@+id/img_correctas_ejercicioOpciones"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_correct"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioOpciones"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioOpciones" />
+
+            <TextView
+                android:id="@+id/txt_incorrectas_ejercicioOpciones"
+                style="@android:style/Widget.TextView.PopupMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="0"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_incorrectas_ejercicioOpciones"
+                app:layout_constraintStart_toEndOf="@+id/img_incorrectas_ejercicioOpciones"
+                app:layout_constraintTop_toTopOf="@+id/img_incorrectas_ejercicioOpciones"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageView
+                android:id="@+id/img_incorrectas_ejercicioOpciones"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_wrong"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_configuracion_ejercicioOpciones"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/btn_configuracion_ejercicioOpciones" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
             android:id="@+id/scrollView_ejercicioOpciones"
@@ -117,7 +135,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_pulseBoton_ejercicioOpciones">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_ejercicioOpciones"

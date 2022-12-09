@@ -38,4 +38,10 @@
     <color name="color_gray">#E6E6E6</color>
 
     <color name="ic_launcher_logo_background">#FFFFFF</color>
+
+    <!-- Tema principal -->
+    <color name="color_primario">#DB1F48</color>
+    <color name="color_secundario">#004369</color>
+    <color name="color_terciario">#01949A</color>
+    <color name="color_cuaternario">#E5DDC8</color>
 </resources>

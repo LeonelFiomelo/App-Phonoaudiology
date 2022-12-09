@@ -105,8 +105,7 @@ public class EjercicioEscribirFragment extends Fragment {
             @Override
             public void onChanged(Boolean aBoolean) {
                 viewModel.getOpcionesPorSubcategoria().observe(getViewLifecycleOwner(), sounds -> {
-                    listaDeSonidos = sounds;
-                    viewModel.onStart(listaDeSonidos);
+                    viewModel.onStart(sounds);
                 });
             }
         };

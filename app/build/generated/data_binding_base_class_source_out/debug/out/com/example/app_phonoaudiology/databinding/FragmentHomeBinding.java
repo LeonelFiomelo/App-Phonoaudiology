@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -33,6 +34,12 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final Button btnComenzarEvaluacion;
 
   @NonNull
+  public final ImageButton btnInfoEntrenamiento;
+
+  @NonNull
+  public final ImageButton btnInfoEvaluacion;
+
+  @NonNull
   public final ConstraintLayout constraintLayout;
 
   @NonNull
@@ -57,12 +64,6 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final Toolbar toolbarHome;
 
   @NonNull
-  public final TextView tvConsignaEjercicio;
-
-  @NonNull
-  public final TextView tvConsignaEvaluacion;
-
-  @NonNull
   public final TextView tvEvaluacion;
 
   @NonNull
@@ -70,15 +71,17 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   private FragmentHomeBinding(@NonNull DrawerLayout rootView,
       @NonNull Button btnComenzarEntrenamiento, @NonNull Button btnComenzarEvaluacion,
+      @NonNull ImageButton btnInfoEntrenamiento, @NonNull ImageButton btnInfoEvaluacion,
       @NonNull ConstraintLayout constraintLayout, @NonNull DrawerLayout drawerLayoutHome,
       @NonNull FrameLayout frameLayoutHome, @NonNull ImageView imagenEjercicio,
       @NonNull ImageView imagenEvaluacion, @NonNull NavigationView navigationViewHome,
       @NonNull ScrollView scrollViewHome, @NonNull Toolbar toolbarHome,
-      @NonNull TextView tvConsignaEjercicio, @NonNull TextView tvConsignaEvaluacion,
       @NonNull TextView tvEvaluacion, @NonNull TextView txtEjercicioResultadoDetalle) {
     this.rootView = rootView;
     this.btnComenzarEntrenamiento = btnComenzarEntrenamiento;
     this.btnComenzarEvaluacion = btnComenzarEvaluacion;
+    this.btnInfoEntrenamiento = btnInfoEntrenamiento;
+    this.btnInfoEvaluacion = btnInfoEvaluacion;
     this.constraintLayout = constraintLayout;
     this.drawerLayoutHome = drawerLayoutHome;
     this.frameLayoutHome = frameLayoutHome;
@@ -87,8 +90,6 @@ public final class FragmentHomeBinding implements ViewBinding {
     this.navigationViewHome = navigationViewHome;
     this.scrollViewHome = scrollViewHome;
     this.toolbarHome = toolbarHome;
-    this.tvConsignaEjercicio = tvConsignaEjercicio;
-    this.tvConsignaEvaluacion = tvConsignaEvaluacion;
     this.tvEvaluacion = tvEvaluacion;
     this.txtEjercicioResultadoDetalle = txtEjercicioResultadoDetalle;
   }
@@ -129,6 +130,18 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.btn_comenzarEvaluacion;
       Button btnComenzarEvaluacion = ViewBindings.findChildViewById(rootView, id);
       if (btnComenzarEvaluacion == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_infoEntrenamiento;
+      ImageButton btnInfoEntrenamiento = ViewBindings.findChildViewById(rootView, id);
+      if (btnInfoEntrenamiento == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_infoEvaluacion;
+      ImageButton btnInfoEvaluacion = ViewBindings.findChildViewById(rootView, id);
+      if (btnInfoEvaluacion == null) {
         break missingId;
       }
 
@@ -176,18 +189,6 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tv_consignaEjercicio;
-      TextView tvConsignaEjercicio = ViewBindings.findChildViewById(rootView, id);
-      if (tvConsignaEjercicio == null) {
-        break missingId;
-      }
-
-      id = R.id.tv_consignaEvaluacion;
-      TextView tvConsignaEvaluacion = ViewBindings.findChildViewById(rootView, id);
-      if (tvConsignaEvaluacion == null) {
-        break missingId;
-      }
-
       id = R.id.tv_evaluacion;
       TextView tvEvaluacion = ViewBindings.findChildViewById(rootView, id);
       if (tvEvaluacion == null) {
@@ -201,9 +202,9 @@ public final class FragmentHomeBinding implements ViewBinding {
       }
 
       return new FragmentHomeBinding((DrawerLayout) rootView, btnComenzarEntrenamiento,
-          btnComenzarEvaluacion, constraintLayout, drawerLayoutHome, frameLayoutHome,
-          imagenEjercicio, imagenEvaluacion, navigationViewHome, scrollViewHome, toolbarHome,
-          tvConsignaEjercicio, tvConsignaEvaluacion, tvEvaluacion, txtEjercicioResultadoDetalle);
+          btnComenzarEvaluacion, btnInfoEntrenamiento, btnInfoEvaluacion, constraintLayout,
+          drawerLayoutHome, frameLayoutHome, imagenEjercicio, imagenEvaluacion, navigationViewHome,
+          scrollViewHome, toolbarHome, tvEvaluacion, txtEjercicioResultadoDetalle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

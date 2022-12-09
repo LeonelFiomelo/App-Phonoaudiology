@@ -5,10 +5,10 @@
     <string name="titulo_toolbar_main">EscuchAR</string>
     <string name="titulo_ejercitacion">Ejercitación</string>
     <string name="consigna_ejercitacion">Configure qué categoría desea practicar, el tipo de ejercicio y el ruido. No se le evaluará en esta sección.</string>
-    <string name="boton_comenzarEntrenamiento">COMENZAR ENTRENAMIENTO</string>
+    <string name="boton_comenzarEntrenamiento">COMENZAR</string>
     <string name="titulo_evaluacion">Evaluación</string>
     <string name="consigna_evaluacion">Realice una evaluación. Configure qué categoría desea evaluar, seleccione el tipo de ruido y su intensidad. Los resultados serán almacenados para que puede ver su progreso.</string>
-    <string name="boton_comenzarEvaluacion">COMENZAR EVALUACIÓN</string>
+    <string name="boton_comenzarEvaluacion">COMENZAR</string>
     <string name="titulo_version">Versión 0.9.3</string>
 
     <!-- STRINGS DE LA ACTIVITY CONFIGURACIÓN -->
@@ -21,7 +21,7 @@
     <string name="tv_ruido">Ruido</string>
     <string name="tv_entenamiento">Entrenamiento</string>
     <string name="switch_activadoDesactivado">Activado/Desactivado</string>
-    <string name="boton_comenzarEjercicio">COMENZAR EJERCICIO</string>
+    <string name="boton_comenzarEjercicio">COMENZAR</string>
     <string name="tv_intensidadDelRuido">Itensidad del ruido</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -82,5 +82,8 @@
     <string name="descripcion_botonGrabar">Boton grabar audio</string>
     <string name="descripcion_botonPausar">Boton pausar audio</string>
     <string name="descripcion_botonReproducir">Boton reproducir audio</string>
+
+    <string name="error_titulo">¡Te has equivocado 2 veces!</string>
+    <string name="error_mensaje">La respuesta correcta era:</string>
 
 </resources>

@@ -8,13 +8,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:theme="@style/Global">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_resultado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/color_primario"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,224 +38,284 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txt_puntuacion_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout5"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="32dp"
-                    android:text="@string/tv_puntuacion"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="TouchTargetSizeCheck" />
-
-                <TextView
-                    android:id="@+id/txt_puntuacionO_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/ic_puntuacion_background"
-                    android:gravity="center"
-                    android:text="@string/texto"
-                    android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="@+id/txt_puntuacion_resultado"
-                    app:layout_constraintStart_toStartOf="@+id/txt_puntuacion_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_puntuacion_resultado"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
-
-                <TextView
-                    android:id="@+id/txt_fecha_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/tv_fecha"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/ic_default_background"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/txt_fechaO_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/texto"
-                    app:layout_constraintStart_toStartOf="@+id/txt_fecha_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_fecha_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_ejercicio_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/tv_ejercicio"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_ejercicioO_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_subcategoria_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_subcategoria_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_subcategoriaO_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_categoria_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/tv_categoria"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/txt_fechaO_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_fechaO_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_intensidadO_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/texto"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_intensidad_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_intensidad_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_intensidad_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_categoriaO_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/texto"
-                    app:layout_constraintStart_toStartOf="@+id/txt_categoria_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_categoria_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_subcategoriaO_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/texto"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_ejercicio_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_subcategoria_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_subcategoria_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_subcategoria_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_subcategoria_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/tv_subcategoria"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/txt_categoriaO_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_categoriaO_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_ruidoO_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/texto"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_intensidad_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_ruido_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_ruido_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_ruido_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_subcategoriaO_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/texto"
-                    app:layout_constraintStart_toStartOf="@+id/txt_subcategoria_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_subcategoria_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_ruido_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/tv_ruido"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_ruidoO_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_palabraClave_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_palabraClave_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_palabraClaveO_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_ejercicio_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/tv_ejercicio"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/txt_subcategoriaO_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_subcategoriaO_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_intensidad_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/tv_intensidad"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_intensidadO_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_ruido_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_ruido_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_ruidoO_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_ejercicioO_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/texto"
-                    app:layout_constraintStart_toStartOf="@+id/txt_ejercicio_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_ejercicio_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_puntuacion_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/tv_puntuacion"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_puntuacionO_resultado"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_palabraClave_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/tv_palabraClave"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/txt_ejercicioO_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_ejercicioO_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_subcategoria_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/tv_subcategoria"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_subcategoriaO_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_categoria_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_categoria_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_categoriaO_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_palabraClaveO_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/texto"
-                    app:layout_constraintStart_toStartOf="@+id/txt_palabraClave_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_palabraClave_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_palabraClaveO_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/texto"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_ruido_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_palabraClave_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_palabraClave_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_palabraClave_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_ruido_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/tv_ruido"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/txt_palabraClaveO_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_palabraClaveO_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_ejercicioO_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/texto"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_palabraClave_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_ejercicio_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_ejercicio_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_ejercicio_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_ruidoO_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/texto"
-                    app:layout_constraintStart_toStartOf="@+id/txt_ruido_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_ruido_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_fecha_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/tv_fecha"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_fechaO_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_puntuacion_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_puntuacion_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_puntuacionO_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_intensidad_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/tv_intensidad"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/txt_ruidoO_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_ruidoO_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_palabraClave_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/tv_palabraClave"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_palabraClaveO_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_ejercicio_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_ejercicio_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_ejercicioO_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <TextView
-                    android:id="@+id/txt_intensidadO_resultado"
-                    style="@android:style/Widget.TextView.PopupMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/texto"
-                    app:layout_constraintStart_toStartOf="@+id/txt_intensidad_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_intensidad_resultado"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:id="@+id/txt_puntuacionO_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/ic_puntuacion_background"
+                        android:gravity="center"
+                        android:text="@string/texto"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_fecha_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_puntuacion_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_puntuacion_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_puntuacion_resultado"
+                        tools:ignore="DuplicateSpeakableTextCheck" />
+
+                    <TextView
+                        android:id="@+id/txt_categoriaO_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/texto"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_subcategoria_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_categoria_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_categoria_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_categoria_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView
+                        android:id="@+id/txt_categoria_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/tv_categoria"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_categoriaO_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_fecha_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_fecha_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_fechaO_resultado"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView
+                        android:id="@+id/txt_fechaO_resultado"
+                        style="@android:style/Widget.TextView.PopupMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/texto"
+                        app:layout_constraintBottom_toTopOf="@+id/txt_categoria_resultado"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_fecha_resultado"
+                        app:layout_constraintStart_toStartOf="@+id/txt_fecha_resultado"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_fecha_resultado"
+                        tools:ignore="TouchTargetSizeCheck"
+                        android:textSize="18sp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/txt_errores_resultado"
                     style="@android:style/Widget.TextView.PopupMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
                     android:text="@string/tv_errores"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/txt_intensidadO_resultado"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_intensidadO_resultado"
+                    app:layout_constraintBottom_toTopOf="@+id/table_errores_resultado"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TableLayout
                     android:id="@+id/table_errores_resultado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_errores_resultado">
@@ -343,15 +404,18 @@
                 <Button
                     android:id="@+id/btn_finalizar"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="32dp"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_height="58dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/color_primario"
                     android:text="@string/btn_finalizar"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/table_errores_resultado"
-                    app:layout_constraintStart_toStartOf="@+id/table_errores_resultado"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/table_errores_resultado" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

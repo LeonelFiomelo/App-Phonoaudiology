@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.app_phonoaudiology.R;
@@ -20,6 +21,9 @@ import java.lang.String;
 public final class FragmentResultadoDetalleBinding implements ViewBinding {
   @NonNull
   private final FrameLayout rootView;
+
+  @NonNull
+  public final ConstraintLayout constraintLayout4;
 
   @NonNull
   public final TableLayout tableErroresResultadoDetalle;
@@ -88,6 +92,7 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
   public final TextView txtSubcategoriaResultadoDetalle;
 
   private FragmentResultadoDetalleBinding(@NonNull FrameLayout rootView,
+      @NonNull ConstraintLayout constraintLayout4,
       @NonNull TableLayout tableErroresResultadoDetalle, @NonNull Toolbar tbResultadoDetalle,
       @NonNull TextView txtCategoriaOResultadoDetalle,
       @NonNull TextView txtCategoriaResultadoDetalle,
@@ -106,6 +111,7 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
       @NonNull TextView txtSubcategoriaOResultadoDetalle,
       @NonNull TextView txtSubcategoriaResultadoDetalle) {
     this.rootView = rootView;
+    this.constraintLayout4 = constraintLayout4;
     this.tableErroresResultadoDetalle = tableErroresResultadoDetalle;
     this.tbResultadoDetalle = tbResultadoDetalle;
     this.txtCategoriaOResultadoDetalle = txtCategoriaOResultadoDetalle;
@@ -157,6 +163,12 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.constraintLayout4;
+      ConstraintLayout constraintLayout4 = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout4 == null) {
+        break missingId;
+      }
+
       id = R.id.table_errores_resultadoDetalle;
       TableLayout tableErroresResultadoDetalle = ViewBindings.findChildViewById(rootView, id);
       if (tableErroresResultadoDetalle == null) {
@@ -289,7 +301,7 @@ public final class FragmentResultadoDetalleBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentResultadoDetalleBinding((FrameLayout) rootView,
+      return new FragmentResultadoDetalleBinding((FrameLayout) rootView, constraintLayout4,
           tableErroresResultadoDetalle, tbResultadoDetalle, txtCategoriaOResultadoDetalle,
           txtCategoriaResultadoDetalle, txtEjercicioOResultadoDetalle, txtEjercicioResultadoDetalle,
           txtErroresResultadoDetalle, txtEstimuloResultadoDetalle, txtFechaOResultadoDetalle,
